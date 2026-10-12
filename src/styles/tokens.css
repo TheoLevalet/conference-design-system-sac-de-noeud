@@ -24,6 +24,14 @@
   --red-100: #fee2e2;
   --red-600: #dc2626;
 
+  /* Couleurs de marque, relevées dans les logos officiels (public/logos) */
+  --sopra-red-600: #de1823;
+  --sopra-red-50: #fdecec;
+  --sopra-orange-500: #f67200;
+  --techtown-blue-600: #1c63ed;
+  --techtown-blue-800: #1557d6;
+  --techtown-blue-50: #eaf1fe;
+
   --amber-100: #fef3c7;
   --amber-500: #f59e0b;
 
@@ -74,6 +82,13 @@
   --color-danger-soft: var(--red-100);
   --color-warning: var(--amber-500);
   --color-warning-soft: var(--amber-100);
+
+  --color-brand-sopra: var(--sopra-red-600);
+  --color-brand-sopra-accent: var(--sopra-orange-500);
+  --color-brand-sopra-soft: var(--sopra-red-50);
+  --color-brand-techtown: var(--techtown-blue-800);
+  --color-brand-techtown-accent: var(--techtown-blue-600);
+  --color-brand-techtown-soft: var(--techtown-blue-50);
 
   --color-code-bg: var(--slate-950);
 

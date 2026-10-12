@@ -2,6 +2,15 @@
 
 Slides du talk à deux voix (20 min + 5 min de questions) : **qu'est-ce qui mérite d'entrer dans un design system, et surtout qu'est-ce qui doit rester dehors ?**
 
+## Speakers
+
+| | Métier | Entreprise | Rôle sur scène |
+| --- | --- | --- | --- |
+| 👩‍💻 **Wafa** | Développeuse fullstack | Sopra Steria | la référente design system / Atomic Design : pose les frontières, la règle et la checklist |
+| 🧑‍💻 **Théo** | Lead dev augmenté | TechTown | le développeur pressé : propose les ajouts « qui pourraient resservir », porte les illustrations |
+
+Les rôles de scène sont des personnages : ils incarnent deux réflexes qu'on retrouve dans toutes les équipes.
+
 Construit avec [reveal.js](https://revealjs.com) 6 et Vite, en s'appuyant largement sur les transitions [Auto-Animate](https://revealjs.com/auto-animate/).
 
 ## Lancer les slides
@@ -14,7 +23,7 @@ npm run build      # version statique dans dist/
 
 | Touche | Action |
 | --- | --- |
-| `S` | Vue orateur : dialogues A/B, minutage |
+| `S` | Vue orateur : dialogues Wafa / Théo, minutage |
 | `F` | Plein écran |
 | `Échap` | Vue d'ensemble |
 | `Alt` + clic | Zoom |
@@ -75,5 +84,4 @@ Une slide qui porte `data-part="…"` démarre une nouvelle partie : le pied de 
 
 ## À compléter
 
-- [ ] Prénoms des deux speakers (`[Prénom A]`, `[Prénom B]`)
 - [ ] Rendre le repo public (ou changer l'URL du QR code de la slide de ressources)

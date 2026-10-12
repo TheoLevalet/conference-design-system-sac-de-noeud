@@ -42,17 +42,21 @@
 
 /* ---------- Slide 2 : le bilan ---------- */
 
+/* Tout est en em : la version compacte n'est qu'un changement de font-size,
+   donc Auto-Animate réduit les cases sans les déformer. */
 .tally {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-4);
+  gap: 0.45em;
+  width: 33em;
+  margin: 0 auto;
 }
 
 .tally .cell {
   background: var(--color-bg-subtle);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6) var(--space-3);
+  border-radius: 0.6em;
+  padding: 0.7em 0.3em;
 }
 
 .tally .n {
@@ -65,19 +69,12 @@
 .tally .label {
   font-size: 0.5em;
   color: var(--color-text-muted);
-  margin-top: var(--space-2);
+  margin-top: 0.5em;
+  white-space: nowrap;
 }
 
-.tally.compact .cell {
-  padding: var(--space-2);
-}
-
-.tally.compact .n {
-  font-size: 1em;
-}
-
-.tally.compact .label {
-  font-size: 0.35em;
+.tally.compact {
+  font-size: 0.5em;
 }
 
 .zero {
@@ -868,4 +865,224 @@
   margin: 0 0 var(--space-4);
   padding-left: 1.8em;
   text-indent: -1.8em;
+}
+
+/* ---------- Slides speakers : badges de conférence ---------- */
+
+.speakers {
+  display: flex;
+  justify-content: center;
+  gap: 72px;
+  margin-top: var(--space-4);
+}
+
+/* Chaque badge prend les couleurs de l'entreprise de son speaker */
+.badge.sopra {
+  --badge-from: var(--color-brand-sopra);
+  --badge-to: var(--color-brand-sopra-accent);
+  --badge-soft: var(--color-brand-sopra-soft);
+}
+
+.badge.techtown {
+  --badge-from: var(--color-brand-techtown);
+  --badge-to: var(--color-brand-techtown-accent);
+  --badge-soft: var(--color-brand-techtown-soft);
+}
+
+/* La rotation vit sur .badge, le fragment sur .badge-wrap : pas de conflit de transform */
+.tilt-left .badge { transform: rotate(-3deg); }
+.tilt-right .badge { transform: rotate(3deg); }
+
+.reveal .badge {
+  position: relative;
+  width: 360px;
+  margin: 0;
+  padding-bottom: var(--space-8);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 4px rgb(15 23 42 / 0.06), 0 24px 60px rgb(15 23 42 / 0.16);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge-band {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  background:
+    radial-gradient(circle at 85% 20%, rgb(255 255 255 / 0.25), transparent 45%),
+    linear-gradient(135deg, var(--badge-from), var(--badge-to));
+}
+
+.badge-hole {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  width: 64px;
+  height: 12px;
+  margin-left: -32px;
+  border-radius: var(--radius-full);
+  background: rgb(255 255 255 / 0.85);
+}
+
+.badge-label {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  font: 800 14px/1 var(--font-sans);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--slate-0);
+}
+
+.badge .avatar {
+  position: relative;
+  z-index: 1;
+  width: 170px;
+  height: 170px;
+  margin-top: -85px;
+  border-radius: 50%;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--badge-to) 45%, white),
+    color-mix(in srgb, var(--badge-from) 70%, white)
+  );
+  box-shadow: 0 10px 28px rgb(15 23 42 / 0.18);
+  overflow: hidden;
+}
+
+.reveal .badge .avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  /* Le memoji remplit le cercle : l'ordinateur sort par le bas, pas de liseré */
+  transform: scale(1.14) translateY(4%);
+}
+
+.reveal .badge h3 {
+  font-size: 1.5em;
+  margin: var(--space-4) 0 0;
+}
+
+.reveal .badge .job {
+  margin: var(--space-1) 0 var(--space-4);
+  font-size: 0.7em;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.reveal .badge .company-logo {
+  display: block;
+  height: 30px;
+  width: auto;
+  max-width: 230px;
+  margin: var(--space-2) 0 0;
+}
+
+/* Version réduite pour la slide « Merci » */
+.speakers.compact {
+  gap: 48px;
+}
+
+.reveal .speakers.compact .badge {
+  width: 280px;
+  padding-bottom: var(--space-6);
+}
+
+.speakers.compact .badge-band {
+  height: 80px;
+}
+
+.speakers.compact .badge-label {
+  display: none;
+}
+
+.speakers.compact .badge .avatar {
+  width: 120px;
+  height: 120px;
+  margin-top: -60px;
+}
+
+.reveal .speakers.compact .badge h3 {
+  font-size: 1.1em;
+  margin-top: var(--space-2);
+}
+
+.reveal .speakers.compact .badge .job {
+  font-size: 0.5em;
+  margin-bottom: var(--space-3);
+}
+
+.reveal .speakers.compact .badge .company-logo {
+  height: 22px;
+}
+
+/* Entrée « pew pew » : les badges fusent des côtés dès l'arrivée sur la slide.
+   L'animation vit sur .badge-wrap, la rotation sur .badge. */
+@keyframes pew-left {
+  0% { opacity: 0; transform: translate(-900px, 120px) rotate(-35deg) scale(0.4); }
+  60% { opacity: 1; transform: translate(24px, -10px) rotate(6deg) scale(1.06); }
+  80% { transform: translate(-8px, 4px) rotate(-2deg) scale(0.98); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes pew-right {
+  0% { opacity: 0; transform: translate(900px, 120px) rotate(35deg) scale(0.4); }
+  60% { opacity: 1; transform: translate(-24px, -10px) rotate(-6deg) scale(1.06); }
+  80% { transform: translate(8px, 4px) rotate(2deg) scale(0.98); }
+  100% { opacity: 1; transform: none; }
+}
+
+.reveal .speakers-slide.present .tilt-left {
+  animation: pew-left 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.reveal .speakers-slide.present .tilt-right {
+  animation: pew-right 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .speakers-slide.present .badge-wrap {
+    animation: none;
+  }
+}
+
+/* Lien LinkedIn en pied de badge */
+.reveal .badge .linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--space-4);
+  color: var(--color-text);
+  font: 650 17px/1 var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.reveal .badge .linkedin:hover span {
+  color: #0a66c2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.badge .linkedin-icon {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.reveal .speakers.compact .badge .linkedin {
+  margin-top: var(--space-3);
+  font-size: 14px;
+  gap: 6px;
+}
+
+.speakers.compact .badge .linkedin-icon {
+  width: 18px;
+  height: 18px;
 }

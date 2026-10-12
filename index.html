@@ -10,7 +10,9 @@
       <div class="slides">
         <!--
           Conventions
-          - A = l'architecte (fond), B = le développeur pressé (illustrations)
+          - Rôles de scène, jamais annoncés au public (show, don't tell) :
+            Wafa = la référente design system / Atomic Design (le fond)
+            Théo = le développeur pressé (les illustrations, les « juste un input »)
           - Une idée par slide, 5 puces max, fond blanc dès qu'il y a du texte
           - data-auto-animate + data-id identiques = l'élément se déplace d'une slide à l'autre
           - Les dialogues sont dans <aside class="notes"> (touche S)
@@ -34,13 +36,13 @@
             <button class="ds-btn v5 hidden-start" data-id="btn-5" style="left: 470px; top: 125px">Confirmer</button>
             <button class="ds-btn v6 hidden-start" data-id="btn-6" style="left: 470px; top: 125px">Go</button>
           </div>
-          <p class="small muted">[Prénom A] · [Prénom B] — Sopra Steria</p>
+          <p class="small muted"><b>Wafa</b> · Sopra Steria &nbsp;—&nbsp; <b>Théo</b> · TechTown</p>
           <aside class="notes">
-            ⏱ 0:00 · B puis A<br />
-            (B entre en tapant sur son laptop, comme s'il finissait quelque chose.)<br />
-            B : « Désolé, j'étais en train de livrer. J'ai juste ajouté un petit bouton. Un seul. »<br />
-            A : « Un de plus. Bonjour à tous, nous sommes [prénoms]… et on va vous parler de ce petit bouton. »<br />
-            B : « Et de tous ceux qui ont suivi. » → slide suivante
+            ⏱ 0:00 · Théo puis Wafa<br />
+            (Théo entre en tapant sur son laptop, comme s'il finissait quelque chose.)<br />
+            Théo : « Désolé, j'étais en train de livrer. J'ai juste ajouté un petit bouton. Un seul. »<br />
+            Wafa : « Un de plus. Et on va vous parler de ce petit bouton. »<br />
+            Théo : « Et de tous ceux qui ont suivi. » → slide suivante
           </aside>
         </section>
 
@@ -60,19 +62,51 @@
           <aside class="notes">Laisser l'explosion de boutons faire son effet. Pas de texte à dire.</aside>
         </section>
 
+        <!-- 1c · Les speakers : les deux badges arrivent ensemble, pew pew -->
+        <section class="speakers-slide">
+          <div class="speakers">
+            <div class="badge-wrap tilt-left">
+              <figure class="badge sopra">
+                <div class="badge-band"><span class="badge-hole"></span><span class="badge-label">Speaker</span></div>
+                <div class="avatar"><img src="/speakers/wafa.png" alt="Memoji de Wafa" /></div>
+                <h3>Wafa</h3>
+                <p class="job">Développeuse fullstack</p>
+                <img class="company-logo" src="/logos/sopra-steria.svg" alt="Sopra Steria" />
+                <a class="linkedin" href="https://www.linkedin.com/in/wafa-harir-303307214" target="_blank" rel="noopener" title="Voir le profil LinkedIn"><svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0a66c2" /><circle cx="7" cy="6.9" r="1.75" fill="#fff" /><rect x="5.45" y="9.4" width="3.1" height="9.6" fill="#fff" /><path d="M10.9 9.4h3v1.35c.45-.85 1.6-1.6 3.1-1.6 2.5 0 3.2 1.6 3.2 3.9V19h-3.1v-5.3c0-1.2-.35-2-1.45-2-1.15 0-1.65.85-1.65 2V19h-3.1z" fill="#fff" /></svg><span>Wafa Harir</span></a>
+              </figure>
+            </div>
+            <div class="badge-wrap tilt-right">
+              <figure class="badge techtown">
+                <div class="badge-band"><span class="badge-hole"></span><span class="badge-label">Speaker</span></div>
+                <div class="avatar"><img src="/speakers/theo.png" alt="Memoji de Théo" /></div>
+                <h3>Théo</h3>
+                <p class="job">Lead dev augmenté</p>
+                <img class="company-logo" src="/logos/techtown.svg" alt="TechTown" />
+                <a class="linkedin" href="https://www.linkedin.com/in/theo-levalet-le-dev-qu-il-vous-faut" target="_blank" rel="noopener" title="Voir le profil LinkedIn"><svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0a66c2" /><circle cx="7" cy="6.9" r="1.75" fill="#fff" /><rect x="5.45" y="9.4" width="3.1" height="9.6" fill="#fff" /><path d="M10.9 9.4h3v1.35c.45-.85 1.6-1.6 3.1-1.6 2.5 0 3.2 1.6 3.2 3.9V19h-3.1v-5.3c0-1.2-.35-2-1.45-2-1.15 0-1.65.85-1.65 2V19h-3.1z" fill="#fff" /></svg><span>Théo Levalet</span></a>
+              </figure>
+            </div>
+          </div>
+          <aside class="notes">
+            ⏱ 0:40 · Wafa puis Théo (15 s max)<br />
+            Wafa : « Bonjour à tous ! Je suis Wafa, développeuse fullstack chez Sopra Steria. »<br />
+            Théo : « Et moi Théo, lead dev augmenté chez TechTown. »<br />
+            (Ne pas annoncer les rôles de scène : on les montre, on ne les explique pas.)
+          </aside>
+        </section>
+
         <!-- 2 · Le bilan -->
         <section data-auto-animate>
           <h2 data-id="bilan-title">Deux ans plus tard : le bilan 📋</h2>
           <div class="tally" data-id="tally">
             <div class="cell fragment fade-up" data-id="t1"><div class="n">7</div><div class="label">🔘 boutons</div></div>
-            <div class="cell fragment fade-up" data-id="t2"><div class="n">4</div><div class="label">🔍 champs de recherche</div></div>
-            <div class="cell fragment fade-up" data-id="t3"><div class="n">3</div><div class="label">⚠️ composants d'erreur</div></div>
+            <div class="cell fragment fade-up" data-id="t2"><div class="n">4</div><div class="label">🔍 recherches</div></div>
+            <div class="cell fragment fade-up" data-id="t3"><div class="n">3</div><div class="label">⚠️ erreurs</div></div>
             <div class="cell fragment fade-up" data-id="t4"><div class="n">2</div><div class="label">⏳ loaders</div></div>
             <div class="cell fragment fade-up" data-id="t5"><div class="n">1</div><div class="label">📚 design system</div></div>
           </div>
           <aside class="notes">
-            ⏱ 1:00 · A<br />
-            A : « Deux ans plus tard, voici le bilan. » (Lire les cases une par une.)
+            ⏱ 1:00 · Wafa<br />
+            Wafa : « Deux ans plus tard, voici le bilan. » (Lire les cases une par une.)
           </aside>
         </section>
 
@@ -83,15 +117,15 @@
             <div class="cell" data-id="t2"><div class="n">4</div><div class="label">🔍 recherches</div></div>
             <div class="cell" data-id="t3"><div class="n">3</div><div class="label">⚠️ erreurs</div></div>
             <div class="cell" data-id="t4"><div class="n">2</div><div class="label">⏳ loaders</div></div>
-            <div class="cell" data-id="t5"><div class="n">1</div><div class="label">📚 DS</div></div>
+            <div class="cell" data-id="t5"><div class="n">1</div><div class="label">📚 design system</div></div>
           </div>
           <div class="zero">0</div>
           <p class="punchline">personne capable d'expliquer <span class="hl">lequel utiliser</span> 🙋</p>
           <aside class="notes">
-            A : (Temps de silence avant le zéro.) « Qui a déjà vu ça dans son projet ? »<br />
+            Wafa : (Temps de silence avant le zéro.) « Qui a déjà vu ça dans son projet ? »<br />
             (Laisser les mains se lever, sourire.)<br />
-            B : « Je vois des mains. Je vois aussi des gens qui n'osent pas la lever… parce que c'est leur bouton. »<br />
-            A : « Comment on en arrive là ? Racontons-le. »
+            Théo : « Je vois des mains. Je vois aussi des gens qui n'osent pas la lever… parce que c'est leur bouton. »<br />
+            Wafa : « Comment on en arrive là ? Racontons-le. »
           </aside>
         </section>
 
@@ -105,10 +139,10 @@
             <div class="team t4 fragment fade-up" data-id="team-4"><b>🟥 Équipe 4</b><span>veut une icône à droite… <em>mais seulement parfois.</em></span></div>
           </div>
           <aside class="notes">
-            ⏱ 2:00 · B joue, A commente<br />
-            B (joue chaque équipe) : « Équipe 2 : on ne savait pas que le bouton existait. Équipe 3 : le loader était mal placé, on a fait le nôtre. Équipe 4 : juste une petite icône à droite, mais seulement parfois. »<br />
-            A : « Personne n'a mal travaillé. Chacun a livré dans les délais. »<br />
-            B : « Alors c'est quoi le problème ? »
+            ⏱ 2:00 · Théo joue, Wafa commente<br />
+            Théo (joue chaque équipe) : « Équipe 2 : on ne savait pas que le bouton existait. Équipe 3 : le loader était mal placé, on a fait le nôtre. Équipe 4 : juste une petite icône à droite, mais seulement parfois. »<br />
+            Wafa : « Personne n'a mal travaillé. Chacun a livré dans les délais. »<br />
+            Théo : « Alors c'est quoi le problème ? »
           </aside>
         </section>
 
@@ -123,7 +157,7 @@
             </div>
           </div>
           <p class="punchline stack-top">Chaque décision est <span class="text-success">raisonnable</span> localement.<br />C'est <span class="hl">leur somme</span> qui fait le chaos.</p>
-          <aside class="notes">A : « Chaque décision est raisonnable. C'est leur somme qui crée le sac de nœuds. »</aside>
+          <aside class="notes">Wafa : « Chaque décision est raisonnable. C'est leur somme qui crée le sac de nœuds. »</aside>
         </section>
 
         <!-- 4 · La vraie question -->
@@ -131,8 +165,8 @@
           <p class="emoji-xl" data-id="q-emoji">🤔</p>
           <h2 data-id="question">Qu'est-ce qui mérite <span class="hl">vraiment</span> d'entrer dans le design system&nbsp;?</h2>
           <aside class="notes">
-            ⏱ 3:00 · A<br />
-            A : « Les équipes savent créer des composants, elles le font très bien. La question, c'est : qu'est-ce qui mérite d'entrer ? »
+            ⏱ 3:00 · Wafa<br />
+            Wafa : « Les équipes savent créer des composants, elles le font très bien. La question, c'est : qu'est-ce qui mérite d'entrer ? »
           </aside>
         </section>
 
@@ -146,9 +180,9 @@
           </div>
           <p class="source">Le design system comme langage partagé : Alla Kholmatova, <em>Design Systems</em></p>
           <aside class="notes">
-            A : « Ce qui leur manque, ce sont les mêmes fondations, les mêmes frontières… et un langage commun. Le « 0 personne capable d'expliquer », c'est d'abord un problème de vocabulaire. »<br />
-            B : « Donc la vraie question, c'est : qu'est-ce qui entre ? »<br />
-            A : « Et surtout, qu'est-ce qui reste dehors. Le plan : les fondations, un écran démonté pièce par pièce, puis une règle. »
+            Wafa : « Ce qui leur manque, ce sont les mêmes fondations, les mêmes frontières… et un langage commun. Le « 0 personne capable d'expliquer », c'est d'abord un problème de vocabulaire. »<br />
+            Théo : « Donc la vraie question, c'est : qu'est-ce qui entre ? »<br />
+            Wafa : « Et surtout, qu'est-ce qui reste dehors. Le plan : les fondations, un écran démonté pièce par pièce, puis une règle. »
           </aside>
         </section>
 
@@ -180,8 +214,8 @@
           </div>
           <p class="source stack-top">Brad Frost, <em>Atomic Design</em>, chapitre 2</p>
           <aside class="notes">
-            ⏱ 4:00 · A<br />
-            A : « Atomic Design, de Brad Frost : cinq niveaux, des atomes jusqu'aux pages. On connaît tous le vocabulaire. Le problème, c'est ce qu'on en fait. »
+            ⏱ 4:00 · Wafa<br />
+            Wafa : « Atomic Design, de Brad Frost : cinq niveaux, des atomes jusqu'aux pages. On connaît tous le vocabulaire. Le problème, c'est ce qu'on en fait. »
           </aside>
         </section>
 
@@ -194,10 +228,10 @@
             <div class="question fragment fade-up">🤷 <code>EventCard</code> va dans <code>molecules/</code> ? <code>organisms/</code> ?</div>
           </div>
           <aside class="notes">
-            B : « Moi, j'ai fait un dossier atoms, un dossier molecules, un dossier organisms. »<br />
-            A : « Et ta carte d'événement, elle va où ? »<br />
-            B : « Dans… organisms ? Non, molecules ? »<br />
-            A : « Tu hésites parce que la question est mal posée. »
+            Théo : « Moi, j'ai fait un dossier atoms, un dossier molecules, un dossier organisms. »<br />
+            Wafa : « Et ta carte d'événement, elle va où ? »<br />
+            Théo : « Dans… organisms ? Non, molecules ? »<br />
+            Wafa : « Tu hésites parce que la question est mal posée. »
           </aside>
         </section>
 
@@ -217,7 +251,7 @@
             </div>
           </div>
           <aside class="notes">
-            A : « Atomic Design ne range pas les composants par taille. Il décrit comment des éléments simples se composent en éléments plus riches. C'est un modèle mental, pas un plan de dossiers. »
+            Wafa : « Atomic Design ne range pas les composants par taille. Il décrit comment des éléments simples se composent en éléments plus riches. C'est un modèle mental, pas un plan de dossiers. »
           </aside>
         </section>
 
@@ -238,9 +272,9 @@
           </div>
           <p class="lead"><b>Le niveau</b> dit comment ça se compose. <b class="text-business">Le vocabulaire</b> dit où ça vit.</p>
           <aside class="notes">
-            A : « Il faut deux axes. Horizontalement, le niveau de composition. Verticalement, la question qui compte vraiment : est-ce que ça parle votre métier ? »<br />
+            Wafa : « Il faut deux axes. Horizontalement, le niveau de composition. Verticalement, la question qui compte vraiment : est-ce que ça parle votre métier ? »<br />
             (Fragment : EventCard apparaît en haut.)<br />
-            A : « EventCard est un organisme, et c'est un composant métier. Ce n'est pas sa taille qui décide où il vit, c'est son vocabulaire. On y reviendra. »
+            Wafa : « EventCard est un organisme, et c'est un composant métier. Ce n'est pas sa taille qui décide où il vit, c'est son vocabulaire. On y reviendra. »
           </aside>
         </section>
 
@@ -267,8 +301,8 @@
             <div class="swatch" data-id="sw-17" style="left: 880px; top: 300px; background: #3366ff"><span class="hex">#3366ff</span></div>
           </div>
           <aside class="notes">
-            ⏱ 5:30 · B puis A<br />
-            B : « Chez nous, il y a dix-sept bleus. Tous officiels. Chacun a été choisi par quelqu'un, un jour, pour une bonne raison. »
+            ⏱ 5:30 · Théo puis Wafa<br />
+            Théo : « Chez nous, il y a dix-sept bleus. Tous officiels. Chacun a été choisi par quelqu'un, un jour, pour une bonne raison. »
           </aside>
         </section>
 
@@ -282,7 +316,7 @@
             <div class="swatch" data-id="sw-16" style="background: var(--blue-800)"><span class="hex">blue-800</span></div>
           </div>
           <p class="lead stack-top">Une palette finie, nommée par sa <b>valeur</b>.</p>
-          <aside class="notes">A : « Première étape : on remplace les dix-sept bleus par une palette finie. Ce sont les tokens bruts : ils disent quelle valeur. »</aside>
+          <aside class="notes">Wafa : « Première étape : on remplace les dix-sept bleus par une palette finie. Ce sont les tokens bruts : ils disent quelle valeur. »</aside>
         </section>
 
         <section data-auto-animate>
@@ -301,9 +335,9 @@
           </div>
           <p class="lead stack-top">Les composants ne connaissent <span class="hl">que la colonne de droite</span>.</p>
           <aside class="notes">
-            A : « Le token sémantique dit pourquoi on utilise la couleur. Les composants ne devraient connaître que ceux-là. »<br />
-            B : « Donc si je change un token, tout bouge ? »<br />
-            A : « Si tout passe par le sémantique, oui. Sinon, tu as dix-sept bleus. »
+            Wafa : « Le token sémantique dit pourquoi on utilise la couleur. Les composants ne devraient connaître que ceux-là. »<br />
+            Théo : « Donc si je change un token, tout bouge ? »<br />
+            Wafa : « Si tout passe par le sémantique, oui. Sinon, tu as dix-sept bleus. »
           </aside>
         </section>
 
@@ -329,7 +363,7 @@
           </code></pre>
           <p class="caption">Design Tokens Format Module, 1re version stable (2025.10). La séparation brut / sémantique est un usage, rendu possible par les alias.</p>
           <aside class="notes">
-            A : « Le Design Tokens Community Group a publié en octobre 2025 la première version stable du format. Il ne vous impose pas de couches, il vous donne le mécanisme : un alias, entre accolades, qui pointe vers un autre token. »
+            Wafa : « Le Design Tokens Community Group a publié en octobre 2025 la première version stable du format. Il ne vous impose pas de couches, il vous donne le mécanisme : un alias, entre accolades, qui pointe vers un autre token. »
           </aside>
         </section>
 
@@ -346,7 +380,7 @@
           </div>
           <p class="lead stack-top">Le token est <span class="hl">la décision de design</span>, écrite une seule fois.</p>
           <aside class="notes">
-            A (vers les designers dans la salle) : « L'intérêt d'un format commun, c'est que la décision prise dans Figma est la même que celle qui arrive dans le code. Personne ne recopie un hexadécimal à la main. »
+            Wafa (vers les designers dans la salle) : « L'intérêt d'un format commun, c'est que la décision prise dans Figma est la même que celle qui arrive dans le code. Personne ne recopie un hexadécimal à la main. »
           </aside>
         </section>
 
@@ -364,8 +398,8 @@
           </div>
           <p class="lead stack-top">Les dépendances vont <span class="hl">dans un seul sens</span>.</p>
           <aside class="notes">
-            ⏱ 7:00 · A<br />
-            A : « Trois endroits : les tokens, les primitives, le métier. L'application dépend du métier, qui dépend du design system, qui dépend des tokens. Jamais l'inverse. »
+            ⏱ 7:00 · Wafa<br />
+            Wafa : « Trois endroits : les tokens, les primitives, le métier. L'application dépend du métier, qui dépend du design system, qui dépend des tokens. Jamais l'inverse. »
           </aside>
         </section>
 
@@ -386,8 +420,8 @@
           </div>
           <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · dependency-cruiser</p>
           <aside class="notes">
-            B : « Et qui m'empêche d'importer EventCard dans ui ? »<br />
-            A : « Pas la bonne volonté : une règle de lint. Nx le fait avec les limites de modules ; hors Nx, eslint-plugin-boundaries ou dependency-cruiser font la même chose. La CI casse, la discussion n'a pas lieu. »
+            Théo : « Et qui m'empêche d'importer EventCard dans ui ? »<br />
+            Wafa : « Pas la bonne volonté : une règle de lint. Nx le fait avec les limites de modules ; hors Nx, eslint-plugin-boundaries ou dependency-cruiser font la même chose. La CI casse, la discussion n'a pas lieu. »
           </aside>
         </section>
 
@@ -405,7 +439,7 @@
             <span class="step">④ Le composant universel</span>
             <span class="step">⑤ La règle</span>
           </div>
-          <aside class="notes">B : « Assez de théorie. Voici un vrai écran. On va le démonter, du plus gros au plus petit. »</aside>
+          <aside class="notes">Théo : « Assez de théorie. Voici un vrai écran. On va le démonter, du plus gros au plus petit. »</aside>
         </section>
 
         <!-- 8a · La page -->
@@ -451,8 +485,8 @@
             </div>
           </div>
           <aside class="notes">
-            ⏱ 8:00 · B<br />
-            B : « Voici l'écran : une recherche, une liste de cartes. C'est la page, le niveau le plus haut d'Atomic Design : de vraies données, de vrais événements. »
+            ⏱ 8:00 · Théo<br />
+            Théo : « Voici l'écran : une recherche, une liste de cartes. C'est la page, le niveau le plus haut d'Atomic Design : de vraies données, de vrais événements. »
           </aside>
         </section>
 
@@ -499,8 +533,8 @@
             </div>
           </div>
           <aside class="notes">
-            B : « Je retire les données. Il reste la structure : une zone de recherche, une grille de résultats. C'est le template. »<br />
-            A : « Une structure de page peut appartenir au design system. La page, avec ses données, jamais. »
+            Théo : « Je retire les données. Il reste la structure : une zone de recherche, une grille de résultats. C'est le template. »<br />
+            Wafa : « Une structure de page peut appartenir au design system. La page, avec ses données, jamais. »
           </aside>
         </section>
 
@@ -525,11 +559,11 @@
             </div>
           </div>
           <aside class="notes">
-            ⏱ 9:00 · A et B<br />
-            B : « Cette carte, je l'utilise dans la liste et dans le détail. Elle a l'air réutilisable… on la monte dans ui ? »<br />
-            A : « Elle parle d'événements. »<br />
-            B : « Oui, mais elle est réutilisée ! »<br />
-            A : « Bonne question. On ne tranche pas maintenant : la checklist le fera tout à l'heure. Regardons d'abord de quoi elle est faite. »<br />
+            ⏱ 9:00 · Wafa et Théo<br />
+            Théo : « Cette carte, je l'utilise dans la liste et dans le détail. Elle a l'air réutilisable… on la monte dans ui ? »<br />
+            Wafa : « Elle parle d'événements. »<br />
+            Théo : « Oui, mais elle est réutilisée ! »<br />
+            Wafa : « Bonne question. On ne tranche pas maintenant : la checklist le fera tout à l'heure. Regardons d'abord de quoi elle est faite. »<br />
             (Ne PAS donner la réponse ici : c'est la chute de la partie 5.)
           </aside>
         </section>
@@ -551,8 +585,8 @@
             </div>
           </div>
           <aside class="notes">
-            B : « Je démonte la carte : une Card qui ne fournit que la structure, un badge, un bouton. »<br />
-            A : « Et aucune de ces pièces ne sait qu'elle affiche un événement. »
+            Théo : « Je démonte la carte : une Card qui ne fournit que la structure, un badge, un bouton. »<br />
+            Wafa : « Et aucune de ces pièces ne sait qu'elle affiche un événement. »
           </aside>
         </section>
 
@@ -567,10 +601,10 @@
           </div>
           <p class="punchline fragment" style="color: #fff">Une primitive <span style="color: #fde68a">ne parle pas votre métier.</span></p>
           <aside class="notes">
-            ⏱ 10:00 · B, A commente<br />
-            A : « Cherche le mot « événement » dans libs/ui. »<br />
-            B : « Zéro résultat. »<br />
-            A : « C'est le test le plus simple qui soit : une primitive ne parle pas votre métier. »
+            ⏱ 10:00 · Théo, Wafa commente<br />
+            Wafa : « Cherche le mot « événement » dans libs/ui. »<br />
+            Théo : « Zéro résultat. »<br />
+            Wafa : « C'est le test le plus simple qui soit : une primitive ne parle pas votre métier. »
           </aside>
         </section>
 
@@ -594,7 +628,7 @@
               <div class="token-row fragment fade-left">🔤<span class="sem">--font-sans</span><span class="muted">Inter</span></div>
             </div>
           </div>
-          <aside class="notes">B : « Et sous chaque pièce, il n'y a que des tokens sémantiques. Pas un seul hexadécimal en dur. »</aside>
+          <aside class="notes">Théo : « Et sous chaque pièce, il n'y a que des tokens sémantiques. Pas un seul hexadécimal en dur. »</aside>
         </section>
 
         <!-- 8f · Une ligne, tout suit (bleu) -->
@@ -628,8 +662,8 @@
             </div>
           </div>
           <aside class="notes">
-            ⏱ 11:00 · B<br />
-            B : « On remonte à l'écran entier. Le client change de charte. Je ne touche pas au bleu… je change l'intention. »
+            ⏱ 11:00 · Théo<br />
+            Théo : « On remonte à l'écran entier. Le client change de charte. Je ne touche pas au bleu… je change l'intention. »
           </aside>
         </section>
 
@@ -665,7 +699,7 @@
           </div>
           <p class="punchline">Une ligne. <span class="hl">Tout suit.</span></p>
           <aside class="notes">
-            A : « Une seule ligne. Et on n'a pas touché à blue-600 : on a changé la décision, pas la valeur. C'est exactement à ça que sert la couche sémantique. »
+            Wafa : « Une seule ligne. Et on n'a pas touché à blue-600 : on a changé la décision, pas la valeur. C'est exactement à ça que sert la couche sémantique. »
           </aside>
         </section>
 
@@ -699,9 +733,9 @@ export class EventCard {
           </script></code></pre>
           <p class="equiv">Emplacements Angular (<code>ng-content</code>) ≈ <code>children</code> en React ≈ <code>&lt;slot&gt;</code> en Vue et Web Components</p>
           <aside class="notes">
-            ⏱ 11:30 · B<br />
-            B : « Le code d'EventCard : il importe des pièces du design system et les assemble. Tout le vocabulaire métier est ici : l'événement, « Complet », l'inscription. »<br />
-            A (pour les non-Angular) : « Les emplacements, c'est l'équivalent de children en React ou des slots en Vue. »
+            ⏱ 11:30 · Théo<br />
+            Théo : « Le code d'EventCard : il importe des pièces du design system et les assemble. Tout le vocabulaire métier est ici : l'événement, « Complet », l'inscription. »<br />
+            Wafa (pour les non-Angular) : « Les emplacements, c'est l'équivalent de children en React ou des slots en Vue. »
           </aside>
         </section>
 
@@ -732,9 +766,9 @@ export class EventCard {
           </div>
           <p class="lead">Un état sans story <span class="hl">n'est pas promis</span>.</p>
           <aside class="notes">
-            ⏱ 12:00 · B<br />
-            B : « Chaque état a sa story : défaut, chargement, désactivé, danger. Et les tests d'accessibilité tournent sur chacune. »<br />
-            A : « Un état qui n'a pas de story n'est pas promis. Et c'est aussi votre vocabulaire commun avec les designers : on parle de « Button / Danger », pas du « bouton rouge de l'écran 3 ». »
+            ⏱ 12:00 · Théo<br />
+            Théo : « Chaque état a sa story : défaut, chargement, désactivé, danger. Et les tests d'accessibilité tournent sur chacune. »<br />
+            Wafa : « Un état qui n'a pas de story n'est pas promis. Et c'est aussi votre vocabulaire commun avec les designers : on parle de « Button / Danger », pas du « bouton rouge de l'écran 3 ». »
           </aside>
         </section>
 
@@ -753,8 +787,8 @@ export class EventCard {
           </div>
           <p class="lead stack-top fragment">🟩 L'équipe 2 aurait <span class="hl">trouvé le bouton</span> à l'étape 1.</p>
           <aside class="notes">
-            A : « Le contrat ne concerne pas que le composant : c'est aussi la façon dont les équipes contribuent. Et la toute première étape, c'est chercher. »<br />
-            B : « L'équipe 2 de tout à l'heure aurait trouvé le bouton. »
+            Wafa : « Le contrat ne concerne pas que le composant : c'est aussi la façon dont les équipes contribuent. Et la toute première étape, c'est chercher. »<br />
+            Théo : « L'équipe 2 de tout à l'heure aurait trouvé le bouton. »
           </aside>
         </section>
 
@@ -772,7 +806,7 @@ export class EventCard {
             <span class="step active">④ Le composant universel</span>
             <span class="step">⑤ La règle</span>
           </div>
-          <aside class="notes">A : « Maintenant, voyons ce qui arrive sans frontière et sans contrat. »</aside>
+          <aside class="notes">Wafa : « Maintenant, voyons ce qui arrive sans frontière et sans contrat. »</aside>
         </section>
 
         <!-- 12 · La Card qui grossit -->
@@ -783,7 +817,7 @@ export class Card {
   title = input<string>();
 }
           </script></code></pre>
-          <aside class="notes">⏱ 13:00 · B, A compte<br />B : « Au début, c'est juste une Card. Un titre. »</aside>
+          <aside class="notes">⏱ 13:00 · Théo, Wafa compte<br />Théo : « Au début, c'est juste une Card. Un titre. »</aside>
         </section>
 
         <section data-auto-animate data-background-color="#020617">
@@ -794,7 +828,7 @@ export class Card {
   isEvent = input(false);
 }
           </script></code></pre>
-          <aside class="notes">B : « Juste un input : isEvent. »</aside>
+          <aside class="notes">Théo : « Juste un input : isEvent. »</aside>
         </section>
 
         <section data-auto-animate data-background-color="#020617">
@@ -808,7 +842,7 @@ export class Card {
   layout = input<'default' | 'compact' | 'horizontal'>('default');
 }
           </script></code></pre>
-          <aside class="notes">B : « Juste un autre : showBadge. Et un layout compact. »<br />A : « On en est à six. Je continue à compter… »</aside>
+          <aside class="notes">Théo : « Juste un autre : showBadge. Et un layout compact. »<br />Wafa : « On en est à six. Je continue à compter… »</aside>
         </section>
 
         <section data-auto-animate data-background-color="#020617">
@@ -835,9 +869,9 @@ export class Card {
 }
           </script></code></pre>
           <aside class="notes">
-            B : « Et iconRight. Mais seulement si… »<br />
-            A : « Stop. On en est à 42. »<br />
-            B : « Mais ça marche ! »<br />
+            Théo : « Et iconRight. Mais seulement si… »<br />
+            Wafa : « Stop. On en est à 42. »<br />
+            Théo : « Mais ça marche ! »<br />
             (Le gag « juste un input » : trois fois maximum.)
           </aside>
         </section>
@@ -851,7 +885,7 @@ export class Card {
           <p class="punchline stack-top fragment">Ça marche… et <span class="hl">plus personne n'ose y toucher.</span></p>
           <aside class="notes">
             ⏱ 14:00<br />
-            A : « 42 inputs, 3 templates personnalisables… et zéro volontaire pour la modifier. Chaque changement risque de casser un écran qu'on ne connaît pas. »
+            Wafa : « 42 inputs, 3 templates personnalisables… et zéro volontaire pour la modifier. Chaque changement risque de casser un écran qu'on ne connaît pas. »
           </aside>
         </section>
 
@@ -860,8 +894,8 @@ export class Card {
           <p class="punchline">« La duplication coûte bien moins cher<br />qu'une <span class="hl">mauvaise abstraction</span>. »</p>
           <p class="source">D'après Sandi Metz, <em>The Wrong Abstraction</em> (2016)</p>
           <aside class="notes">
-            A : « Sandi Metz l'a très bien formulé : une mauvaise abstraction coûte plus cher que de la duplication. Mieux vaut deux cartes simples qu'une carte qui sait tout faire. »<br />
-            A : « Alors comment on évite ça ? »
+            Wafa : « Sandi Metz l'a très bien formulé : une mauvaise abstraction coûte plus cher que de la duplication. Mieux vaut deux cartes simples qu'une carte qui sait tout faire. »<br />
+            Wafa : « Alors comment on évite ça ? »
           </aside>
         </section>
 
@@ -881,10 +915,10 @@ export class Card {}
           </script></code></pre>
           <p class="equiv"><code>ng-content</code> = emplacements ≈ <code>children</code> (React) ≈ <code>&lt;slot&gt;</code> (Vue, Web Components)</p>
           <aside class="notes">
-            ⏱ 14:30 · A et B<br />
-            A : « La Card ne fournit que la structure. Le contenu arrive par les emplacements. »<br />
-            B : « Zéro input ? »<br />
-            A : « Zéro. »
+            ⏱ 14:30 · Wafa et Théo<br />
+            Wafa : « La Card ne fournit que la structure. Le contenu arrive par les emplacements. »<br />
+            Théo : « Zéro input ? »<br />
+            Wafa : « Zéro. »
           </aside>
         </section>
 
@@ -906,10 +940,10 @@ export class Card {}
           </div>
           <p class="lead stack-top fragment">« Et l'icône à droite, mais seulement parfois ? » ➜ <span class="hl">dans <code>ui-card-actions</code>, quand tu en as besoin.</span></p>
           <aside class="notes">
-            B : « Et si je veux une icône à droite, mais seulement parfois ? »<br />
-            A : « Tu la mets dans les actions, quand tu en as besoin. Pas dans la Card. »<br />
-            B : « Et c'est EventCard qui assemble le tout, dans sa propre lib. »<br />
-            A : « La variation passe de la configuration à la composition. Et le métier sort du design system. »
+            Théo : « Et si je veux une icône à droite, mais seulement parfois ? »<br />
+            Wafa : « Tu la mets dans les actions, quand tu en as besoin. Pas dans la Card. »<br />
+            Théo : « Et c'est EventCard qui assemble le tout, dans sa propre lib. »<br />
+            Wafa : « La variation passe de la configuration à la composition. Et le métier sort du design system. »
           </aside>
         </section>
 
@@ -927,7 +961,7 @@ export class Card {}
             <span class="step done">④ Le composant universel</span>
             <span class="step active">⑤ La règle</span>
           </div>
-          <aside class="notes">A : « Ça nous donne enfin de quoi décider. »</aside>
+          <aside class="notes">Wafa : « Ça nous donne enfin de quoi décider. »</aside>
         </section>
 
         <!-- 14a · Trois destinations -->
@@ -953,10 +987,10 @@ export class Card {}
           <p class="lead stack-top fragment">⬅️ Une recette peut être <b>promue</b> un jour… <span class="hl">sans se presser.</span></p>
           <p class="source">Brad Frost, <em>Design system components, recipes, and snowflakes</em></p>
           <aside class="notes">
-            ⏱ 16:00 · A<br />
-            A : « « Dedans ou dehors », c'est trop binaire. Brad Frost propose trois niveaux : les composants du design system ; les recettes, des compositions métier partagées par un produit ou un domaine ; et les cas uniques. »<br />
-            B : « Donc EventCard, utilisée dans trois applis, ce n'est pas de la duplication ? »<br />
-            A : « Non : elle vit dans une lib métier partagée. Elle utilise le design system, elle n'en fait pas partie. Et si un jour elle devient vraiment générique, on la promeut. »
+            ⏱ 16:00 · Wafa<br />
+            Wafa : « « Dedans ou dehors », c'est trop binaire. Brad Frost propose trois niveaux : les composants du design system ; les recettes, des compositions métier partagées par un produit ou un domaine ; et les cas uniques. »<br />
+            Théo : « Donc EventCard, utilisée dans trois applis, ce n'est pas de la duplication ? »<br />
+            Wafa : « Non : elle vit dans une lib métier partagée. Elle utilise le design system, elle n'en fait pas partie. Et si un jour elle devient vraiment générique, on la promeut. »
           </aside>
         </section>
 
@@ -968,7 +1002,7 @@ export class Card {}
           </p>
           <p class="lead stack-top">Sinon, ça vit ailleurs. <span class="hl">Et ce n'est pas un échec.</span></p>
           <aside class="notes">
-            A : « La règle tient en trois mots. Ce qui entre est générique, stable et partagé. Le reste vit ailleurs, et ce n'est pas un échec. »
+            Wafa : « La règle tient en trois mots. Ce qui entre est générique, stable et partagé. Le reste vit ailleurs, et ce n'est pas un échec. »
           </aside>
         </section>
 
@@ -992,11 +1026,11 @@ export class Card {}
             <span class="chip business">🎟️ EventCard ➜ 🍳 recette métier</span>
           </div>
           <aside class="notes">
-            ⏱ 17:00 · A pose, B coche<br />
-            A : « Quatre questions pour savoir si ça a sa place. Zéro : est-ce que ça existe déjà ? »<br />
-            B coche à chaque question.<br />
-            B : « EventCard : du vocabulaire métier, un seul produit. Non, deux fois. »<br />
-            A : « Elle reste dehors : dans la lib métier. Ce n'est pas une punition, c'est son adresse. »<br />
+            ⏱ 17:00 · Wafa pose, Théo coche<br />
+            Wafa : « Quatre questions pour savoir si ça a sa place. Zéro : est-ce que ça existe déjà ? »<br />
+            Théo coche à chaque question.<br />
+            Théo : « EventCard : du vocabulaire métier, un seul produit. Non, deux fois. »<br />
+            Wafa : « Elle reste dehors : dans la lib métier. Ce n'est pas une punition, c'est son adresse. »<br />
             (Rester sérieux : c'est ce que la salle emporte.)
           </aside>
         </section>
@@ -1018,9 +1052,9 @@ export class Card {}
           </table>
           <p class="lead fragment">Un « non » ici veut dire <span class="hl">« pas encore »</span>, pas « jamais ».</p>
           <aside class="notes">
-            A : « Une fois qu'il a sa place, est-il prêt ? Tokens, composition, documentation, propriétaire. »<br />
-            B : « Button : oui partout. Il entre. »<br />
-            A : « Une règle, c'est fait pour pouvoir dire non sans se disputer. Cette checklist, vous pouvez la copier dans votre modèle de pull request : elle est dans le repo. »
+            Wafa : « Une fois qu'il a sa place, est-il prêt ? Tokens, composition, documentation, propriétaire. »<br />
+            Théo : « Button : oui partout. Il entre. »<br />
+            Wafa : « Une règle, c'est fait pour pouvoir dire non sans se disputer. Cette checklist, vous pouvez la copier dans votre modèle de pull request : elle est dans le repo. »
           </aside>
         </section>
 
@@ -1032,8 +1066,8 @@ export class Card {}
           </p>
           <p class="punchline fragment" style="font-size: 1.5em">C'est ce qui est <span class="hl">générique, stable et partagé.</span></p>
           <aside class="notes">
-            ⏱ 18:00 · A et B<br />
-            A : « Si vous ne retenez qu'une chose : un design system, ce n'est pas tout ce qui est réutilisable. C'est ce qui est générique, stable et partagé. »
+            ⏱ 18:00 · Wafa et Théo<br />
+            Wafa : « Si vous ne retenez qu'une chose : un design system, ce n'est pas tout ce qui est réutilisable. C'est ce qui est générique, stable et partagé. »
           </aside>
         </section>
 
@@ -1042,8 +1076,8 @@ export class Card {}
           <button class="ds-btn" style="font-size: 40px; padding: 26px 44px">＋ Ajouter un bouton</button>
           <p class="punchline stack-top fragment">…posez-vous d'abord <span class="hl">les 8 questions</span>. ✅</p>
           <aside class="notes">
-            B : « Et si vous avez un petit bouton à ajouter… »<br />
-            A : « …posez-vous d'abord les questions. Merci ! »
+            Théo : « Et si vous avez un petit bouton à ajouter… »<br />
+            Wafa : « …posez-vous d'abord les questions. Merci ! »
           </aside>
         </section>
 
@@ -1066,10 +1100,30 @@ export class Card {}
         </section>
 
         <section data-no-footer>
-          <p class="emoji-xl">🙋</p>
           <h1>Merci&nbsp;!</h1>
-          <p class="lead">Des questions ?</p>
-          <p class="small muted stack-top">[Prénom A] · [Prénom B] — Sopra Steria</p>
+          <p class="lead">Des questions ? 🙋</p>
+          <div class="speakers compact stack-top">
+            <div class="badge-wrap tilt-left">
+              <figure class="badge sopra">
+                <div class="badge-band"><span class="badge-hole"></span><span class="badge-label">Speaker</span></div>
+                <div class="avatar"><img src="/speakers/wafa.png" alt="Memoji de Wafa" /></div>
+                <h3>Wafa</h3>
+                <p class="job">Développeuse fullstack</p>
+                <img class="company-logo" src="/logos/sopra-steria.svg" alt="Sopra Steria" />
+                <a class="linkedin" href="https://www.linkedin.com/in/wafa-harir-303307214" target="_blank" rel="noopener" title="Voir le profil LinkedIn"><svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0a66c2" /><circle cx="7" cy="6.9" r="1.75" fill="#fff" /><rect x="5.45" y="9.4" width="3.1" height="9.6" fill="#fff" /><path d="M10.9 9.4h3v1.35c.45-.85 1.6-1.6 3.1-1.6 2.5 0 3.2 1.6 3.2 3.9V19h-3.1v-5.3c0-1.2-.35-2-1.45-2-1.15 0-1.65.85-1.65 2V19h-3.1z" fill="#fff" /></svg><span>Wafa Harir</span></a>
+              </figure>
+            </div>
+            <div class="badge-wrap tilt-right">
+              <figure class="badge techtown">
+                <div class="badge-band"><span class="badge-hole"></span><span class="badge-label">Speaker</span></div>
+                <div class="avatar"><img src="/speakers/theo.png" alt="Memoji de Théo" /></div>
+                <h3>Théo</h3>
+                <p class="job">Lead dev augmenté</p>
+                <img class="company-logo" src="/logos/techtown.svg" alt="TechTown" />
+                <a class="linkedin" href="https://www.linkedin.com/in/theo-levalet-le-dev-qu-il-vous-faut" target="_blank" rel="noopener" title="Voir le profil LinkedIn"><svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0a66c2" /><circle cx="7" cy="6.9" r="1.75" fill="#fff" /><rect x="5.45" y="9.4" width="3.1" height="9.6" fill="#fff" /><path d="M10.9 9.4h3v1.35c.45-.85 1.6-1.6 3.1-1.6 2.5 0 3.2 1.6 3.2 3.9V19h-3.1v-5.3c0-1.2-.35-2-1.45-2-1.15 0-1.65.85-1.65 2V19h-3.1z" fill="#fff" /></svg><span>Théo Levalet</span></a>
+              </figure>
+            </div>
+          </div>
         </section>
       </div>
       <div class="part-footer"></div>
