@@ -1,0 +1,110 @@
+<!-- =====================================================
+     PARTIE 5 · LA RÈGLE (16:00 → 20:00)
+     ===================================================== -->
+
+<section data-part="⑤ La règle" data-no-footer>
+  <p class="emoji-xl">⚖️</p>
+  <h2>La règle</h2>
+  <div class="agenda">
+    <span class="step done">① Le problème</span>
+    <span class="step done">② Les fondations</span>
+    <span class="step done">③ Un écran, démonté</span>
+    <span class="step done">④ Le composant universel</span>
+    <span class="step active">⑤ La règle</span>
+  </div>
+  <aside class="notes">Wafa : « Ça nous donne enfin de quoi décider. »</aside>
+</section>
+
+<!-- 14a · Trois destinations -->
+<section data-auto-animate>
+  <h2 data-id="rule-title">Pas deux destinations, <span class="hl">trois</span> 🗂️</h2>
+  <div class="grid-3">
+    <div class="tile primary fragment fade-up" data-id="dest-ds">
+      <span class="emoji-lg">🏛️</span>
+      <h3>Design system</h3>
+      <p>générique, stable, partagé<br /><code>Button</code>, <code>Card</code>, <code>TextField</code></p>
+    </div>
+    <div class="tile business fragment fade-up" data-id="dest-recipe">
+      <span class="emoji-lg">🍳</span>
+      <h3>Recettes métier</h3>
+      <p>compositions partagées d'un domaine<br /><code>EventCard</code>, <code>AddressField</code></p>
+    </div>
+    <div class="tile ghost fragment fade-up" data-id="dest-snow">
+      <span class="emoji-lg">❄️</span>
+      <h3>Cas uniques</h3>
+      <p>dans la feature, et c'est très bien<br />le bandeau de Noël</p>
+    </div>
+  </div>
+  <p class="lead stack-top fragment">⬅️ Une recette peut être <b>promue</b> un jour… <span class="hl">sans se presser.</span></p>
+  <p class="source">Brad Frost, <em>Design system components, recipes, and snowflakes</em></p>
+  <aside class="notes">
+    ⏱ 16:00 · Wafa<br />
+    Wafa : « « Dedans ou dehors », c'est trop binaire. Brad Frost propose trois niveaux : les composants du design system ; les recettes, des compositions métier partagées par un produit ou un domaine ; et les cas uniques. »<br />
+    Théo : « Donc EventCard, utilisée dans trois applis, ce n'est pas de la duplication ? »<br />
+    Wafa : « Non : elle vit dans une lib métier partagée. Elle utilise le design system, elle n'en fait pas partie. Et si un jour elle devient vraiment générique, on la promeut. »
+  </aside>
+</section>
+
+<!-- 14b · La règle -->
+<section data-auto-animate>
+  <p class="kicker">La règle</p>
+  <p class="punchline" style="font-size: 2.2em" data-id="rule">
+    <span class="text-primary">Générique</span> · <span class="text-primary">Stable</span> · <span class="text-primary">Partagé</span>
+  </p>
+  <p class="lead stack-top">Sinon, ça vit ailleurs. <span class="hl">Et ce n'est pas un échec.</span></p>
+  <aside class="notes">
+    Wafa : « La règle tient en trois mots. Ce qui entre est générique, stable et partagé. Le reste vit ailleurs, et ce n'est pas un échec. »
+  </aside>
+</section>
+
+<!-- 14c · Éligibilité -->
+<section data-auto-animate>
+  <p class="punchline" style="font-size: 0.9em" data-id="rule">
+    <span class="text-primary">Générique</span> · <span class="text-primary">Stable</span> · <span class="text-primary">Partagé</span>
+  </p>
+  <h3>① Est-ce que ça a sa place ?</h3>
+  <table class="checklist">
+    <thead><tr><th></th><th></th><th>🔘 Button</th><th>🎟️ EventCard</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>Introuvable dans le catalogue ?</td><td class="mark fragment" data-fragment-index="1">✅</td><td class="mark fragment" data-fragment-index="1">✅</td></tr>
+      <tr><td>1</td><td>Zéro vocabulaire métier ?</td><td class="mark fragment" data-fragment-index="2">✅</td><td class="mark fragment" data-fragment-index="2">❌</td></tr>
+      <tr><td>2</td><td>Au moins 3 usages réels, dans plusieurs produits ?</td><td class="mark fragment" data-fragment-index="3">✅</td><td class="mark fragment" data-fragment-index="3">❌</td></tr>
+      <tr><td>3</td><td>Une API petite et stable ?</td><td class="mark fragment" data-fragment-index="4">✅</td><td class="mark fragment" data-fragment-index="4">✅</td></tr>
+    </tbody>
+  </table>
+  <div class="verdict fragment" data-fragment-index="5">
+    <span class="chip primary">🔘 Button ➜ 🏛️ candidat au design system</span>
+    <span class="chip business">🎟️ EventCard ➜ 🍳 recette métier</span>
+  </div>
+  <aside class="notes">
+    ⏱ 17:00 · Wafa pose, Théo coche<br />
+    Wafa : « Quatre questions pour savoir si ça a sa place. Zéro : est-ce que ça existe déjà ? »<br />
+    Théo coche à chaque question.<br />
+    Théo : « EventCard : du vocabulaire métier, un seul produit. Non, deux fois. »<br />
+    Wafa : « Elle reste dehors : dans la lib métier. Ce n'est pas une punition, c'est son adresse. »<br />
+    (Rester sérieux : c'est ce que la salle emporte.)
+  </aside>
+</section>
+
+<!-- 14d · Conditions d'entrée -->
+<section data-auto-animate>
+  <p class="punchline" style="font-size: 0.9em" data-id="rule">
+    <span class="text-primary">Générique</span> · <span class="text-primary">Stable</span> · <span class="text-primary">Partagé</span>
+  </p>
+  <h3>② Est-ce que c'est prêt ?</h3>
+  <table class="checklist">
+    <thead><tr><th></th><th></th><th>🔘 Button</th></tr></thead>
+    <tbody>
+      <tr><td>4</td><td>🎨 Uniquement des tokens sémantiques ?</td><td class="mark fragment">✅</td></tr>
+      <tr><td>5</td><td>🧩 Composition plutôt que configuration ?</td><td class="mark fragment">✅</td></tr>
+      <tr><td>6</td><td>📖 Une story par état, et l'accessibilité testée ?</td><td class="mark fragment">✅</td></tr>
+      <tr><td>7</td><td>👤 Un propriétaire nommé ?</td><td class="mark fragment">✅</td></tr>
+    </tbody>
+  </table>
+  <p class="lead fragment">Un « non » ici veut dire <span class="hl">« pas encore »</span>, pas « jamais ».</p>
+  <aside class="notes">
+    Wafa : « Une fois qu'il a sa place, est-il prêt ? Tokens, composition, documentation, propriétaire. »<br />
+    Théo : « Button : oui partout. Il entre. »<br />
+    Wafa : « Une règle, c'est fait pour pouvoir dire non sans se disputer. Cette checklist, vous pouvez la copier dans votre modèle de pull request : elle est dans le repo. »
+  </aside>
+</section>

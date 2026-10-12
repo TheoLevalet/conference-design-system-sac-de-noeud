@@ -31,13 +31,27 @@ npm run build      # version statique dans dist/
 ## Structure
 
 ```
-index.html                 toutes les slides, découpées en 5 parties
-src/main.js                configuration reveal.js, pied de page, QR codes
-src/styles/tokens.css      les tokens du deck (bruts + sémantiques)
-src/styles/theme.css       typographie, mise en page, code
-src/styles/illustrations.css  maquettes HTML/CSS animées (écran fil rouge, Storybook…)
-docs/checklist-pr.md       la checklist du talk, prête à copier dans un modèle de PR
+index.html                    squelette : inclut les fichiers de slides/ dans l'ordre
+slides/
+  00-ouverture.html           titre, explosion de boutons, speakers
+  01-probleme.html            ① le bilan, les 4 équipes, la vraie question
+  02-fondations.html          ② Atomic Design, tokens, frontières
+  03-ecran-demonte.html       ③ l'écran fil rouge, Storybook
+  04-composant-universel.html ④ la Card à 42 inputs, composition
+  05-regle.html               ⑤ 3 destinations, la règle, la checklist
+  06-conclusion.html          message final, ressources, merci
+vite.config.js                plugin qui remplace <!-- @include … --> par le fichier
+src/main.js                   configuration reveal.js, pied de page, QR codes
+src/styles/tokens.css         les tokens du deck (bruts + sémantiques)
+src/styles/theme.css          typographie, mise en page, code
+src/styles/illustrations.css  maquettes HTML/CSS animées (écran fil rouge, badges…)
+public/                       memoji des speakers, logos
+docs/checklist-pr.md          la checklist du talk, prête à copier dans un modèle de PR
 ```
+
+reveal.js a besoin de toutes les `<section>` dans un seul document : le plugin de [vite.config.js](vite.config.js) les assemble en dev comme au build. Modifier un fichier de `slides/` recharge la page.
+
+Pour ajouter une partie : créer le fichier dans `slides/`, puis ajouter `<!-- @include slides/mon-fichier.html -->` à sa place dans `index.html`. Attention, Auto-Animate fonctionne aussi entre deux fichiers : la dernière slide d'un fichier et la première du suivant restent voisines.
 
 Clin d'œil au sujet : le CSS du deck applique sa propre règle. Seul `tokens.css` contient des valeurs brutes, le reste ne connaît que les tokens sémantiques.
 

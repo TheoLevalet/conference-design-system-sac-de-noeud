@@ -1,0 +1,238 @@
+<!-- =====================================================
+     PARTIE 2 · LES FONDATIONS (4:00 → 8:00)
+     ===================================================== -->
+
+<section data-part="② Les fondations" data-no-footer>
+  <p class="emoji-xl">🧱</p>
+  <h2>Les fondations</h2>
+  <div class="agenda">
+    <span class="step done">① Le problème</span>
+    <span class="step active">② Les fondations</span>
+    <span class="step">③ Un écran, démonté</span>
+    <span class="step">④ Le composant universel</span>
+    <span class="step">⑤ La règle</span>
+  </div>
+</section>
+
+<!-- 5 · Atomic Design -->
+<section data-auto-animate>
+  <h2 data-id="ad-title">Atomic Design ⚛️</h2>
+  <div class="levels">
+    <div class="level" data-id="lvl-atom"><span class="emoji-lg">⚛️</span><b>Atomes</b><small>un bouton</small></div>
+    <div class="level" data-id="lvl-molecule"><span class="emoji-lg">🧪</span><b>Molécules</b><small>champ + bouton</small></div>
+    <div class="level" data-id="lvl-organism"><span class="emoji-lg">🦠</span><b>Organismes</b><small>une carte d'événement</small></div>
+    <div class="level" data-id="lvl-template"><span class="emoji-lg">📐</span><b>Templates</b><small>la structure de page</small></div>
+    <div class="level" data-id="lvl-page"><span class="emoji-lg">📄</span><b>Pages</b><small>avec de vraies données</small></div>
+  </div>
+  <p class="source stack-top">Brad Frost, <em>Atomic Design</em>, chapitre 2</p>
+  <aside class="notes">
+    ⏱ 4:00 · Wafa<br />
+    Wafa : « Atomic Design, de Brad Frost : cinq niveaux, des atomes jusqu'aux pages. On connaît tous le vocabulaire. Le problème, c'est ce qu'on en fait. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="ad-title">Pas une arborescence de dossiers… 📁</h2>
+  <div class="folders">
+    <div class="level" data-id="lvl-atom">📁 atoms/</div>
+    <div class="level" data-id="lvl-molecule">📁 molecules/</div>
+    <div class="level" data-id="lvl-organism">📁 organisms/</div>
+    <div class="question fragment fade-up">🤷 <code>EventCard</code> va dans <code>molecules/</code> ? <code>organisms/</code> ?</div>
+  </div>
+  <aside class="notes">
+    Théo : « Moi, j'ai fait un dossier atoms, un dossier molecules, un dossier organisms. »<br />
+    Wafa : « Et ta carte d'événement, elle va où ? »<br />
+    Théo : « Dans… organisms ? Non, molecules ? »<br />
+    Wafa : « Tu hésites parce que la question est mal posée. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="ad-title">…un modèle de <span class="hl">composition</span> 🪆</h2>
+  <div class="nest l-page" data-id="lvl-page">
+    <span class="nest-label">📄 Page</span>
+    <div class="nest l-template" data-id="lvl-template">
+      <span class="nest-label">📐 Template</span>
+      <div class="nest l-organism" data-id="lvl-organism">
+        <span class="nest-label">🦠 Organisme</span>
+        <div class="nest l-molecule" data-id="lvl-molecule">
+          <span class="nest-label">🧪 Molécule</span>
+          <div class="nest l-atom" data-id="lvl-atom">⚛️ Atome</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Wafa : « Atomic Design ne range pas les composants par taille. Il décrit comment des éléments simples se composent en éléments plus riches. C'est un modèle mental, pas un plan de dossiers. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="ad-title">La taille ne dit pas <span class="hl">où ça vit</span></h2>
+  <div class="matrix">
+    <div class="band business"></div>
+    <div class="band generic"></div>
+    <div class="y-label" style="top: 70px">🏷️ Métier</div>
+    <div class="y-label" style="top: 260px">🧰 Générique</div>
+    <div class="x-axis"><span>⚛️ Atome</span><span>🧪 Molécule</span><span>🦠 Organisme</span><span>📐 Template</span><span>📄 Page</span></div>
+    <div class="dot" style="left: 190px; top: 255px">Button</div>
+    <div class="dot" style="left: 335px; top: 225px">SearchField</div>
+    <div class="dot" style="left: 365px; top: 300px">Card</div>
+    <div class="dot" style="left: 690px; top: 255px">PageLayout</div>
+    <div class="dot business fragment fade-up" style="left: 520px; top: 70px">EventCard</div>
+    <div class="dot business fragment fade-up" style="left: 840px; top: 70px">EventSearchPage</div>
+  </div>
+  <p class="lead"><b>Le niveau</b> dit comment ça se compose. <b class="text-business">Le vocabulaire</b> dit où ça vit.</p>
+  <aside class="notes">
+    Wafa : « Il faut deux axes. Horizontalement, le niveau de composition. Verticalement, la question qui compte vraiment : est-ce que ça parle votre métier ? »<br />
+    (Fragment : EventCard apparaît en haut.)<br />
+    Wafa : « EventCard est un organisme, et c'est un composant métier. Ce n'est pas sa taille qui décide où il vit, c'est son vocabulaire. On y reviendra. »
+  </aside>
+</section>
+
+<!-- 6 · Design tokens -->
+<section data-auto-animate>
+  <h2 data-id="tk-title">« Chez nous, il y a 17 bleus. Tous officiels. » 🫠</h2>
+  <div class="swatch-cloud">
+    <div class="swatch" data-id="sw-1" style="left: 20px; top: 20px; background: #3b82f6"><span class="hex">#3b82f6</span></div>
+    <div class="swatch" data-id="sw-2" style="left: 150px; top: 60px; background: #2f6fe0"><span class="hex">#2f6fe0</span></div>
+    <div class="swatch" data-id="sw-3" style="left: 300px; top: 10px; background: #dbeafe"><span class="hex">#dbeafe</span></div>
+    <div class="swatch" data-id="sw-4" style="left: 440px; top: 70px; background: #1d4ed8"><span class="hex">#1d4ed8</span></div>
+    <div class="swatch" data-id="sw-5" style="left: 580px; top: 15px; background: #2563ea"><span class="hex">#2563ea</span></div>
+    <div class="swatch" data-id="sw-6" style="left: 720px; top: 55px; background: #0ea5e9"><span class="hex">#0ea5e9</span></div>
+    <div class="swatch" data-id="sw-7" style="left: 870px; top: 15px; background: #bfdbfe"><span class="hex">#bfdbfe</span></div>
+    <div class="swatch" data-id="sw-8" style="left: 60px; top: 160px; background: #1e40af"><span class="hex">#1e40af</span></div>
+    <div class="swatch" data-id="sw-9" style="left: 210px; top: 200px; background: #3a7bfd"><span class="hex">#3a7bfd</span></div>
+    <div class="swatch" data-id="sw-10" style="left: 360px; top: 170px; background: #60a5fa"><span class="hex">#60a5fa</span></div>
+    <div class="swatch" data-id="sw-11" style="left: 500px; top: 215px; background: #2b5fd9"><span class="hex">#2b5fd9</span></div>
+    <div class="swatch" data-id="sw-12" style="left: 650px; top: 175px; background: #1e3a8a"><span class="hex">#1e3a8a</span></div>
+    <div class="swatch" data-id="sw-13" style="left: 800px; top: 205px; background: #2563eb"><span class="hex">#2563eb</span></div>
+    <div class="swatch" data-id="sw-14" style="left: 110px; top: 290px; background: #4f8df9"><span class="hex">#4f8df9</span></div>
+    <div class="swatch" data-id="sw-15" style="left: 420px; top: 300px; background: #93c5fd"><span class="hex">#93c5fd</span></div>
+    <div class="swatch" data-id="sw-16" style="left: 600px; top: 310px; background: #1e40af"><span class="hex">#1e40af</span></div>
+    <div class="swatch" data-id="sw-17" style="left: 880px; top: 300px; background: #3366ff"><span class="hex">#3366ff</span></div>
+  </div>
+  <aside class="notes">
+    ⏱ 5:30 · Théo puis Wafa<br />
+    Théo : « Chez nous, il y a dix-sept bleus. Tous officiels. Chacun a été choisi par quelqu'un, un jour, pour une bonne raison. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="tk-title">Tokens bruts : <span class="hl">des valeurs</span> 🎨</h2>
+  <div class="ramp" data-id="ramp">
+    <div class="swatch" data-id="sw-3" style="background: var(--blue-100)"><span class="hex">blue-100</span></div>
+    <div class="swatch" data-id="sw-7" style="background: var(--blue-200)"><span class="hex">blue-200</span></div>
+    <div class="swatch" data-id="sw-10" style="background: var(--blue-400)"><span class="hex">blue-400</span></div>
+    <div class="swatch" data-id="sw-13" style="background: var(--blue-600)"><span class="hex">blue-600</span></div>
+    <div class="swatch" data-id="sw-16" style="background: var(--blue-800)"><span class="hex">blue-800</span></div>
+  </div>
+  <p class="lead stack-top">Une palette finie, nommée par sa <b>valeur</b>.</p>
+  <aside class="notes">Wafa : « Première étape : on remplace les dix-sept bleus par une palette finie. Ce sont les tokens bruts : ils disent quelle valeur. »</aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="tk-title">Tokens sémantiques : <span class="hl">des intentions</span> 🎯</h2>
+  <div class="grid-2" style="grid-template-columns: auto 1fr; width: 900px; margin: 0 auto">
+    <div class="ramp-col" data-id="ramp">
+      <div class="swatch" data-id="sw-3" style="background: var(--blue-100)"></div>
+      <div class="swatch" data-id="sw-13" style="background: var(--blue-600)"></div>
+      <div class="swatch" data-id="sw-16" style="background: var(--blue-800)"></div>
+    </div>
+    <div class="col">
+      <div class="token-row fragment fade-left"><span class="muted">blue-100</span> → <span class="sem">--color-primary-soft</span></div>
+      <div class="token-row fragment fade-left"><span class="muted">blue-600</span> → <span class="sem">--color-primary</span></div>
+      <div class="token-row fragment fade-left"><span class="muted">blue-800</span> → <span class="sem">--color-primary-strong</span></div>
+    </div>
+  </div>
+  <p class="lead stack-top">Les composants ne connaissent <span class="hl">que la colonne de droite</span>.</p>
+  <aside class="notes">
+    Wafa : « Le token sémantique dit pourquoi on utilise la couleur. Les composants ne devraient connaître que ceux-là. »<br />
+    Théo : « Donc si je change un token, tout bouge ? »<br />
+    Wafa : « Si tout passe par le sémantique, oui. Sinon, tu as dix-sept bleus. »
+  </aside>
+</section>
+
+<section data-background-color="#020617">
+  <h3 style="color: #fff">Le format DTCG : un <span class="text-primary" style="color: #93c5fd">alias</span> relie l'intention à la valeur</h3>
+  <pre><code class="language-json" data-trim data-line-numbers="|3-9|11-14">
+{
+  "color": {
+    "blue": {
+      "600": {
+"$type": "color",
+"$value": { "colorSpace": "srgb", "components": [0.15, 0.39, 0.92],
+            "hex": "#2563eb" }
+      }
+    },
+    "primary": {
+      "$type": "color",
+      "$value": "{color.blue.600}",
+      "$description": "Actions principales, liens, focus"
+    }
+  }
+}
+  </code></pre>
+  <p class="caption">Design Tokens Format Module, 1re version stable (2025.10). La séparation brut / sémantique est un usage, rendu possible par les alias.</p>
+  <aside class="notes">
+    Wafa : « Le Design Tokens Community Group a publié en octobre 2025 la première version stable du format. Il ne vous impose pas de couches, il vous donne le mécanisme : un alias, entre accolades, qui pointe vers un autre token. »
+  </aside>
+</section>
+
+<section>
+  <h2>Une source, designers <span class="hl">et</span> devs 🤝</h2>
+  <div class="flow stack-top">
+    <div class="tile fragment fade-up"><span class="emoji-lg">🎨</span><h3>Figma</h3><p>variables, Tokens Studio</p></div>
+    <span class="arrow fragment fade-up">➜</span>
+    <div class="tile primary fragment fade-up"><span class="emoji-lg">📄</span><h3>tokens.json</h3><p>format DTCG</p></div>
+    <span class="arrow fragment fade-up">➜</span>
+    <div class="tile fragment fade-up"><span class="emoji-lg">⚙️</span><h3>Build</h3><p>Style Dictionary…</p></div>
+    <span class="arrow fragment fade-up">➜</span>
+    <div class="tile fragment fade-up"><span class="emoji-lg">💻</span><h3>Code</h3><p>CSS, iOS, Android</p></div>
+  </div>
+  <p class="lead stack-top">Le token est <span class="hl">la décision de design</span>, écrite une seule fois.</p>
+  <aside class="notes">
+    Wafa (vers les designers dans la salle) : « L'intérêt d'un format commun, c'est que la décision prise dans Figma est la même que celle qui arrive dans le code. Personne ne recopie un hexadécimal à la main. »
+  </aside>
+</section>
+
+<!-- 7 · Où vit chaque chose -->
+<section data-auto-animate>
+  <h2 data-id="arch-title">Où vit chaque chose 🗺️</h2>
+  <div class="layers">
+    <div class="layer" data-id="l-app"><span class="emoji-lg">📱</span><code>apps/web</code></div>
+    <span class="arrow">➜</span>
+    <div class="layer biz" data-id="l-biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>métier</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds" data-id="l-ui"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>design system</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds" data-id="l-tokens"><span class="emoji-lg">🎨</span><code>libs/tokens</code><small>fondations</small></div>
+  </div>
+  <p class="lead stack-top">Les dépendances vont <span class="hl">dans un seul sens</span>.</p>
+  <aside class="notes">
+    ⏱ 7:00 · Wafa<br />
+    Wafa : « Trois endroits : les tokens, les primitives, le métier. L'application dépend du métier, qui dépend du design system, qui dépend des tokens. Jamais l'inverse. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="arch-title">Une frontière, c'est <span class="hl">une règle outillée</span> 🚧</h2>
+  <div class="layers">
+    <div class="layer" data-id="l-app"><span class="emoji-lg">📱</span><code>apps/web</code></div>
+    <span class="arrow">➜</span>
+    <div class="layer biz" data-id="l-biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>métier</small></div>
+    <span class="arrow text-danger"><b>⬅ 🚫</b></span>
+    <div class="layer ds" data-id="l-ui"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>design system</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds" data-id="l-tokens"><span class="emoji-lg">🎨</span><code>libs/tokens</code><small>fondations</small></div>
+  </div>
+  <div class="lint-error">
+    ✖ <code>libs/ui</code> importe <code>EventCard</code> depuis <code>libs/events</code>.<br />
+    Un projet <code>type:ui</code> ne peut dépendre que de <code>type:ui</code> ou <code>type:tokens</code>.
+  </div>
+  <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · dependency-cruiser</p>
+  <aside class="notes">
+    Théo : « Et qui m'empêche d'importer EventCard dans ui ? »<br />
+    Wafa : « Pas la bonne volonté : une règle de lint. Nx le fait avec les limites de modules ; hors Nx, eslint-plugin-boundaries ou dependency-cruiser font la même chose. La CI casse, la discussion n'a pas lieu. »
+  </aside>
+</section>

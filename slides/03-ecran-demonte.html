@@ -1,0 +1,366 @@
+<!-- =====================================================
+     PARTIE 3 · UN ÉCRAN, DÉMONTÉ (8:00 → 13:00)
+     ===================================================== -->
+
+<section data-part="③ Un écran, démonté" data-no-footer>
+  <p class="emoji-xl">🔬</p>
+  <h2>Un écran, démonté pièce par pièce</h2>
+  <div class="agenda">
+    <span class="step done">① Le problème</span>
+    <span class="step done">② Les fondations</span>
+    <span class="step active">③ Un écran, démonté</span>
+    <span class="step">④ Le composant universel</span>
+    <span class="step">⑤ La règle</span>
+  </div>
+  <aside class="notes">Théo : « Assez de théorie. Voici un vrai écran. On va le démonter, du plus gros au plus petit. »</aside>
+</section>
+
+<!-- 8a · La page -->
+<section data-auto-animate>
+  <span class="level-tag" data-id="tag">📄 Page : de vraies données</span>
+  <div class="mock" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title">🎟️ Rechercher un événement</div>
+      <div class="mock-search">
+        <div class="mock-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn" data-id="m-btn">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card" data-id="c1">
+          <div class="ev-media" data-id="c1-media">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn">S'inscrire</div></div>
+        </div>
+        <div class="ev-card" data-id="c2">
+          <div class="ev-media" data-id="c2-media">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn">S'inscrire</div></div>
+        </div>
+        <div class="ev-card" data-id="c3">
+          <div class="ev-media" data-id="c3-media">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    ⏱ 8:00 · Théo<br />
+    Théo : « Voici l'écran : une recherche, une liste de cartes. C'est la page, le niveau le plus haut d'Atomic Design : de vraies données, de vrais événements. »
+  </aside>
+</section>
+
+<!-- 8b · Le template -->
+<section data-auto-animate>
+  <span class="level-tag" data-id="tag">📐 Template : la structure, sans les données</span>
+  <div class="mock" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-body">
+      <div class="mock-title skel line short" data-id="m-title"></div>
+      <div class="mock-search">
+        <div class="mock-input skel" data-id="m-input">&nbsp;</div>
+        <div class="m-btn skel" data-id="m-btn">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card" data-id="c1">
+          <div class="ev-media skel" data-id="c1-media"></div>
+          <div class="ev-content">
+            <span class="ev-badge skel" data-id="c1-badge">Complet</span>
+            <span class="skel line" data-id="c1-title"></span>
+            <span class="skel line short" data-id="c1-meta"></span>
+          </div>
+          <div class="ev-actions"><div class="m-btn skel" data-id="c1-btn">S'inscrire</div></div>
+        </div>
+        <div class="ev-card" data-id="c2">
+          <div class="ev-media skel" data-id="c2-media"></div>
+          <div class="ev-content">
+            <span class="ev-badge skel" data-id="c2-badge">Nouveau</span>
+            <span class="skel line" data-id="c2-title"></span>
+            <span class="skel line short" data-id="c2-meta"></span>
+          </div>
+          <div class="ev-actions"><div class="m-btn skel" data-id="c2-btn">S'inscrire</div></div>
+        </div>
+        <div class="ev-card" data-id="c3">
+          <div class="ev-media skel" data-id="c3-media"></div>
+          <div class="ev-content">
+            <span class="ev-badge skel" data-id="c3-badge">Gratuit</span>
+            <span class="skel line" data-id="c3-title"></span>
+            <span class="skel line short" data-id="c3-meta"></span>
+          </div>
+          <div class="ev-actions"><div class="m-btn skel" data-id="c3-btn">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    Théo : « Je retire les données. Il reste la structure : une zone de recherche, une grille de résultats. C'est le template. »<br />
+    Wafa : « Une structure de page peut appartenir au design system. La page, avec ses données, jamais. »
+  </aside>
+</section>
+
+<!-- 8c · La composition métier -->
+<section data-auto-animate>
+  <span class="level-tag" data-id="tag">🦠 Organisme · 🏷️ métier</span>
+  <div class="grid-2" style="grid-template-columns: auto 1fr; width: 1000px; margin: 0 auto">
+    <div class="ev-card solo-card" data-id="c1">
+      <div class="ev-media" data-id="c1-media">🎤</div>
+      <div class="ev-content">
+        <span class="ev-badge" data-id="c1-badge">Complet</span>
+        <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+        <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+      </div>
+      <div class="ev-actions"><div class="m-btn" data-id="c1-btn">S'inscrire</div></div>
+    </div>
+    <div class="annot">
+      <h3 style="font-size: 2em; margin: 0"><code>EventCard</code></h3>
+      <div class="note fragment fade-left">🏷️ parle d'<b>événements</b> : date, lieu, « Complet »</div>
+      <div class="note fragment fade-left">🔁 réutilisée dans la <b>liste</b> et dans le <b>détail</b></div>
+      <div class="note generic fragment fade-left">🤔 elle entre dans le design system ?</div>
+    </div>
+  </div>
+  <aside class="notes">
+    ⏱ 9:00 · Wafa et Théo<br />
+    Théo : « Cette carte, je l'utilise dans la liste et dans le détail. Elle a l'air réutilisable… on la monte dans ui ? »<br />
+    Wafa : « Elle parle d'événements. »<br />
+    Théo : « Oui, mais elle est réutilisée ! »<br />
+    Wafa : « Bonne question. On ne tranche pas maintenant : la checklist le fera tout à l'heure. Regardons d'abord de quoi elle est faite. »<br />
+    (Ne PAS donner la réponse ici : c'est la chute de la partie 5.)
+  </aside>
+</section>
+
+<!-- 8d · Les primitives -->
+<section data-auto-animate>
+  <span class="level-tag" data-id="tag">⚛️ Atomes · 🧪 molécules · 🧰 génériques</span>
+  <div class="exploded">
+    <div class="frame" data-id="c1">
+      <div class="slot" style="top: 14px; height: 130px">uiCardMedia</div>
+      <div class="slot" style="top: 158px; height: 120px">ui-card-content</div>
+      <div class="slot" style="top: 292px; height: 72px">ui-card-actions</div>
+    </div>
+    <div class="prims">
+      <div class="prim"><code>&lt;ui-card&gt;</code><span class="muted">une structure, trois emplacements</span></div>
+      <div class="prim"><span class="ev-badge" data-id="c1-badge" style="font-size: 18px">Complet</span><code>&lt;ui-badge&gt;</code></div>
+      <div class="prim"><div class="m-btn" data-id="c1-btn">S'inscrire</div><code>&lt;ui-button&gt;</code></div>
+      <p class="punchline fragment fade-up" style="font-size: 30px">Aucune ne connaît le mot <span class="hl">« événement »</span>.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Théo : « Je démonte la carte : une Card qui ne fournit que la structure, un badge, un bouton. »<br />
+    Wafa : « Et aucune de ces pièces ne sait qu'elle affiche un événement. »
+  </aside>
+</section>
+
+<!-- 9 · Le test du mot métier -->
+<section data-background-color="#020617">
+  <h3 style="color: #fff">Le test le plus simple du monde 🧪</h3>
+  <div class="terminal">
+    <div><span class="prompt">$</span> grep -riE "event|événement" libs/ui</div>
+    <div class="ok fragment">✔ 0 résultat</div>
+    <div class="fragment"><br /><span class="prompt">$</span> grep -riE "event|événement" libs/events</div>
+    <div class="fragment"><span class="dim">libs/events/event-card.ts:</span> export class EventCard {<br /><span class="dim">libs/events/event-search.ts:</span> events = resource(…)<br /><span class="dim">… 46 autres résultats</span></div>
+  </div>
+  <p class="punchline fragment" style="color: #fff">Une primitive <span style="color: #fde68a">ne parle pas votre métier.</span></p>
+  <aside class="notes">
+    ⏱ 10:00 · Théo, Wafa commente<br />
+    Wafa : « Cherche le mot « événement » dans libs/ui. »<br />
+    Théo : « Zéro résultat. »<br />
+    Wafa : « C'est le test le plus simple qui soit : une primitive ne parle pas votre métier. »
+  </aside>
+</section>
+
+<!-- 8e · Les tokens -->
+<section data-auto-animate>
+  <span class="level-tag" data-id="tag">🎨 Tokens : les décisions sous tout le reste</span>
+  <div class="grid-2" style="grid-template-columns: auto 1fr; width: 1000px; margin: 0 auto">
+    <div class="ev-card solo-card" data-id="c1">
+      <div class="ev-media" data-id="c1-media">🎤</div>
+      <div class="ev-content">
+        <span class="ev-badge" data-id="c1-badge">Complet</span>
+        <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+        <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+      </div>
+      <div class="ev-actions"><div class="m-btn" data-id="c1-btn">S'inscrire</div></div>
+    </div>
+    <div class="col">
+      <div class="token-row fragment fade-left"><span class="swatch" style="position: relative; width: 40px; height: 40px; background: var(--blue-600)"></span><span class="sem">--color-primary</span></div>
+      <div class="token-row fragment fade-left">⬜<span class="sem">--radius-md</span><span class="muted">12px</span></div>
+      <div class="token-row fragment fade-left">↔️<span class="sem">--space-4</span><span class="muted">16px</span></div>
+      <div class="token-row fragment fade-left">🔤<span class="sem">--font-sans</span><span class="muted">Inter</span></div>
+    </div>
+  </div>
+  <aside class="notes">Théo : « Et sous chaque pièce, il n'y a que des tokens sémantiques. Pas un seul hexadécimal en dur. »</aside>
+</section>
+
+<!-- 8f · Une ligne, tout suit (bleu) -->
+<section data-auto-animate>
+  <div class="code-pill" data-id="pill">--color-primary: <span class="val blue">var(--blue-600)</span>;</div>
+  <div class="mock" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title">🎟️ Rechercher un événement</div>
+      <div class="mock-search">
+        <div class="mock-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn" data-id="m-btn">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card" data-id="c1">
+          <div class="ev-media" data-id="c1-media">🎤</div>
+          <div class="ev-content"><span class="ev-badge" data-id="c1-badge">Complet</span><span class="ev-title" data-id="c1-title">Nantes Tech Day</span><span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn">S'inscrire</div></div>
+        </div>
+        <div class="ev-card" data-id="c2">
+          <div class="ev-media" data-id="c2-media">🧑‍💻</div>
+          <div class="ev-content"><span class="ev-badge" data-id="c2-badge">Nouveau</span><span class="ev-title" data-id="c2-title">Atelier Angular</span><span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn">S'inscrire</div></div>
+        </div>
+        <div class="ev-card" data-id="c3">
+          <div class="ev-media" data-id="c3-media">🎸</div>
+          <div class="ev-content"><span class="ev-badge" data-id="c3-badge">Gratuit</span><span class="ev-title" data-id="c3-title">Meetup Design</span><span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    ⏱ 11:00 · Théo<br />
+    Théo : « On remonte à l'écran entier. Le client change de charte. Je ne touche pas au bleu… je change l'intention. »
+  </aside>
+</section>
+
+<!-- 8g · Une ligne, tout suit (violet) -->
+<section data-auto-animate>
+  <div class="code-pill" data-id="pill">--color-primary: <span class="val">var(--violet-600)</span>;</div>
+  <div class="mock brand-violet" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title">🎟️ Rechercher un événement</div>
+      <div class="mock-search">
+        <div class="mock-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn" data-id="m-btn">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card" data-id="c1">
+          <div class="ev-media" data-id="c1-media">🎤</div>
+          <div class="ev-content"><span class="ev-badge" data-id="c1-badge">Complet</span><span class="ev-title" data-id="c1-title">Nantes Tech Day</span><span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn">S'inscrire</div></div>
+        </div>
+        <div class="ev-card" data-id="c2">
+          <div class="ev-media" data-id="c2-media">🧑‍💻</div>
+          <div class="ev-content"><span class="ev-badge" data-id="c2-badge">Nouveau</span><span class="ev-title" data-id="c2-title">Atelier Angular</span><span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn">S'inscrire</div></div>
+        </div>
+        <div class="ev-card" data-id="c3">
+          <div class="ev-media" data-id="c3-media">🎸</div>
+          <div class="ev-content"><span class="ev-badge" data-id="c3-badge">Gratuit</span><span class="ev-title" data-id="c3-title">Meetup Design</span><span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="punchline">Une ligne. <span class="hl">Tout suit.</span></p>
+  <aside class="notes">
+    Wafa : « Une seule ligne. Et on n'a pas touché à blue-600 : on a changé la décision, pas la valeur. C'est exactement à ça que sert la couche sémantique. »
+  </aside>
+</section>
+
+<!-- 10 · Le code de la composition -->
+<section data-background-color="#020617">
+  <h3 style="color: #fff"><code>EventCard</code> assemble, elle n'invente rien 🧩</h3>
+  <pre><code class="language-typescript" data-trim data-line-numbers="|4|6-17|20-21"><script type="text/template">
+@Component({
+  selector: 'evt-event-card',
+  imports: [Card, CardContent, CardActions, Badge, Button, DatePipe],
+  template: `
+    <ui-card>
+      <img uiCardMedia [src]="event().cover" alt="" />
+      <ui-card-content>
+@if (event().full) {
+  <ui-badge tone="warning">Complet</ui-badge>
+}
+<h3>{{ event().title }}</h3>
+<p>{{ event().date | date }} · {{ event().city }}</p>
+      </ui-card-content>
+      <ui-card-actions>
+<ui-button (click)="register.emit(event())">S'inscrire</ui-button>
+      </ui-card-actions>
+    </ui-card>
+  `,
+})
+export class EventCard {
+  event = input.required<EventSummary>();
+  register = output<EventSummary>();
+}
+  </script></code></pre>
+  <p class="equiv">Emplacements Angular (<code>ng-content</code>) ≈ <code>children</code> en React ≈ <code>&lt;slot&gt;</code> en Vue et Web Components</p>
+  <aside class="notes">
+    ⏱ 11:30 · Théo<br />
+    Théo : « Le code d'EventCard : il importe des pièces du design system et les assemble. Tout le vocabulaire métier est ici : l'événement, « Complet », l'inscription. »<br />
+    Wafa (pour les non-Angular) : « Les emplacements, c'est l'équivalent de children en React ou des slots en Vue. »
+  </aside>
+</section>
+
+<!-- 11 · Storybook comme contrat -->
+<section data-auto-animate>
+  <h2 data-id="sb-title">Storybook : <span class="hl">un contrat</span>, pas une vitrine 📖</h2>
+  <div class="sb" data-id="sb">
+    <div class="sb-side">
+      <div class="grp">UI</div>
+      <div class="item">🧩 Badge</div>
+      <div class="item">🔘 Button</div>
+      <div class="item sub on">Default</div>
+      <div class="item sub">Loading</div>
+      <div class="item sub">Disabled</div>
+      <div class="item sub">Danger</div>
+      <div class="item">🃏 Card</div>
+    </div>
+    <div class="sb-canvas">
+      <div class="story"><div class="m-btn">S'inscrire</div>Default</div>
+      <div class="story"><div class="m-btn loading">S'inscrire</div>Loading</div>
+      <div class="story"><div class="m-btn disabled">S'inscrire</div>Disabled</div>
+      <div class="story"><div class="m-btn danger">Annuler</div>Danger</div>
+    </div>
+    <div class="sb-panel">
+      <div class="tabs"><span>Controls</span><span class="on">Accessibility</span><span>Interactions</span></div>
+      <span class="text-success"><b>✔ 0 violation</b></span> · rôles, contraste, focus vérifiés sur chaque story
+    </div>
+  </div>
+  <p class="lead">Un état sans story <span class="hl">n'est pas promis</span>.</p>
+  <aside class="notes">
+    ⏱ 12:00 · Théo<br />
+    Théo : « Chaque état a sa story : défaut, chargement, désactivé, danger. Et les tests d'accessibilité tournent sur chacune. »<br />
+    Wafa : « Un état qui n'a pas de story n'est pas promis. Et c'est aussi votre vocabulaire commun avec les designers : on parle de « Button / Danger », pas du « bouton rouge de l'écran 3 ». »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="sb-title">…et un contrat <span class="hl">d'équipe</span> 🤝</h2>
+  <div class="flow">
+    <div class="tile fragment fade-up"><span class="emoji-lg">🔍</span><h3>Chercher</h3><p>ça existe déjà ?</p></div>
+    <span class="arrow fragment fade-up">➜</span>
+    <div class="tile fragment fade-up"><span class="emoji-lg">☑️</span><h3>Proposer</h3><p>checklist dans la PR</p></div>
+    <span class="arrow fragment fade-up">➜</span>
+    <div class="tile fragment fade-up"><span class="emoji-lg">👀</span><h3>Relire</h3><p>par le propriétaire</p></div>
+    <span class="arrow fragment fade-up">➜</span>
+    <div class="tile fragment fade-up"><span class="emoji-lg">📖</span><h3>Documenter</h3><p>story + a11y</p></div>
+    <span class="arrow fragment fade-up">➜</span>
+    <div class="tile primary fragment fade-up"><span class="emoji-lg">🚀</span><h3>Publier</h3><p>versionné</p></div>
+  </div>
+  <p class="lead stack-top fragment">🟩 L'équipe 2 aurait <span class="hl">trouvé le bouton</span> à l'étape 1.</p>
+  <aside class="notes">
+    Wafa : « Le contrat ne concerne pas que le composant : c'est aussi la façon dont les équipes contribuent. Et la toute première étape, c'est chercher. »<br />
+    Théo : « L'équipe 2 de tout à l'heure aurait trouvé le bouton. »
+  </aside>
+</section>

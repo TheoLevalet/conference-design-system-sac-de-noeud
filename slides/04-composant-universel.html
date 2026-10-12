@@ -1,0 +1,154 @@
+<!-- =====================================================
+     PARTIE 4 · LE COMPOSANT UNIVERSEL (13:00 → 16:00)
+     ===================================================== -->
+
+<section data-part="④ Le composant universel" data-no-footer>
+  <p class="emoji-xl">🐙</p>
+  <h2>Le composant universel</h2>
+  <div class="agenda">
+    <span class="step done">① Le problème</span>
+    <span class="step done">② Les fondations</span>
+    <span class="step done">③ Un écran, démonté</span>
+    <span class="step active">④ Le composant universel</span>
+    <span class="step">⑤ La règle</span>
+  </div>
+  <aside class="notes">Wafa : « Maintenant, voyons ce qui arrive sans frontière et sans contrat. »</aside>
+</section>
+
+<!-- 12 · La Card qui grossit -->
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« C'est juste une Card. » 🃏</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim><script type="text/template">
+export class Card {
+  title = input<string>();
+}
+  </script></code></pre>
+  <aside class="notes">⏱ 13:00 · Théo, Wafa compte<br />Théo : « Au début, c'est juste une Card. Un titre. »</aside>
+</section>
+
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« Juste un input. » 🤏</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim data-line-numbers="3"><script type="text/template">
+export class Card {
+  title = input<string>();
+  isEvent = input(false);
+}
+  </script></code></pre>
+  <aside class="notes">Théo : « Juste un input : isEvent. »</aside>
+</section>
+
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« Juste un autre. » 🤏🤏</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim data-line-numbers="4-6"><script type="text/template">
+export class Card {
+  title = input<string>();
+  isEvent = input(false);
+  showBadge = input(false);
+  badgeLabel = input<string>();
+  layout = input<'default' | 'compact' | 'horizontal'>('default');
+}
+  </script></code></pre>
+  <aside class="notes">Théo : « Juste un autre : showBadge. Et un layout compact. »<br />Wafa : « On en est à six. Je continue à compter… »</aside>
+</section>
+
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« Mais ça marche ! » 🙈</h3>
+  <pre data-id="uc-code" class="tiny"><code class="language-typescript" data-trim><script type="text/template">
+export class Card {
+  title = input<string>();
+  isEvent = input(false);
+  showBadge = input(false);
+  badgeLabel = input<string>();
+  layout = input<'default' | 'compact' | 'horizontal'>('default');
+  eventDate = input<Date>();
+  eventCity = input<string>();
+  isFull = input(false);
+  showRegisterButton = input(true);
+  registerLabel = input("S'inscrire");
+  footerButtons = input<CardButton[]>([]);
+  iconRight = input<string>();
+  iconRightOnlyIf = input<(ctx: unknown) => boolean>();
+  headerTemplate = input<TemplateRef<unknown>>();
+  bodyTemplate = input<TemplateRef<unknown>>();
+  footerTemplate = input<TemplateRef<unknown>>();
+  // … et 25 autres
+}
+  </script></code></pre>
+  <aside class="notes">
+    Théo : « Et iconRight. Mais seulement si… »<br />
+    Wafa : « Stop. On en est à 42. »<br />
+    Théo : « Mais ça marche ! »<br />
+    (Le gag « juste un input » : trois fois maximum.)
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <div class="row center" style="gap: 64px">
+    <div><div class="counter text-danger" data-id="count">42</div><p class="small muted">inputs</p></div>
+    <div><div class="counter text-danger">3</div><p class="small muted">templates personnalisables</p></div>
+    <div><div class="counter text-danger">0</div><p class="small muted">volontaire pour y toucher</p></div>
+  </div>
+  <p class="punchline stack-top fragment">Ça marche… et <span class="hl">plus personne n'ose y toucher.</span></p>
+  <aside class="notes">
+    ⏱ 14:00<br />
+    Wafa : « 42 inputs, 3 templates personnalisables… et zéro volontaire pour la modifier. Chaque changement risque de casser un écran qu'on ne connaît pas. »
+  </aside>
+</section>
+
+<section>
+  <p class="emoji-xl">💸</p>
+  <p class="punchline">« La duplication coûte bien moins cher<br />qu'une <span class="hl">mauvaise abstraction</span>. »</p>
+  <p class="source">D'après Sandi Metz, <em>The Wrong Abstraction</em> (2016)</p>
+  <aside class="notes">
+    Wafa : « Sandi Metz l'a très bien formulé : une mauvaise abstraction coûte plus cher que de la duplication. Mieux vaut deux cartes simples qu'une carte qui sait tout faire. »<br />
+    Wafa : « Alors comment on évite ça ? »
+  </aside>
+</section>
+
+<!-- 13 · La composition -->
+<section data-background-color="#020617">
+  <h3 style="color: #fff">Après : la Card ne fournit <span style="color: #fde68a">que la structure</span> 🧩</h3>
+  <pre><code class="language-typescript" data-trim data-line-numbers="|4-8|11"><script type="text/template">
+@Component({
+  selector: 'ui-card',
+  template: `
+    <ng-content select="[uiCardMedia]" />
+    <ng-content select="ui-card-content" />
+    <ng-content select="ui-card-actions" />
+  `,
+})
+export class Card {}
+  </script></code></pre>
+  <p class="equiv"><code>ng-content</code> = emplacements ≈ <code>children</code> (React) ≈ <code>&lt;slot&gt;</code> (Vue, Web Components)</p>
+  <aside class="notes">
+    ⏱ 14:30 · Wafa et Théo<br />
+    Wafa : « La Card ne fournit que la structure. Le contenu arrive par les emplacements. »<br />
+    Théo : « Zéro input ? »<br />
+    Wafa : « Zéro. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <div class="versus">
+    <div class="tile danger">
+      <span class="emoji-lg">⚙️</span>
+      <h3>Configuration</h3>
+      <div class="counter text-danger" data-id="count">42</div>
+      <p>Le design system doit connaître <b>tous les cas</b>.</p>
+    </div>
+    <span class="punchline">➜</span>
+    <div class="tile success">
+      <span class="emoji-lg">🧩</span>
+      <h3>Composition</h3>
+      <div class="counter text-success">3</div>
+      <p>emplacements. <b>L'appelant</b> décide de ce qu'il y met.</p>
+    </div>
+  </div>
+  <p class="lead stack-top fragment">« Et l'icône à droite, mais seulement parfois ? » ➜ <span class="hl">dans <code>ui-card-actions</code>, quand tu en as besoin.</span></p>
+  <aside class="notes">
+    Théo : « Et si je veux une icône à droite, mais seulement parfois ? »<br />
+    Wafa : « Tu la mets dans les actions, quand tu en as besoin. Pas dans la Card. »<br />
+    Théo : « Et c'est EventCard qui assemble le tout, dans sa propre lib. »<br />
+    Wafa : « La variation passe de la configuration à la composition. Et le métier sort du design system. »
+  </aside>
+</section>
