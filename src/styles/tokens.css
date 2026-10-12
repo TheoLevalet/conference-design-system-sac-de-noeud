@@ -1,0 +1,84 @@
+/*
+ * Les tokens du deck lui-même.
+ * On applique ce qu'on raconte : les valeurs brutes d'un côté,
+ * les intentions sémantiques de l'autre. Le reste du CSS ne connaît
+ * que les tokens sémantiques.
+ */
+
+/* ---------- Tokens bruts (valeurs) ---------- */
+:root {
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-400: #60a5fa;
+  --blue-600: #2563eb;
+  --blue-800: #1e40af;
+
+  --violet-100: #ede9fe;
+  --violet-600: #7c3aed;
+  --violet-800: #5b21b6;
+
+  --green-100: #dcfce7;
+  --green-600: #16a34a;
+
+  --red-100: #fee2e2;
+  --red-600: #dc2626;
+
+  --amber-100: #fef3c7;
+  --amber-500: #f59e0b;
+
+  --slate-0: #ffffff;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-700: #334155;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+}
+
+/* ---------- Tokens sémantiques (intentions) ---------- */
+:root {
+  --color-bg: var(--slate-0);
+  --color-bg-subtle: var(--slate-50);
+  --color-bg-muted: var(--slate-100);
+  --color-border: var(--slate-200);
+  --color-text: var(--slate-900);
+  --color-text-muted: var(--slate-500);
+
+  --color-primary: var(--blue-600);
+  --color-primary-strong: var(--blue-800);
+  --color-primary-soft: var(--blue-100);
+
+  --color-business: var(--violet-600);
+  --color-business-soft: var(--violet-100);
+
+  --color-success: var(--green-600);
+  --color-success-soft: var(--green-100);
+  --color-danger: var(--red-600);
+  --color-danger-soft: var(--red-100);
+  --color-warning: var(--amber-500);
+  --color-warning-soft: var(--amber-100);
+
+  --color-code-bg: var(--slate-950);
+
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.06), 0 8px 24px rgb(15 23 42 / 0.08);
+}

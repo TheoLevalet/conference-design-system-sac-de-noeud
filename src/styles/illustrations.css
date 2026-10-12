@@ -1,0 +1,871 @@
+/*
+ * Les illustrations construites en HTML/CSS.
+ * Elles sont faites pour Auto-Animate : un même data-id d'une slide
+ * à l'autre = un élément qui se déplace / se transforme.
+ * Pas de transform CSS sur les éléments animés : reveal s'en sert déjà.
+ */
+
+/* ---------- Slide 1 : l'explosion de boutons ---------- */
+
+.burst {
+  position: relative;
+  width: 1100px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.burst > * {
+  position: absolute;
+}
+
+.ds-btn {
+  font: 650 26px/1 var(--font-sans);
+  padding: 18px 30px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--slate-0);
+  white-space: nowrap;
+}
+
+/* Les sept variantes "officielles" */
+.ds-btn.v1 { background: #1d4ed8; border-radius: 2px; font-size: 22px; }
+.ds-btn.v2 { background: #3b82f6; border-radius: 999px; padding: 14px 40px; }
+.ds-btn.v3 { background: transparent; color: #2563eb; border: 3px solid #2563eb; }
+.ds-btn.v4 { background: #0ea5e9; text-transform: uppercase; letter-spacing: 0.1em; font-size: 20px; }
+.ds-btn.v5 { background: #1e3a8a; border-radius: 0; font-size: 30px; }
+.ds-btn.v6 { background: #60a5fa; color: #0f172a; border-radius: 8px; font-size: 18px; padding: 10px 16px; }
+
+.burst .hidden-start {
+  opacity: 0;
+}
+
+/* ---------- Slide 2 : le bilan ---------- */
+
+.tally {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+}
+
+.tally .cell {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-3);
+}
+
+.tally .n {
+  font-size: 2.2em;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.tally .label {
+  font-size: 0.5em;
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+.tally.compact .cell {
+  padding: var(--space-2);
+}
+
+.tally.compact .n {
+  font-size: 1em;
+}
+
+.tally.compact .label {
+  font-size: 0.35em;
+}
+
+.zero {
+  font-size: 7em;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-danger);
+}
+
+/* ---------- Slide 3 : les quatre équipes ---------- */
+
+.teams {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.team {
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-4);
+  text-align: left;
+  font-size: 0.55em;
+  border: 2px solid transparent;
+}
+
+.team b {
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: var(--space-2);
+}
+
+.team.t1 { background: var(--blue-100); border-color: var(--blue-400); }
+.team.t2 { background: var(--green-100); border-color: var(--green-600); }
+.team.t3 { background: var(--amber-100); border-color: var(--amber-500); }
+.team.t4 { background: var(--red-100); border-color: var(--red-600); }
+
+.junk-box {
+  width: 760px;
+  margin: 0 auto;
+  padding: var(--space-6);
+  border: 3px dashed var(--color-text-muted);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-subtle);
+}
+
+.junk-box .teams {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.junk-box .team {
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.4em;
+}
+
+.junk-box .team span {
+  display: none;
+}
+
+/* ---------- Slide 5 : Atomic Design ---------- */
+
+.levels {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.level {
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-4);
+  min-width: 190px;
+  font-size: 0.6em;
+}
+
+.level .emoji-lg {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.level small {
+  display: block;
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+  font-size: 0.8em;
+}
+
+.folders {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.6em;
+  width: 760px;
+  margin: 0 auto;
+}
+
+.folders .level {
+  font-size: 1.4em;
+  min-width: 0;
+  border-style: dashed;
+  margin-bottom: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+
+.folders .question {
+  font-family: var(--font-sans);
+  font-size: 1.3em;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-warning-soft);
+}
+
+/* Les poupées russes */
+.nest {
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 44px 22px 22px;
+  position: relative;
+  text-align: left;
+  font-size: 0.6em;
+  background: var(--color-bg);
+}
+
+.nest > .nest-label {
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  font-weight: 700;
+}
+
+.nest.l-page { width: 980px; margin: 0 auto; background: var(--slate-50); }
+.nest.l-template { background: var(--slate-100); }
+.nest.l-organism { background: var(--violet-100); border-color: var(--violet-600); }
+.nest.l-molecule { background: var(--blue-100); border-color: var(--blue-400); }
+.nest.l-atom {
+  background: var(--color-primary);
+  color: var(--slate-0);
+  border-color: var(--color-primary);
+  padding: 14px 22px;
+  display: inline-block;
+}
+
+.nest .nest {
+  font-size: 1em;
+}
+
+/* La matrice niveau × vocabulaire */
+.matrix {
+  position: relative;
+  width: 1040px;
+  height: 420px;
+  margin: 0 auto;
+  font-size: 0.5em;
+}
+
+.matrix .band {
+  position: absolute;
+  left: 150px;
+  right: 0;
+  height: 170px;
+  border-radius: var(--radius-lg);
+}
+
+.matrix .band.business { top: 10px; background: var(--color-business-soft); }
+.matrix .band.generic { top: 200px; background: var(--color-primary-soft); }
+
+.matrix .y-label {
+  position: absolute;
+  left: 0;
+  width: 140px;
+  text-align: right;
+  font-weight: 800;
+}
+
+.matrix .x-axis {
+  position: absolute;
+  left: 150px;
+  right: 0;
+  top: 385px;
+  display: flex;
+  justify-content: space-around;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.matrix .dot {
+  position: absolute;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  background: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  box-shadow: var(--shadow-card);
+  white-space: nowrap;
+}
+
+.matrix .dot.business {
+  border-color: var(--color-business);
+  color: var(--color-business);
+}
+
+/* ---------- Slide 6 : les tokens ---------- */
+
+.swatch-cloud {
+  position: relative;
+  width: 1000px;
+  height: 380px;
+  margin: 0 auto;
+}
+
+.swatch {
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.swatch .hex {
+  position: absolute;
+  bottom: -26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font: 500 14px var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+.ramp {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-bottom: var(--space-12);
+}
+
+.ramp .swatch,
+.ramp-col .swatch {
+  position: relative;
+}
+
+.ramp .swatch .hex {
+  bottom: -34px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.ramp-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ramp-col .swatch {
+  width: 64px;
+  height: 64px;
+}
+
+.token-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.62em;
+  height: 64px;
+}
+
+.token-row .sem {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-weight: 700;
+}
+
+/* ---------- Slide 7 : l'architecture ---------- */
+
+.layers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.layer {
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-4);
+  min-width: 190px;
+  font-size: 0.55em;
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-subtle);
+}
+
+.layer {
+  text-align: center;
+}
+
+.layer .emoji-lg {
+  display: block;
+}
+
+.layer small {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.layer code {
+  display: block;
+  font-weight: 700;
+  margin-top: var(--space-2);
+}
+
+.layer.ds { background: var(--color-primary-soft); border-color: var(--color-primary); }
+.layer.biz { background: var(--color-business-soft); border-color: var(--color-business); }
+
+.lint-error {
+  margin: var(--space-8) auto 0;
+  width: 900px;
+  text-align: left;
+  border-left: 6px solid var(--color-danger);
+  background: var(--color-danger-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+  font-size: 0.5em;
+}
+
+.lint-error code {
+  color: var(--color-danger);
+  font-weight: 700;
+}
+
+/* ---------- Slide 8 : la maquette de l'écran fil rouge ---------- */
+
+.mock {
+  --mock-primary: var(--blue-600);
+  --mock-primary-soft: var(--blue-100);
+  width: 1040px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgb(15 23 42 / 0.15);
+  overflow: hidden;
+  text-align: left;
+  font-size: 18px;
+}
+
+.mock.brand-violet {
+  --mock-primary: var(--violet-600);
+  --mock-primary-soft: var(--violet-100);
+}
+
+.mock-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--color-bg-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mock-bar i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--slate-300);
+}
+
+.mock-body {
+  padding: 24px 28px 28px;
+}
+
+.mock-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+.mock-search {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.mock-input {
+  flex: 1;
+  padding: 14px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+}
+
+.m-btn {
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  background: var(--mock-primary, var(--blue-600));
+  color: var(--slate-0);
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.mock-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.ev-card {
+  --mock-primary: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.ev-media {
+  height: 110px;
+  display: grid;
+  place-items: center;
+  font-size: 54px;
+  background: var(--mock-primary-soft, var(--blue-100));
+}
+
+.ev-content {
+  padding: 14px 16px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ev-badge {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--amber-100);
+  color: #92400e;
+}
+
+.ev-title {
+  font-weight: 800;
+  font-size: 19px;
+}
+
+.ev-meta {
+  color: var(--color-text-muted);
+  font-size: 15px;
+}
+
+.ev-actions {
+  padding: 10px 16px 16px;
+}
+
+.ev-actions .m-btn {
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+/* Version "template" : on garde la structure, on retire les données */
+.skel {
+  background: var(--slate-200) !important;
+  color: transparent !important;
+  border-color: transparent !important;
+  border-radius: 6px;
+}
+
+.skel.line { height: 18px; }
+.skel.short { width: 55%; }
+
+/* Libellé du niveau en cours, posé sur la maquette */
+.level-tag {
+  display: inline-flex;
+  gap: 0.4em;
+  align-items: center;
+  padding: 0.3em 0.9em;
+  border-radius: var(--radius-full);
+  font-size: 0.55em;
+  font-weight: 750;
+  background: var(--slate-900);
+  color: var(--slate-0);
+  margin-bottom: var(--space-4);
+}
+
+/* EventCard en gros plan */
+.solo-card {
+  width: 420px;
+  font-size: 22px;
+  box-shadow: 0 20px 60px rgb(15 23 42 / 0.15);
+}
+
+.solo-card .ev-media {
+  height: 170px;
+  font-size: 80px;
+}
+
+.annot {
+  font-size: 0.5em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.annot .note {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-business-soft);
+  border-left: 5px solid var(--color-business);
+}
+
+.annot .note.generic {
+  background: var(--color-primary-soft);
+  border-left-color: var(--color-primary);
+}
+
+/* Vue éclatée : chaque primitive à sa place */
+.exploded {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  width: 1040px;
+  margin: 0 auto;
+}
+
+.frame {
+  border: 3px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  height: 380px;
+  position: relative;
+}
+
+.frame .slot {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  border: 2px dashed var(--slate-300);
+  border-radius: var(--radius-sm);
+  font: 600 15px var(--font-mono);
+  color: var(--color-text-muted);
+  display: grid;
+  place-items: center;
+}
+
+.prims {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  font-size: 22px;
+  text-align: left;
+}
+
+.prims .prim {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.prims code {
+  font-size: 20px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.code-pill {
+  display: inline-block;
+  font: 600 0.55em var(--font-mono);
+  padding: 0.5em 1em;
+  border-radius: var(--radius-md);
+  background: var(--slate-950);
+  color: var(--slate-200);
+  margin-bottom: var(--space-4);
+}
+
+.code-pill .val {
+  color: #c4b5fd;
+}
+
+.code-pill .val.blue {
+  color: #93c5fd;
+}
+
+/* ---------- Slide 11 : Storybook ---------- */
+
+.sb {
+  width: 1040px;
+  height: 460px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 1fr 120px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgb(15 23 42 / 0.12);
+  text-align: left;
+  font-size: 18px;
+}
+
+.sb-side {
+  grid-row: 1 / 3;
+  background: var(--color-bg-subtle);
+  border-right: 1px solid var(--color-border);
+  padding: 18px;
+  font-size: 16px;
+}
+
+.sb-side .grp {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin: 6px 0 10px;
+}
+
+.sb-side .item {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.sb-side .item.sub {
+  padding-left: 30px;
+}
+
+.sb-side .item.on {
+  background: var(--color-primary);
+  color: var(--slate-0);
+  font-weight: 700;
+}
+
+.sb-canvas {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 24px;
+}
+
+.sb-canvas .story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.m-btn.loading::before {
+  content: '⏳ ';
+}
+
+.m-btn.disabled {
+  background: var(--slate-300);
+  color: var(--slate-500);
+}
+
+.m-btn.danger {
+  background: var(--color-danger);
+}
+
+.sb-panel {
+  border-top: 1px solid var(--color-border);
+  padding: 14px 20px;
+  font-size: 16px;
+}
+
+.sb-panel .tabs {
+  display: flex;
+  gap: 18px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.sb-panel .tabs .on {
+  color: var(--color-primary);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+  justify-content: center;
+}
+
+.flow .tile {
+  flex: 1;
+  text-align: center;
+  padding: var(--space-4) var(--space-3);
+}
+
+/* ---------- Slide 13 : configuration vs composition ---------- */
+
+.versus {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.counter {
+  font-size: 4.5em;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ---------- Slide 14 : la checklist ---------- */
+
+.checklist {
+  width: 1040px;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  font-size: 0.55em;
+}
+
+.reveal .checklist td,
+.reveal .checklist th {
+  border: none;
+  padding: 14px 18px;
+  vertical-align: middle;
+}
+
+.reveal .checklist th {
+  font-size: 0.85em;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.reveal .checklist td {
+  background: var(--color-bg-subtle);
+}
+
+.reveal .checklist td:first-child {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  font-weight: 800;
+  color: var(--color-primary);
+  width: 50px;
+  text-align: center;
+}
+
+.reveal .checklist td:last-child {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.reveal .checklist td.mark {
+  width: 150px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.verdict {
+  display: inline-flex;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.qr {
+  width: 220px;
+  height: 220px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--slate-0);
+}
+
+.qr svg {
+  width: 100%;
+  height: 100%;
+}
+
+.reveal .refs {
+  display: block;
+  text-align: left;
+  font-size: 0.65em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reveal .refs li {
+  margin: 0 0 var(--space-4);
+  padding-left: 1.8em;
+  text-indent: -1.8em;
+}
