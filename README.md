@@ -83,6 +83,7 @@ Deux slides consécutives avec `data-auto-animate`. Les éléments qui partagent
 - Pour qu'un élément « surgisse » d'un autre, le placer dès la slide précédente au même endroit avec `opacity: 0` (voir l'explosion de boutons de la slide 1).
 - Pour le code, mettre le même `data-id` sur les `<pre>` : reveal anime les lignes ajoutées et supprimées.
 - Une slide intercalée sans `data-auto-animate` casse la chaîne.
+- Les `data-id` peuvent être **imbriqués** (une carte animée qui contient un bouton animé) et changer de **balise** (`h2` → `h3`) : le matcher maison de [src/auto-animate-matcher.js](src/auto-animate-matcher.js) gère ces cas, que reveal.js gère mal par défaut. Un conteneur animé change de taille sans être déformé, et chaque élément démarre exactement là où il était sur la slide précédente.
 
 ## Parties et minutage
 

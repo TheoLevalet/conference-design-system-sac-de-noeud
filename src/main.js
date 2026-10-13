@@ -4,6 +4,8 @@ import Notes from 'reveal.js/plugin/notes';
 import Zoom from 'reveal.js/plugin/zoom';
 import QRCode from 'qrcode';
 
+import { nestedAutoAnimateMatcher } from './auto-animate-matcher.js';
+
 import 'reveal.js/reset.css';
 import 'reveal.js/reveal.css';
 import 'reveal.js/theme/white.css';
@@ -28,6 +30,7 @@ const deck = new Reveal({
   backgroundTransition: 'fade',
   autoAnimateDuration: 0.9,
   autoAnimateEasing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+  autoAnimateMatcher: nestedAutoAnimateMatcher,
   plugins: [Highlight, Notes, Zoom],
 });
 
