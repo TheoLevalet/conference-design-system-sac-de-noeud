@@ -77,6 +77,31 @@
   font-size: 0.5em;
 }
 
+.tally .pic {
+  height: 2.4em;
+  font-size: 0.4em;
+  margin-bottom: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+}
+.tally .pic .ui-btn { font-size: 1em; padding: 0.5em 0.9em; border-radius: 0.5em; }
+.tally .pic .ui-btn.v2 { background: #2f6fe0; border-radius: 0.3em; }
+.tally .pic .ui-btn.v3 { background: #1d4ed8; border-radius: 999px; }
+.tally .pic .real-loader { width: 1.8em; height: 1.8em; }
+.pic-search { display: flex; gap: 0.3em; align-items: center; }
+.pic-search span { display: block; padding: 0.5em; border: 2px solid var(--color-border); border-radius: 0.4em; background: var(--color-bg); color: var(--color-text-muted); font-size: 0.8em; white-space: nowrap; }
+.pic-search b { display: grid; place-items: center; padding: 0.5em; border-radius: 0.4em; background: var(--color-primary); color: var(--color-bg); font-size: 0.8em; }
+.pic-error { display: flex; align-items: center; gap: 0.5em; padding: 0.5em 0.8em; border-radius: 0.5em; background: #fee2e2; border: 2px solid var(--color-danger); }
+.pic-error strong { display: grid; place-items: center; width: 1.4em; height: 1.4em; border-radius: 50%; background: var(--color-danger); color: var(--color-bg); }
+.pic-error span { color: var(--color-danger); font-size: 0.85em; font-weight: 650; line-height: 1.2; text-align: left; }
+.pic-ds { position: relative; width: 4.4em; height: 2.4em; }
+.pic-ds i { position: absolute; top: 0; width: 1.7em; height: 2.4em; border-radius: 0.3em; }
+.pic-ds i:nth-child(1) { left: 0; background: #2563eb; }
+.pic-ds i:nth-child(2) { left: 1.35em; background: #7c3aed; }
+.pic-ds i:nth-child(3) { left: 2.7em; background: #0d9488; }
+
 .zero {
   font-size: 7em;
   font-weight: 900;
@@ -93,6 +118,8 @@
 }
 
 .team {
+  display: flex;
+  flex-direction: column;
   border-radius: var(--radius-lg);
   padding: var(--space-6) var(--space-4);
   text-align: left;
@@ -130,8 +157,69 @@
   font-size: 0.4em;
 }
 
-.junk-box .team span {
+.junk-box .team span,
+.junk-box .team .demo {
   display: none;
+}
+
+/* Vrais composants affichés sous chaque équipe */
+.team .demo {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-4);
+  min-height: 2.6em;
+}
+
+.decision-bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  margin: var(--space-12) 0;
+}
+
+.shared-basics .basics-example {
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.shared-basics .basics-example .chip { font-size: 0.85em; }
+.shared-basics .basics-example .ui-btn { font-size: 0.7em; }
+
+.real-btn {
+  font: 650 1em/1 var(--font-sans);
+  padding: 0.6em 1.1em;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.real-btn.alt { background: #2f6fe0; border-radius: 6px; }
+.real-btn.icon svg { width: 1.1em; height: 1.1em; }
+
+.real-loader {
+  display: inline-block;
+  width: 1.8em;
+  height: 1.8em;
+  border: 0.25em solid var(--amber-100);
+  border-top-color: var(--amber-500);
+  border-radius: 50%;
+  animation: real-spin 0.9s linear infinite;
+}
+
+@keyframes real-spin {
+  to { transform: rotate(360deg); }
 }
 
 /* ---------- Slide 5 : Atomic Design ---------- */
@@ -163,6 +251,94 @@
   font-size: 0.8em;
 }
 
+/* Atomic Design : un vrai mini-composant par niveau */
+.levels.illu {
+  gap: var(--space-3);
+  width: 1180px;
+}
+
+.level.lv {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-3);
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.lv-art {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-subtle);
+}
+
+.lv b { display: block; font-size: 1.15em; }
+
+.ui-btn {
+  display: inline-block;
+  padding: 0.55em 1.1em;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 650;
+}
+
+.ui-btn.sm { padding: 0.4em 0.8em; font-size: 0.85em; }
+
+.ui-search { display: flex; gap: 6px; align-items: center; font-size: 0.6em; }
+
+.ui-input {
+  padding: 0.45em 0.8em;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-text-muted);
+}
+
+.ui-card {
+  width: 130px;
+  padding: 8px;
+  border: 2px solid var(--violet-600);
+  border-radius: 10px;
+  background: #fff;
+  text-align: left;
+}
+
+.ui-img { height: 40px; border-radius: 6px; background: var(--violet-100); margin-bottom: 6px; }
+.ui-line { height: 7px; border-radius: 4px; background: var(--color-border); margin-bottom: 5px; }
+.ui-line.w70 { width: 70%; }
+.ui-line.w40 { width: 40%; }
+
+.ui-wire {
+  width: 140px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fff;
+  border: 2px dashed var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ui-block {
+  height: 22px;
+  border-radius: 4px;
+  background: var(--slate-200);
+  font-size: 0.8em;
+  line-height: 22px;
+  text-align: left;
+  padding: 0 6px;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.ui-block.head { background: var(--slate-300); }
+.ui-block.tint { background: var(--violet-100); }
+.ui-wire.real { border-style: solid; border-color: var(--color-primary); }
+
 .folders {
   text-align: left;
   font-family: var(--font-mono);
@@ -187,39 +363,169 @@
   background: var(--color-warning-soft);
 }
 
-/* Les poupées russes */
-.nest {
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 44px 22px 22px;
+/* Construction pas à pas : atomes → page */
+.build {
   position: relative;
-  text-align: left;
-  font-size: 0.6em;
-  background: var(--color-bg);
+  width: 1000px;
+  height: 460px;
+  margin: 0 auto;
 }
 
-.nest > .nest-label {
+.bd-panel {
   position: absolute;
-  top: 10px;
-  left: 18px;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62em;
+}
+
+.bd-panel b { font-size: 1.3em; margin-top: var(--space-4); }
+.bd-panel p { margin: var(--space-1) 0 0; color: var(--color-text-muted); }
+.bd-panel u { text-decoration: none; background: linear-gradient(transparent 58%, var(--color-warning-soft) 58%); }
+
+.bd-art {
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  font-size: 22px;
+}
+
+.bd-btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.bd-btn.sm { padding: 0.4em 0.8em; font-size: 0.75em; }
+
+.bd-input {
+  padding: 0.55em 0.9em;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.bd-badge {
+  align-self: flex-start;
+  padding: 0.2em 0.7em;
+  border-radius: 999px;
+  background: var(--amber-100);
+  color: #92400e;
+  font-size: 0.75em;
   font-weight: 700;
 }
 
-.nest.l-page { width: 980px; margin: 0 auto; background: var(--slate-50); }
-.nest.l-template { background: var(--slate-100); }
-.nest.l-organism { background: var(--violet-100); border-color: var(--violet-600); }
-.nest.l-molecule { background: var(--blue-100); border-color: var(--blue-400); }
-.nest.l-atom {
-  background: var(--color-primary);
-  color: var(--slate-0);
-  border-color: var(--color-primary);
-  padding: 14px 22px;
-  display: inline-block;
+.bd-search { display: flex; gap: 8px; align-items: center; position: relative; }
+.bd-search.sm { font-size: 0.7em; }
+
+.bd-card {
+  position: relative;
+  width: 210px;
+  padding: 12px;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  align-items: flex-start;
 }
 
-.nest .nest {
-  font-size: 1em;
+.bd-card.sm { width: auto; flex: 1; font-size: 0.8em; padding: 10px; }
+.bd-img { align-self: stretch; height: 70px; border-radius: 8px; background: linear-gradient(135deg, #818cf8, #c4b5fd); }
+.bd-card.sm .bd-img { height: 54px; }
+.bd-img.b { background: linear-gradient(135deg, #f87171, #fbbf24); }
+.bd-img.c { background: linear-gradient(135deg, #34d399, #38bdf8); }
+.bd-ttl { font-weight: 800; }
+.bd-meta { color: var(--color-text-muted); font-size: 0.8em; }
+
+.bd-page {
+  width: 940px;
+  padding: 18px;
+  border: 2px solid var(--color-primary);
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 22px;
 }
+
+.bd-page.wire { border: 2px dashed var(--color-text-muted); }
+.bd-row { display: flex; gap: 14px; align-items: center; justify-content: space-between; }
+.bd-row.cards { align-items: stretch; }
+.bd-title { font-weight: 800; font-size: 1.1em; }
+.bd-block { height: 34px; border-radius: 6px; background: var(--slate-200); }
+.bd-block.dark { background: var(--slate-300); }
+.bd-block.tall { height: 120px; flex: 1; }
+.bd-block.w40 { width: 40%; }
+.bd-block.w50 { width: 50%; }
+
+/* Repères posés sur la page finale */
+.bd-outline {
+  position: absolute;
+  inset: -6px;
+  border: 3px solid var(--color-primary);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.bd-outline i {
+  position: absolute;
+  top: -22px;
+  left: -3px;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  font: 700 13px/1.5 var(--font-sans);
+}
+
+.bd-outline.mol { border-color: #0d9488; }
+.bd-outline.mol i { background: #0d9488; }
+.bd-outline.atom i { top: 4px; left: 100%; margin-left: 10px; }
+
+.grid-map {
+  display: grid;
+  grid-template-columns: 170px repeat(5, 1fr);
+  grid-template-rows: 30px 70px 70px;
+  gap: 6px;
+  position: relative;
+  width: 1000px;
+  margin: 14px auto 0;
+  font-size: 0.55em;
+}
+.gm-head { text-align: center; font-weight: 700; color: var(--color-text-muted, #475569); padding: 6px 0; }
+.gm-row { display: flex; flex-direction: column; justify-content: center; padding: 0 12px; border-radius: 10px; font-weight: 700; }
+.gm-row small { font-weight: 400; font-size: 0.7em; opacity: 0.8; }
+.gm-row.business { background: #ede9fe; color: #5b21b6; }
+.gm-row.generic { background: #dbeafe; color: #1d4ed8; }
+.gm-cell { display: flex; align-items: center; justify-content: center; border: 1.5px dashed #cbd5e1; border-radius: 10px; }
+.grid-map .dot { position: static; padding: 6px 10px; border-radius: 999px; font-weight: 600; background: #2563eb; color: #fff; }
+.grid-map .dot.business { background: #7c3aed; }
+.gm-links { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.gm-links path { fill: none; stroke: #334155; stroke-width: 2.5; stroke-linecap: round; }
+.gm-links path.fragment { opacity: 0; visibility: hidden; }
+.gm-links marker path { fill: #334155; stroke: none; opacity: 1; visibility: visible; }
+.gm-links path.fragment.visible { opacity: 1; visibility: inherit; }
+.gm-why { position: relative; height: 70px; margin-top: 10px; font-size: 0.6em; }
+.gm-why p { position: absolute; inset: 0; margin: 0; text-align: center; }
+.gm-why p.fragment { opacity: 0; visibility: hidden; }
+.gm-why p.fragment.current-fragment, .gm-why p.fragment.visible:last-child { opacity: 1; visibility: inherit; }
+.bd-outline.org { border-color: var(--violet-600); inset: -4px; }
+.bd-outline.org i { background: var(--violet-600); top: auto; bottom: -22px; }
 
 /* La matrice niveau × vocabulaire */
 .matrix {
@@ -407,7 +713,7 @@
   font-weight: 700;
 }
 
-/* ---------- Slide 8 : la maquette de l'écran fil rouge ---------- */
+/* ---------- Slide 8 : la maquette de l'écran fil rouge ----------  */
 
 .mock {
   --mock-primary: var(--blue-600);
@@ -415,6 +721,7 @@
   width: 1040px;
   margin: 0 auto;
   background: var(--color-bg);
+  color: var(--color-text);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 60px rgb(15 23 42 / 0.15);
@@ -423,9 +730,14 @@
   font-size: 18px;
 }
 
-.mock.brand-violet {
-  --mock-primary: var(--violet-600);
-  --mock-primary-soft: var(--violet-100);
+.mock.theme-dark {
+  --color-bg: var(--slate-900);
+  --color-bg-subtle: var(--slate-950);
+  --color-bg-muted: var(--slate-950);
+  --color-text: var(--slate-50);
+  --color-text-muted: var(--slate-300);
+  --color-border: var(--slate-500);
+  --mock-primary-soft: var(--slate-700);
 }
 
 .mock-bar {
@@ -1086,3 +1398,65 @@
   width: 18px;
   height: 18px;
 }
+
+/* ---------- Une décision, écrite une seule fois ---------- */
+.pipe { display: flex; align-items: stretch; justify-content: center; gap: 0; margin-top: 18px; }
+.pipe-step { width: 250px; padding: 18px 14px; border: 2px solid var(--color-border); border-radius: 16px; background: var(--color-bg-subtle); font-size: 0.55em; text-align: center; }
+.pipe-step h3 { margin: 10px 0 2px; font-size: 1.4em; }
+.pipe-step p { margin: 0; font-weight: 600; }
+.pipe-step small { display: block; margin-top: 6px; color: var(--color-text-muted); }
+.pipe-art { height: 64px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.pipe-art i { display: block; width: 44px; height: 44px; border-radius: 10px; }
+.pipe-art.code { font-family: var(--font-mono); font-size: 0.7em; gap: 4px; }
+.pipe-art.code b { padding: 4px 6px; border-radius: 6px; background: #fff; border: 1.5px solid var(--color-border); white-space: nowrap; }
+.pipe-art.code em { font-style: normal; font-weight: 800; }
+.pipe-art.chips b { padding: 6px 12px; border-radius: 999px; background: #2563eb; color: #fff; font-size: 0.9em; }
+.pipe-arrow { width: 70px; display: flex; align-items: center; justify-content: center; }
+.pipe-arrow span { position: relative; width: 48px; height: 3px; background: #334155; }
+.pipe-arrow span::after { content: ""; position: absolute; right: -2px; top: -6px; border-left: 12px solid #334155; border-top: 7.5px solid transparent; border-bottom: 7.5px solid transparent; }
+
+/* ---------- Page complète : en-tête et pied de page ---------- */
+.mock-header, .mock-footer { display: flex; justify-content: space-between; align-items: center; padding: 0 24px; height: 38px; font-size: 15px; background: var(--color-bg-subtle); }
+.mock-header { border-bottom: 1px solid var(--color-border); }
+.mock-footer { border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 13px; height: 32px; }
+.mh-logo { font-weight: 850; color: var(--mock-primary); }
+.mh-nav { display: flex; gap: 18px; }
+.mh-nav u { text-decoration: none; color: var(--color-text-muted); }
+
+.mock.full .mock-body { padding: 14px 24px 16px; }
+.mock.full .mock-title { font-size: 22px; margin-bottom: 10px; }
+.mock.full .mock-search { margin-bottom: 12px; }
+.mock.full .mock-input { padding: 9px 14px; }
+.mock.full .m-btn { padding: 9px 18px; }
+.mock.full .ev-media { height: 60px; font-size: 30px; }
+.mock.full .ev-content { padding: 8px 12px 2px; gap: 4px; }
+.mock.full .ev-title { font-size: 17px; }
+.mock.full .ev-meta { font-size: 14px; }
+.mock.full .ev-actions { padding: 6px 12px 10px; }
+.mock.full .ev-actions .m-btn { padding: 6px 14px; font-size: 14px; }
+
+/* Template : plan d'architecte, pas écran */
+.mock.blueprint {
+  background-color: #1e3a8a;
+  background-image: linear-gradient(rgb(147 197 253 / 0.18) 1px, transparent 1px), linear-gradient(90deg, rgb(147 197 253 / 0.18) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border-color: #93c5fd;
+  color: #bfdbfe;
+  font-family: var(--font-mono);
+}
+.blueprint .mock-bar, .blueprint .mock-header, .blueprint .mock-footer { background: transparent; border-color: #93c5fd; color: #bfdbfe; }
+.blueprint .mock-bar i { background: #93c5fd; }
+.blueprint .mh-logo, .blueprint .mh-nav u { color: #bfdbfe; }
+.blueprint .mock-input, .blueprint .m-btn, .blueprint .ev-card, .blueprint .ev-media, .blueprint .ev-badge {
+  background: transparent !important;
+  color: #bfdbfe;
+  border: 1.5px dashed #93c5fd;
+  border-radius: 6px;
+}
+.blueprint .ev-card { border-radius: 8px; }
+.blueprint .ev-media { border: 1.5px dashed #93c5fd; display: grid; place-items: center; font-size: 15px; }
+.blueprint .mock-title, .blueprint .ev-title, .blueprint .ev-meta { color: #fff; font-weight: 600; }
+.blueprint .mock-title { font-size: 18px; }
+.blueprint .ev-title { font-size: 14px; }
+.mock.full.blueprint .ev-media { font-size: 14px; }
+.blueprint .ev-meta, .blueprint .ev-badge, .blueprint .m-btn, .blueprint .mock-input { font-size: 13px; font-weight: 500; }

@@ -1,5 +1,5 @@
 <!-- =====================================================
-     PARTIE 3 · UN ÉCRAN, DÉMONTÉ (8:00 → 13:00)
+     PARTIE 3 · UN ÉCRAN, DÉMONTÉ (8:00 → 13:00) 
      ===================================================== -->
 
 <section data-part="③ Un écran, démonté" data-no-footer>
@@ -18,8 +18,9 @@
 <!-- 8a · La page -->
 <section data-auto-animate>
   <span class="level-tag" data-id="tag">📄 Page : de vraies données</span>
-  <div class="mock" data-id="mock">
+  <div class="mock full" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header"><span class="mh-logo" data-id="m-logo">EventHub</span><span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span></div>
     <div class="mock-body">
       <div class="mock-title" data-id="m-title">🎟️ Rechercher un événement</div>
       <div class="mock-search">
@@ -56,57 +57,63 @@
         </div>
       </div>
     </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
   </div>
   <aside class="notes">
     ⏱ 8:00 · Théo<br />
-    Théo : « Voici l'écran : une recherche, une liste de cartes. C'est la page, le niveau le plus haut d'Atomic Design : de vraies données, de vrais événements. »
+    Théo : « Voici l'écran : un en-tête, une recherche, une liste de cartes, un pied de page. C'est la page, le niveau le plus haut d'Atomic Design : de vraies données, de vrais événements. »
   </aside>
 </section>
 
 <!-- 8b · Le template -->
 <section data-auto-animate>
-  <span class="level-tag" data-id="tag">📐 Template : la structure, sans les données</span>
-  <div class="mock" data-id="mock">
+  <span class="level-tag" data-id="tag">📐 Template : le plan de la page, sans les données</span>
+  <div class="mock full blueprint" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header"><span class="mh-logo" data-id="m-logo">Zone en-tête</span><span class="mh-nav" data-id="m-nav"><u>Navigation</u></span></div>
     <div class="mock-body">
-      <div class="mock-title skel line short" data-id="m-title"></div>
+      <div class="mock-title" data-id="m-title">Titre de la page (texte fixe)</div>
       <div class="mock-search">
-        <div class="mock-input skel" data-id="m-input">&nbsp;</div>
-        <div class="m-btn skel" data-id="m-btn">Rechercher</div>
+        <div class="mock-input" data-id="m-input">Zone de recherche</div>
+        <div class="m-btn" data-id="m-btn">Bouton</div>
       </div>
       <div class="mock-cards">
         <div class="ev-card" data-id="c1">
-          <div class="ev-media skel" data-id="c1-media"></div>
+          <div class="ev-media" data-id="c1-media">Image</div>
           <div class="ev-content">
-            <span class="ev-badge skel" data-id="c1-badge">Complet</span>
-            <span class="skel line" data-id="c1-title"></span>
-            <span class="skel line short" data-id="c1-meta"></span>
+            <span class="ev-badge" data-id="c1-badge">Badge (si besoin)</span>
+            <span class="ev-title" data-id="c1-title">Titre (longueur max.)</span>
+            <span class="ev-meta" data-id="c1-meta">Date · lieu</span>
           </div>
-          <div class="ev-actions"><div class="m-btn skel" data-id="c1-btn">S'inscrire</div></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn">Action</div></div>
         </div>
         <div class="ev-card" data-id="c2">
-          <div class="ev-media skel" data-id="c2-media"></div>
+          <div class="ev-media" data-id="c2-media">Image</div>
           <div class="ev-content">
-            <span class="ev-badge skel" data-id="c2-badge">Nouveau</span>
-            <span class="skel line" data-id="c2-title"></span>
-            <span class="skel line short" data-id="c2-meta"></span>
+            <span class="ev-badge" data-id="c2-badge">Badge (si besoin)</span>
+            <span class="ev-title" data-id="c2-title">Titre (longueur max.)</span>
+            <span class="ev-meta" data-id="c2-meta">Date · lieu</span>
           </div>
-          <div class="ev-actions"><div class="m-btn skel" data-id="c2-btn">S'inscrire</div></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn">Action</div></div>
         </div>
         <div class="ev-card" data-id="c3">
-          <div class="ev-media skel" data-id="c3-media"></div>
+          <div class="ev-media" data-id="c3-media">Image</div>
           <div class="ev-content">
-            <span class="ev-badge skel" data-id="c3-badge">Gratuit</span>
-            <span class="skel line" data-id="c3-title"></span>
-            <span class="skel line short" data-id="c3-meta"></span>
+            <span class="ev-badge" data-id="c3-badge">Badge (si besoin)</span>
+            <span class="ev-title" data-id="c3-title">Titre (longueur max.)</span>
+            <span class="ev-meta" data-id="c3-meta">Date · lieu</span>
           </div>
-          <div class="ev-actions"><div class="m-btn skel" data-id="c3-btn">S'inscrire</div></div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn">Action</div></div>
         </div>
       </div>
     </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">Zone pied de page</span><span class="mh-nav" data-id="m-flinks"><u>Liens</u></span></div>
   </div>
   <aside class="notes">
-    Théo : « Je retire les données. Il reste la structure : une zone de recherche, une grille de résultats. C'est le template. »<br />
+    Théo : « Je retire les données, et je passe en plan d'architecte. Ce n'est plus un écran, c'est le plan : un en-tête, un titre, une zone de recherche, une grille de cartes, un pied de page. »<br />
+    Wafa : « Ce plan ne dit pas quoi afficher, il dit où et sous quelles contraintes : ici une image, là un titre pas trop long. C'est ce que décrit Brad Frost : un template montre la structure du contenu, pas le contenu final. »<br />
+    Théo : « Et si un texte ne change jamais, comme le titre de la page ? »<br />
+    Wafa : « Il peut être fixé dans le template : c'est de la structure. Ce qui varie, c'est ce qu'on remplit, comme le badge « Complet » : le template prévoit la place, la page décide de l'afficher ou non. Cette précision est la nôtre, Frost ne la formule pas. »<br />
     Wafa : « Une structure de page peut appartenir au design system. La page, avec ses données, jamais. »
   </aside>
 </section>
@@ -153,7 +160,7 @@
     <div class="prims">
       <div class="prim"><code>&lt;ui-card&gt;</code><span class="muted">une structure, trois emplacements</span></div>
       <div class="prim"><span class="ev-badge" data-id="c1-badge" style="font-size: 18px">Complet</span><code>&lt;ui-badge&gt;</code></div>
-      <div class="prim"><div class="m-btn" data-id="c1-btn">S'inscrire</div><code>&lt;ui-button&gt;</code></div>
+      <div class="prim"><div class="m-btn" data-id="c1-btn">S'inscrire</div><code>&lt;button uiButton&gt;</code></div>
       <p class="punchline fragment fade-up" style="font-size: 30px">Aucune ne connaît le mot <span class="hl">« événement »</span>.</p>
     </div>
   </div>
@@ -175,9 +182,13 @@
   <p class="punchline fragment" style="color: #fff">Une primitive <span style="color: #fde68a">ne parle pas votre métier.</span></p>
   <aside class="notes">
     ⏱ 10:00 · Théo, Wafa commente<br />
-    Wafa : « Cherche le mot « événement » dans libs/ui. »<br />
-    Théo : « Zéro résultat. »<br />
-    Wafa : « C'est le test le plus simple qui soit : une primitive ne parle pas votre métier. »
+    Théo : « On simule une recherche des mots « event » et « événement » dans le code. Ces résultats sont illustratifs. »<br />
+    Wafa : « Dans libs/ui, nos briques communes : Button, Card, Badge. Elles ne connaissent pas les événements métier. »<br />
+    Théo (premier clic) : « Ici, aucun résultat. Dans libs/events, en revanche : EventCard et la recherche d'événements. »<br />
+    Wafa : « C'est leur place : cette bibliothèque assemble les briques communes pour le métier. »<br />
+    Théo : « Donc un bouton peut servir à réserver un concert ou à payer une facture. »<br />
+    Wafa : « Attention : c'est un indice, pas une preuve. event peut aussi désigner un clic technique ; zéro résultat ne garantit pas un composant générique. Vérifiez sa responsabilité. »<br />
+    (Viser 40 à 45 secondes. Dernier clic sur la phrase : une primitive ne parle pas votre métier.)
   </aside>
 </section>
 
@@ -204,9 +215,9 @@
   <aside class="notes">Théo : « Et sous chaque pièce, il n'y a que des tokens sémantiques. Pas un seul hexadécimal en dur. »</aside>
 </section>
 
-<!-- 8f · Une ligne, tout suit (bleu) -->
+<!-- 8f · Le même écran en mode clair -->
 <section data-auto-animate>
-  <div class="code-pill" data-id="pill">--color-primary: <span class="val blue">var(--blue-600)</span>;</div>
+  <div class="code-pill" data-id="pill">Mode clair · --color-bg: <span class="val blue">var(--slate-0)</span>; --color-text: <span class="val blue">var(--slate-900)</span>;</div>
   <div class="mock" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
     <div class="mock-body">
@@ -236,14 +247,14 @@
   </div>
   <aside class="notes">
     ⏱ 11:00 · Théo<br />
-    Théo : « On remonte à l'écran entier. Le client change de charte. Je ne touche pas au bleu… je change l'intention. »
+    Théo : « On remonte à l'écran entier, ici en mode clair. Le fond, le texte et les bordures utilisent des tokens nommés par leur rôle. Passons maintenant toute la page en mode sombre, sans changer les composants. »
   </aside>
 </section>
 
-<!-- 8g · Une ligne, tout suit (violet) -->
+<!-- 8g · Le même écran en mode sombre -->
 <section data-auto-animate>
-  <div class="code-pill" data-id="pill">--color-primary: <span class="val">var(--violet-600)</span>;</div>
-  <div class="mock brand-violet" data-id="mock">
+  <div class="code-pill" data-id="pill">Mode sombre · --color-bg: <span class="val blue">var(--slate-900)</span>; --color-text: <span class="val blue">var(--slate-50)</span>;</div>
+  <div class="mock theme-dark" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
     <div class="mock-body">
       <div class="mock-title" data-id="m-title">🎟️ Rechercher un événement</div>
@@ -270,16 +281,18 @@
       </div>
     </div>
   </div>
-  <p class="punchline">Une ligne. <span class="hl">Tout suit.</span></p>
+  <p class="punchline">Même page, mêmes composants. <span class="hl">Un autre thème.</span></p>
   <aside class="notes">
-    Wafa : « Une seule ligne. Et on n'a pas touché à blue-600 : on a changé la décision, pas la valeur. C'est exactement à ça que sert la couche sémantique. »
+    Wafa : « Cette fois, c'est toute la page qui passe en mode sombre : le fond, les cartes, la recherche, les textes et les bordures. Les boutons restent bleus. »<br />
+    Théo : « Les composants n'ont pas changé. C'est le thème qui fournit d'autres valeurs aux mêmes tokens. Ici, on montre le fond et le texte ; les surfaces secondaires et les bordures sont adaptées elles aussi. »<br />
+    Wafa : « Il faut vérifier les contrastes dans chaque thème. Le mode sombre n'est pas une solution au daltonisme : une information ne doit pas reposer uniquement sur la couleur. »
   </aside>
 </section>
 
 <!-- 10 · Le code de la composition -->
 <section data-background-color="#020617">
   <h3 style="color: #fff"><code>EventCard</code> assemble, elle n'invente rien 🧩</h3>
-  <pre><code class="language-typescript" data-trim data-line-numbers="|4|6-17|20-21"><script type="text/template">
+  <pre style="font-size: 0.44em"><code class="language-typescript" data-trim data-line-numbers="|3|6-13|15|21-22"><script type="text/template">
 @Component({
   selector: 'evt-event-card',
   imports: [Card, CardContent, CardActions, Badge, Button, DatePipe],
@@ -287,14 +300,14 @@
     <ui-card>
       <img uiCardMedia [src]="event().cover" alt="" />
       <ui-card-content>
-@if (event().full) {
-  <ui-badge tone="warning">Complet</ui-badge>
-}
-<h3>{{ event().title }}</h3>
-<p>{{ event().date | date }} · {{ event().city }}</p>
+        @if (event().full) {
+          <ui-badge tone="warning">Complet</ui-badge>
+        }
+        <h3>{{ event().title }}</h3>
+        <p>{{ event().date | date }} · {{ event().city }}</p>
       </ui-card-content>
       <ui-card-actions>
-<ui-button (click)="register.emit(event())">S'inscrire</ui-button>
+        <button uiButton type="button" (click)="register.emit(event())">S'inscrire</button>
       </ui-card-actions>
     </ui-card>
   `,
@@ -304,10 +317,13 @@ export class EventCard {
   register = output<EventSummary>();
 }
   </script></code></pre>
+  <p class="equiv"><code>&lt;button uiButton&gt;</code> : bouton natif, clavier et focus · <code>uiCardMedia</code> : attribut de placement · <code>&lt;ui-card-content&gt;</code> : composant conteneur</p>
   <p class="equiv">Emplacements Angular (<code>ng-content</code>) ≈ <code>children</code> en React ≈ <code>&lt;slot&gt;</code> en Vue et Web Components</p>
   <aside class="notes">
     ⏱ 11:30 · Théo<br />
     Théo : « Le code d'EventCard : il importe des pièces du design system et les assemble. Tout le vocabulaire métier est ici : l'événement, « Complet », l'inscription. »<br />
+    Wafa : « Pour l'action, on garde un vrai bouton HTML. uiButton est ici une directive de style du design system : elle habille le bouton sans remplacer son comportement natif. Pas besoin d'ajouter tabindex : le bouton est déjà accessible par Tab, et s'active avec Entrée ou Espace. Il faut aussi conserver un indicateur de focus visible. type="button" évite une soumission de formulaire involontaire. »<br />
+    Théo : « Pourquoi uiCardMedia sans chevrons, mais ui-card-content entre chevrons ? Le premier est un attribut sur l'image native : la carte le repère avec ng-content select="[uiCardMedia]" pour la placer dans la zone média. Le second est un composant conteneur, repéré par son nom : ng-content select="ui-card-content". Ce sont deux sélecteurs de projection différents, pas deux façons d'écrire le même composant. »<br />
     Wafa (pour les non-Angular) : « Les emplacements, c'est l'équivalent de children en React ou des slots en Vue. »
   </aside>
 </section>

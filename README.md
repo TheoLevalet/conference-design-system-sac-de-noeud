@@ -19,6 +19,8 @@ Construit avec [reveal.js](https://revealjs.com) 6 et Vite, en s'appuyant largem
 npm install
 npm run dev        # http://localhost:5173
 npm run build      # version statique dans dist/
+npm run preview    # prévisualiser la version de production
+
 ```
 
 | Touche | Action |

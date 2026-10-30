@@ -12,22 +12,46 @@
     <span class="step">④ Le composant universel</span>
     <span class="step">⑤ La règle</span>
   </div>
+  <aside class="notes">
+    ⏱ 4:00 · Wafa (10 s, enchaîner vite)<br />
+    Wafa : « Commençons par la première étape : les fondations. Deux sujets, en quatre minutes : comment on pense l'assemblage des composants, avec Atomic Design de Brad Frost, puis les décisions de design qu'on écrit une seule fois, les design tokens. »<br />
+    Théo : « Et on promet : pas de dossier atoms. » (Sourire, passer à la slide suivante.)
+  </aside>
 </section>
 
 <!-- 5 · Atomic Design -->
 <section data-auto-animate>
-  <h2 data-id="ad-title">Atomic Design ⚛️</h2>
-  <div class="levels">
-    <div class="level" data-id="lvl-atom"><span class="emoji-lg">⚛️</span><b>Atomes</b><small>un bouton</small></div>
-    <div class="level" data-id="lvl-molecule"><span class="emoji-lg">🧪</span><b>Molécules</b><small>champ + bouton</small></div>
-    <div class="level" data-id="lvl-organism"><span class="emoji-lg">🦠</span><b>Organismes</b><small>une carte d'événement</small></div>
-    <div class="level" data-id="lvl-template"><span class="emoji-lg">📐</span><b>Templates</b><small>la structure de page</small></div>
-    <div class="level" data-id="lvl-page"><span class="emoji-lg">📄</span><b>Pages</b><small>avec de vraies données</small></div>
+  <h2 data-id="ad-title">Atomic Design : on construit par assemblage</h2>
+  <div class="levels illu">
+    <div class="level lv fragment fade-up" data-id="lvl-atom">
+      <div class="lv-art"><span class="ui-btn">Réserver</span></div>
+      <b>Atome</b><small>la plus petite brique : un bouton, un champ</small>
+    </div>
+    <div class="level lv fragment fade-up" data-id="lvl-molecule">
+      <div class="lv-art"><div class="ui-search"><span class="ui-input">Rechercher…</span><span class="ui-btn sm">OK</span></div></div>
+      <b>Molécule</b><small>quelques atomes qui font une chose : un champ de recherche</small>
+    </div>
+    <div class="level lv fragment fade-up" data-id="lvl-organism">
+      <div class="lv-art"><div class="ui-card"><div class="ui-img"></div><div class="ui-line w70"></div><div class="ui-line w40"></div><span class="ui-btn sm">Réserver</span></div></div>
+      <b>Organisme</b><small>une section complète : une carte d'événement</small>
+    </div>
+    <div class="level lv fragment fade-up" data-id="lvl-template">
+      <div class="lv-art"><div class="ui-wire"><div class="ui-block head"></div><div class="ui-block"></div><div class="ui-block"></div><div class="ui-block"></div></div></div>
+      <b>Template</b><small>la structure de la page et du contenu, sans le contenu final</small>
+    </div>
+    <div class="level lv fragment fade-up" data-id="lvl-page">
+      <div class="lv-art"><div class="ui-wire real"><div class="ui-block head">Concerts</div><div class="ui-block tint">Jazz · 12 nov.</div><div class="ui-block tint">Rock · 19 nov.</div><div class="ui-block tint">Opéra · 3 déc.</div></div></div>
+      <b>Page</b><small>le template avec du contenu réel et représentatif</small>
+    </div>
   </div>
   <p class="source stack-top">Brad Frost, <em>Atomic Design</em>, chapitre 2</p>
   <aside class="notes">
-    ⏱ 4:00 · Wafa<br />
-    Wafa : « Atomic Design, de Brad Frost : cinq niveaux, des atomes jusqu'aux pages. On connaît tous le vocabulaire. Le problème, c'est ce qu'on en fait. »
+    ⏱ 4:10 · Wafa<br />
+    Wafa : « Atomic Design, de Brad Frost : on construit une interface par assemblage, en cinq niveaux. »<br />
+    (Un clic = un niveau.)<br />
+    Wafa : « L'atome : la plus petite brique, par exemple un bouton. Plusieurs atomes qui font une seule chose forment une molécule : un champ de recherche, c'est une étiquette, un champ et un bouton. Un groupe de molécules forme un organisme, une section bien identifiable : ici, une carte d'événement. »<br />
+    Wafa : « Ensuite, le template : la structure de la page et de son contenu. On sait où placer l'image, le titre, la date, et quelle place leur réserver, mais on n'a pas encore le contenu final. Ce n'est donc pas une page vide. Et la page : ce même template avec du contenu réel et représentatif, comme le nom et la date d'un concert. »<br />
+    Wafa : « Retenez : on part du petit, on assemble pour faire du plus grand. »
   </aside>
 </section>
 
@@ -48,45 +72,128 @@
 </section>
 
 <section data-auto-animate>
-  <h2 data-id="ad-title">…un modèle de <span class="hl">composition</span> 🪆</h2>
-  <div class="nest l-page" data-id="lvl-page">
-    <span class="nest-label">📄 Page</span>
-    <div class="nest l-template" data-id="lvl-template">
-      <span class="nest-label">📐 Template</span>
-      <div class="nest l-organism" data-id="lvl-organism">
-        <span class="nest-label">🦠 Organisme</span>
-        <div class="nest l-molecule" data-id="lvl-molecule">
-          <span class="nest-label">🧪 Molécule</span>
-          <div class="nest l-atom" data-id="lvl-atom">⚛️ Atome</div>
+  <h2 data-id="ad-title">…un modèle de <span class="hl">composition</span></h2>
+  <div class="build">
+    <div class="bd-panel fragment fade-in-then-out" data-fragment-index="0">
+      <div class="bd-art atoms">
+        <span class="bd-btn">Réserver</span>
+        <span class="bd-input">Rechercher…</span>
+        <span class="bd-badge">Complet</span>
+      </div>
+      <b>1 · Atomes</b>
+      <p>Les plus petites briques : un bouton, un champ, un badge.</p>
+    </div>
+    <div class="bd-panel fragment fade-in-then-out" data-fragment-index="1">
+      <div class="bd-art">
+        <div class="bd-search"><span class="bd-input">Rechercher un concert…</span><span class="bd-btn">Rechercher</span></div>
+      </div>
+      <b>2 · Molécules</b>
+      <p>Quelques atomes assemblés pour faire <u>une seule chose</u> : un champ de recherche.</p>
+    </div>
+    <div class="bd-panel fragment fade-in-then-out" data-fragment-index="2">
+      <div class="bd-art">
+        <div class="bd-card">
+          <div class="bd-img"></div>
+          <span class="bd-badge">Complet</span>
+          <div class="bd-ttl">Soirée Jazz</div>
+          <div class="bd-meta">12 nov. · Nantes</div>
+          <span class="bd-btn sm">Réserver</span>
         </div>
       </div>
+      <b>3 · Organismes</b>
+      <p>Un ensemble d'éléments qui forme une <u>section identifiable</u> : une carte d'événement.</p>
+    </div>
+    <div class="bd-panel fragment fade-in-then-out" data-fragment-index="3">
+      <div class="bd-art">
+        <div class="bd-page wire">
+          <div class="bd-row"><div class="bd-block w40 dark"></div><div class="bd-block w50"></div></div>
+          <div class="bd-row cards"><div class="bd-block tall"></div><div class="bd-block tall"></div><div class="bd-block tall"></div></div>
+        </div>
+      </div>
+      <b>4 · Templates</b>
+      <p>La mise en page : où va chaque composant, <u>sans le contenu final</u>.</p>
+    </div>
+    <div class="bd-panel fragment fade-in" data-fragment-index="4">
+      <div class="bd-art">
+        <div class="bd-page">
+          <div class="bd-row">
+            <div class="bd-title">Concerts à Nantes</div>
+            <div class="bd-search sm"><span class="bd-input">Jazz…</span><span class="bd-btn sm">Rechercher</span><span class="bd-outline mol fragment fade-in" data-fragment-index="6"><i>molécule</i></span></div>
+          </div>
+          <div class="bd-row cards">
+            <div class="bd-card sm"><div class="bd-img"></div><span class="bd-badge">Complet</span><div class="bd-ttl">Soirée Jazz</div><div class="bd-meta">12 nov.</div><span class="bd-btn sm">Réserver<span class="bd-outline atom fragment fade-in" data-fragment-index="5"><i>atome</i></span></span><span class="bd-outline org fragment fade-in" data-fragment-index="7"><i>organisme</i></span></div>
+            <div class="bd-card sm"><div class="bd-img b"></div><div class="bd-ttl">Nuit Rock</div><div class="bd-meta">19 nov.</div><span class="bd-btn sm">Réserver</span></div>
+            <div class="bd-card sm"><div class="bd-img c"></div><div class="bd-ttl">Opéra</div><div class="bd-meta">3 déc.</div><span class="bd-btn sm">Réserver</span></div>
+          </div>
+        </div>
+      </div>
+      <b>5 · Pages</b>
+      <p>Le template rempli avec de <u>vraies données</u>. Tout le reste est dedans.</p>
     </div>
   </div>
+  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2</p>
   <aside class="notes">
-    Wafa : « Atomic Design ne range pas les composants par taille. Il décrit comment des éléments simples se composent en éléments plus riches. C'est un modèle mental, pas un plan de dossiers. »
+    ⏱ 5:00 · Wafa (une étape par clic, ne pas aller trop vite)<br />
+    Wafa : « Reprenons : Atomic Design ne range pas des composants dans des dossiers. Il décrit comment on construit une interface par assemblage. »<br />
+    (Clic 1) « Je pars des atomes : un bouton, un champ, un badge. Pris seuls, ils ne servent pas à grand-chose. »<br />
+    (Clic 2) « J'assemble un champ et un bouton : j'obtiens une molécule, un champ de recherche. Elle fait une seule chose. »<br />
+    (Clic 3) « Plusieurs éléments ensemble forment un organisme, une section qu'on reconnaît : ici, une carte d'événement. »<br />
+    (Clic 4) « Je place ces organismes dans une mise en page : c'est le template. Il montre la structure, pas le contenu final. »<br />
+    (Clic 5) « Je verse de vraies données dans le template : c'est la page. »<br />
+    (Clics 6, 7, 8) « Et dans cette page, on retrouve tout : un atome, une molécule, un organisme. Le modèle, c'est cette composition, du plus petit au plus grand. Ce n'est pas un classement par dossiers. »
   </aside>
 </section>
 
 <section data-auto-animate>
-  <h2 data-id="ad-title">La taille ne dit pas <span class="hl">où ça vit</span></h2>
-  <div class="matrix">
-    <div class="band business"></div>
-    <div class="band generic"></div>
-    <div class="y-label" style="top: 70px">🏷️ Métier</div>
-    <div class="y-label" style="top: 260px">🧰 Générique</div>
-    <div class="x-axis"><span>⚛️ Atome</span><span>🧪 Molécule</span><span>🦠 Organisme</span><span>📐 Template</span><span>📄 Page</span></div>
-    <div class="dot" style="left: 190px; top: 255px">Button</div>
-    <div class="dot" style="left: 335px; top: 225px">SearchField</div>
-    <div class="dot" style="left: 365px; top: 300px">Card</div>
-    <div class="dot" style="left: 690px; top: 255px">PageLayout</div>
-    <div class="dot business fragment fade-up" style="left: 520px; top: 70px">EventCard</div>
-    <div class="dot business fragment fade-up" style="left: 840px; top: 70px">EventSearchPage</div>
+  <h2 data-id="ad-title">Le niveau ne dit pas <span class="hl">où ça vit</span></h2>
+  <div class="grid-map">
+    <div class="gm-corner"></div>
+    <div class="gm-head">Atome</div>
+    <div class="gm-head">Molécule</div>
+    <div class="gm-head">Organisme</div>
+    <div class="gm-head">Template</div>
+    <div class="gm-head">Page</div>
+
+    <div class="gm-row business">Métier<small>parle de votre domaine</small></div>
+    <div class="gm-cell"></div>
+    <div class="gm-cell"></div>
+    <div class="gm-cell"><span class="dot business fragment fade-up" data-fragment-index="4">EventCard</span></div>
+    <div class="gm-cell"></div>
+    <div class="gm-cell"><span class="dot business fragment fade-up" data-fragment-index="5">EventSearchPage</span></div>
+
+    <div class="gm-row generic">Générique<small>utilisable partout</small></div>
+    <div class="gm-cell"><span class="dot fragment fade-up" data-fragment-index="0">Button</span></div>
+    <div class="gm-cell"><span class="dot fragment fade-up" data-fragment-index="1">SearchField</span></div>
+    <div class="gm-cell"><span class="dot fragment fade-up" data-fragment-index="2">Card</span></div>
+    <div class="gm-cell"><span class="dot fragment fade-up" data-fragment-index="3">PageLayout</span></div>
+    <div class="gm-cell"></div>
+    <svg class="gm-links" viewBox="0 0 1000 182" aria-hidden="true">
+      <defs><marker id="gm-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#334155" /></marker></defs>
+      <path class="fragment fade-in" data-fragment-index="1" d="M298 147H342" marker-end="url(#gm-arr)" />
+      <path class="fragment fade-in" data-fragment-index="4" d="M588 118V98" marker-end="url(#gm-arr)" />
+      <path class="fragment fade-in" data-fragment-index="5" d="M642 71H810" marker-end="url(#gm-arr)" />
+      <path class="fragment fade-in" data-fragment-index="5" d="M808 135L846 92" marker-end="url(#gm-arr)" />
+    </svg>
   </div>
-  <p class="lead"><b>Le niveau</b> dit comment ça se compose. <b class="text-business">Le vocabulaire</b> dit où ça vit.</p>
+  <div class="gm-why">
+    <p class="fragment fade-in-then-out" data-fragment-index="0"><b>Button</b> : un atome, et il ne sait rien de votre métier. Il sert dans toutes les applications.</p>
+    <p class="fragment fade-in-then-out" data-fragment-index="1"><b>SearchField</b> : une molécule (champ + bouton) qui fait une seule chose. Aucun mot métier : on peut chercher n'importe quoi.</p>
+    <p class="fragment fade-in-then-out" data-fragment-index="2"><b>Card</b> : un organisme générique : une structure avec des emplacements, sans contenu métier.</p>
+    <p class="fragment fade-in-then-out" data-fragment-index="3"><b>PageLayout</b> : un template générique : une mise en page, sans données.</p>
+    <p class="fragment fade-in-then-out" data-fragment-index="4"><b>EventCard</b> : même niveau que Card (organisme), mais elle parle d'événements : date, lieu, « Complet ». Elle est construite à partir de Card (voir la flèche) et vit côté métier.</p>
+    <p class="fragment fade-in" data-fragment-index="5"><b>EventSearchPage</b> : une page : le template PageLayout, rempli avec EventCard et de vraies données d'événements. Elle est forcément métier.</p>
+  </div>
+  <p class="source">Les cinq niveaux : Brad Frost. L'axe « générique / métier » : notre repère pour décider où ranger.</p>
   <aside class="notes">
-    Wafa : « Il faut deux axes. Horizontalement, le niveau de composition. Verticalement, la question qui compte vraiment : est-ce que ça parle votre métier ? »<br />
-    (Fragment : EventCard apparaît en haut.)<br />
-    Wafa : « EventCard est un organisme, et c'est un composant métier. Ce n'est pas sa taille qui décide où il vit, c'est son vocabulaire. On y reviendra. »
+    ⏱ 6:00 · Wafa<br />
+    Wafa : « Le niveau dit comment une chose est composée. Il ne dit pas où la ranger. Pour ça, on ajoute une deuxième question : est-ce que ça parle de mon métier ? Cet axe, c'est notre repère à nous, pas celui de Brad Frost. »<br />
+    (Clic 1) « Button : un atome, aucun mot métier. Case générique. »<br />
+    (Clic 2) « SearchField : une molécule, elle utilise Button (la flèche), fait une seule chose et ne sait pas ce qu'on cherche. Générique. »<br />
+    (Clic 3) « Card : un organisme, mais c'est juste une structure avec des emplacements. Générique aussi. »<br />
+    (Clic 4) « PageLayout : un template, une mise en page sans données. Générique. »<br />
+    (Clic 5) « Maintenant EventCard : même niveau que Card, construite à partir d'elle (la flèche), mais elle parle d'événements. Elle change de ligne. C'est la preuve que la taille ne décide pas. »<br />
+    (Clic 6) « Et la page de recherche d'événements : le template PageLayout rempli avec EventCard et de vraies données, donc métier. »<br />
+    Wafa : « Retenez : le niveau dit comment ça se compose, le vocabulaire dit où ça vit. »
   </aside>
 </section>
 
@@ -132,7 +239,7 @@
 </section>
 
 <section data-auto-animate>
-  <h2 data-id="tk-title">Tokens sémantiques : <span class="hl">des intentions</span> 🎯</h2>
+  <h2 data-id="tk-title">Tokens sémantiques : <span class="hl">nommés par leur sens</span> 🎯</h2>
   <div class="grid-2" style="grid-template-columns: auto 1fr; width: 900px; margin: 0 auto">
     <div class="ramp-col" data-id="ramp">
       <div class="swatch" data-id="sw-3" style="background: var(--blue-100)"></div>
@@ -147,52 +254,59 @@
   </div>
   <p class="lead stack-top">Les composants ne connaissent <span class="hl">que la colonne de droite</span>.</p>
   <aside class="notes">
-    Wafa : « Le token sémantique dit pourquoi on utilise la couleur. Les composants ne devraient connaître que ceux-là. »<br />
+    Wafa : « Le token sémantique est nommé par son sens : à quoi sert la couleur. « primary », c'est l'action principale. Les composants ne devraient connaître que ceux-là. »<br />
     Théo : « Donc si je change un token, tout bouge ? »<br />
     Wafa : « Si tout passe par le sémantique, oui. Sinon, tu as dix-sept bleus. »
   </aside>
 </section>
 
 <section data-background-color="#020617">
-  <h3 style="color: #fff">Le format DTCG : un <span class="text-primary" style="color: #93c5fd">alias</span> relie l'intention à la valeur</h3>
-  <pre><code class="language-json" data-trim data-line-numbers="|3-9|11-14">
-{
-  "color": {
-    "blue": {
-      "600": {
-"$type": "color",
-"$value": { "colorSpace": "srgb", "components": [0.15, 0.39, 0.92],
-            "hex": "#2563eb" }
-      }
-    },
-    "primary": {
-      "$type": "color",
-      "$value": "{color.blue.600}",
-      "$description": "Actions principales, liens, focus"
-    }
-  }
+  <h3 style="color: #fff">En CSS : un <span class="text-primary" style="color: #93c5fd">alias</span> relie le sens à la valeur</h3>
+  <pre><code class="language-css" data-trim data-line-numbers="|2|3">
+:root {
+  --blue-600: #2563eb;
+  --color-primary: var(--blue-600);
 }
   </code></pre>
-  <p class="caption">Design Tokens Format Module, 1re version stable (2025.10). La séparation brut / sémantique est un usage, rendu possible par les alias.</p>
+  <p class="caption">Ligne 2 : la valeur brute. Ligne 3 : le nom qui dit à quoi elle sert, relié à la valeur par un alias.</p>
   <aside class="notes">
-    Wafa : « Le Design Tokens Community Group a publié en octobre 2025 la première version stable du format. Il ne vous impose pas de couches, il vous donne le mécanisme : un alias, entre accolades, qui pointe vers un autre token. »
+    Wafa : « Voilà à quoi ça ressemble en vrai, en CSS. Première ligne utile : la valeur brute, bleu 600. Deuxième : le nom qui dit à quoi elle sert, couleur primaire, qui pointe vers la première. Les composants n'utilisent que le deuxième nom. Si demain la couleur primaire change, on modifie une seule ligne. »
   </aside>
 </section>
 
-<section>
-  <h2>Une source, designers <span class="hl">et</span> devs 🤝</h2>
-  <div class="flow stack-top">
-    <div class="tile fragment fade-up"><span class="emoji-lg">🎨</span><h3>Figma</h3><p>variables, Tokens Studio</p></div>
-    <span class="arrow fragment fade-up">➜</span>
-    <div class="tile primary fragment fade-up"><span class="emoji-lg">📄</span><h3>tokens.json</h3><p>format DTCG</p></div>
-    <span class="arrow fragment fade-up">➜</span>
-    <div class="tile fragment fade-up"><span class="emoji-lg">⚙️</span><h3>Build</h3><p>Style Dictionary…</p></div>
-    <span class="arrow fragment fade-up">➜</span>
-    <div class="tile fragment fade-up"><span class="emoji-lg">💻</span><h3>Code</h3><p>CSS, iOS, Android</p></div>
+<section data-auto-animate>
+  <h2 data-id="arch-title">Une décision, <span class="hl">écrite une seule fois</span></h2>
+  <p class="lead">Dans une ESN, le même produit passe entre plusieurs mains : designer, développeur, référent technique, chef de projet.</p>
+  <div class="pipe">
+    <div class="pipe-step fragment fade-up" data-fragment-index="0">
+      <div class="pipe-art"><i style="background: #2563eb"></i><i style="background: #1e40af"></i><i style="background: #dbeafe"></i></div>
+      <h3>Design</h3>
+      <p>Figma, Tokens Studio</p>
+      <small>le designer choisit la couleur</small>
+    </div>
+    <div class="pipe-arrow fragment fade-in" data-fragment-index="1"><span></span></div>
+    <div class="pipe-step fragment fade-up" data-fragment-index="1">
+      <div class="pipe-art code"><b>blue-600</b><em>→</em><b>--color-primary</b></div>
+      <h3>Build</h3>
+      <p>Style Dictionary</p>
+      <small>un outil traduit les décisions</small>
+    </div>
+    <div class="pipe-arrow fragment fade-in" data-fragment-index="2"><span></span></div>
+    <div class="pipe-step fragment fade-up" data-fragment-index="2">
+      <div class="pipe-art chips"><b>CSS</b><b>iOS</b><b>Android</b></div>
+      <h3>Code</h3>
+      <p>web et mobile</p>
+      <small>le développeur la reçoit prête</small>
+    </div>
   </div>
-  <p class="lead stack-top">Le token est <span class="hl">la décision de design</span>, écrite une seule fois.</p>
+  <p class="lead stack-top fragment fade-up" data-fragment-index="3">Personne ne recopie un code couleur à la main : <span class="hl">tout le monde part de la même décision</span>.</p>
   <aside class="notes">
-    Wafa (vers les designers dans la salle) : « L'intérêt d'un format commun, c'est que la décision prise dans Figma est la même que celle qui arrive dans le code. Personne ne recopie un hexadécimal à la main. »
+    Wafa : « Dans une ESN, un même produit passe entre beaucoup de mains : le designer, le développeur, le référent technique, le chef de projet. Si chacun recopie la couleur de son côté, on retombe sur les dix-sept bleus. »<br />
+    (Clic 1) « Le designer choisit sa couleur dans Figma. C'est la décision. »<br />
+    (Clic 2) « Un outil de build, par exemple Style Dictionary, traduit cette décision. »<br />
+    (Clic 3) « Et chaque plateforme la reçoit dans son langage : CSS pour le web, iOS, Android. »<br />
+    (Clic 4) « Personne ne recopie un code couleur à la main. »<br />
+    (Cette chaîne est un exemple d'outillage courant, pas une règle d'Atomic Design.)
   </aside>
 </section>
 

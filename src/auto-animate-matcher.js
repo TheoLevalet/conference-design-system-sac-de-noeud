@@ -130,6 +130,14 @@ export function nestedAutoAnimateMatcher(fromSlide, toSlide) {
 
     startLayout = new Map(unique.map((pair) => [pair.to, pair.to.getBoundingClientRect()]));
 
+    // Les fragments portent une transition CSS : sans la neutraliser, la restauration
+    // lance une transition et reveal lirait des valeurs « à mi-chemin » (état d'arrivée faux).
+    for (const [element, style] of saved) {
+      if (style === null) element.removeAttribute('style');
+      else element.setAttribute('style', style);
+      element.style.setProperty('transition', 'none', 'important');
+    }
+    void document.body.offsetHeight;
     for (const [element, style] of saved) {
       if (style === null) element.removeAttribute('style');
       else element.setAttribute('style', style);
