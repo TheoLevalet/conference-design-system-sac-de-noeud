@@ -1,0 +1,1106 @@
+<!-- =====================================================
+     PARTIE 2 · UN ÉCRAN, RÉPARÉ DE BAS EN HAUT (4:00 → 17:30)
+     Fil unique : Problème sur l'écran → concept utile → correction vérifiable.
+     La maquette EventHub (identique sur toutes les slides) :
+     .messy = le désordre ; fix-tokens, fix-atoms, fix-molecules, fix-organisms = étages déjà réparés ;
+     un fragment data-fix="…" répare un étage au clic ; un fragment data-flag="…" entoure le problème suivant.
+     ===================================================== -->
+
+<section data-part="② Un écran, réparé de bas en haut" data-no-footer>
+  <p class="emoji-xl">🔧</p>
+  <h2>Un écran, réparé de bas en haut</h2>
+  <div class="agenda">
+    <span class="step done">① Le problème</span>
+    <span class="step active">② L'écran, du problème à la règle</span>
+  </div>
+  
+<aside class="notes">
+    Wafa : « Assez parlé du problème en général. On prend une maquette d'écran, on cherche ce qui cloche, et on la répare. Un problème à la fois. »
+  </aside>
+</section>
+
+<!-- 2.1 · L'écran « avant » -->
+<section>
+  <span class="level-tag">📄 EventHub, l'écran « avant »</span>
+  <div class="mock full messy" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  
+<aside class="notes">
+    Théo : « Voici notre maquette EventHub, une page de recherche d'événements. Un en-tête, une recherche, des cartes, un pied de page. Et ça marche ! »<br />
+    Wafa : « Ça marche… »
+  </aside>
+</section>
+
+<!-- 2.2 · Par où commencer ? Problème : ranger par dossiers -->
+<section data-auto-animate>
+  <h2 data-id="ad-title">Par où commencer ?</h2>
+  <div class="folders">
+    <div class="level" data-id="lvl-atom">📁 atoms/</div>
+    <div class="level" data-id="lvl-molecule">📁 molecules/</div>
+    <div class="level" data-id="lvl-organism">📁 organisms/</div>
+    <div class="question fragment fade-up">🤷 <code>EventCard</code> va dans <code>molecules/</code> ? <code>organisms/</code> ?</div>
+  </div>
+  
+<aside class="notes">
+    Théo : « Pour remettre de l'ordre, j'ai fait comme dans Atomic Design : un dossier atoms, un dossier molecules, un dossier organisms. »<br />
+    Wafa : « Et ta carte d'événement, elle va où ? »<br />
+    Théo : « Dans… organisms ? Non, molecules ? »<br />
+    Wafa : « Tu hésites parce que la question est mal posée. »
+  </aside>
+</section>
+
+<!-- 2.2 · Concept clé : Atomic Design (le même bouton OK, du plus petit au plus grand) -->
+<section data-auto-animate>
+  <h2 data-id="ad-title">Atomic Design : un modèle de <span class="hl">composition</span></h2>
+  <div class="levels illu">
+    <div class="level lv" data-id="lvl-atom">
+      <div class="lv-art"><span class="ui-btn ok-mark">OK</span></div>
+      <b>Atome</b><small>la plus petite brique : un bouton</small>
+    </div>
+    <div class="level lv" data-id="lvl-molecule">
+      <div class="lv-art"><div class="ui-search"><span class="ui-input">Titre, auteur…</span><span class="ui-btn sm ok-mark">OK</span></div></div>
+      <b>Molécule</b><small>quelques atomes qui font une chose : un champ de recherche</small>
+    </div>
+    <div class="level lv" data-id="lvl-organism">
+      <div class="lv-art lv-stack">
+        <div class="ui-search xs"><span class="ui-input">Titre, auteur…</span><span class="ui-btn sm ok-mark">OK</span></div>
+        <div class="lv-zoom card"><div class="ev-card"><div class="ev-media">📕</div><div class="ev-content"><span class="ev-badge">Nouveauté</span><span class="ev-title">Le Petit Prince</span><span class="ev-meta">Saint-Exupéry · 8 €</span></div><div class="ev-actions"><div class="m-btn">Ajouter au panier</div></div></div></div>
+      </div>
+      <b>Organisme</b><small>une section composée ; ici, une carte de livre complète</small>
+    </div>
+    <div class="level lv" data-id="lvl-template">
+      <div class="lv-art"><div class="lv-zoom page"><div class="mock full blueprint"><div class="mock-header"><span class="mh-logo">En-tête</span><span class="mh-nav"><u>Navigation</u></span></div><div class="mock-body"><div class="mock-title">Titre de la page</div><div class="mock-search"><div class="mock-input">Zone de recherche</div><div class="m-btn ok-mark">OK</div></div><div class="mock-cards"><div class="ev-card"><div class="ev-media">Image</div><div class="ev-content"><span class="ev-badge">Badge</span><span class="ev-title">Titre</span><span class="ev-meta">Auteur · prix</span></div><div class="ev-actions"><div class="m-btn">Action</div></div></div><div class="ev-card"><div class="ev-media">Image</div><div class="ev-content"><span class="ev-badge">Badge</span><span class="ev-title">Titre</span><span class="ev-meta">Auteur · prix</span></div><div class="ev-actions"><div class="m-btn">Action</div></div></div></div></div></div></div></div>
+      <b>Template</b><small>la structure de la page et du contenu, sans le contenu final</small>
+    </div>
+    <div class="level lv" data-id="lvl-page">
+      <div class="lv-art"><div class="lv-zoom page"><div class="mock full"><div class="mock-header"><span class="mh-logo">Librairie</span><span class="mh-nav"><u>Romans</u><u>BD</u></span></div><div class="mock-body"><div class="mock-title">📚 Trouver un livre</div><div class="mock-search"><div class="mock-input">🔍 Titre, auteur…</div><div class="m-btn ok-mark">OK</div></div><div class="mock-cards"><div class="ev-card"><div class="ev-media">📕</div><div class="ev-content"><span class="ev-badge">Nouveauté</span><span class="ev-title">Le Petit Prince</span><span class="ev-meta">Saint-Exupéry · 8 €</span></div><div class="ev-actions"><div class="m-btn">Ajouter</div></div></div><div class="ev-card"><div class="ev-media">📗</div><div class="ev-content"><span class="ev-badge">Coup de cœur</span><span class="ev-title">L'Étranger</span><span class="ev-meta">Camus · 7 €</span></div><div class="ev-actions"><div class="m-btn">Ajouter</div></div></div></div></div></div></div></div>
+      <b>Page</b><small>le template avec du contenu réel et représentatif</small>
+    </div>
+  </div>
+  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2 : « un modèle mental », pas un processus linéaire</p>
+  
+<aside class="notes">
+    Wafa : « Atomic Design, de Brad Frost, ne range pas des composants dans des dossiers. Suivez le bouton OK. »<br />
+    Wafa : « Prenons une librairie en ligne. Seul, le bouton OK est un atome, la plus petite brique. Avec un champ, il devient une molécule : un champ de recherche de livres, qui fait une seule chose. À côté, une carte de livre complète : dans cet exemple, on la traite comme un organisme. Ce classement illustre le modèle ; ce n'est pas une taxonomie universelle. Puis le template : le plan de la page, sans le contenu final. Et la page : le même plan avec de vrais livres. Le bouton OK est toujours là, le même, du plus petit au plus grand. »<br />
+    Wafa : « Frost le décrit comme un modèle mental, pas comme un processus linéaire : il aide à voir l'interface à la fois comme un tout et comme un ensemble de pièces. C'est un modèle de composition, pas un classement par dossiers. »<br />
+    Wafa : « Alors on ne range pas : on construit. Pour notre démonstration, on va parcourir les niveaux du plus petit au plus grand. »
+  </aside>
+</section>
+
+<!-- 2.3 · Tokens. Problème : une palette sans rôles explicites -->
+<section>
+  <span class="level-tag">📄 EventHub, l'écran « avant »</span>
+  <div class="mock full messy" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="problem fragment" data-flag="tokens">🔍 Combien de nuances de couleur sur cet écran ?</span>
+  </div>
+  
+<aside class="notes">
+    Wafa : « Commençons par le plus petit : les couleurs. »<br />
+    Wafa : « Le logo, le titre, les boutons, les cartes… Quelles nuances de rouge et d'orange voyez-vous ? »<br />
+    Théo : « Plusieurs, et pas toujours pour la même raison ? »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="tk-title">17 nuances rouge-orange : quel rôle pour chacune ?</h2>
+  <div class="swatch-cloud">
+    <div class="swatch" data-id="sw-1" style="left: 20px; top: 20px; background: #de1823"><span class="hex">#de1823</span></div>
+    <div class="swatch" data-id="sw-2" style="left: 150px; top: 60px; background: #e86600"><span class="hex">#e86600</span></div>
+    <div class="swatch" data-id="sw-3" style="left: 300px; top: 10px; background: #fdecec"><span class="hex">#fdecec</span></div>
+    <div class="swatch" data-id="sw-4" style="left: 440px; top: 70px; background: #c51620"><span class="hex">#c51620</span></div>
+    <div class="swatch" data-id="sw-5" style="left: 580px; top: 15px; background: #e85d65"><span class="hex">#e85d65</span></div>
+    <div class="swatch" data-id="sw-6" style="left: 720px; top: 55px; background: #fb923c"><span class="hex">#fb923c</span></div>
+    <div class="swatch" data-id="sw-7" style="left: 870px; top: 15px; background: #fff3e8"><span class="hex">#fff3e8</span></div>
+    <div class="swatch" data-id="sw-8" style="left: 60px; top: 160px; background: #871d24"><span class="hex">#871d24</span></div>
+    <div class="swatch" data-id="sw-9" style="left: 210px; top: 200px; background: #eb4d1e"><span class="hex">#eb4d1e</span></div>
+    <div class="swatch" data-id="sw-10" style="left: 360px; top: 170px; background: #f1979c"><span class="hex">#f1979c</span></div>
+    <div class="swatch" data-id="sw-11" style="left: 500px; top: 215px; background: #c45800"><span class="hex">#c45800</span></div>
+    <div class="swatch" data-id="sw-12" style="left: 650px; top: 175px; background: #8f151b"><span class="hex">#8f151b</span></div>
+    <div class="swatch" data-id="sw-13" style="left: 800px; top: 205px; background: #f67200"><span class="hex">#f67200</span></div>
+    <div class="swatch" data-id="sw-14" style="left: 110px; top: 290px; background: #f9841f"><span class="hex">#f9841f</span></div>
+    <div class="swatch" data-id="sw-15" style="left: 420px; top: 300px; background: #ffc58f"><span class="hex">#ffc58f</span></div>
+    <div class="swatch" data-id="sw-16" style="left: 600px; top: 310px; background: #a50e17"><span class="hex">#a50e17</span></div>
+    <div class="swatch" data-id="sw-17" style="left: 880px; top: 300px; background: #d95f02"><span class="hex">#d95f02</span></div>
+  </div>
+  
+<aside class="notes">
+    Wafa : « Dans la palette de notre exemple, il y a dix-sept nuances de rouge et d'orange. Le rouge #de1823 et l'orange #f67200 viennent du logo ; les autres sont des nuances d'illustration, pas des couleurs officielles du logo. »<br />
+    Théo : « Plusieurs valeurs peuvent avoir une bonne raison d'exister. »<br />
+    Wafa : « Exactement. Le problème n'est pas leur nombre : c'est de ne pas savoir quel rôle chacun joue, ni lequel choisir. »
+  </aside>
+</section>
+
+<!-- 2.3 · Concept clé : le design token (DTCG) -->
+<section data-auto-animate>
+  <h2 data-id="tk-title">Un design token est une <span class="hl">valeur de design nommée</span></h2>
+  <div class="swatch-strip">
+    <div class="swatch" data-id="sw-1" style="background: #de1823"></div>
+    <div class="swatch" data-id="sw-2" style="background: #e86600"></div>
+    <div class="swatch" data-id="sw-3" style="background: #fdecec"></div>
+    <div class="swatch" data-id="sw-4" style="background: #c51620"></div>
+    <div class="swatch" data-id="sw-5" style="background: #e85d65"></div>
+    <div class="swatch" data-id="sw-6" style="background: #fb923c"></div>
+    <div class="swatch" data-id="sw-7" style="background: #fff3e8"></div>
+    <div class="swatch" data-id="sw-8" style="background: #a50e17"></div>
+    <div class="swatch" data-id="sw-9" style="background: #eb4d1e"></div>
+    <div class="swatch" data-id="sw-10" style="background: #f1979c"></div>
+    <div class="swatch" data-id="sw-11" style="background: #c45800"></div>
+    <div class="swatch" data-id="sw-12" style="background: #8f151b"></div>
+    <div class="swatch" data-id="sw-13" style="background: #f67200"></div>
+    <div class="swatch" data-id="sw-14" style="background: #f9841f"></div>
+    <div class="swatch" data-id="sw-15" style="background: #ffc58f"></div>
+    <div class="swatch" data-id="sw-16" style="background: #a50e17"></div>
+    <div class="swatch" data-id="sw-17" style="background: #d95f02"></div>
+  </div>
+  <div class="row">
+    <div class="tile fragment fade-up"><span class="emoji-lg">📐</span><h3>indépendante des plateformes</h3><p>la même décision pour le web, iOS, Android…</p></div>
+    <div class="tile fragment fade-up"><span class="emoji-lg">🤝</span><h3>partagée</h3><p>entre les métiers, les outils et les technologies</p></div>
+    <div class="tile primary fragment fade-up"><span class="emoji-lg">🗣️</span><h3>un vocabulaire commun</h3><p>tout le monde parle de la même couleur, avec le même nom</p></div>
+  </div>
+  <p class="source stack-top">DTCG (Design Tokens Community Group, un groupe communautaire du W3C), <em>Design Tokens Format Module 2025.10</em>, introduction</p>
+  
+<aside class="notes">
+    Wafa : « Les design tokens aident à nommer et partager des décisions de design. Le DTCG, un groupe communautaire du W3C, définit un format pour les échanger entre outils. La version 2025.10 date d'octobre 2025. Son introduction présente les tokens comme un moyen d'exprimer des décisions de design indépendamment des plateformes… »<br />
+    Wafa : « … pour les partager entre les métiers, les outils et les technologies… »<br />
+    Wafa : « … et installer un vocabulaire commun. »<br />
+    Théo : « Donc on peut garder plusieurs nuances, en nommant leur rôle pour savoir laquelle choisir. »
+  </aside>
+</section>
+
+<!-- 2.3 · Correction : bruts, sémantiques, alias, chaîne -->
+<section data-auto-animate>
+  <h2 data-id="tk-title">Tokens bruts : <span class="hl">des valeurs</span></h2>
+  <div class="ramp" data-id="ramp">
+    <div class="swatch" data-id="sw-3" style="background: var(--red-50)"><span class="hex">red-50</span></div>
+    <div class="swatch" data-id="sw-7" style="background: var(--orange-100)"><span class="hex">orange-100</span></div>
+    <div class="swatch" data-id="sw-10" style="background: var(--orange-200)"><span class="hex">orange-200</span></div>
+    <div class="swatch" data-id="sw-13" style="background: var(--orange-500)"><span class="hex">orange-500</span></div>
+    <div class="swatch" data-id="sw-16" style="background: var(--red-800)"><span class="hex">red-800</span></div>
+  </div>
+  <p class="lead stack-top">Une palette finie, nommée par sa <b>valeur</b>.</p>
+  
+<aside class="notes">
+    Wafa : « On garde plusieurs nuances de rouge et d'orange : elles n'ont pas toutes le même rôle. Les tokens bruts nomment les valeurs de la palette ; les tokens sémantiques disent à quoi elles servent. Les deux couleurs de base viennent du logo Sopra Steria ; les nuances intermédiaires sont illustratives, pas une palette officielle complète. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="tk-title">Tokens sémantiques : <span class="hl">nommés par leur sens</span></h2>
+  <div class="grid-2" style="grid-template-columns: auto 1fr; width: 900px; margin: 0 auto">
+    <div class="ramp-col" data-id="ramp">
+      <div class="swatch" data-id="sw-3" style="background: var(--red-50)"></div>
+      <div class="swatch" data-id="sw-13" style="background: var(--orange-500)"></div>
+      <div class="swatch" data-id="sw-16" style="background: var(--red-800)"></div>
+    </div>
+    <div class="col">
+      <div class="token-row fragment fade-left"><span class="muted">red-50</span> → <span class="sem">--color-primary-soft</span></div>
+      <div class="token-row fragment fade-left"><span class="muted">red-600</span> → <span class="sem">--color-primary</span></div>
+      <div class="token-row fragment fade-left"><span class="muted">red-800</span> → <span class="sem">--color-primary-strong</span></div>
+    </div>
+  </div>
+  <p class="lead stack-top">Dans notre modèle, les composants s'appuient sur <span class="hl">les noms fonctionnels</span>.</p>
+  <p class="source">Tokens bruts et sémantiques : une pratique courante, pas une notion définie par le DTCG.</p>
+  
+<aside class="notes">
+    Wafa : « Ici, le token sémantique est nommé par son rôle : à quoi sert la couleur. « primary », c'est la couleur du rôle principal. Dans notre modèle, les composants s'appuient sur ces noms fonctionnels. »<br />
+    Théo : « Donc si je change un token, tout bouge ? »<br />
+    Wafa : « Si tout passe par les bons tokens sémantiques, le thème peut changer ces rôles sans modifier chaque composant. »
+  </aside>
+</section>
+
+<section data-background-color="#020617">
+  <h3 style="color: #fff">En CSS : un <span class="text-primary" style="color: #ffc58f">alias</span> relie le sens à la valeur</h3>
+  <pre><code class="language-css" data-trim data-line-numbers="|2|3">
+:root {
+  --red-600: #de1823;
+  --color-primary: var(--red-600);
+}
+  </code></pre>
+  <p class="caption">Ligne 2 : la valeur brute. Ligne 3 : le nom qui dit à quoi elle sert, relié à la valeur par un alias.</p>
+  <p class="equiv">En CSS, <code>var()</code> illustre l'idée d'un alias. Le format DTCG définit aussi ses propres références entre tokens.</p>
+  
+<aside class="notes">
+    Wafa : « En CSS, le nom fonctionnel pointe ici vers une valeur de la palette : c'est une illustration du principe d'alias. Le format DTCG décrit les références dans son propre format d'échange. Les composants utilisent le nom fonctionnel ; un thème peut lui associer une autre valeur. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="arch-title">Une décision, <span class="hl">écrite une seule fois</span></h2>
+  <p class="lead">Comment garder une décision de design cohérente, de la maquette jusqu'aux différentes plateformes ?</p>
+  <div class="pipe">
+    <div class="pipe-step fragment fade-up" data-fragment-index="0">
+      <div class="pipe-art"><i style="background: #de1823"></i><i style="background: #a50e17"></i><i style="background: #fdecec"></i></div>
+      <h3>Design</h3>
+      <p>Figma, Tokens Studio</p>
+      <small>le designer choisit la couleur</small>
+    </div>
+    <div class="pipe-arrow fragment fade-in" data-fragment-index="1"><span></span></div>
+    <div class="pipe-step fragment fade-up" data-fragment-index="1">
+      <div class="pipe-art code"><b>red-600</b><em>→</em><b>--color-primary</b></div>
+      <h3>Build</h3>
+      <p>Style Dictionary</p>
+      <small>un outil traduit les décisions</small>
+    </div>
+    <div class="pipe-arrow fragment fade-in" data-fragment-index="2"><span></span></div>
+    <div class="pipe-step fragment fade-up" data-fragment-index="2">
+      <div class="pipe-art chips"><b>CSS</b><b>iOS</b><b>Android</b></div>
+      <h3>Code</h3>
+      <p>web et mobile</p>
+      <small>le développeur la reçoit prête</small>
+    </div>
+  </div>
+  <p class="lead stack-top fragment fade-up" data-fragment-index="3">On peut éviter les recopies manuelles : <span class="hl">chacun part d'une source commune</span>.</p>
+  <p class="source">Le DTCG définit un format d'échange ; Figma, Tokens Studio et Style Dictionary sont des exemples d'outils, pas une intégration automatique.</p>
+  
+<aside class="notes">
+    Wafa : « Comment garder les nuances de rouge et d'orange cohérentes, de la maquette jusqu'aux différentes plateformes ? Les tokens et les outils de traduction peuvent aider à faire circuler ces décisions. »<br />
+    Wafa : « Le designer choisit sa couleur dans son outil de design, par exemple Figma. C'est la décision. »<br />
+    Wafa : « Un outil de traduction, par exemple Style Dictionary, convertit cette décision. »<br />
+    Wafa : « Et chaque plateforme la reçoit dans son langage : CSS pour le web, iOS, Android. »<br />
+    Wafa : « Avec une chaîne outillée, on peut éviter de recopier les mêmes valeurs à la main. »
+  </aside>
+</section>
+
+<!-- 2.3 → 2.4 · L'écran : tokens réparés, problème suivant : les boutons -->
+<section>
+  <span class="level-tag">📄 EventHub, en réparation</span>
+  <div class="mock full messy" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="done fragment" data-fix="tokens">✅ Tokens : des rôles et valeurs cohérents</span>
+    <span class="problem fragment" data-flag="atoms">🔍 Et les boutons ?</span>
+  </div>
+  
+<aside class="notes">
+    Théo : « On relie les usages à des tokens sémantiques : chaque rôle peut garder la valeur qui lui convient. »<br />
+    Wafa : « Même couleur… mais regarde tes boutons. »<br />
+    Théo : « Ah. Un rond, un carré, un en majuscules… »
+  </aside>
+</section>
+
+<!-- 2.4 · Atomes. Concept clé -->
+<section>
+  <h2>⚛️ L'atome : <span class="hl">la plus petite brique</span></h2>
+  <div class="row center stack-top" style="gap: 48px">
+    <span class="ds-btn">S'inscrire</span>
+    <span class="mock-input" style="flex: none; width: 260px; font-size: 22px">Nantes…</span>
+    <span class="ev-badge" style="font-size: 20px">Complet</span>
+  </div>
+  <div class="concept">
+    Les briques de base de l'interface : <b>un libellé, un champ, un bouton</b>. On ne peut pas les découper davantage sans qu'elles cessent de fonctionner.
+    <p class="fragment fade-up">Seul, un atome reste abstrait : <b>c'est assemblé qu'il prend son sens.</b></p>
+  </div>
+  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2 (atomes)</p>
+  
+<aside class="notes">
+    Wafa : « Premier niveau d'Atomic Design : l'atome. Pour Brad Frost, ce sont les briques de base de l'interface : un libellé, un champ, un bouton. On ne peut pas les découper davantage sans qu'elles cessent de fonctionner. »<br />
+    Wafa : « Seul, un atome reste abstrait. C'est quand on l'assemble qu'il prend son sens. Mais pour bien assembler, il faut d'abord que les équipes puissent s'appuyer sur des définitions communes plutôt que redéfinir les mêmes briques chacune de leur côté. »
+  </aside>
+</section>
+
+<!-- 2.4 · Atomes. Correction -->
+<section>
+  <h2>Un seul <code>Button</code>, un seul <code>Badge</code></h2>
+  <div class="before-after">
+    <div class="side bad">
+      <h3>❌ Avant : un bouton par équipe</h3>
+      <span class="ds-btn v1">S'inscrire</span>
+      <span class="ds-btn v2">S'inscrire</span>
+      <span class="ds-btn v4">S'inscrire</span>
+      <span class="ds-btn v6">S'inscrire</span>
+    </div>
+    <span class="punchline fragment" data-fragment-index="0">➜</span>
+    <div class="side good fragment" data-fragment-index="0">
+      <h3>✅ Après : un atome partagé</h3>
+      <span class="ds-btn">S'inscrire</span>
+      <code>&lt;button uiButton type="button"&gt;</code>
+      <span>🎨 que des tokens sémantiques</span>
+      <span>⌨️ vrai bouton HTML : clavier, focus visible</span>
+    </div>
+  </div>
+  
+<aside class="notes">
+    Théo : « Quatre boutons, quatre équipes. Le même mot, « S'inscrire ». »<br />
+    Wafa : « On n'en garde qu'un : un atome Button, qui n'utilise que les tokens sémantiques. Même chose pour le Badge. »<br />
+    Wafa : « Et on garde un vrai bouton HTML, habillé par le design system : il est déjà accessible au clavier, avec Tab, Entrée ou Espace. On garde aussi un focus visible. »
+  </aside>
+</section>
+
+<!-- 2.4 → 2.5 · L'écran : atomes réparés, problème suivant : les recherches -->
+<section>
+  <span class="level-tag">📄 EventHub, en réparation</span>
+  <div class="mock full messy fix-tokens" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="done fragment" data-fix="atoms">✅ Atomes : un seul bouton, un seul badge</span>
+    <span class="problem fragment" data-flag="molecules">🔍 Deux recherches, deux façons de faire</span>
+  </div>
+  
+<aside class="notes">
+    Théo : « Un seul bouton, un seul badge. »<br />
+    Wafa : « Et là-haut, dans l'en-tête ? Encore une recherche. Sans bouton. Et celle du milieu a son bouton… à l'autre bout de l'écran. »
+  </aside>
+</section>
+
+<!-- 2.5 · Molécules. Concept clé -->
+<section>
+  <h2>🧪 La molécule : <span class="hl">une seule chose</span></h2>
+  <div class="concept">
+    Un petit groupe d'éléments qui fonctionnent ensemble : <b>un libellé, un champ et un bouton</b> forment un formulaire de recherche.
+    <p class="fragment fade-up">Elle rassemble des éléments autour d'<b>un rôle d'interface lisible</b>.</p>
+  </div>
+  <div class="before-after fragment fade-up">
+    <div class="side bad">
+      <h3>❌ Avant : deux recherches bricolées</h3>
+      <div class="search-demo"><span class="mock-input" style="border-radius: 999px">🔍 Chercher…</span></div>
+      <div class="search-demo" style="gap: 80px"><span class="mock-input" style="border-width: 0 0 2px; border-radius: 0">🔍 Nantes…</span><span class="m-btn" style="border-radius: 2px">RECHERCHER</span></div>
+    </div>
+    <span class="punchline">➜</span>
+    <div class="side good">
+      <h3>✅ Après : une molécule <code>SearchField</code></h3>
+      <div class="search-demo"><span class="mock-input">🔍 Nantes…</span><span class="m-btn">Rechercher</span></div>
+      <span>elle ne sait pas <b>ce qu'on cherche</b></span>
+    </div>
+  </div>
+  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2 (molécules)</p>
+  
+<aside class="notes">
+    Wafa : « Deuxième niveau : la molécule. Pour Brad Frost, c'est un petit groupe d'éléments qui fonctionnent ensemble. Son exemple est exactement le nôtre : un libellé, un champ et un bouton forment un formulaire de recherche. »<br />
+    Wafa : « Elle rassemble les éléments autour d'un usage clair : permettre une recherche. Ce n'est pas une règle de classement rigide. »<br />
+    Wafa : « Nos deux recherches deviennent une seule molécule, SearchField, utilisée en haut et au milieu. Elle ne sait pas ce qu'on cherche : des événements aujourd'hui, des factures demain. »<br />
+    Wafa : « Et comme dans l'exemple de Frost, le champ garde un libellé : visible, ou au minimum lisible par les lecteurs d'écran. »
+  </aside>
+</section>
+
+<!-- 2.5 → 2.6 · L'écran : molécules réparées, problème suivant : les cartes -->
+<section>
+  <span class="level-tag">📄 EventHub, en réparation</span>
+  <div class="mock full messy fix-tokens fix-atoms" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="done fragment" data-fix="molecules">✅ Molécules : un seul champ de recherche</span>
+    <span class="problem fragment" data-flag="organisms">🔍 Trois cartes, trois mises en page</span>
+  </div>
+  
+<aside class="notes">
+    Théo : « Une seule recherche, deux endroits. »<br />
+    Wafa : « Et tes cartes ? Une avec image, une sans, une centrée… »<br />
+    Théo : « Ah, non, celles-là c'est la même ! Une seule Card. Elle sait tout faire. »
+  </aside>
+</section>
+
+<!-- 2.6 · Organismes. Problème : la Card universelle -->
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« C'est juste une Card. »</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim><script type="text/template">
+export class Card {
+  title = input<string>();
+}
+  </script></code></pre>
+  
+<aside class="notes">
+    Théo : « Au début, c'est juste une Card. Un titre. »
+  </aside>
+</section>
+
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« Juste un input. »</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim data-line-numbers="3"><script type="text/template">
+export class Card {
+  title = input<string>();
+  isEvent = input(false);
+}
+  </script></code></pre>
+  
+<aside class="notes">
+    Théo : « Juste un input : isEvent. »
+  </aside>
+</section>
+
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« Juste un autre. »</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim data-line-numbers="4-6"><script type="text/template">
+export class Card {
+  title = input<string>();
+  isEvent = input(false);
+  showBadge = input(false);
+  badgeLabel = input<string>();
+  layout = input<'default' | 'compact' | 'horizontal'>('default');
+}
+  </script></code></pre>
+  
+<aside class="notes">
+    Théo : « Juste un autre : showBadge. Et un layout compact. »<br />
+    Wafa : « On en est à cinq. Je continue à compter… »
+  </aside>
+</section>
+
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« Mais ça marche ! » 🙈</h3>
+  <pre data-id="uc-code" class="tiny"><code class="language-typescript" data-trim><script type="text/template">
+export class Card {
+  title = input<string>();
+  isEvent = input(false);
+  showBadge = input(false);
+  badgeLabel = input<string>();
+  layout = input<'default' | 'compact' | 'horizontal'>('default');
+  eventDate = input<Date>();
+  eventCity = input<string>();
+  isFull = input(false);
+  showRegisterButton = input(true);
+  registerLabel = input("S'inscrire");
+  footerButtons = input<CardButton[]>([]);
+  iconRight = input<string>();
+  iconRightOnlyIf = input<(ctx: unknown) => boolean>();
+  headerTemplate = input<TemplateRef<unknown>>();
+  bodyTemplate = input<TemplateRef<unknown>>();
+  footerTemplate = input<TemplateRef<unknown>>();
+  // … et 26 autres
+}
+  </script></code></pre>
+  
+<aside class="notes">
+    Théo : « Et iconRight. Mais seulement si… »<br />
+    Wafa : « Stop. On en est à 42. »<br />
+    Théo : « Mais ça marche ! »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <div class="row center" style="gap: 64px">
+    <div><div class="counter text-danger" data-id="count">42</div><p class="small muted">inputs</p></div>
+    <div><div class="counter text-danger">3</div><p class="small muted">templates personnalisables</p></div>
+    <div><div class="counter text-danger">0</div><p class="small muted">volontaire pour y toucher</p></div>
+  </div>
+  <p class="punchline stack-top fragment">Ça marche… et <span class="hl">plus personne n'ose y toucher.</span></p>
+  <p class="small muted">Scénario caricatural pour illustrer l'accumulation, pas une mesure réelle.</p>
+  
+<aside class="notes">
+    Wafa : « 42 inputs, 3 templates personnalisables… et zéro volontaire pour la modifier. Chaque changement risque de casser un écran qu'on ne connaît pas. »
+  </aside>
+</section>
+
+<!-- 2.6 · Concept clé 1 : la mauvaise abstraction -->
+<section>
+  <p class="emoji-xl">💸</p>
+  <p class="punchline">« La duplication coûte bien moins cher<br />qu'une <span class="hl">mauvaise abstraction</span>. »</p>
+  <p class="lead fragment fade-up">Des paramètres et conditions pour des cas divergents ? <b>Un signal à réexaminer.</b></p>
+  <p class="source">D'après Sandi Metz, <em>The Wrong Abstraction</em> (2016)</p>
+  
+<aside class="notes">
+    Wafa : « Sandi Metz résume son avertissement ainsi : la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
+    Wafa : « Elle vise les abstractions prématurées qui accumulent paramètres, conditions et cas divergents. Ce n'est pas un rejet de la réutilisation : mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. »<br />
+    Wafa : « Alors, qu'est-ce qui est vraiment partagé dans une carte ? »
+  </aside>
+</section>
+
+<!-- 2.6 · Concept clé 2 : composant du design system ou recette -->
+<section>
+  <h2>Composant, recette <span class="hl">ou cas unique</span> ?</h2>
+  <div class="grid-3 stack-top" style="width: 1080px; margin-left: auto; margin-right: auto; align-items: stretch">
+    <div class="tile primary fragment fade-up">
+      <span class="emoji-lg">🏛️</span>
+      <h3>Composant du design system</h3>
+      <p>Générique et réutilisable dans les contextes où il convient, sans connaître le métier.</p>
+      <p><b>Ex. : <code>Card</code></b>, une boîte avec des emplacements. Rien de plus.</p>
+    </div>
+    <div class="tile business fragment fade-up">
+      <span class="emoji-lg">🍳</span>
+      <h3>Recette</h3>
+      <p>Une composition de composants du design system, utilisée de façon cohérente dans un produit, mais pas assez générique pour le design system. Souvent un organisme.</p>
+      <p><b>Ex. : <code>EventCard</code></b></p>
+    </div>
+    <div class="tile ghost fragment fade-up">
+      <span class="emoji-lg">❄️</span>
+      <h3>Cas unique</h3>
+      <p>Un besoin ponctuel peut rester dans la fonctionnalité qui en a besoin.</p>
+      <p><b>Ex. : un bandeau ponctuel</b></p>
+    </div>
+  </div>
+  <p class="lead stack-top fragment fade-up">Le niveau dit comment ça se compose. <span class="hl">Le vocabulaire dit où ça vit.</span></p>
+  <p class="source">Brad Frost, <em>Design system components, recipes, and snowflakes</em>. La dernière phrase : notre formulation.</p>
+  
+<aside class="notes">
+    Wafa : « Brad Frost propose un vocabulaire pour distinguer composants, recettes et cas uniques. »<br />
+    Wafa : « Un composant du design system est générique. Chez Frost, la Card est très simple : une boîte avec des emplacements. »<br />
+    Wafa : « Une recette compose ces composants pour un contexte de produit. Un cas unique peut rester dans la fonctionnalité concernée ; il n'a pas besoin d'être promu. Notre carte d'événement est une recette. »<br />
+    Wafa : « Le niveau Atomic Design décrit comment ça se compose ; le contexte et le vocabulaire aident à décider où ça vit. Cette règle de décision est la nôtre, inspirée de Frost. »
+  </aside>
+</section>
+
+<!-- 2.6 · Correction 1 : la Card ne fournit que la structure (et son style, en tokens) -->
+<section data-background-color="#020617">
+  <h3 style="color: #fff">Après : la Card ne fournit <span style="color: #fde68a">que la structure</span> </h3>
+  <pre style="font-size: 0.7em"><code class="language-plaintext" data-trim>
+Card
+├── Emplacement média
+├── Emplacement contenu
+└── Emplacement actions
+  </code></pre>
+  <p class="equiv">🧱 3 emplacements · 🎨 styles reliés aux tokens · ⚙️ aucune règle métier</p>
+  
+<aside class="notes">
+    Wafa : « Voici la Card générique. Elle fournit trois emplacements : média, contenu et actions. L'écran qui l'utilise décide quoi placer dedans. »<br />
+    Théo : « Donc elle ne connaît ni les événements ni les boutons d'inscription ? »<br />
+    Wafa : « Exactement. Ses styles utilisent les tokens ; elle ne contient pas de règle métier. »
+  </aside>
+</section>
+
+<!-- 2.6 · Correction 2 : EventCard assemble les pièces -->
+<section>
+  <span class="level-tag">🧩 EventCard = Card + Badge + Button</span>
+  <div class="exploded">
+    <div class="frame">
+      <div class="slot" style="top: 14px; height: 130px">uiCardMedia</div>
+      <div class="slot" style="top: 158px; height: 120px">ui-card-content</div>
+      <div class="slot" style="top: 292px; height: 72px">ui-card-actions</div>
+    </div>
+    <div class="prims">
+      <div class="prim"><code>&lt;ui-card&gt;</code><span class="muted">une structure, trois emplacements</span></div>
+      <div class="prim"><span class="ev-badge" style="font-size: 18px">Complet</span><code>&lt;ui-badge&gt;</code></div>
+      <div class="prim"><div class="m-btn">S'inscrire</div><code>&lt;button uiButton&gt;</code></div>
+      <p class="punchline fragment fade-up" style="font-size: 30px">Aucune ne connaît le mot <span class="hl">« événement »</span>.</p>
+    </div>
+  </div>
+  
+<aside class="notes">
+    Théo : « EventCard, c'est une Card, un badge et un bouton, tous pris dans le design system. »<br />
+    Wafa : « Et aucune de ces pièces ne sait qu'elle affiche un événement. »<br />
+    Théo : « Tout le vocabulaire métier est dans EventCard : l'événement, « Complet », l'inscription. Elle assemble les pièces du design system, elle n'invente rien. »
+  </aside>
+</section>
+
+<!-- 2.6 · Correction 3 : configuration → composition -->
+<section data-auto-animate>
+  <div class="versus">
+    <div class="tile danger">
+      <span class="emoji-lg">⚙️</span>
+      <h3>Configuration</h3>
+      <div class="counter text-danger" data-id="count">42</div>
+      <p>Le design system doit connaître <b>tous les cas</b>.</p>
+    </div>
+    <span class="punchline">➜</span>
+    <div class="tile success">
+      <span class="emoji-lg">🧩</span>
+      <h3>Composition</h3>
+      <div class="counter text-success">3</div>
+      <p>emplacements. <b>L'appelant</b> décide de ce qu'il y met.</p>
+    </div>
+  </div>
+  <p class="lead stack-top fragment">« Et l'icône à droite, mais seulement parfois ? » ➜ <span class="hl">dans <code>ui-card-actions</code>, quand tu en as besoin.</span></p>
+  
+<aside class="notes">
+    Théo : « Et si je veux une icône à droite, mais seulement parfois ? »<br />
+    Wafa : « Tu la mets dans les actions, quand tu en as besoin. Pas dans la Card. »<br />
+    Wafa : « La variation passe de la configuration à la composition. Et le métier sort du design system. »<br />
+    Wafa : « Une primitive ne parle pas votre métier. »
+  </aside>
+</section>
+
+<!-- 2.6 · Correction 6 : une frontière outillée -->
+<section>
+  <h2>Une frontière que l'équipe <span class="hl">peut faire respecter</span></h2>
+  <div class="layers">
+    <div class="layer"><span class="emoji-lg">📱</span><code>apps/web</code></div>
+    <span class="arrow">➜</span>
+    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>métier</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>design system</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/tokens</code><small>fondations</small></div>
+  </div>
+  <p class="lead">Les dépendances vont <span class="hl">dans un seul sens</span>.</p>
+  <div class="lint-error fragment fade-up">
+    ✖ <code>libs/ui</code> ne doit pas dépendre de <code>EventCard</code> : une règle configurée peut bloquer cette dépendance.
+  </div>
+  <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · dependency-cruiser</p>
+  
+<aside class="notes">
+    Wafa : « La règle est simple : l'application utilise les compositions métier, qui utilisent le design system, qui s'appuie sur les tokens. Le design system ne dépend pas d'un produit. »<br />
+    Théo : « Et si quelqu'un inverse la dépendance ? »<br />
+    Wafa : « Si l'équipe configure une règle d'architecture dans ses outils, la vérification peut bloquer cette dépendance. Les noms d'outils en petit sont des exemples, pas une configuration déjà en place. »
+  </aside>
+</section>
+
+<!-- 2.6 → 2.7 · L'écran : organismes réparés -->
+<section>
+  <span class="level-tag">📄 EventHub, en réparation</span>
+  <div class="mock full messy fix-tokens fix-atoms fix-molecules" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="done fragment" data-fix="organisms">✅ Organismes : une seule EventCard, construite sur Card</span>
+  </div>
+  
+<aside class="notes">
+    Théo : « Trois cartes, une seule EventCard. Et la Card du design system n'a plus aucun input. »
+  </aside>
+</section>
+
+<!-- 2.7 · Template. Problème : une page codée d'un bloc -->
+<section data-background-color="#020617">
+  <h3 style="color: #fff">Une page codée <span style="color: #fde68a">d'un seul bloc</span></h3>
+  <pre style="font-size: 0.44em"><code class="language-typescript" data-trim data-line-numbers="|5-8|9-12"><script type="text/template">
+@Component({
+  selector: 'app-event-search-page',
+  template: `
+    <app-header />
+    <h1>Rechercher un événement</h1>
+    <ui-search-field />
+    <div class="grid">
+      <evt-event-card [event]="{ title: 'Nantes Tech Day', city: 'Nantes' }" />
+      <evt-event-card [event]="{ title: 'Atelier Angular', city: 'Rennes' }" />
+      <evt-event-card [event]="{ title: 'Meetup Design', city: 'Angers' }" />
+    </div>
+    <app-footer />
+  `,
+})
+export class EventSearchPage {}
+  </script></code></pre>
+  <p class="caption">La mise en page et les données sont mélangées : impossible de réutiliser la structure pour une autre liste.</p>
+  
+<aside class="notes">
+    Théo : « Et la page elle-même ? Dans notre exemple, la mise en page et les données sont codées au même endroit. »<br />
+    Wafa : « Demain, on veut la même page pour lister des formations. On copie tout ? »
+  </aside>
+</section>
+
+<!-- 2.7 · Template. Concept clé et correction -->
+<section>
+  <span class="level-tag">📐 Template : le plan de la page, sans les données</span>
+  <div class="mock full blueprint">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header"><span class="mh-logo">Zone en-tête</span><span class="mh-nav"><u>Navigation</u></span></div>
+    <div class="mock-body">
+      <div class="mock-title">Titre de la page (texte fixe)</div>
+      <div class="mock-search">
+        <div class="mock-input">Zone de recherche</div>
+        <div class="m-btn">Bouton</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card">
+          <div class="ev-media">Image</div>
+          <div class="ev-content">
+            <span class="ev-badge">Badge (si besoin)</span>
+            <span class="ev-title">Titre (longueur max.)</span>
+            <span class="ev-meta">Date · lieu</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn">Action</div></div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-media">Image</div>
+          <div class="ev-content">
+            <span class="ev-badge">Badge (si besoin)</span>
+            <span class="ev-title">Titre (longueur max.)</span>
+            <span class="ev-meta">Date · lieu</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn">Action</div></div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-media">Image</div>
+          <div class="ev-content">
+            <span class="ev-badge">Badge (si besoin)</span>
+            <span class="ev-title">Titre (longueur max.)</span>
+            <span class="ev-meta">Date · lieu</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn">Action</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer"><span>Zone pied de page</span><span class="mh-nav"><u>Liens</u></span></div>
+  </div>
+  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2 : le template montre la structure du contenu, pas le contenu final</p>
+  
+<aside class="notes">
+    Wafa : « C'est le rôle du template. Pour Brad Frost, il place les composants dans une mise en page et montre la structure du contenu : ici une image, là un titre pas trop long. Pas le contenu final. »<br />
+    Wafa : « On sépare donc le plan de la page de ses données. Le badge « Complet » : le template prévoit la place, la page décide de l'afficher ou non. »<br />
+    Wafa : « Dans notre découpage, le template décrit une structure ; la page concrète et ses données restent dans l'application. D'autres équipes peuvent choisir de partager certains templates. »
+  </aside>
+</section>
+
+<!-- 2.8 · Page. Problème : le client demande un mode sombre -->
+<section>
+  <h2>📩 Nouvelle demande du client</h2>
+  <div class="ticket">
+    <p class="from">De : le client · Objet : EventHub V2</p>
+    <p>« Pour la V2, on voudrait <b>un mode sombre</b>. C'est rapide, non ? »</p>
+  </div>
+  <p class="lead stack-top fragment fade-up">Avec l'écran « avant » : reprendre <span class="hl">chaque bouton, chaque carte, chaque champ</span>…</p>
+  
+<aside class="notes">
+    Théo : « Un mode sombre. C'est rapide, non ? »<br />
+    Wafa : « Avec l'écran du début, il aurait fallu reprendre chaque bouton, chaque carte et chaque champ pour retrouver les bonnes nuances. Voyons avec l'écran réparé. »
+  </aside>
+</section>
+
+<!-- 2.8 · Page. Concept clé et correction : l'écran « après », puis le mode sombre -->
+<section data-auto-animate>
+  <div class="code-pill" data-id="pill">Mode clair · --color-bg: <span class="val brand">var(--slate-0)</span>; --color-text: <span class="val brand">var(--slate-900)</span>;</div>
+  <div class="mock full messy fix-tokens fix-atoms fix-molecules fix-organisms" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2 : la page, c'est le template avec du contenu réel. C'est là qu'on vérifie que le système tient.</p>
+  
+<aside class="notes">
+    Wafa : « Voici la page : le template, rempli avec de vraies données. Pour Brad Frost, c'est à ce niveau qu'on vérifie que tout le système tient face au contenu réel. »<br />
+    Théo : « Et c'est l'écran du début, réparé : des couleurs de marque cohérentes, un bouton, une recherche, une carte. »<br />
+    Théo : « Maintenant, le mode sombre. On ne touche à aucun composant : on change seulement les valeurs des tokens. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <div class="code-pill" data-id="pill">Mode sombre · --color-bg: <span class="val brand">var(--slate-900)</span>; --color-text: <span class="val brand">var(--slate-50)</span>;</div>
+  <div class="mock full messy fix-tokens fix-atoms fix-molecules fix-organisms theme-dark" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <p class="punchline">Même page, mêmes composants. <span class="hl">Un autre thème.</span></p>
+  
+<aside class="notes">
+    Wafa : « Toute la page passe en mode sombre : le fond, les cartes, la recherche, les textes et les bordures. Les boutons gardent le rouge de la marque. »<br />
+    Théo : « Les composants n'ont pas changé. C'est le thème qui fournit d'autres valeurs aux mêmes tokens. »<br />
+    Wafa : « Il faut vérifier les contrastes dans chaque thème. Et une information ne doit jamais reposer uniquement sur la couleur. »
+  </aside>
+</section>

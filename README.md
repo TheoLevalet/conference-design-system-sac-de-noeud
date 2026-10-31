@@ -37,11 +37,11 @@ index.html                    squelette : inclut les fichiers de slides/ dans l'
 slides/
   00-ouverture.html           titre, explosion de boutons, speakers
   01-probleme.html            ① le bilan, les 4 équipes, la vraie question
-  02-fondations.html          ② Atomic Design, tokens, frontières
-  03-ecran-demonte.html       ③ l'écran fil rouge, Storybook
-  04-composant-universel.html ④ la Card à 42 inputs, composition
-  05-regle.html               ⑤ 3 destinations, la règle, la checklist
-  06-conclusion.html          message final, ressources, merci
+  02-ecran-repare.html        ② l'écran EventHub réparé de bas en haut :
+                                tokens → composants → compositions métier → page
+  03-storybook.html           suite de ② : documenter les états dans Storybook
+  04-regle.html               suite de ② : décider où vit chaque composant
+  05-conclusion.html          conclusion, ressources et questions
 vite.config.js                plugin qui remplace <!-- @include … --> par le fichier
 src/main.js                   configuration reveal.js, pied de page, QR codes
 src/styles/tokens.css         les tokens du deck (bruts + sémantiques)
@@ -55,7 +55,7 @@ reveal.js a besoin de toutes les `<section>` dans un seul document : le plugin d
 
 Pour ajouter une partie : créer le fichier dans `slides/`, puis ajouter `<!-- @include slides/mon-fichier.html -->` à sa place dans `index.html`. Attention, Auto-Animate fonctionne aussi entre deux fichiers : la dernière slide d'un fichier et la première du suivant restent voisines.
 
-Clin d'œil au sujet : le CSS du deck applique sa propre règle. Seul `tokens.css` contient des valeurs brutes, le reste ne connaît que les tokens sémantiques.
+Clin d'œil au sujet : `tokens.css` sépare les tokens bruts des tokens sémantiques, et le thème du deck s'appuie sur les sémantiques. Exceptions : `illustrations.css` contient des valeurs en dur, surtout pour montrer le désordre (les 17 nuances rouge-orange, les boutons et l'écran « avant »), et `theme.css` en garde quelques-unes pour le terminal.
 
 ## Les règles d'une bonne slide
 
@@ -91,13 +91,21 @@ Deux slides consécutives avec `data-auto-animate`. Les éléments qui partagent
 
 | Partie | Minutage | Contenu |
 | --- | --- | --- |
-| ① Le problème | 0:00 → 4:00 | les boutons, le bilan, les 4 équipes, la vraie question |
-| ② Les fondations | 4:00 → 8:00 | Atomic Design, tokens bruts et sémantiques, DTCG, frontières |
-| ③ Un écran, démonté | 8:00 → 13:00 | page → template → EventCard → primitives → tokens → changement de marque, Storybook |
-| ④ Le composant universel | 13:00 → 16:00 | la Card à 42 inputs, composition |
-| ⑤ La règle | 16:00 → 20:00 | 3 destinations, la règle, la checklist, conclusion |
+| ① Le problème | 0:00 → 4:00 | l'accroche, le bilan, les 4 équipes, la vraie question |
+| ② Un écran, réparé de bas en haut | 4:00 → 17:30 | un seul fil : problème → concept → correction, puis Storybook et la décision finale |
+| Conclusion | 17:30 → 18:00 | le message à retenir |
+| Questions | 18:00 → 20:00 | ressources et QR code affichés |
 
 Une slide qui porte `data-part="…"` démarre une nouvelle partie : le pied de page se met à jour tout seul.
+
+### L'écran « avant », réparé étage par étage
+
+La maquette EventHub de la partie ② porte la classe `messy` : elle affiche volontairement le désordre (plusieurs nuances rouge-orange, plusieurs boutons, deux recherches, trois mises en page de carte). Les deux couleurs de base sont celles du logo Sopra Steria ; les autres nuances sont illustratives, pas une palette officielle complète. Chaque étage se répare :
+
+- par une classe sur la maquette : `fix-tokens`, `fix-atoms`, `fix-molecules`, `fix-organisms` ;
+- ou au clic, avec un fragment de la même slide qui porte `data-fix="tokens|atoms|molecules|organisms"` (transition animée).
+
+Un fragment qui porte `data-flag="…"` entoure en rouge les éléments concernés par le problème suivant (`data-spot` sur la maquette).
 
 ## À compléter
 
