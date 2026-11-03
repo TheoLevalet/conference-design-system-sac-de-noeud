@@ -37,8 +37,15 @@ index.html                    squelette : inclut les fichiers de slides/ dans l'
 slides/
   00-ouverture.html           titre, explosion de boutons, speakers
   01-probleme.html            ① le bilan, les 4 équipes, la vraie question
-  02-ecran-repare.html        ② l'écran EventHub réparé de bas en haut :
-                                tokens → composants → compositions métier → page
+  02-ecran-repare/            ② l'écran EventHub réparé de bas en haut, une sous-partie par fichier :
+    01-ecran-avant.html         2.1 titre de la partie, l'écran « avant »
+    02-atomic-design.html       2.2 ranger par dossiers ? Atomic Design, modèle de composition
+    03-tokens.html              2.3 17 nuances, design tokens, bruts → sémantiques, chaîne outillée
+    04-atomes.html              2.4 un seul Button, un seul Badge
+    05-molecules.html           2.5 un seul SearchField
+    06-organismes.html          2.6 la Card à 42 inputs, recettes, composition, frontière outillée
+    07-template.html            2.7 séparer le plan de la page de ses données
+    08-page-theme.html          2.8 la page réparée, puis le mode sombre
   03-storybook.html           suite de ② : documenter les états dans Storybook
   04-regle.html               suite de ② : décider où vit chaque composant
   05-conclusion.html          conclusion, ressources et questions

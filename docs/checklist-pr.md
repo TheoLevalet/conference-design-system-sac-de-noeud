@@ -6,7 +6,7 @@
 
 ## ① Est-ce que ça a sa place ?
 
-Un « non » ici : le composant reste dans une **lib métier partagée** (recette) ou dans la **feature** (cas unique).
+Un « non » ici : le composant reste dans une **lib métier partagée** (recipe) ou dans la **feature** (snowflake).
 
 - [ ] **0. Introuvable dans le catalogue ?** J'ai cherché dans Storybook : rien d'équivalent, ni d'extensible par composition.
 - [ ] **1. Zéro vocabulaire métier ?** Aucun nom, input ou texte qui parle d'un domaine (événement, contrat, client…).
@@ -18,7 +18,7 @@ Un « non » ici : le composant reste dans une **lib métier partagée** (recett
 Un « non » ici veut dire « pas encore », pas « jamais ».
 
 - [ ] **4. Uniquement des tokens sémantiques ?** Aucune valeur brute (couleur, espacement, rayon) en dur.
-- [ ] **5. Composition plutôt que configuration ?** Les variations passent par des emplacements (slots, `children`, `ng-content`), pas par des booléens.
+- [ ] **5. Composition plutôt que configuration ?** Les variations passent par des slots (`ng-content`, `children`…), pas par des booléens.
 - [ ] **6. Une story par état, et l'accessibilité testée ?** Défaut, chargement, désactivé, erreur… et 0 violation a11y.
 - [ ] **7. Un propriétaire nommé ?** @…
 
@@ -27,10 +27,10 @@ Un « non » ici veut dire « pas encore », pas « jamais ».
 | Destination | Pour quoi | Exemples |
 | --- | --- | --- |
 | 🏛️ Design system | générique, stable, partagé | `Button`, `Card`, `TextField` |
-| 🍳 Recette métier (lib de domaine) | composition partagée d'un domaine | `EventCard`, `AddressField` |
-| ❄️ Cas unique (feature) | usage unique | le bandeau de Noël |
+| 🍳 Recipe (lib de domaine) | composition partagée d'un domaine | `EventCard`, `AddressField` |
+| ❄️ Snowflake (feature) | usage unique | le bandeau de Noël |
 
-Une recette peut être promue dans le design system le jour où elle devient vraiment générique, sans se presser.
+Une recipe peut être promue dans le design system le jour où elle devient vraiment générique, sans se presser.
 
 ## Sources
 

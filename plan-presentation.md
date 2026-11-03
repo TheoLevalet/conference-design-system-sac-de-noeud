@@ -112,7 +112,7 @@ C'est le cœur de la démonstration ; le gag « juste un input » ne dépasse pa
 
 ## Fichiers concernés
 
-- `slides/02-ecran-repare.html` : fil principal, 17 nuances rouge-orange illustratives, catégories et transitions.
+- `slides/02-ecran-repare/` : fil principal, un fichier par sous-partie (2.1 écran « avant » → 2.8 page et thème sombre), 17 nuances rouge-orange illustratives, catégories et transitions.
 - `slides/03-storybook.html` : une slide intégrée à la partie ②.
 - `slides/04-regle.html` : trois slides interactives intégrées à la partie ② ; la page redondante est supprimée.
 - `slides/05-conclusion.html` : conclusion à 17:30, QR code maintenu pendant les questions.

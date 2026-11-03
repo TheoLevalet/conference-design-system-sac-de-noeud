@@ -5,7 +5,7 @@
 <!-- 1 · Accroche -->
 <section data-auto-animate data-part="① Le problème" data-no-footer>
   <p class="kicker" data-id="kicker">Design system</p>
-  <h1 data-id="title">Le sac de nœuds <span class="brand-emoji">🪢</span></h1>
+  <h1 data-id="title">Le sac de nœuds</h1>
   <p class="lead" data-id="lead">Ce qui entre dans un design system… <span class="hl">et surtout ce qui reste dehors</span></p>
   <div class="burst">
     <button class="ds-btn" data-id="btn-0" style="left: 420px; top: 120px">＋ Ajouter un bouton</button>
@@ -31,7 +31,11 @@
 
 <section data-auto-animate>
   <p class="kicker" data-id="kicker">Design system</p>
-  <h2 data-id="title">Un bouton par-ci, un bouton par-là… <span class="brand-emoji">🪢</span></h2>
+  <!-- L'ancien titre s'efface sous le nouveau : un vrai fondu, sans que le texte long ne parte à la taille du h1 -->
+  <div class="title-swap">
+    <h2 class="title-ghost" data-id="title" aria-hidden="true">Le sac de nœuds</h2>
+    <h2>Un bouton par-ci, un bouton par-là…</h2>
+  </div>
   <div class="burst">
     <button class="ds-btn" data-id="btn-0" style="left: 420px; top: 120px">＋ Ajouter un bouton</button>
     <button class="ds-btn v1" data-id="btn-1" style="left: 60px; top: 30px">OK</button>

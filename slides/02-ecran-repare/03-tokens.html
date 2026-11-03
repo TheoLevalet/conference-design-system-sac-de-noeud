@@ -1,0 +1,281 @@
+<!-- =====================================================
+     PARTIE 2.3 · LES TOKENS : UN RÔLE POUR CHAQUE NUANCE
+     ===================================================== -->
+
+<!-- 2.3 · Tokens. Problème : une palette sans rôles explicites -->
+<section>
+  <span class="level-tag">EventHub, l'écran « avant »</span>
+  <div class="mock full messy" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="problem fragment" data-flag="tokens">Combien de nuances de couleur sur cet écran ?</span>
+  </div>
+  
+<aside class="notes">
+    Wafa : « Commençons par le plus petit : les couleurs. »<br />
+    Wafa : « Le logo, le titre, les boutons, les cartes… Quelles nuances de rouge et d'orange voyez-vous ? »<br />
+    Théo : « Plusieurs, et pas toujours pour la même raison ? »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="tk-title">17 nuances rouge-orange : quel rôle pour chacune ?</h2>
+  <div class="swatch-cloud">
+    <div class="swatch" data-id="sw-1" style="left: 20px; top: 20px; background: #de1823"><span class="hex">#de1823</span></div>
+    <div class="swatch" data-id="sw-2" style="left: 150px; top: 60px; background: #e86600"><span class="hex">#e86600</span></div>
+    <div class="swatch" data-id="sw-3" style="left: 300px; top: 10px; background: #fdecec"><span class="hex">#fdecec</span></div>
+    <div class="swatch" data-id="sw-4" style="left: 440px; top: 70px; background: #c51620"><span class="hex">#c51620</span></div>
+    <div class="swatch" data-id="sw-5" style="left: 580px; top: 15px; background: #e85d65"><span class="hex">#e85d65</span></div>
+    <div class="swatch" data-id="sw-6" style="left: 720px; top: 55px; background: #fb923c"><span class="hex">#fb923c</span></div>
+    <div class="swatch" data-id="sw-7" style="left: 870px; top: 15px; background: #fff3e8"><span class="hex">#fff3e8</span></div>
+    <div class="swatch" data-id="sw-8" style="left: 60px; top: 160px; background: #871d24"><span class="hex">#871d24</span></div>
+    <div class="swatch" data-id="sw-9" style="left: 210px; top: 200px; background: #eb4d1e"><span class="hex">#eb4d1e</span></div>
+    <div class="swatch" data-id="sw-10" style="left: 360px; top: 170px; background: #f1979c"><span class="hex">#f1979c</span></div>
+    <div class="swatch" data-id="sw-11" style="left: 500px; top: 215px; background: #c45800"><span class="hex">#c45800</span></div>
+    <div class="swatch" data-id="sw-12" style="left: 650px; top: 175px; background: #8f151b"><span class="hex">#8f151b</span></div>
+    <div class="swatch" data-id="sw-13" style="left: 800px; top: 205px; background: #f67200"><span class="hex">#f67200</span></div>
+    <div class="swatch" data-id="sw-14" style="left: 110px; top: 290px; background: #f9841f"><span class="hex">#f9841f</span></div>
+    <div class="swatch" data-id="sw-15" style="left: 420px; top: 300px; background: #ffc58f"><span class="hex">#ffc58f</span></div>
+    <div class="swatch" data-id="sw-16" style="left: 600px; top: 310px; background: #a50e17"><span class="hex">#a50e17</span></div>
+    <div class="swatch" data-id="sw-17" style="left: 880px; top: 300px; background: #d95f02"><span class="hex">#d95f02</span></div>
+  </div>
+  
+<aside class="notes">
+    Wafa : « Dans la palette de notre exemple, il y a plein de nuances de rouge et d'orange. »<br />
+    Théo : « Plusieurs valeurs peuvent avoir une bonne raison d'exister. »<br />
+    Wafa : « Exactement. Le problème n'est pas leur nombre : c'est de ne pas savoir quel rôle chacun joue, ni lequel choisir. »
+  </aside>
+</section>
+
+<!-- 2.3 · Concept clé : le design token (DTCG) -->
+<section data-auto-animate>
+  <h2 data-id="tk-title">Un design token est une <span class="hl">valeur de design nommée</span></h2>
+  <div class="swatch-strip">
+    <div class="swatch" data-id="sw-1" style="background: #de1823"></div>
+    <div class="swatch" data-id="sw-2" style="background: #e86600"></div>
+    <div class="swatch" data-id="sw-3" style="background: #fdecec"></div>
+    <div class="swatch" data-id="sw-4" style="background: #c51620"></div>
+    <div class="swatch" data-id="sw-5" style="background: #e85d65"></div>
+    <div class="swatch" data-id="sw-6" style="background: #fb923c"></div>
+    <div class="swatch" data-id="sw-7" style="background: #fff3e8"></div>
+    <div class="swatch" data-id="sw-8" style="background: #a50e17"></div>
+    <div class="swatch" data-id="sw-9" style="background: #eb4d1e"></div>
+    <div class="swatch" data-id="sw-10" style="background: #f1979c"></div>
+    <div class="swatch" data-id="sw-11" style="background: #c45800"></div>
+    <div class="swatch" data-id="sw-12" style="background: #8f151b"></div>
+    <div class="swatch" data-id="sw-13" style="background: #f67200"></div>
+    <div class="swatch" data-id="sw-14" style="background: #f9841f"></div>
+    <div class="swatch" data-id="sw-15" style="background: #ffc58f"></div>
+    <div class="swatch" data-id="sw-16" style="background: #a50e17"></div>
+    <div class="swatch" data-id="sw-17" style="background: #d95f02"></div>
+  </div>
+  <div class="row">
+    <div class="tile fragment fade-up"><span class="emoji-lg">📐</span><h3>indépendante des plateformes</h3><p>la même décision pour le web, iOS, Android…</p></div>
+    <div class="tile fragment fade-up"><span class="emoji-lg">🤝</span><h3>partagée</h3><p>entre les métiers, les outils et les technologies</p></div>
+    <div class="tile primary fragment fade-up"><span class="emoji-lg">🗣️</span><h3>un vocabulaire commun</h3><p>tout le monde parle de la même couleur, avec le même nom</p></div>
+  </div>
+  <p class="source stack-top">DTCG (Design Tokens Community Group, un groupe communautaire du W3C), <em>Design Tokens Format Module 2025.10</em>, introduction</p>
+  
+<aside class="notes">
+    Wafa : « Les design tokens aident à nommer et partager des décisions de design. Le DTCG, un groupe communautaire du W3C, définit un format pour les échanger entre outils. La version 2025.10 date d'octobre 2025. Son introduction présente les tokens comme un moyen d'exprimer des décisions de design indépendamment des plateformes… »<br />
+    Wafa : « … pour les partager entre les métiers, les outils et les technologies… »<br />
+    Wafa : « … et installer un vocabulaire commun. »<br />
+    Théo : « Donc on peut garder plusieurs nuances, en nommant leur rôle pour savoir laquelle choisir. »
+  </aside>
+</section>
+
+<!-- 2.3 · Correction : bruts, sémantiques, alias, chaîne -->
+<section data-auto-animate>
+  <h2 data-id="tk-title">Tokens bruts : <span class="hl">des valeurs</span></h2>
+  <div class="ramp" data-id="ramp">
+    <div class="swatch" data-id="sw-3" style="background: var(--red-50)"><span class="hex">red-50</span></div>
+    <div class="swatch" data-id="sw-7" style="background: var(--orange-100)"><span class="hex">orange-100</span></div>
+    <div class="swatch" data-id="sw-10" style="background: var(--orange-200)"><span class="hex">orange-200</span></div>
+    <div class="swatch" data-id="sw-13" style="background: var(--orange-500)"><span class="hex">orange-500</span></div>
+    <div class="swatch" data-id="sw-16" style="background: var(--red-800)"><span class="hex">red-800</span></div>
+  </div>
+  <p class="lead stack-top">Une palette finie, nommée par sa <b>valeur</b>.</p>
+  
+<aside class="notes">
+    Wafa : « On garde plusieurs nuances de rouge et d'orange : elles n'ont pas toutes le même rôle. Les tokens bruts nomment les valeurs de la palette ; les tokens sémantiques disent à quoi elles servent.   »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="tk-title">Tokens sémantiques : <span class="hl">nommés par leur sens</span></h2>
+  <div class="grid-2" style="grid-template-columns: auto 1fr; width: 900px; margin: 0 auto">
+    <div class="ramp-col" data-id="ramp">
+      <div class="swatch" data-id="sw-3" style="background: var(--red-50)"></div>
+      <div class="swatch" data-id="sw-13" style="background: var(--orange-500)"></div>
+      <div class="swatch" data-id="sw-16" style="background: var(--red-800)"></div>
+    </div>
+    <div class="col">
+      <div class="token-row fragment fade-left"><span class="muted">red-50</span> → <span class="sem">--color-primary-soft</span></div>
+      <div class="token-row fragment fade-left"><span class="muted">red-600</span> → <span class="sem">--color-primary</span></div>
+      <div class="token-row fragment fade-left"><span class="muted">red-800</span> → <span class="sem">--color-primary-strong</span></div>
+    </div>
+  </div>
+  <p class="lead stack-top">Dans notre modèle, les composants s'appuient sur <span class="hl">les noms fonctionnels</span>.</p>
+  <p class="source">Tokens bruts et sémantiques : une pratique courante, pas une notion définie par le DTCG.</p>
+  
+<aside class="notes">
+    Wafa : « Ici, le token sémantique est nommé par son rôle : à quoi sert la couleur. « primary », c'est la couleur du rôle principal. Dans notre modèle, les composants s'appuient sur ces noms fonctionnels. »<br />
+    Théo : « Donc si je change un token, tout bouge ? »<br />
+    Wafa : « Si tout passe par les bons tokens sémantiques, le thème peut changer ces rôles sans modifier chaque composant. »
+  </aside>
+</section>
+
+<section data-background-color="#020617">
+  <h3 style="color: #fff">En CSS : un <span class="text-primary" style="color: #ffc58f">alias</span> relie le sens à la valeur</h3>
+  <pre><code class="language-css" data-trim data-line-numbers="|2|3">
+:root {
+  --red-600: #de1823;
+  --color-primary: var(--red-600);
+}
+  </code></pre>
+  <p class="equiv">En CSS, <code>var()</code> illustre l'idée d'un alias. Le format DTCG définit aussi ses propres références entre tokens.</p>
+  
+<aside class="notes">
+    Wafa : « En CSS, le nom fonctionnel pointe ici vers une valeur de la palette : c'est une illustration du principe d'alias. Ligne 2 : la valeur brute. Ligne 3 : le nom qui dit à quoi elle sert, relié à la valeur par un alias Le format DTCG décrit les références dans son propre format d'échange. Les composants utilisent le nom fonctionnel ; un thème peut lui associer une autre valeur. »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <h2 data-id="arch-title">Une décision, <span class="hl">écrite une seule fois</span></h2>
+  <p class="lead">Comment garder une décision de design cohérente, de la maquette jusqu'aux différentes plateformes ?</p>
+  <div class="pipe">
+    <div class="pipe-step fragment fade-up" data-fragment-index="0">
+      <div class="pipe-art"><i style="background: #de1823"></i><i style="background: #a50e17"></i><i style="background: #fdecec"></i></div>
+      <h3>Design</h3>
+      <p>Figma, Tokens Studio</p>
+      <small>le designer choisit la couleur</small>
+    </div>
+    <div class="pipe-arrow fragment fade-in" data-fragment-index="1"><span></span></div>
+    <div class="pipe-step fragment fade-up" data-fragment-index="1">
+      <div class="pipe-art code"><b>red-600</b><em>→</em><b>--color-primary</b></div>
+      <h3>Build</h3>
+      <p>Style Dictionary</p>
+      <small>un outil traduit les décisions</small>
+    </div>
+    <div class="pipe-arrow fragment fade-in" data-fragment-index="2"><span></span></div>
+    <div class="pipe-step fragment fade-up" data-fragment-index="2">
+      <div class="pipe-art chips"><b>CSS</b><b>iOS</b><b>Android</b></div>
+      <h3>Code</h3>
+      <p>web et mobile</p>
+      <small>le développeur la reçoit prête</small>
+    </div>
+  </div>
+  <p class="lead stack-top fragment fade-up" data-fragment-index="3">On peut éviter les recopies manuelles : <span class="hl">chacun part d'une source commune</span>.</p>
+  <p class="source">Le DTCG définit un format d'échange ; Figma, Tokens Studio et Style Dictionary sont des exemples d'outils, pas une intégration automatique.</p>
+  
+<aside class="notes">
+    Wafa : « Comment garder les nuances de rouge et d'orange cohérentes, de la maquette jusqu'aux différentes plateformes ? Les tokens et les outils de traduction peuvent aider à faire circuler ces décisions. »<br />
+    Wafa : « Le designer choisit sa couleur dans son outil de design, par exemple Figma. C'est la décision. »<br />
+    Wafa : « Un outil de traduction, par exemple Style Dictionary, convertit cette décision. »<br />
+    Wafa : « Et chaque plateforme la reçoit dans son langage : CSS pour le web, iOS, Android. »<br />
+    Wafa : « Avec une chaîne outillée, on peut éviter de recopier les mêmes valeurs à la main. »
+  </aside>
+</section>
+
+<!-- 2.3 → 2.4 · L'écran : tokens réparés, problème suivant : les boutons -->
+<section>
+  <span class="level-tag">EventHub, en réparation</span>
+  <div class="mock full messy" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="done fragment" data-fix="tokens">Tokens : des rôles et valeurs cohérents</span>
+    <span class="problem fragment" data-flag="atoms">Et les boutons ?</span>
+  </div>
+  
+<aside class="notes">
+    Théo : « On relie les usages à des tokens sémantiques : chaque rôle peut garder la valeur qui lui convient. »<br />
+    Wafa : « Même couleur… mais regarde tes boutons. »<br />
+    Théo : « Ah. Un rond, un carré, un en majuscules… »
+  </aside>
+</section>
