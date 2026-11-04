@@ -1,0 +1,116 @@
+/*
+ * libs/tokens · les fondations du design system EventHub.
+ *
+ * PRINCIPE (2.3, design tokens) : un token est une valeur de design nommée.
+ * Il exprime une décision qu'on peut partager entre métiers, outils et plateformes.
+ * Ici on l'écrit en CSS ; dans une vraie chaîne, ce fichier serait généré
+ * (par exemple par Style Dictionary) depuis un fichier au format DTCG
+ * édité dans l'outil de design. Le format DTCG a sa propre syntaxe de références ;
+ * var() n'en est qu'une illustration.
+ *
+ * PRINCIPE (2.3, deux niveaux) : les tokens bruts nomment des valeurs,
+ * les tokens sémantiques nomment des rôles. C'est une pratique courante,
+ * pas une catégorie imposée par le DTCG.
+ *
+ * RÈGLE DU DÉPÔT : les composants de libs/ui et libs/events n'utilisent
+ * que les tokens sémantiques. Jamais un code hexadécimal, jamais un token brut.
+ */
+
+/* ---------- Tokens bruts : une palette finie, nommée par sa valeur ---------- */
+:root {
+  /* Rouge et orange du logo Sopra Steria ; les autres tons sont des dérivés illustratifs.
+     Garder plusieurs nuances n'est pas un problème : ne pas savoir à quoi elles servent, si. */
+  --red-50: #fdecec;
+  --red-400: #e85d65;
+  --red-600: #de1823;
+  --red-800: #a50e17;
+
+  --orange-50: #fff3e8;
+  --orange-500: #f67200;
+  --orange-900: #92400e;
+
+  --blue-600: #1c63ed;
+  --blue-800: #1557d6;
+
+  --slate-0: #ffffff;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-500: #64748b;
+  --slate-700: #334155;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --size-radius-sm: 6px;
+  --size-radius-md: 12px;
+  --size-radius-full: 999px;
+}
+
+/* ---------- Tokens sémantiques : nommés par leur rôle ---------- */
+:root {
+  /* Alias : le nom fonctionnel pointe vers une valeur de la palette. */
+  --color-bg: var(--slate-0);
+  --color-bg-subtle: var(--slate-50);
+  --color-border: var(--slate-200);
+  --color-text: var(--slate-900);
+  --color-text-muted: var(--slate-500);
+
+  /* Plusieurs rôles peuvent partager la même valeur brute : primary-strong et danger pointent
+     tous deux vers red-800, mais ce sont deux décisions différentes qui pourront diverger. */
+  --color-primary: var(--red-600);
+  --color-primary-strong: var(--red-800);
+  --color-primary-soft: var(--red-50);
+  --color-on-primary: var(--slate-0);
+  /* Texte aux couleurs de la marque (logo). Rôle distinct de --color-primary :
+     en mode sombre, le rouge de la marque n'atteint pas 4,5:1 sur le fond, ce rôle s'adapte. */
+  --color-brand-text: var(--red-600);
+
+  --color-accent: var(--blue-800);
+  --color-accent-strong: var(--blue-600);
+  --color-on-accent: var(--slate-0);
+
+  --color-danger: var(--red-800);
+  --color-on-danger: var(--slate-0);
+
+  --color-highlight-soft: var(--orange-50);
+  --color-on-highlight: var(--orange-900);
+
+  --color-disabled: var(--slate-300);
+  --color-on-disabled: var(--slate-700);
+
+  --color-focus-ring: var(--blue-600);
+
+  --radius-control: var(--size-radius-md);
+  --radius-surface: var(--size-radius-md);
+  --radius-pill: var(--size-radius-full);
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/*
+ * PRINCIPE (2.8, thème) : le mode sombre ne touche aucun composant.
+ * Le thème fournit d'autres valeurs aux mêmes tokens sémantiques.
+ * Les boutons gardent le rouge de la marque.
+ * À vérifier pour chaque thème : les contrastes (WCAG), et qu'aucune information
+ * ne repose uniquement sur la couleur.
+ */
+[data-theme='dark'] {
+  --color-bg: var(--slate-900);
+  --color-bg-subtle: var(--slate-950);
+  --color-border: var(--slate-500);
+  --color-text: var(--slate-50);
+  --color-text-muted: var(--slate-300);
+  --color-primary-soft: var(--slate-700);
+  --color-brand-text: var(--red-400);
+  --color-highlight-soft: var(--orange-50);
+  --color-focus-ring: var(--orange-500);
+  color-scheme: dark;
+}

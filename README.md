@@ -56,6 +56,19 @@ src/styles/theme.css          typographie, mise en page, code
 src/styles/illustrations.css  maquettes HTML/CSS animées (écran fil rouge, badges…)
 public/                       memoji des speakers, logos
 docs/checklist-pr.md          la checklist du talk, prête à copier dans un modèle de PR
+exemple/                      l'écran EventHub réparé en Angular, avec son Storybook
+public/storybook/             capture du Storybook de exemple/, affichée sur la slide Storybook
+```
+
+## L'exemple EventHub
+
+[exemple/](exemple/README.md) reproduit l'écran de démo réparé (tokens, Button, Badge, SearchField, Card, EventCard, template, page, mode sombre) dans une petite application Angular, avec un Storybook. Chaque principe du talk y est commenté là où il s'applique ; le README de l'exemple fait la correspondance slide par slide.
+
+```bash
+cd exemple
+npm install
+npm start           # http://localhost:4200 (?theme=dark pour le mode sombre)
+npm run storybook   # http://localhost:6006
 ```
 
 reveal.js a besoin de toutes les `<section>` dans un seul document : le plugin de [vite.config.js](vite.config.js) les assemble en dev comme au build. Modifier un fichier de `slides/` recharge la page.

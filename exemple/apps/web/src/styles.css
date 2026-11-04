@@ -1,0 +1,8 @@
+/* Styles globaux de l'application : uniquement des tokens sémantiques (libs/tokens est chargé avant). */
+html, body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}

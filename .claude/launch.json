@@ -4,8 +4,39 @@
     {
       "name": "slides",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--", "--port", "5173", "--strictPort"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5173",
+        "--strictPort"
+      ],
       "port": 5173
+    },
+    {
+      "name": "exemple-app",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "exemple",
+        "start",
+        "--",
+        "--port",
+        "4200"
+      ],
+      "port": 4200
+    },
+    {
+      "name": "exemple-storybook",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "exemple",
+        "run",
+        "storybook"
+      ],
+      "port": 6006
     }
   ]
 }
