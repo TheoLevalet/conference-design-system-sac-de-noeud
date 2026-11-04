@@ -1,29 +1,30 @@
 <!-- =====================================================
-     PARTIE 2.8 · LA PAGE ET LE THÈME SOMBRE
+     PARTIE ③ · ÉTAPE 5 · LA PAGE ET LE MODE SOMBRE
+     Niveau : page · La preuve que les fondations tiennent : on change le thème sans toucher un composant.
      ===================================================== -->
 
-<!-- 2.8 · Page. Problème : le client demande un mode sombre -->
+<!-- ③.6 · Page. Problème : le client demande un mode sombre -->
 <section>
   <h2>Nouvelle demande du client</h2>
   <div class="ticket">
-    <p class="from">De : le client · Objet : EventHub V2</p>
+    <p class="from">De : le client · Objet : ConferenceHub V2</p>
     <p>« Pour la V2, on voudrait <b>un mode sombre</b>. C'est rapide, non ? »</p>
   </div>
   <p class="lead stack-top fragment fade-up">Avec l'écran « avant » : reprendre <span class="hl">chaque bouton, chaque carte, chaque champ</span>…</p>
   
 <aside class="notes">
     Théo : « Un mode sombre. C'est rapide, non ? »<br />
-    Wafa : « Avec l'écran du début, il aurait fallu reprendre chaque bouton, chaque carte et chaque champ pour retrouver les bonnes nuances. Voyons avec l'écran réparé. »
+    Wafa : « Avec l'écran du début, il fallait reprendre chaque bouton, chaque carte, chaque champ. Voyons avec l'écran rangé. »
   </aside>
 </section>
 
-<!-- 2.8 · Page. Concept clé et correction : l'écran « après », puis le mode sombre -->
+<!-- ③.6 · L'écran « après », puis le mode sombre -->
 <section data-auto-animate>
   <div class="code-pill" data-id="pill">Mode clair · --color-bg: <span class="val brand">var(--slate-0)</span>; --color-text: <span class="val brand">var(--slate-900)</span>;</div>
   <div class="mock full messy fix-tokens fix-atoms fix-molecules fix-organisms" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
     <div class="mock-header" data-id="m-header">
-      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">ConferenceHub</span>
       <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
       <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
     </div>
@@ -63,14 +64,12 @@
         </div>
       </div>
     </div>
-    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 ConferenceHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
   </div>
-  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2 : la page, c'est le template avec du contenu réel. C'est là qu'on vérifie que le système tient.</p>
   
 <aside class="notes">
-    Wafa : « Voici la page : le template, rempli avec de vraies données. Pour Brad Frost, c'est à ce niveau qu'on vérifie que tout le système tient face au contenu réel. »<br />
-    Théo : « Et c'est l'écran du début, réparé : des couleurs de marque cohérentes, un bouton, une recherche, une carte. »<br />
-    Théo : « Maintenant, le mode sombre. On ne touche à aucun composant : on change seulement les valeurs des tokens. »
+    Théo : « L'écran du début, rangé : des couleurs cohérentes, un bouton, une recherche, une carte. »<br />
+    Théo : « Le mode sombre : on ne touche à aucun composant. On change seulement les valeurs des tokens. »
   </aside>
 </section>
 
@@ -79,7 +78,7 @@
   <div class="mock full messy fix-tokens fix-atoms fix-molecules fix-organisms theme-dark" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
     <div class="mock-header" data-id="m-header">
-      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">ConferenceHub</span>
       <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
       <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
     </div>
@@ -119,13 +118,12 @@
         </div>
       </div>
     </div>
-    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 ConferenceHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
   </div>
   <p class="punchline">Même page, mêmes composants. <span class="hl">Un autre thème.</span></p>
   
 <aside class="notes">
-    Wafa : « Toute la page passe en mode sombre : le fond, les cartes, la recherche, les textes et les bordures. Les boutons gardent le rouge de la marque. »<br />
-    Théo : « Les composants n'ont pas changé. C'est le thème qui fournit d'autres valeurs aux mêmes tokens. »<br />
-    Wafa : « Il faut vérifier les contrastes dans chaque thème. Et une information ne doit jamais reposer uniquement sur la couleur. »
+    Wafa : « Même page, mêmes composants. Un autre thème. »<br />
+    Wafa : « C'est ça, des fondations bien rangées. Il reste à vérifier les contrastes dans chaque thème. »
   </aside>
 </section>

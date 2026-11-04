@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
 import { EventSearchPage } from './event-search-page';
 
-/* La page complète, avec des données : c'est l'écran EventHub de la présentation. */
+/* La page complète, avec des données : c'est l'écran ConferenceHub de la présentation. */
 const meta: Meta<EventSearchPage> = {
   title: 'Pages/Recherche d’événements',
   component: EventSearchPage,

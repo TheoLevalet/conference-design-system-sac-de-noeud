@@ -1,4 +1,4 @@
-import { EventSummary } from '@eventhub/events';
+import { EventSummary } from '@conferencehub/events';
 
 /** Les données de la page : en vrai, elles viendraient d'une API. */
 export const EVENTS: EventSummary[] = [

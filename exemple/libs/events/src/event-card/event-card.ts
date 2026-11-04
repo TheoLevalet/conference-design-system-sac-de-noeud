@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
-import { Badge, Button, CARD } from '@eventhub/ui';
+import { Badge, Button, CARD } from '@conferencehub/ui';
 import { EVENT_STATUS_LABELS, EventSummary } from '../event-summary';
 
 const dateFormat = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short' });
@@ -7,7 +7,7 @@ const dateFormat = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'sh
 /**
  * RECETTE (2.6) · EventCard = Card + Badge + Button.
  *
- * Une composition de composants du design system, utilisée de façon cohérente dans EventHub,
+ * Une composition de composants du design system, utilisée de façon cohérente dans ConferenceHub,
  * mais trop métier pour entrer dans le design system (Brad Frost : components, recipes and snowflakes).
  *
  * Tout le vocabulaire métier est ici : l'événement, « Complet », l'inscription.

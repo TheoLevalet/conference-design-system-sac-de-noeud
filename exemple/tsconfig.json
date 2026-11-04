@@ -15,10 +15,10 @@
     "module": "preserve",
     "strict": true,
     /* Chaque bibliothèque n'expose que son API publique (index.ts) :
-       on importe @eventhub/ui, jamais un fichier interne de libs/ui. */
+       on importe @conferencehub/ui, jamais un fichier interne de libs/ui. */
     "paths": {
-      "@eventhub/ui": ["./libs/ui/src/index.ts"],
-      "@eventhub/events": ["./libs/events/src/index.ts"]
+      "@conferencehub/ui": ["./libs/ui/src/index.ts"],
+      "@conferencehub/events": ["./libs/events/src/index.ts"]
     }
   },
   "angularCompilerOptions": {

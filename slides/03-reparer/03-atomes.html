@@ -1,44 +1,41 @@
 <!-- =====================================================
-     PARTIE 2.5 · LES MOLÉCULES : UN SEUL SEARCHFIELD
+     PARTIE ③ · ÉTAPE 2 · UN SEUL BUTTON, UN SEUL BADGE
+     Niveau : atome · Contexte : component · Checklist : P1, S2
      ===================================================== -->
 
-<!-- 2.5 · Molécules. Concept clé -->
+<!-- ③.3 · Atomes. Avant / après -->
 <section>
-  <h2>La molécule : <span class="hl">une seule chose</span></h2>
-  <div class="concept">
-    Un petit groupe d'éléments qui fonctionnent ensemble : <b>un libellé, un champ et un bouton</b> forment un formulaire de recherche.
-    <p class="fragment fade-up">Elle rassemble des éléments autour d'<b>un rôle d'interface lisible</b>.</p>
-  </div>
-  <div class="before-after fragment fade-up">
+  <h2>Un seul <code>Button</code>, un seul <code>Badge</code></h2>
+  <div class="before-after">
     <div class="side bad">
-      <h3>Avant : deux recherches bricolées</h3>
-      <div class="search-demo"><span class="mock-input" style="border-radius: 999px">🔍 Chercher…</span></div>
-      <div class="search-demo" style="gap: 80px"><span class="mock-input" style="border-width: 0 0 2px; border-radius: 0">🔍 Nantes…</span><span class="m-btn" style="border-radius: 2px">RECHERCHER</span></div>
+      <h3>Avant : un bouton par équipe</h3>
+      <span class="ds-btn v1">S'inscrire</span>
+      <span class="ds-btn v2">S'inscrire</span>
+      <span class="ds-btn v4">S'inscrire</span>
+      <span class="ds-btn v6">S'inscrire</span>
     </div>
-    <span class="punchline">➜</span>
-    <div class="side good">
-      <h3>Après : une molécule <code>SearchField</code></h3>
-      <div class="search-demo"><span class="mock-input">🔍 Nantes…</span><span class="m-btn">Rechercher</span></div>
-      <span>elle ne sait pas <b>ce qu'on cherche</b></span>
+    <span class="punchline fragment" data-fragment-index="0">➜</span>
+    <div class="side good fragment" data-fragment-index="0">
+      <h3>Après : un atome partagé</h3>
+      <span class="ds-btn">S'inscrire</span>
+      <code>&lt;button uiButton type="button"&gt;</code>
+      <span>que des tokens sémantiques</span>
     </div>
   </div>
-  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2 (molécules)</p>
   
 <aside class="notes">
-    Wafa : « Deuxième niveau : la molécule. Pour Brad Frost, c'est un petit groupe d'éléments qui fonctionnent ensemble. Son exemple est exactement le nôtre : un libellé, un champ et un bouton forment un formulaire de recherche. »<br />
-    Wafa : « Elle rassemble les éléments autour d'un usage clair : permettre une recherche. Ce n'est pas une règle de classement rigide. »<br />
-    Wafa : « Nos deux recherches deviennent une seule molécule, SearchField, utilisée en haut et au milieu. Elle ne sait pas ce qu'on cherche : des événements aujourd'hui, des factures demain. »<br />
-    Wafa : « Et comme dans l'exemple de Frost, le champ garde un libellé : visible, ou au minimum lisible par les lecteurs d'écran. »
+    Théo : « Quatre boutons, le même mot : S'inscrire. »<br />
+    Wafa : « On n'en garde qu'un : un atome Button. Un vrai bouton HTML, habillé par le design system : accessible au clavier, avec un focus visible. Même chose pour le Badge. »
   </aside>
 </section>
 
-<!-- 2.5 → 2.6 · L'écran : molécules réparées, problème suivant : les cartes -->
+<!-- ③.3 → ③.4 · L'écran : atomes rangés, questions P1 et S2, problème suivant : les recherches -->
 <section>
-  <span class="level-tag">EventHub, en réparation</span>
-  <div class="mock full messy fix-tokens fix-atoms" data-id="mock">
+  <span class="level-tag">ConferenceHub, en réparation</span>
+  <div class="mock full messy fix-tokens" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
     <div class="mock-header" data-id="m-header">
-      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">ConferenceHub</span>
       <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
       <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
     </div>
@@ -78,16 +75,18 @@
         </div>
       </div>
     </div>
-    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 ConferenceHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
   </div>
   <div class="screen-status">
-    <span class="done fragment" data-fix="molecules">Molécules : un seul champ de recherche</span>
-    <span class="problem fragment" data-flag="organisms">Trois cartes, trois mises en page</span>
+    <span class="done fragment" data-fix="atoms">Button, Badge → component</span>
+    <span class="check-add fragment"><b>P1</b> Pas déjà dans le catalogue ?</span>
+    <span class="check-add fragment"><b>S2</b> États visibles, accessibilité vérifiée ?</span>
+    <span class="problem fragment" data-flag="molecules">Deux recherches</span>
   </div>
   
 <aside class="notes">
-    Théo : « Une seule recherche, deux endroits. »<br />
-    Wafa : « Et tes cartes ? Une avec image, une sans, une centrée… »<br />
-    Théo : « Ah, non, celles-là c'est la même ! Une seule Card. Elle sait tout faire. »
+    Théo : « Button et Badge : aucun métier dedans, tout le monde s'en sert. Ce sont des components du design system. »<br />
+    Wafa : « Deux questions de plus. L'équipe 2 ne savait pas que le bouton existait : est-ce qu'on a vérifié le catalogue ? Et ses états sont-ils visibles, son accessibilité vérifiée ? »<br />
+    Wafa : « Et là-haut, dans l'en-tête ? Encore une recherche, sans bouton. »
   </aside>
 </section>

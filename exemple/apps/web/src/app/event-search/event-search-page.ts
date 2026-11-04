@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
-import { EventCard, EventSummary } from '@eventhub/events';
-import { ListingTemplate, SearchField } from '@eventhub/ui';
+import { EventCard, EventSummary } from '@conferencehub/events';
+import { ListingTemplate, SearchField } from '@conferencehub/ui';
 import { AppFooter } from '../layout/app-footer';
 import { AppHeader } from '../layout/app-header';
 import { EVENTS } from './events.data';

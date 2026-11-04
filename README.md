@@ -35,20 +35,18 @@ npm run preview    # prévisualiser la version de production
 ```
 index.html                    squelette : inclut les fichiers de slides/ dans l'ordre
 slides/
-  00-ouverture.html           titre, explosion de boutons, speakers
-  01-probleme.html            ① le bilan, les 4 équipes, la vraie question
-  02-ecran-repare/            ② l'écran EventHub réparé de bas en haut, une sous-partie par fichier :
-    01-ecran-avant.html         2.1 titre de la partie, l'écran « avant »
-    02-atomic-design.html       2.2 ranger par dossiers ? Atomic Design, modèle de composition
-    03-tokens.html              2.3 17 nuances, design tokens, bruts → sémantiques, chaîne outillée
-    04-atomes.html              2.4 un seul Button, un seul Badge
-    05-molecules.html           2.5 un seul SearchField
-    06-organismes.html          2.6 la Card à 42 inputs, recettes, composition, frontière outillée
-    07-template.html            2.7 séparer le plan de la page de ses données
-    08-page-theme.html          2.8 la page réparée, puis le mode sombre
-  03-storybook.html           suite de ② : documenter les états dans Storybook
-  04-regle.html               suite de ② : décider où vit chaque composant
-  05-conclusion.html          conclusion, ressources et questions
+  00-ouverture.html           titre, question au public, explosion de boutons, speakers
+  01-sac-de-noeuds.html       ① ce qu'est un design system, le bilan, les 4 équipes, libs/shared, la vraie question
+  02-decouper.html            ② Atomic Design (de quoi c'est fait ?), le contexte (qui s'en sert ?), la grille qui les croise
+  03-reparer/                 ③ ConferenceHub réparé pièce par pièce, chaque pièce rangée à son adresse :
+    01-ecran-avant.html         l'écran « avant »
+    02-tokens.html              17 nuances, tokens bruts → sémantiques, alias CSS · question G3
+    03-atomes.html              un seul Button, un seul Badge · questions P1, S2
+    04-molecules.html           un seul SearchField · question G1
+    05-organismes.html          la Card à 42 inputs, Sandi Metz, EventCard, composition, les libs · questions G2, S1
+    06-page-theme.html          la page rangée, puis le mode sombre
+  04-six-mois.html            ④ la billetterie arrive : vote du public, Storybook, partagé pour de vrai, la durée · questions P2, S3, S4
+  05-conclusion.html          la checklist complète, le bilan du front, la phrase de fin, 3 conseils, merci
 vite.config.js                plugin qui remplace <!-- @include … --> par le fichier
 src/main.js                   configuration reveal.js, pied de page, QR codes
 src/styles/tokens.css         les tokens du deck (bruts + sémantiques)
@@ -56,11 +54,11 @@ src/styles/theme.css          typographie, mise en page, code
 src/styles/illustrations.css  maquettes HTML/CSS animées (écran fil rouge, badges…)
 public/                       memoji des speakers, logos
 docs/checklist-pr.md          la checklist du talk, prête à copier dans un modèle de PR
-exemple/                      l'écran EventHub réparé en Angular, avec son Storybook
-public/storybook/             capture du Storybook de exemple/, affichée sur la slide Storybook
+exemple/                      l'écran ConferenceHub réparé en Angular, avec son Storybook
+public/storybook/             capture du Storybook de exemple/, affichée dans la partie ④
 ```
 
-## L'exemple EventHub
+## L'exemple ConferenceHub
 
 [exemple/](exemple/README.md) reproduit l'écran de démo réparé (tokens, Button, Badge, SearchField, Card, EventCard, template, page, mode sombre) dans une petite application Angular, avec un Storybook. Chaque principe du talk y est commenté là où il s'applique ; le README de l'exemple fait la correspondance slide par slide.
 
@@ -111,16 +109,20 @@ Deux slides consécutives avec `data-auto-animate`. Les éléments qui partagent
 
 | Partie | Minutage | Contenu |
 | --- | --- | --- |
-| ① Le problème | 0:00 → 4:00 | l'accroche, le bilan, les 4 équipes, la vraie question |
-| ② Un écran, réparé de bas en haut | 4:00 → 17:30 | un seul fil : problème → concept → correction, puis Storybook et la décision finale |
-| Conclusion | 17:30 → 18:00 | le message à retenir |
-| Questions | 18:00 → 20:00 | ressources et QR code affichés |
+| Accroche | 0:00 → 1:00 | question au public, les boutons explosent, les speakers |
+| ① Le sac de nœuds | 1:00 → 4:00 | le bilan, les 4 équipes, il manque une frontière |
+| ② Comment découper ? | 4:00 → 6:30 | Atomic Design et le contexte : deux questions indépendantes |
+| ③ Réparer en rangeant | 6:30 → 13:30 | chaque réparation donne une adresse et une question de la checklist |
+| ④ Six mois plus tard | 13:30 → 18:00 | la billetterie, le vote, partagé pour de vrai, la durée |
+| Conclusion | 18:00 → 20:00 | la checklist, le bilan, la phrase de fin |
+
+Le détail est dans [plan-presentation.md](plan-presentation.md). Il n'y a pas de temps de questions.
 
 Une slide qui porte `data-part="…"` démarre une nouvelle partie : le pied de page se met à jour tout seul.
 
 ### L'écran « avant », réparé étage par étage
 
-La maquette EventHub de la partie ② porte la classe `messy` : elle affiche volontairement le désordre (plusieurs nuances rouge-orange, plusieurs boutons, deux recherches, trois mises en page de carte). Les deux couleurs de base sont celles du logo Sopra Steria ; les autres nuances sont illustratives, pas une palette officielle complète. Chaque étage se répare :
+La maquette ConferenceHub de la partie ③ porte la classe `messy` : elle affiche volontairement le désordre (plusieurs nuances rouge-orange, plusieurs boutons, deux recherches, trois mises en page de carte). Les deux couleurs de base sont celles du logo Sopra Steria ; les autres nuances sont illustratives, pas une palette officielle complète. Chaque étage se répare :
 
 - par une classe sur la maquette : `fix-tokens`, `fix-atoms`, `fix-molecules`, `fix-organisms` ;
 - ou au clic, avec un fragment de la même slide qui porte `data-fix="tokens|atoms|molecules|organisms"` (transition animée).

@@ -1,34 +1,111 @@
 <!-- =====================================================
-     CONCLUSION ET QUESTIONS · (17:30 → 20:00)
+     CONCLUSION (18:00 → 20:00)
+     La checklist complète, le bilan du front, la phrase de fin, trois conseils.
      ===================================================== -->
 
+<!-- C.1 · La checklist, construite pendant le talk -->
+<section data-part="Conclusion">
+  <p class="punchline" style="font-size: 1.1em">
+    <span class="text-primary">Générique</span> · <span class="text-primary">Stable</span> · <span class="text-primary">Partagé</span>
+  </p>
+  <table class="checklist compact">
+    <tbody>
+      <tr class="group"><th colspan="2">Générique : sert-il sans connaître le métier ?</th></tr>
+      <tr><td>G1</td><td>Aucun vocabulaire métier ?</td></tr>
+      <tr><td>G2</td><td>Les variations passent-elles par la composition plutôt que par des options ?</td></tr>
+      <tr><td>G3</td><td>Ses styles n'utilisent-ils que des tokens sémantiques ?</td></tr>
+      <tr class="group"><th colspan="2">Stable : peut-on s'appuyer dessus dans la durée ?</th></tr>
+      <tr><td>S1</td><td>Son API est-elle petite ?</td></tr>
+      <tr><td>S2</td><td>Ses états sont-ils visibles, et l'accessibilité vérifiée ?</td></tr>
+      <tr><td>S3</td><td>Quelqu'un le maintient-il ?</td></tr>
+      <tr><td>S4</td><td>Les changements cassants sont-ils annoncés ?</td></tr>
+      <tr class="group"><th colspan="2">Partagé : en a-t-on vraiment besoin à plusieurs ?</th></tr>
+      <tr><td>P1</td><td>A-t-on vérifié qu'il n'existe pas déjà dans le catalogue ?</td></tr>
+      <tr><td>P2</td><td>Un besoin réel existe-t-il dans plusieurs produits ?</td></tr>
+    </tbody>
+  </table>
 
-<!-- 15 · Conclusion -->
-<section data-auto-animate>
+<aside class="notes">
+    Wafa : « Voici les neuf questions qu'on a posées en chemin. Rangées ensemble, elles donnent notre règle : ce qui entre est générique, stable et partagé. »<br />
+    Théo : « Un "non" ne veut pas dire "jamais". Ça veut dire : une autre adresse, ou pas encore. »
+  </aside>
+</section>
+
+<!-- C.2 · Le bilan du front -->
+<section>
+  <h2>Le bilan de notre front</h2>
+  <div class="before-after">
+    <div class="side bad">
+      <h3>Avant</h3>
+      <ul class="recap">
+        <li>7 boutons, 4 recherches</li>
+        <li>une Card à 42 inputs</li>
+        <li><code>libs/shared</code>, le vide-grenier</li>
+        <li>mode sombre : tout reprendre</li>
+      </ul>
+    </div>
+    <span class="punchline">➜</span>
+    <div class="side good">
+      <h3>Après</h3>
+      <ul class="recap">
+        <li>1 <code>Button</code>, 1 <code>SearchField</code></li>
+        <li>une Card à 3 slots, une recipe <code>EventCard</code></li>
+        <li>4 libs, des dépendances dans un seul sens</li>
+        <li>mode sombre : changer des tokens</li>
+        <li>une 2e app, sans rien réécrire</li>
+      </ul>
+    </div>
+  </div>
+
+<aside class="notes">
+    Théo : « Avant : sept boutons, une Card à 42 inputs, et libs/shared. »<br />
+    Wafa : « Après : chaque pièce a son adresse. Un mode sombre en changeant des tokens, une deuxième application sans rien réécrire. Les erreurs et les loaders suivront le même chemin. »
+  </aside>
+</section>
+
+<!-- C.3 · La phrase à retenir -->
+<section>
   <p class="emoji-xl"><span class="brand-emoji">🪢</span> ➜ <span class="brand-emoji">🧶</span></p>
   <p class="punchline" style="font-size: 1.5em">
     Un design system, ce n'est pas<br /><s class="muted">tout ce qui est réutilisable</s>.
   </p>
-  <p class="punchline fragment" style="font-size: 1.5em">C'est ce qui est <span class="hl">générique, stable et partagé.</span></p>
-  
+  <p class="punchline fragment" style="font-size: 1.5em">C'est <span class="hl">une frontière, décidée et entretenue.</span></p>
+
 <aside class="notes">
-    Wafa : « Si vous ne retenez qu'une chose : un design system, ce n'est pas tout ce qui est réutilisable. C'est ce qui est générique, stable et partagé. »
+    Wafa : « Si vous ne retenez qu'une chose : un design system, ce n'est pas tout ce qui est réutilisable. »<br />
+    Wafa : « C'est une frontière, décidée et entretenue. C'est elle qui rend un front pérenne. »
   </aside>
 </section>
 
-<section data-auto-animate>
+<!-- C.4 · Trois conseils pour lundi -->
+<section>
+  <h2>Pour lundi matin</h2>
+  <div class="row stack-top" style="width: 1100px; margin: 0 auto">
+    <div class="tile fragment fade-up"><h3>Commencer par les tokens</h3><p>Des rôles avant des composants.</p></div>
+    <div class="tile fragment fade-up"><h3>La checklist dans la PR</h3><p>Copiez-la dans votre modèle de pull request.</p></div>
+    <div class="tile primary fragment fade-up"><h3>Accepter le dehors</h3><p>Une recipe ou un snowflake, ce n'est pas un échec : c'est une adresse.</p></div>
+  </div>
+
+<aside class="notes">
+    Théo : « Trois choses pour lundi. Commencez par les tokens. Mettez la checklist dans votre modèle de PR. »<br />
+    Wafa : « Et acceptez que des choses restent dehors : ce n'est pas un échec, c'est une adresse. »
+  </aside>
+</section>
+
+<!-- C.5 · Retour au petit bouton -->
+<section>
   <p class="lead">Et si vous avez un petit bouton à ajouter…</p>
   <button class="ds-btn" style="font-size: 40px; padding: 26px 44px">＋ Ajouter un bouton</button>
-  <p class="punchline stack-top fragment">…posez-vous d'abord <span class="hl">les 8 questions</span>.</p>
-  
+  <p class="punchline stack-top fragment">…cherchez d'abord <span class="hl">son adresse</span>.</p>
+
 <aside class="notes">
     Théo : « Et si vous avez un petit bouton à ajouter… »<br />
-    Wafa : « …posez-vous d'abord les questions. Merci ! »
+    Wafa : « …cherchez d'abord son adresse. Merci ! »
   </aside>
 </section>
 
 <section>
-  <h2>Merci · des questions ?</h2>
+  <h2>Merci !</h2>
   <div class="grid-2" style="grid-template-columns: 1fr auto; gap: 56px">
     <ul class="refs">
       <li><b>Brad Frost</b>, <em>Atomic Design</em></li>
@@ -39,8 +116,8 @@
     </ul>
     <div class="col" style="align-items: center">
       <div class="qr" data-qr="https://github.com/TheoLevalet/conference-design-system-sac-de-noeud"></div>
-      <p class="small muted">Slides + checklist de PR</p>
+      <p class="small muted">Slides, checklist de PR et exemple Angular</p>
     </div>
   </div>
-  
+  <p class="source stack-top">La règle, la checklist et les exemples sont notre proposition, inspirée de ces sources.</p>
 </section>

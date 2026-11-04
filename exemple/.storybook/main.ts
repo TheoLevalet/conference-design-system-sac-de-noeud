@@ -4,7 +4,7 @@ import type { StorybookConfig } from '@storybook/angular-vite';
  * Storybook (2.6 de la présentation) : un atelier pour partager les exemples.
  * On documente les composants du design system ET les recettes du produit :
  * tout ce qui est dans Storybook n'a pas vocation à entrer dans le design system.
- * La barre latérale le montre : « Design system », « Recettes EventHub », « Pages ».
+ * La barre latérale le montre : « Design system », « Recettes ConferenceHub », « Pages ».
  */
 const config: StorybookConfig = {
   stories: ['../libs/*/src/**/*.stories.ts', '../apps/web/src/**/*.stories.ts'],

@@ -1,4 +1,4 @@
-/** Le vocabulaire métier d'EventHub : il vit ici, pas dans le design system. */
+/** Le vocabulaire métier d'ConferenceHub : il vit ici, pas dans le design system. */
 export type EventStatus = 'full' | 'new' | 'free';
 
 export interface EventSummary {

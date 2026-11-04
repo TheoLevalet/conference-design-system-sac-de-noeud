@@ -1,31 +1,19 @@
 <!-- =====================================================
-     PARTIE 2 · UN ÉCRAN, RÉPARÉ DE BAS EN HAUT (4:00 → 17:30)
-     Fil unique : Problème sur l'écran → concept utile → correction vérifiable.
-     La maquette EventHub (identique sur toutes les slides) :
+     PARTIE ③ · RÉPARER EN RANGEANT (6:30 → 13:30)
+     Fil unique : problème sur l'écran → réparation → niveau → contexte (l'adresse)
+     → question ajoutée à la checklist. La lib (où vit le code) arrive à l'étape Card.
+     La maquette ConferenceHub (identique sur toutes les slides) :
      .messy = le désordre ; fix-tokens, fix-atoms, fix-molecules, fix-organisms = étages déjà réparés ;
      un fragment data-fix="…" répare un étage au clic ; un fragment data-flag="…" entoure le problème suivant.
      ===================================================== -->
 
-<section data-part="② Un écran, réparé de bas en haut" data-no-footer>
-  <p class="emoji-xl">🔧</p>
-  <h2>Un écran, réparé de bas en haut</h2>
-  <div class="agenda">
-    <span class="step done">① Le problème</span>
-    <span class="step active">② L'écran, du problème à la règle</span>
-  </div>
-  
-<aside class="notes">
-    Wafa : « Assez parlé du problème en général. On prend une maquette d'écran, on cherche ce qui cloche, et on la répare. Un problème à la fois. »
-  </aside>
-</section>
-
-<!-- 2.1 · L'écran « avant » -->
-<section>
-  <span class="level-tag">EventHub, l'écran « avant »</span>
+<!-- ③.1 · L'écran « avant » -->
+<section data-part="③ Réparer en rangeant">
+  <span class="level-tag">ConferenceHub, l'écran « avant »</span>
   <div class="mock full messy" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
     <div class="mock-header" data-id="m-header">
-      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">ConferenceHub</span>
       <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
       <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
     </div>
@@ -65,11 +53,11 @@
         </div>
       </div>
     </div>
-    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 ConferenceHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
   </div>
   
 <aside class="notes">
-    Théo : « Voici notre maquette EventHub, une page de recherche d'événements. Un en-tête, une recherche, des cartes, un pied de page. Et ça marche ! »<br />
-    Wafa : « Ça marche… »
+    Théo : « Voici ConferenceHub, une page de recherche d'événements. Un en-tête, une recherche, des cartes. Et ça marche ! »<br />
+    Wafa : « Ça marche… On la répare, pièce par pièce. Et pour chaque pièce réparée, on cherche son adresse, et on note la question qui nous a aidés à décider. »
   </aside>
 </section>

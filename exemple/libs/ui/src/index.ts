@@ -1,7 +1,7 @@
 /*
- * libs/ui · l'API publique du design system EventHub.
+ * libs/ui · l'API publique du design system ConferenceHub.
  *
- * Seul ce fichier est importable depuis l'extérieur (@eventhub/ui).
+ * Seul ce fichier est importable depuis l'extérieur (@conferencehub/ui).
  * Les dossiers sont rangés par composant, pas par niveau atoms/ molecules/ organisms/ :
  * le niveau Atomic Design dit comment un composant se compose, pas où il vit (2.2).
  *

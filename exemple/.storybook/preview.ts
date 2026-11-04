@@ -31,7 +31,7 @@ const preview: Preview = {
   parameters: {
     layout: 'centered',
     options: {
-      storySort: { order: ['Design system', 'Recettes EventHub', 'Pages'] },
+      storySort: { order: ['Design system', 'Recettes ConferenceHub', 'Pages'] },
     },
     a11y: {
       // 'error' : une violation détectée fait échouer le test de la story.

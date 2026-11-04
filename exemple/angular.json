@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "eventhub": {
+    "conferencehub": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -86,10 +86,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "eventhub:build:production"
+              "buildTarget": "conferencehub:build:production"
             },
             "development": {
-              "buildTarget": "eventhub:build:development"
+              "buildTarget": "conferencehub:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +98,7 @@
           "builder": "@storybook/angular-vite:start-storybook",
           "options": {
             "configDir": ".storybook",
-            "browserTarget": "eventhub:build",
+            "browserTarget": "conferencehub:build",
             "port": 6006
           }
         },
@@ -106,7 +106,7 @@
           "builder": "@storybook/angular-vite:build-storybook",
           "options": {
             "configDir": ".storybook",
-            "browserTarget": "eventhub:build",
+            "browserTarget": "conferencehub:build",
             "outputDir": "storybook-static"
           }
         }

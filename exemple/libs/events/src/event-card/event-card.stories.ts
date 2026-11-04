@@ -7,7 +7,7 @@ import { EventCard } from './event-card';
  * on la partage dans le produit sans la promouvoir dans libs/ui.
  */
 const meta: Meta<EventCard> = {
-  title: 'Recettes EventHub/EventCard',
+  title: 'Recettes ConferenceHub/EventCard',
   component: EventCard,
   decorators: [componentWrapperDecorator((story) => `<div style="width: 320px">${story}</div>`)],
   args: { register: fn() },

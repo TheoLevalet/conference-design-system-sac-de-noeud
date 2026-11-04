@@ -1,6 +1,6 @@
-# EventHub, l'exemple du talk
+# ConferenceHub, l'exemple du talk
 
-Un exemple Angular minimal qui reproduit l'écran EventHub **réparé** de la partie ② (slide « la page réparée, puis le mode sombre »), avec son Storybook.
+Un exemple Angular minimal qui reproduit l'écran ConferenceHub **réparé** de la partie ② (slide « la page réparée, puis le mode sombre »), avec son Storybook.
 
 Les principes de la présentation sont commentés dans le code, à l'endroit où on les applique. Ce tableau indique où les trouver.
 
@@ -22,13 +22,13 @@ l'application   recettes       design system    fondations
 
 ```
 libs/tokens/tokens.css                tokens bruts, tokens sémantiques, thème sombre
-libs/ui/src/                          design system (@eventhub/ui)
+libs/ui/src/                          design system (@conferencehub/ui)
   button/        atome    Button      <button uiButton>, variantes, états, focus
   badge/         atome    Badge
   search-field/  molécule SearchField libellé + champ + Button
   card/          organisme Card       3 slots, aucun input
   listing-template/ template          le plan d'une page de liste, sans les données
-libs/events/src/                      recettes métier (@eventhub/events)
+libs/events/src/                      recettes métier (@conferencehub/events)
   event-card/    recette  EventCard   Card + Badge + Button
 apps/web/src/app/
   event-search/  page                 le template rempli avec les données
@@ -61,7 +61,7 @@ Les dossiers sont rangés **par composant**, pas en `atoms/`, `molecules/`, `org
 | 2.8 | Mode sombre : mêmes composants, autres valeurs pour les mêmes tokens | `[data-theme='dark']` dans [tokens.css](libs/tokens/tokens.css), `?theme=dark` |
 | 2.8 | Vérifier les contrastes dans chaque thème | `--color-brand-text` : le rouge du logo passe à `red-400` en sombre (4,09:1 → conforme) |
 | Storybook | Une story = un exemple précis ; on documente les états utiles | [button.stories.ts](libs/ui/src/button/button.stories.ts) : Par défaut, Accent, Chargement, Désactivé, Danger |
-| Storybook | Tout ce qui est dans Storybook n'entre pas dans le design system | barre latérale : « Design system », « Recettes EventHub », « Pages » |
+| Storybook | Tout ce qui est dans Storybook n'entre pas dans le design system | barre latérale : « Design system », « Recettes ConferenceHub », « Pages » |
 | Storybook | Le contrôle automatique d'accessibilité repère certaines erreurs, pas toutes | `@storybook/addon-a11y` dans [.storybook/main.ts](.storybook/main.ts) ; compléter au clavier et au lecteur d'écran |
 | Storybook | Le thème se change sans toucher aux composants | menu « Thème » de la barre d'outils, [.storybook/preview.ts](.storybook/preview.ts) |
 | La règle | Décider où vit un composant | [docs/checklist-pr.md](../docs/checklist-pr.md) |

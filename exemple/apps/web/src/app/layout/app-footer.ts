@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <span>© 2026 EventHub</span>
+    <span>© 2026 ConferenceHub</span>
     <nav aria-label="Liens utiles">
       <a href="#">Mentions légales</a>
       <a href="#">Aide</a>

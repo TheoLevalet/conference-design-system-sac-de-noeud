@@ -1,8 +1,10 @@
 <!-- =====================================================
-     PARTIE 2.6 · LES ORGANISMES : LA CARD UNIVERSELLE
+     PARTIE ③ · ÉTAPE 4 · LA CARD UNIVERSELLE
+     Niveau : organisme · Contexte : Card → component, EventCard → recipe · Checklist : G2, S1
+     C'est ici qu'apparaissent les libs : la traduction des adresses dans le code.
      ===================================================== -->
 
-<!-- 2.6 · Organismes. Problème : la Card universelle -->
+<!-- ③.5 · Organismes. Problème : la Card universelle -->
 <section data-auto-animate data-background-color="#020617">
   <h3 style="color: #fff" data-id="uc-title">« C'est juste une Card. »</h3>
   <pre data-id="uc-code"><code class="language-typescript" data-trim><script type="text/template">
@@ -17,22 +19,8 @@ export class Card {
 </section>
 
 <section data-auto-animate data-background-color="#020617">
-  <h3 style="color: #fff" data-id="uc-title">« Juste un input. »</h3>
-  <pre data-id="uc-code"><code class="language-typescript" data-trim data-line-numbers="3"><script type="text/template">
-export class Card {
-  title = input<string>();
-  isEvent = input(false);
-}
-  </script></code></pre>
-  
-<aside class="notes">
-    Théo : « Juste un input : isEvent. »
-  </aside>
-</section>
-
-<section data-auto-animate data-background-color="#020617">
-  <h3 style="color: #fff" data-id="uc-title">« Juste un autre. »</h3>
-  <pre data-id="uc-code"><code class="language-typescript" data-trim data-line-numbers="4-6"><script type="text/template">
+  <h3 style="color: #fff" data-id="uc-title">« Juste un input. Puis un autre. »</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim data-line-numbers="3-6"><script type="text/template">
 export class Card {
   title = input<string>();
   isEvent = input(false);
@@ -43,7 +31,7 @@ export class Card {
   </script></code></pre>
   
 <aside class="notes">
-    Théo : « Juste un autre : showBadge. Et un layout compact. »<br />
+    Théo : « Juste un input : isEvent. Puis showBadge. Et un layout compact. »<br />
     Wafa : « On en est à cinq. Je continue à compter… »
   </aside>
 </section>
@@ -86,7 +74,6 @@ export class Card {
     <div><div class="counter text-danger">0</div><p class="small muted">volontaire pour y toucher</p></div>
   </div>
   <p class="punchline stack-top fragment">Ça marche… et <span class="hl">plus personne n'ose y toucher.</span></p>
-  <p class="small muted">Scénario caricatural pour illustrer l'accumulation, pas une mesure réelle.</p>
   
 <aside class="notes">
     Wafa : « 42 inputs, 3 templates personnalisables… et zéro volontaire pour la modifier. Chaque changement risque de casser un écran qu'on ne connaît pas. »
@@ -101,65 +88,12 @@ export class Card {
   <p class="source">D'après Sandi Metz, <em>The Wrong Abstraction</em> (2016)</p>
   
 <aside class="notes">
-    Wafa : « Sandi Metz résume son avertissement ainsi : la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
-    Wafa : « Elle vise les abstractions prématurées qui accumulent paramètres, conditions et cas divergents. Ce n'est pas un rejet de la réutilisation : mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. »<br />
-    Wafa : « Alors, qu'est-ce qui est vraiment partagé dans une carte ? »
+    Wafa : « Sandi Metz le dit ainsi : la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
+    Wafa : « Mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. Alors, qu'est-ce qui est vraiment commun dans une carte ? »
   </aside>
 </section>
 
-<!-- 2.6 · Concept clé 2 : component, recipe ou snowflake -->
-<section>
-  <h2>Component, recipe <span class="hl">ou snowflake</span> ?</h2>
-  <div class="grid-3 stack-top" style="width: 1080px; margin-left: auto; margin-right: auto; align-items: stretch">
-    <div class="tile primary fragment fade-up">
-      <span class="emoji-lg">🏛️</span>
-      <h3>Design system component</h3>
-      <p>Générique et réutilisable dans les contextes où il convient, sans connaître le métier.</p>
-      <p><b>Ex. : <code>Card</code></b>, une boîte avec des slots. Rien de plus.</p>
-    </div>
-    <div class="tile business fragment fade-up">
-      <span class="emoji-lg">🍳</span>
-      <h3>Recipe</h3>
-      <p>Une composition de design system components, utilisée de façon cohérente dans un produit, mais pas assez générique pour le design system. Souvent un organisme.</p>
-      <p><b>Ex. : <code>EventCard</code></b></p>
-    </div>
-    <div class="tile ghost fragment fade-up">
-      <span class="emoji-lg">❄️</span>
-      <h3>Snowflake</h3>
-      <p>Un besoin ponctuel peut rester dans la fonctionnalité qui en a besoin.</p>
-      <p><b>Ex. : un bandeau ponctuel</b></p>
-    </div>
-  </div>
-  <p class="lead stack-top fragment fade-up">Le niveau dit comment ça se compose. <span class="hl">Le vocabulaire dit où ça vit.</span></p>
-  <p class="source">Brad Frost, <em>Design system components, recipes, and snowflakes</em>. La dernière phrase : notre formulation.</p>
-  
-<aside class="notes">
-    Wafa : « Brad Frost propose un vocabulaire pour distinguer components, recipes et snowflakes. »<br />
-    Wafa : « Un design system component est générique. Chez Frost, la Card est très simple : une boîte avec des slots. »<br />
-    Wafa : « Une recipe compose ces components pour un contexte de produit. Un snowflake peut rester dans la fonctionnalité concernée ; il n'a pas besoin d'être promu. Notre carte d'événement est une recipe. »<br />
-    Wafa : « Le niveau Atomic Design décrit comment ça se compose ; le contexte et le vocabulaire aident à décider où ça vit. Cette règle de décision est la nôtre, inspirée de Frost. »
-  </aside>
-</section>
-
-<!-- 2.6 · Correction 1 : la Card ne fournit que la structure (et son style, en tokens) -->
-<section data-background-color="#020617">
-  <h3 style="color: #fff">Après : la Card ne fournit <span style="color: #fde68a">que la structure</span> </h3>
-  <pre style="font-size: 0.7em"><code class="language-plaintext" data-trim>
-Card
-├── Slot media
-├── Slot content
-└── Slot actions
-  </code></pre>
-  <p class="equiv">3 slots · styles reliés aux tokens · aucune règle métier</p>
-  
-<aside class="notes">
-    Wafa : « Voici la Card générique. Elle fournit trois slots : media, content et actions. L'écran qui l'utilise décide quoi placer dedans. »<br />
-    Théo : « Donc elle ne connaît ni les événements ni les boutons d'inscription ? »<br />
-    Wafa : « Exactement. Ses styles utilisent les tokens ; elle ne contient pas de règle métier. »
-  </aside>
-</section>
-
-<!-- 2.6 · Correction 2 : EventCard assemble les pièces -->
+<!-- ③.5 · Correction : Card ne fournit que des slots, EventCard assemble -->
 <section>
   <span class="level-tag">EventCard = Card + Badge + Button</span>
   <div class="exploded">
@@ -177,13 +111,13 @@ Card
   </div>
   
 <aside class="notes">
-    Théo : « EventCard, c'est une Card, un badge et un bouton, tous pris dans le design system. »<br />
-    Wafa : « Et aucune de ces pièces ne sait qu'elle affiche un événement. »<br />
-    Théo : « Tout le vocabulaire métier est dans EventCard : l'événement, « Complet », l'inscription. Elle assemble les pièces du design system, elle n'invente rien. »
+    Wafa : « Ce qui est commun, c'est la structure : une Card avec trois slots. Media, contenu, actions. Rien de plus. »<br />
+    Théo : « Et EventCard assemble la Card, un Badge et un Button. Aucune de ces pièces ne connaît le mot "événement". »<br />
+    Wafa : « Tout le métier est dans EventCard. La Card est un component ; EventCard, une recipe. »
   </aside>
 </section>
 
-<!-- 2.6 · Correction 3 : configuration → composition -->
+<!-- ③.5 · Configuration → composition -->
 <section data-auto-animate>
   <div class="versus">
     <div class="tile danger">
@@ -205,20 +139,19 @@ Card
 <aside class="notes">
     Théo : « Et si je veux une icône à droite, mais seulement parfois ? »<br />
     Wafa : « Tu la mets dans les actions, quand tu en as besoin. Pas dans la Card. »<br />
-    Wafa : « La variation passe de la configuration à la composition. Et le métier sort du design system. »<br />
-    Wafa : « Une primitive ne parle pas votre métier. »
+    Wafa : « La variation passe de la configuration à la composition. Et le métier sort du design system. »
   </aside>
 </section>
 
-<!-- 2.6 · Correction 6 : une frontière outillée -->
+<!-- ③.5 · Les adresses deviennent des libs : une frontière outillée -->
 <section>
-  <h2>Une frontière que l'équipe <span class="hl">peut faire respecter</span></h2>
+  <h2>Chaque adresse a <span class="hl">sa place dans le code</span></h2>
   <div class="layers">
-    <div class="layer"><span class="emoji-lg">🖥️</span><code>apps/web</code></div>
+    <div class="layer"><span class="emoji-lg">🖥️</span><code>apps/web</code><small>snowflakes</small></div>
     <span class="arrow">➜</span>
-    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>métier</small></div>
+    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>recipes</small></div>
     <span class="arrow">➜</span>
-    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>design system</small></div>
+    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>components</small></div>
     <span class="arrow">➜</span>
     <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/tokens</code><small>fondations</small></div>
   </div>
@@ -229,19 +162,20 @@ Card
   <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · dependency-cruiser</p>
   
 <aside class="notes">
-    Wafa : « La règle est simple : l'application utilise les compositions métier, qui utilisent le design system, qui s'appuie sur les tokens. Le design system ne dépend pas d'un produit. »<br />
+    Wafa : « Maintenant qu'on a des adresses, on leur donne une place dans le code. Les components et les tokens dans libs/ui et libs/tokens. Les recipes dans une lib de domaine, libs/events. Les snowflakes, comme notre bandeau, restent dans l'application. »<br />
+    Wafa : « Et les dépendances vont dans un seul sens : le design system ne dépend jamais d'un produit. »<br />
     Théo : « Et si quelqu'un inverse la dépendance ? »<br />
-    Wafa : « Si l'équipe configure une règle d'architecture dans ses outils, la vérification peut bloquer cette dépendance. Les noms d'outils en petit sont des exemples, pas une configuration déjà en place. »
+    Wafa : « Un outil de vérification la bloque. libs/shared n'existe plus : chaque pièce a son adresse. »
   </aside>
 </section>
 
-<!-- 2.6 → 2.7 · L'écran : organismes réparés -->
+<!-- ③.5 → ③.6 · L'écran : organismes rangés, questions G2 et S1 -->
 <section>
-  <span class="level-tag">EventHub, en réparation</span>
+  <span class="level-tag">ConferenceHub, en réparation</span>
   <div class="mock full messy fix-tokens fix-atoms fix-molecules" data-id="mock">
     <div class="mock-bar"><i></i><i></i><i></i></div>
     <div class="mock-header" data-id="m-header">
-      <span class="mh-logo" data-id="m-logo" data-spot="tokens">EventHub</span>
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">ConferenceHub</span>
       <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
       <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
     </div>
@@ -281,13 +215,16 @@ Card
         </div>
       </div>
     </div>
-    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 EventHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 ConferenceHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
   </div>
   <div class="screen-status">
-    <span class="done fragment" data-fix="organisms">Organismes : une seule EventCard, construite sur Card</span>
+    <span class="done fragment" data-fix="organisms">Card → component · EventCard → recipe</span>
+    <span class="check-add fragment"><b>G2</b> Composition plutôt qu'options ?</span>
+    <span class="check-add fragment"><b>S1</b> Une API petite ?</span>
   </div>
   
 <aside class="notes">
-    Théo : « Trois cartes, une seule EventCard. Et la Card du design system n'a plus aucun input. »
+    Théo : « Trois cartes, une seule EventCard. Et la Card du design system n'a plus aucun input. »<br />
+    Wafa : « Deux questions de plus : les variations passent-elles par la composition ? Et son API tient-elle en une phrase ? 42 inputs, non. »
   </aside>
 </section>

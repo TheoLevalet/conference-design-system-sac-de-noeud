@@ -1,0 +1,115 @@
+<!-- =====================================================
+     PARTIE ② · COMMENT DÉCOUPER ? (4:00 → 6:30)
+     Deux notions, deux questions, à ne jamais mélanger :
+     - Atomic Design : de quoi c'est fait ? (atome → page)
+     - le contexte : qui s'en sert ? (component, recipe, snowflake)
+     Les libs (où vit le code) n'arrivent qu'à l'étape Card de la partie ③.
+     ===================================================== -->
+
+<!-- ②.1 · Par où commencer ? Le piège des dossiers -->
+<section data-auto-animate data-part="② Comment découper ?">
+  <h2 data-id="ad-title">Par où commencer ?</h2>
+  <div class="folders">
+    <div class="level" data-id="lvl-atom">📁 atoms/</div>
+    <div class="level" data-id="lvl-molecule">📁 molecules/</div>
+    <div class="level" data-id="lvl-organism">📁 organisms/</div>
+    <div class="question fragment fade-up">🤷 <code>EventCard</code> va dans <code>molecules/</code> ? <code>organisms/</code> ?</div>
+  </div>
+
+<aside class="notes">
+    Théo : « Pour remettre de l'ordre, j'ai fait comme dans Atomic Design : un dossier atoms, un dossier molecules, un dossier organisms. »<br />
+    Wafa : « Et ta carte d'événement, elle va où ? »<br />
+    Théo : « Dans… organisms ? Non, molecules ? »<br />
+    Wafa : « Tu hésites parce que tu mélanges deux questions. »
+  </aside>
+</section>
+
+<!-- ②.2 · Atomic Design : de quoi c'est fait ? -->
+<section data-auto-animate>
+  <h2 data-id="ad-title">Atomic Design : <span class="hl">de quoi c'est fait ?</span></h2>
+  <div class="levels illu">
+    <div class="level lv" data-id="lvl-atom">
+      <div class="lv-art"><span class="ui-btn ok-mark">Rechercher</span></div>
+      <b>Atome</b><small>la plus petite brique : un bouton</small>
+    </div>
+    <div class="level lv" data-id="lvl-molecule">
+      <div class="lv-art"><div class="ui-search"><span class="ui-input">Nantes, novembre…</span><span class="ui-btn sm ok-mark">Rechercher</span></div></div>
+      <b>Molécule</b><small>quelques atomes qui font une chose : une recherche</small>
+    </div>
+    <div class="level lv" data-id="lvl-organism">
+      <div class="lv-art lv-stack">
+        <div class="lv-zoom card"><div class="ev-card"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-badge">Complet</span><span class="ev-title">Nantes Tech Day</span><span class="ev-meta">14 nov · Nantes</span></div><div class="ev-actions"><div class="m-btn">S'inscrire</div></div></div></div>
+      </div>
+      <b>Organisme</b><small>une section composée : une carte d'événement</small>
+    </div>
+    <div class="level lv" data-id="lvl-template">
+      <div class="lv-art"><div class="lv-zoom page"><div class="mock full blueprint"><div class="mock-header"><span class="mh-logo">En-tête</span><span class="mh-nav"><u>Navigation</u></span></div><div class="mock-body"><div class="mock-title">Titre de la page</div><div class="mock-search"><div class="mock-input">Zone de recherche</div><div class="m-btn ok-mark">Bouton</div></div><div class="mock-cards"><div class="ev-card"><div class="ev-media">Image</div><div class="ev-content"><span class="ev-badge">Badge</span><span class="ev-title">Titre</span><span class="ev-meta">Date · lieu</span></div><div class="ev-actions"><div class="m-btn">Action</div></div></div><div class="ev-card"><div class="ev-media">Image</div><div class="ev-content"><span class="ev-badge">Badge</span><span class="ev-title">Titre</span><span class="ev-meta">Date · lieu</span></div><div class="ev-actions"><div class="m-btn">Action</div></div></div></div></div></div></div></div>
+      <b>Template</b><small>la structure de la page, sans le contenu</small>
+    </div>
+    <div class="level lv" data-id="lvl-page">
+      <div class="lv-art"><div class="lv-zoom page"><div class="mock full"><div class="mock-header"><span class="mh-logo">ConferenceHub</span><span class="mh-nav"><u>Accueil</u><u>Événements</u></span></div><div class="mock-body"><div class="mock-title">Rechercher un événement</div><div class="mock-search"><div class="mock-input">🔍 Nantes, novembre…</div><div class="m-btn ok-mark">Rechercher</div></div><div class="mock-cards"><div class="ev-card"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-badge">Complet</span><span class="ev-title">Nantes Tech Day</span><span class="ev-meta">14 nov · Nantes</span></div><div class="ev-actions"><div class="m-btn">S'inscrire</div></div></div><div class="ev-card"><div class="ev-media">🧑‍💻</div><div class="ev-content"><span class="ev-badge">Nouveau</span><span class="ev-title">Atelier Angular</span><span class="ev-meta">21 nov · Rennes</span></div><div class="ev-actions"><div class="m-btn">S'inscrire</div></div></div></div></div></div></div></div>
+      <b>Page</b><small>le template avec du contenu réel</small>
+    </div>
+  </div>
+  <p class="source">Brad Frost, <em>Atomic Design</em>, chapitre 2 : un modèle mental, pas une arborescence de dossiers.</p>
+
+<aside class="notes">
+    Wafa : « Atomic Design, de Brad Frost, répond à une seule question : de quoi c'est fait ? »<br />
+    Wafa : « Sur ConferenceHub : le bouton Rechercher est un atome. Avec le champ, il forme une molécule : la recherche. La carte d'événement est un organisme. Le template, c'est le plan de la page ; la page, c'est ce plan rempli avec de vrais événements. »<br />
+    Wafa : « C'est le découpage le plus connu, et il donne le même vocabulaire aux designers et aux développeurs. Mais il dit de quoi c'est fait. Pas où ça doit vivre. »
+  </aside>
+</section>
+
+<!-- ②.3 · Le contexte : qui s'en sert ? -->
+<section>
+  <h2>Le contexte : <span class="hl">qui s'en sert ?</span></h2>
+  <div class="grid-3 stack-top" style="width: 1080px; margin-left: auto; margin-right: auto; align-items: stretch">
+    <div class="tile primary fragment fade-up">
+      <span class="emoji-lg">🏛️</span>
+      <h3>Component</h3>
+      <p>Générique : sert partout, sans connaître le métier.</p>
+      <p><b>Ex. : <code>Card</code></b>, une boîte avec des slots.</p>
+    </div>
+    <div class="tile business fragment fade-up">
+      <span class="emoji-lg">🍳</span>
+      <h3>Recipe</h3>
+      <p>Une composition de components, propre à un domaine.</p>
+      <p><b>Ex. : <code>EventCard</code></b></p>
+    </div>
+    <div class="tile ghost fragment fade-up">
+      <span class="emoji-lg">❄️</span>
+      <h3>Snowflake</h3>
+      <p>Un besoin unique, qui reste là où il sert.</p>
+      <p><b>Ex. : un bandeau ponctuel</b></p>
+    </div>
+  </div>
+  <p class="source">Brad Frost, <em>Design system components, recipes, and snowflakes</em></p>
+
+<aside class="notes">
+    Wafa : « Brad Frost propose un deuxième découpage, qui répond à une autre question : qui s'en sert ? »<br />
+    Wafa : « Un component est générique : la Card, une boîte avec des slots. Une recipe compose des components pour un domaine : notre carte d'événement. Un snowflake est unique : il reste là où il sert, et c'est très bien comme ça. »
+  </aside>
+</section>
+
+<!-- ②.4 · La grille : les deux questions sont indépendantes -->
+<section>
+  <h2>Deux questions <span class="hl">indépendantes</span></h2>
+  <table class="axes">
+    <thead>
+      <tr><th></th><th class="ctx-ds">Component</th><th class="ctx-biz">Recipe</th><th class="ctx-snow">Snowflake</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>Atome</th><td class="ctx-ds"><code>Button</code>, <code>Badge</code></td><td></td><td></td></tr>
+      <tr><th>Molécule</th><td class="ctx-ds"><code>SearchField</code></td><td></td><td></td></tr>
+      <tr><th>Organisme</th><td class="ctx-ds"><code>Card</code></td><td class="ctx-biz fragment fade-up"><code>EventCard</code></td><td class="ctx-snow fragment fade-up">bandeau ponctuel</td></tr>
+    </tbody>
+  </table>
+  <p class="lead stack-top fragment fade-up">Le niveau dit <b>de quoi c'est fait</b>. <span class="hl">Le contexte décide de l'adresse.</span></p>
+
+<aside class="notes">
+    Wafa : « Croisons les deux. Card et EventCard sont toutes les deux des organismes… »<br />
+    Wafa : « … mais elles n'ont pas la même adresse. Le bandeau aussi est un organisme, et il ne quittera jamais sa page. »<br />
+    Wafa : « Le niveau dit de quoi c'est fait. Le contexte décide de l'adresse. »<br />
+    Théo : « Donc on répare ConferenceHub, et pour chaque pièce, on cherche son adresse. »
+  </aside>
+</section>

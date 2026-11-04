@@ -4,7 +4,7 @@ export type ButtonVariant = 'primary' | 'accent' | 'danger';
 export type ButtonSize = 'md' | 'sm';
 
 /**
- * ATOME (2.4) · un seul Button pour tout EventHub.
+ * ATOME (2.4) · un seul Button pour tout ConferenceHub.
  *
  * - On habille un vrai <button> natif (sélecteur d'attribut) au lieu de recréer un bouton
  *   avec une <div> : clavier (Tab, Entrée, Espace), rôle et état désactivé sont fournis par le navigateur.

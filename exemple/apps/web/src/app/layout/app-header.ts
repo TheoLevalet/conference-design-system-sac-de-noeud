@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, output } from '@angular/core';
-import { SearchField } from '@eventhub/ui';
+import { SearchField } from '@conferencehub/ui';
 
 /**
- * En-tête propre à l'application EventHub (logo, navigation).
+ * En-tête propre à l'application ConferenceHub (logo, navigation).
  * Il réutilise la même molécule SearchField que le corps de page, en taille compacte :
  * plus de deuxième recherche bricolée (2.5).
  */
@@ -11,8 +11,8 @@ import { SearchField } from '@eventhub/ui';
   imports: [SearchField],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <span class="logo">EventHub</span>
-    <ui-search-field label="Chercher sur EventHub" hideLabel placeholder="Chercher…" buttonLabel="OK" size="sm" (search)="search.emit($event)" />
+    <span class="logo">ConferenceHub</span>
+    <ui-search-field label="Chercher sur ConferenceHub" hideLabel placeholder="Chercher…" buttonLabel="OK" size="sm" (search)="search.emit($event)" />
     <nav aria-label="Navigation principale">
       <a href="#">Accueil</a>
       <a href="#" aria-current="page">Événements</a>

@@ -14,7 +14,7 @@ const layers = {
   'libs/events': ['libs/events', 'libs/ui'],
   'libs/ui': ['libs/ui'],
 };
-const aliases = { '@eventhub/events': 'libs/events', '@eventhub/ui': 'libs/ui' };
+const aliases = { '@conferencehub/events': 'libs/events', '@conferencehub/ui': 'libs/ui' };
 
 const layerOf = (file) => Object.keys(layers).find((layer) => file.startsWith(layer + '/'));
 
