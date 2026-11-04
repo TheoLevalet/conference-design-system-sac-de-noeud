@@ -1,0 +1,114 @@
+<!-- =====================================================
+     PARTIE ④ · SIX MOIS PLUS TARD (13:30 → 18:00)
+     Une deuxième application arrive : la billetterie. Le public vote l'adresse de
+     chacune de ses pièces. « Partagé » devient réel, et on voit ce qui fait tenir
+     le design system dans la durée. Checklist : P2, S3, S4.
+     ===================================================== -->
+
+<!-- ④.1 · La billetterie arrive : le public vote -->
+<section data-part="④ Six mois plus tard">
+  <p class="kicker">Six mois plus tard</p>
+  <h2>La billetterie arrive. <span class="hl">Où va chaque pièce ?</span></h2>
+  <div class="pieces stack-top">
+    <div class="piece">
+      <div class="piece-art"><button class="real-btn">Payer</button></div>
+      <b>Le bouton « Payer »</b>
+      <span class="chip primary fragment fade-up">component : c'est déjà Button</span>
+    </div>
+    <div class="piece">
+      <div class="piece-art"><div class="ev-card mini"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-badge">Complet</span><span class="ev-title">Nantes Tech Day</span></div></div></div>
+      <b>La carte d'événement</b>
+      <span class="chip business fragment fade-up">recipe : EventCard, partagée</span>
+    </div>
+    <div class="piece">
+      <div class="piece-art"><div class="seats"><i></i><i></i><i class="taken"></i><i></i><i class="taken"></i><i></i><i></i><i class="picked"></i><i></i><i></i><i class="taken"></i><i></i></div></div>
+      <b>Le sélecteur de places</b>
+      <span class="chip outline fragment fade-up">snowflake, pour l'instant</span>
+    </div>
+    <div class="piece">
+      <div class="piece-art"><div class="promo">−20 % ce week-end</div></div>
+      <b>Le bandeau promo</b>
+      <span class="chip outline fragment fade-up">snowflake</span>
+    </div>
+  </div>
+
+<aside class="notes">
+    Théo : « Six mois plus tard, une deuxième application arrive : la billetterie. Elle a ses propres pièces. À vous de jouer : pour chacune, design system, recipe ou snowflake ? Levez la main. »<br />
+    (un vote à main levée par pièce, puis on révèle)<br />
+    Théo : « Le bouton Payer ? C'est déjà notre Button. Rien à créer. »<br />
+    Wafa : « La carte d'événement ? La billetterie parle aussi d'événements : elle reprend EventCard dans libs/events. Partagée, mais toujours une recipe : elle parle métier. »<br />
+    Théo : « Le sélecteur de places ? Une seule app en a besoin : il reste chez elle. Pour l'instant. »<br />
+    Wafa : « Le bandeau promo ? Snowflake. Il vivra trois semaines. »
+  </aside>
+</section>
+
+<!-- ④.2 · Avant de créer, on cherche : Storybook comme catalogue -->
+<section>
+  <h2>Avant de créer, <span class="hl">on cherche dans le catalogue</span></h2>
+  <!-- Vraie capture du Storybook de exemple/ (npm run storybook), pas une reproduction. -->
+  <img class="sb-shot" src="/storybook/button-accessibilite.png" alt="Storybook de l'exemple ConferenceHub : la story Button « Par défaut », la liste de ses états et le panneau Accessibilité sans violation détectée" />
+
+<aside class="notes">
+    Wafa : « Comment la billetterie a su que Button existait ? Elle a cherché dans Storybook. »<br />
+    Théo : « Chaque état du bouton y est visible : par défaut, chargement, désactivé, danger. Avec un contrôle d'accessibilité, qu'on complète au clavier et au lecteur d'écran. »<br />
+    Wafa : « L'équipe 2 de notre début n'avait pas ça. »
+  </aside>
+</section>
+
+<!-- ④.3 · Partagé, pour de vrai -->
+<section>
+  <h2>Partagé, <span class="hl">pour de vrai</span></h2>
+  <div class="layers">
+    <div class="apps">
+      <div class="layer"><span class="emoji-lg">🖥️</span><code>apps/web</code></div>
+      <div class="layer"><span class="emoji-lg">🎫</span><code>apps/billetterie</code></div>
+    </div>
+    <span class="arrow">➜</span>
+    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>recipes</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>components</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/tokens</code><small>fondations</small></div>
+  </div>
+  <div class="screen-status stack-top">
+    <span class="check-add fragment">Un besoin réel existe-t-il dans plusieurs produits&nbsp;?</span>
+  </div>
+  <p class="lead fragment fade-up">Partagé ne suffit pas : <span class="hl">EventCard reste une recipe</span>, parce qu'elle parle métier.</p>
+
+<aside class="notes">
+    Wafa : « Button et SearchField servent maintenant dans deux produits, sans une ligne de plus. Le partage n'est plus une supposition. »<br />
+    Wafa : « D'où la question suivante : un besoin réel existe-t-il dans plusieurs produits ? »<br />
+    Théo : « Et EventCard, utilisée par deux apps, on la monte dans le design system ? »<br />
+    Wafa : « Non : partagée, oui, mais pas générique. Elle reste une recipe, dans sa lib de domaine. Le sélecteur de places, lui, deviendra peut-être une recipe le jour où une autre app en aura besoin. »
+  </aside>
+</section>
+
+<!-- ④.4 · Ce qui fait tenir dans la durée -->
+<section>
+  <h2>Ce qui fait <span class="hl">tenir dans la durée</span></h2>
+  <div class="row stack-top" style="width: 1100px; margin: 0 auto">
+    <div class="tile fragment fade-up">
+      <h3>Déprécier sans casser</h3>
+      <code class="small">/** @deprecated utiliser Button */</code>
+      <p>Les anciens boutons sont marqués, puis migrés écran par écran.</p>
+    </div>
+    <div class="tile fragment fade-up">
+      <h3>Quelqu'un maintient</h3>
+      <p>Une personne ou une équipe répond des components : leurs évolutions, leurs versions.</p>
+    </div>
+    <div class="tile primary fragment fade-up">
+      <h3>Une PR, une checklist</h3>
+      <p>Chaque entrée dans le design system passe par les mêmes questions.</p>
+    </div>
+  </div>
+  <div class="screen-status stack-top">
+    <span class="check-add fragment">Quelqu'un le maintient-il&nbsp;?</span>
+    <span class="check-add fragment">Les changements cassants sont-ils annoncés&nbsp;?</span>
+  </div>
+
+<aside class="notes">
+    Théo : « Et nos sept boutons du début ? On ne les supprime pas d'un coup : on les marque dépréciés, et on migre écran par écran. »<br />
+    Wafa : « Pour que ça tienne, il faut aussi quelqu'un qui maintienne les components, et une règle commune pour décider de ce qui entre. »<br />
+    Wafa : « Nos deux dernières questions : quelqu'un le maintient-il ? Et les changements cassants sont-ils annoncés ? »
+  </aside>
+</section>

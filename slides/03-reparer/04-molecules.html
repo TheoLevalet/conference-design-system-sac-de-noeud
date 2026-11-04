@@ -1,0 +1,89 @@
+<!-- =====================================================
+     PARTIE ③ · ÉTAPE 3 · UN SEUL SEARCHFIELD
+     Niveau : molécule · Contexte : component · Checklist : G1
+     ===================================================== -->
+
+<!-- ③.4 · Molécules. Avant / après -->
+<section>
+  <h2>Un seul <code>SearchField</code></h2>
+  <div class="before-after">
+    <div class="side bad">
+      <h3>Avant : deux recherches bricolées</h3>
+      <div class="search-demo"><span class="mock-input" style="border-radius: 999px">🔍 Chercher…</span></div>
+      <div class="search-demo" style="gap: 80px"><span class="mock-input" style="border-width: 0 0 2px; border-radius: 0">🔍 Nantes…</span><span class="m-btn" style="border-radius: 2px">RECHERCHER</span></div>
+    </div>
+    <span class="punchline fragment" data-fragment-index="0">➜</span>
+    <div class="side good fragment" data-fragment-index="0">
+      <h3>Après : une molécule <code>SearchField</code></h3>
+      <div class="search-demo"><span class="mock-input">🔍 Nantes…</span><span class="m-btn">Rechercher</span></div>
+      <span>elle ne sait pas <b>ce qu'on cherche</b></span>
+    </div>
+  </div>
+  
+<aside class="notes">
+    Wafa : « Un libellé, un champ et un bouton : c'est l'exemple même de molécule chez Brad Frost. »<br />
+    Wafa : « Nos deux recherches deviennent un seul SearchField, en haut et au milieu. Et il ne sait pas ce qu'on cherche : des événements aujourd'hui, des factures demain. »
+  </aside>
+</section>
+
+<!-- ③.4 → ③.5 · L'écran : molécules rangées, question G1, problème suivant : les cartes -->
+<section>
+  <span class="level-tag">ConferenceHub, en réparation</span>
+  <div class="mock full messy fix-tokens fix-atoms" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">ConferenceHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 ConferenceHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="done fragment" data-fix="molecules">SearchField → component</span>
+    <span class="check-add fragment">Contient-il un vocabulaire métier&nbsp;?</span>
+    <span class="problem fragment" data-flag="organisms">Trois cartes</span>
+  </div>
+  
+<aside class="notes">
+    Théo : « SearchField ne sait pas ce qu'on cherche : component du design system. »<br />
+    Wafa : « C'est notre question suivante : aucun vocabulaire métier dedans ? »<br />
+    Wafa : « Et tes cartes ? Une avec image, une sans, une centrée… »<br />
+    Théo : « Ah non, celles-là c'est la même ! Une seule Card. Elle sait tout faire. »
+  </aside>
+</section>

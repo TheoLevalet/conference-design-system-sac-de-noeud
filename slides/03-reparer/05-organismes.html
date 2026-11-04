@@ -1,0 +1,230 @@
+<!-- =====================================================
+     PARTIE ③ · ÉTAPE 4 · LA CARD UNIVERSELLE
+     Niveau : organisme · Contexte : Card → component, EventCard → recipe · Checklist : G2, S1
+     C'est ici qu'apparaissent les libs : la traduction des adresses dans le code.
+     ===================================================== -->
+
+<!-- ③.5 · Organismes. Problème : la Card universelle -->
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« C'est juste une Card. »</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim><script type="text/template">
+export class Card {
+  title = input<string>();
+}
+  </script></code></pre>
+  
+<aside class="notes">
+    Théo : « Au début, c'est juste une Card. Un titre. »
+  </aside>
+</section>
+
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« Juste un input. Puis un autre. »</h3>
+  <pre data-id="uc-code"><code class="language-typescript" data-trim data-line-numbers="3-6"><script type="text/template">
+export class Card {
+  title = input<string>();
+  isEvent = input(false);
+  showBadge = input(false);
+  badgeLabel = input<string>();
+  layout = input<'default' | 'compact' | 'horizontal'>('default');
+}
+  </script></code></pre>
+  
+<aside class="notes">
+    Théo : « Juste un input : isEvent. Puis showBadge. Et un layout compact. »<br />
+    Wafa : « On en est à cinq. Je continue à compter… »
+  </aside>
+</section>
+
+<section data-auto-animate data-background-color="#020617">
+  <h3 style="color: #fff" data-id="uc-title">« Mais ça marche ! » 🙈</h3>
+  <pre data-id="uc-code" class="tiny"><code class="language-typescript" data-trim><script type="text/template">
+export class Card {
+  title = input<string>();
+  isEvent = input(false);
+  showBadge = input(false);
+  badgeLabel = input<string>();
+  layout = input<'default' | 'compact' | 'horizontal'>('default');
+  eventDate = input<Date>();
+  eventCity = input<string>();
+  isFull = input(false);
+  showRegisterButton = input(true);
+  registerLabel = input("S'inscrire");
+  footerButtons = input<CardButton[]>([]);
+  iconRight = input<string>();
+  iconRightOnlyIf = input<(ctx: unknown) => boolean>();
+  headerTemplate = input<TemplateRef<unknown>>();
+  bodyTemplate = input<TemplateRef<unknown>>();
+  footerTemplate = input<TemplateRef<unknown>>();
+  // … et 26 autres
+}
+  </script></code></pre>
+  
+<aside class="notes">
+    Théo : « Et iconRight. Mais seulement si… »<br />
+    Wafa : « Stop. On en est à 42. »<br />
+    Théo : « Mais ça marche ! »
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <div class="row center" style="gap: 64px">
+    <div><div class="counter text-danger" data-id="count">42</div><p class="small muted">inputs</p></div>
+    <div><div class="counter text-danger">3</div><p class="small muted">templates personnalisables</p></div>
+    <div><div class="counter text-danger">0</div><p class="small muted">volontaire pour y toucher</p></div>
+  </div>
+  <p class="punchline stack-top fragment">Ça marche… et <span class="hl">plus personne n'ose y toucher.</span></p>
+  
+<aside class="notes">
+    Wafa : « 42 inputs, 3 templates personnalisables… et zéro volontaire pour la modifier. Chaque changement risque de casser un écran qu'on ne connaît pas. »
+  </aside>
+</section>
+
+<!-- 2.6 · Concept clé 1 : la mauvaise abstraction -->
+<section>
+  <p class="emoji-xl">💸</p>
+  <p class="punchline">« La duplication coûte bien moins cher<br />qu'une <span class="hl">mauvaise abstraction</span>. »</p>
+  <p class="lead fragment fade-up">Des paramètres et conditions pour des cas divergents ? <b>Un signal à réexaminer.</b></p>
+  <p class="source">D'après Sandi Metz, <em>The Wrong Abstraction</em> (2016)</p>
+  
+<aside class="notes">
+    Wafa : « Sandi Metz le dit ainsi : la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
+    Wafa : « Mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. Alors, qu'est-ce qui est vraiment commun dans une carte ? »
+  </aside>
+</section>
+
+<!-- ③.5 · Correction : Card ne fournit que des slots, EventCard assemble -->
+<section>
+  <span class="level-tag">EventCard = Card + Badge + Button</span>
+  <div class="exploded">
+    <div class="frame">
+      <div class="slot" style="top: 14px; height: 130px">uiCardMedia</div>
+      <div class="slot" style="top: 158px; height: 120px">ui-card-content</div>
+      <div class="slot" style="top: 292px; height: 72px">ui-card-actions</div>
+    </div>
+    <div class="prims">
+      <div class="prim"><code>&lt;ui-card&gt;</code><span class="muted">une structure, trois slots</span></div>
+      <div class="prim"><span class="ev-badge" style="font-size: 18px">Complet</span><code>&lt;ui-badge&gt;</code></div>
+      <div class="prim"><div class="m-btn">S'inscrire</div><code>&lt;button uiButton&gt;</code></div>
+      <p class="punchline fragment fade-up" style="font-size: 30px">Aucune ne connaît le mot <span class="hl">« événement »</span>.</p>
+    </div>
+  </div>
+  
+<aside class="notes">
+    Wafa : « Ce qui est commun, c'est la structure : une Card avec trois slots. Media, contenu, actions. Rien de plus. »<br />
+    Théo : « Et EventCard assemble la Card, un Badge et un Button. Aucune de ces pièces ne connaît le mot "événement". »<br />
+    Wafa : « Tout le métier est dans EventCard. La Card est un component ; EventCard, une recipe. »
+  </aside>
+</section>
+
+<!-- ③.5 · Configuration → composition -->
+<section data-auto-animate>
+  <div class="versus">
+    <div class="tile danger">
+      <span class="emoji-lg">⚙️</span>
+      <h3>Configuration</h3>
+      <div class="counter text-danger" data-id="count">42</div>
+      <p>Le design system doit connaître <b>tous les cas</b>.</p>
+    </div>
+    <span class="punchline">➜</span>
+    <div class="tile success">
+      <span class="emoji-lg">🧩</span>
+      <h3>Composition</h3>
+      <div class="counter text-success">3</div>
+      <p>slots. <b>L'appelant</b> décide de ce qu'il y met.</p>
+    </div>
+  </div>
+  <p class="lead stack-top fragment">« Et l'icône à droite, mais seulement parfois ? » ➜ <span class="hl">dans <code>ui-card-actions</code>, quand tu en as besoin.</span></p>
+  
+<aside class="notes">
+    Théo : « Et si je veux une icône à droite, mais seulement parfois ? »<br />
+    Wafa : « Tu la mets dans les actions, quand tu en as besoin. Pas dans la Card. »<br />
+    Wafa : « La variation passe de la configuration à la composition. Et le métier sort du design system. »
+  </aside>
+</section>
+
+<!-- ③.5 · Les adresses deviennent des libs : une frontière outillée -->
+<section>
+  <h2>Chaque adresse a <span class="hl">sa place dans le code</span></h2>
+  <div class="layers">
+    <div class="layer"><span class="emoji-lg">🖥️</span><code>apps/web</code><small>snowflakes</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>recipes</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>components</small></div>
+    <span class="arrow">➜</span>
+    <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/tokens</code><small>fondations</small></div>
+  </div>
+  <p class="lead">Les dépendances vont <span class="hl">dans un seul sens</span>.</p>
+  <div class="lint-error fragment fade-up">
+    ✖ <code>libs/ui</code> ne doit pas dépendre de <code>EventCard</code> : une règle configurée peut bloquer cette dépendance.
+  </div>
+  <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · dependency-cruiser</p>
+  
+<aside class="notes">
+    Wafa : « Maintenant qu'on a des adresses, on leur donne une place dans le code. Les components et les tokens dans libs/ui et libs/tokens. Les recipes dans une lib de domaine, libs/events. Les snowflakes, comme notre bandeau, restent dans l'application. »<br />
+    Wafa : « Et les dépendances vont dans un seul sens : le design system ne dépend jamais d'un produit. »<br />
+    Théo : « Et si quelqu'un inverse la dépendance ? »<br />
+    Wafa : « Un outil de vérification la bloque, à titre d'exemple, en utilisant Nx, ESLint ou un autre outil. L'important n'est pas l'outil : c'est que la frontière soit vérifiée automatiquement. libs/shared n'existe plus : chaque pièce a son adresse. »
+  </aside>
+</section>
+
+<!-- ③.5 → ③.6 · L'écran : organismes rangés, questions G2 et S1 -->
+<section>
+  <span class="level-tag">ConferenceHub, en réparation</span>
+  <div class="mock full messy fix-tokens fix-atoms fix-molecules" data-id="mock">
+    <div class="mock-bar"><i></i><i></i><i></i></div>
+    <div class="mock-header" data-id="m-header">
+      <span class="mh-logo" data-id="m-logo" data-spot="tokens">ConferenceHub</span>
+      <span class="mh-search" data-spot="molecules"><span class="mock-input hs-input">🔍 Chercher…</span><span class="m-btn hs-btn" data-spot="tokens">OK</span></span>
+      <span class="mh-nav" data-id="m-nav"><u>Accueil</u><u>Événements</u><u>Contact</u></span>
+    </div>
+    <div class="mock-body">
+      <div class="mock-title" data-id="m-title" data-spot="tokens">🎟️ Rechercher un événement</div>
+      <div class="mock-search bs" data-spot="molecules">
+        <div class="mock-input bs-input" data-id="m-input">🔍 Nantes, novembre…</div>
+        <div class="m-btn bs-btn" data-id="m-btn" data-spot="tokens atoms">Rechercher</div>
+      </div>
+      <div class="mock-cards">
+        <div class="ev-card k1" data-id="c1" data-spot="organisms">
+          <div class="ev-media" data-id="c1-media" data-spot="tokens">🎤</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c1-badge" data-spot="atoms">Complet</span>
+            <span class="ev-title" data-id="c1-title">Nantes Tech Day</span>
+            <span class="ev-meta" data-id="c1-meta">📅 14 nov · 📍 Nantes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c1-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k2" data-id="c2" data-spot="organisms">
+          <div class="ev-media" data-id="c2-media" data-spot="tokens">🧑‍💻</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c2-badge" data-spot="atoms">Nouveau</span>
+            <span class="ev-title" data-id="c2-title">Atelier Angular</span>
+            <span class="ev-meta" data-id="c2-meta">📅 21 nov · 📍 Rennes</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c2-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+        <div class="ev-card k3" data-id="c3" data-spot="organisms">
+          <div class="ev-media" data-id="c3-media" data-spot="tokens">🎸</div>
+          <div class="ev-content">
+            <span class="ev-badge" data-id="c3-badge" data-spot="atoms">Gratuit</span>
+            <span class="ev-title" data-id="c3-title">Meetup Design</span>
+            <span class="ev-meta" data-id="c3-meta">📅 3 déc · 📍 Angers</span>
+          </div>
+          <div class="ev-actions"><div class="m-btn" data-id="c3-btn" data-spot="tokens atoms">S'inscrire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mock-footer" data-id="m-footer"><span data-id="m-copy">© 2026 ConferenceHub</span><span class="mh-nav" data-id="m-flinks"><u>Mentions légales</u><u>Aide</u></span></div>
+  </div>
+  <div class="screen-status">
+    <span class="done fragment" data-fix="organisms">Card → component · EventCard → recipe</span>
+    <span class="check-add fragment">Les variations passent-elles par la composition plutôt que par des options&nbsp;?</span>
+    <span class="check-add fragment">Son API est-elle petite&nbsp;?</span>
+  </div>
+  
+<aside class="notes">
+    Théo : « Trois cartes, une seule EventCard. Et la Card du design system n'a plus aucun input. »<br />
+    Wafa : « Deux questions de plus : les variations passent-elles par la composition ? Et son API tient-elle en une phrase ? 42 inputs, non. »
+  </aside>
+</section>
