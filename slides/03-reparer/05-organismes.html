@@ -165,7 +165,7 @@ export class Card {
     Wafa : « Maintenant qu'on a des adresses, on leur donne une place dans le code. Les components et les tokens dans libs/ui et libs/tokens. Les recipes dans une lib de domaine, libs/events. Les snowflakes, comme notre bandeau, restent dans l'application. »<br />
     Wafa : « Et les dépendances vont dans un seul sens : le design system ne dépend jamais d'un produit. »<br />
     Théo : « Et si quelqu'un inverse la dépendance ? »<br />
-    Wafa : « Un outil de vérification la bloque. libs/shared n'existe plus : chaque pièce a son adresse. »
+    Wafa : « Un outil de vérification la bloque, à titre d'exemple, en utilisant Nx, ESLint ou un autre outil. L'important n'est pas l'outil : c'est que la frontière soit vérifiée automatiquement. libs/shared n'existe plus : chaque pièce a son adresse. »
   </aside>
 </section>
 
@@ -219,8 +219,8 @@ export class Card {
   </div>
   <div class="screen-status">
     <span class="done fragment" data-fix="organisms">Card → component · EventCard → recipe</span>
-    <span class="check-add fragment"><b>G2</b> Composition plutôt qu'options ?</span>
-    <span class="check-add fragment"><b>S1</b> Une API petite ?</span>
+    <span class="check-add fragment">Les variations passent-elles par la composition plutôt que par des options&nbsp;?</span>
+    <span class="check-add fragment">Son API est-elle petite&nbsp;?</span>
   </div>
   
 <aside class="notes">
