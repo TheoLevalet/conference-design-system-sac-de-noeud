@@ -1,6 +1,6 @@
 <!-- =====================================================
      PARTIE ④ · SIX MOIS PLUS TARD (13:30 → 18:00)
-     Une deuxième application arrive : la billetterie. Le public vote l'adresse de
+    Une deuxième application arrive : la billetterie. Le public choisit où placer
      chacune de ses pièces. « Partagé » devient réel, et on voit ce qui fait tenir
      le design system dans la durée. Checklist : P2, S3, S4.
      ===================================================== -->
@@ -36,7 +36,7 @@
     Théo : « Six mois plus tard, une deuxième application arrive : la billetterie. Elle a ses propres pièces. À vous de jouer : pour chacune, design system, recipe ou snowflake ? Levez la main. »<br />
     (un vote à main levée par pièce, puis on révèle)<br />
     Théo : « Le bouton Payer ? C'est déjà notre Button. Rien à créer. »<br />
-    Wafa : « La carte d'événement ? La billetterie parle aussi d'événements : elle reprend EventCard dans libs/events. Partagée, mais toujours une recipe : elle parle métier. »<br />
+    Wafa : « La carte d'événement ? La billetterie parle aussi d'événements : elle reprend EventCard dans libs/recipes. Partagée, mais toujours une recipe : elle parle métier. »<br />
     Théo : « Le sélecteur de places ? Une seule app en a besoin : il reste chez elle. Pour l'instant. »<br />
     Wafa : « Le bandeau promo ? Snowflake. Il vivra trois semaines. »
   </aside>
@@ -51,7 +51,7 @@
 <aside class="notes">
     Wafa : « Comment la billetterie a su que Button existait ? Elle a cherché dans Storybook. »<br />
     Théo : « Chaque état du bouton y est visible : par défaut, chargement, désactivé, danger. Avec un contrôle d'accessibilité, qu'on complète au clavier et au lecteur d'écran. »<br />
-    Wafa : « L'équipe 2 de notre début n'avait pas ça. »
+    Wafa : « Si les équipes du début avaient consulté un Storybook commun, elles auraient pu retrouver le bouton existant au lieu de le recréer. »
   </aside>
 </section>
 
@@ -64,11 +64,11 @@
       <div class="layer"><span class="emoji-lg">🎫</span><code>apps/billetterie</code></div>
     </div>
     <span class="arrow">➜</span>
-    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>recipes</small></div>
+    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/recipes</code><small>EventCard</small></div>
     <span class="arrow">➜</span>
-    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>components</small></div>
+    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/components</code><small>Button, SearchField, Card</small></div>
     <span class="arrow">➜</span>
-    <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/tokens</code><small>fondations</small></div>
+    <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/fondations</code><small>tokens</small></div>
   </div>
   <div class="screen-status stack-top">
     <span class="check-add fragment">Un besoin réel existe-t-il dans plusieurs produits&nbsp;?</span>
@@ -76,10 +76,9 @@
   <p class="lead fragment fade-up">Partagé ne suffit pas : <span class="hl">EventCard reste une recipe</span>, parce qu'elle parle métier.</p>
 
 <aside class="notes">
-    Wafa : « Button et SearchField servent maintenant dans deux produits, sans une ligne de plus. Le partage n'est plus une supposition. »<br />
-    Wafa : « D'où la question suivante : un besoin réel existe-t-il dans plusieurs produits ? »<br />
-    Théo : « Et EventCard, utilisée par deux apps, on la monte dans le design system ? »<br />
-    Wafa : « Non : partagée, oui, mais pas générique. Elle reste une recipe, dans sa lib de domaine. Le sélecteur de places, lui, deviendra peut-être une recipe le jour où une autre app en aura besoin. »
+    Théo : « Button et SearchField servent maintenant dans deux produits, sans les réécrire. On peut cocher une nouvelle question de la checklist : le besoin existe-t-il vraiment dans plusieurs produits ? »<br />
+    Wafa : « Et EventCard ? Deux applications l'utilisent : elle entre dans le design system ? »<br />
+    Théo : « Non, elle parle toujours d'événements. Elle reste une recipe dans libs/recipes. Être partagé, ce n'est pas forcément être générique. Le sélecteur de places, lui, reste dans la billetterie tant qu'elle seule en a besoin. »
   </aside>
 </section>
 
@@ -109,6 +108,6 @@
 <aside class="notes">
     Théo : « Et nos sept boutons du début ? On ne les supprime pas d'un coup : on les marque dépréciés, et on migre écran par écran. »<br />
     Wafa : « Pour que ça tienne, il faut aussi quelqu'un qui maintienne les components, et une règle commune pour décider de ce qui entre. »<br />
-    Wafa : « Nos deux dernières questions : quelqu'un le maintient-il ? Et les changements cassants sont-ils annoncés ? »
+    Théo : « On complète donc notre checklist avec deux dernières questions : qui maintient ce composant ? Et si une mise à jour oblige les équipes à adapter leur code, est-ce qu'on les prévient ? »
   </aside>
 </section>

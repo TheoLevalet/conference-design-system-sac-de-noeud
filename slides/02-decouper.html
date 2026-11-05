@@ -18,7 +18,7 @@
 
 <aside class="notes">
     Théo : « Pour remettre de l'ordre, j'ai fait comme dans Atomic Design : un dossier atoms, un dossier molecules, un dossier organisms. »<br />
-    Wafa : « Et ta carte d'événement, elle va où ? On va la retrouver dans l'écran concret, juste après. »<br />
+    Wafa : « Et si, par exemple, on a une carte d'événement, elle va où ? »<br />
     Théo : « Dans… organisms ? Non, molecules ? »<br />
     Wafa : « Tu hésites parce que tu mélanges deux questions. »
   </aside>
@@ -47,7 +47,7 @@
       <b>Template</b><small>la structure de la page, sans le contenu</small>
     </div>
     <div class="level lv" data-id="lvl-page">
-      <div class="lv-art"><div class="lv-zoom page"><div class="mock full"><div class="mock-header"><span class="mh-logo">ConferenceHub</span><span class="mh-nav"><u>Accueil</u><u>Événements</u></span></div><div class="mock-body"><div class="mock-title">Rechercher un événement</div><div class="mock-search"><div class="mock-input">🔍 Nantes, novembre…</div><div class="m-btn ok-mark">Rechercher</div></div><div class="mock-cards"><div class="ev-card"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-badge">Complet</span><span class="ev-title">Nantes Tech Day</span><span class="ev-meta">14 nov · Nantes</span></div><div class="ev-actions"><div class="m-btn">S'inscrire</div></div></div><div class="ev-card"><div class="ev-media">🧑‍💻</div><div class="ev-content"><span class="ev-badge">Nouveau</span><span class="ev-title">Atelier Angular</span><span class="ev-meta">21 nov · Rennes</span></div><div class="ev-actions"><div class="m-btn">S'inscrire</div></div></div></div></div></div></div></div>
+      <div class="lv-art"><div class="lv-zoom page"><div class="mock full"><div class="mock-header"><span class="mh-logo">Événements</span><span class="mh-nav"><u>Accueil</u><u>Événements</u></span></div><div class="mock-body"><div class="mock-title">Rechercher un événement</div><div class="mock-search"><div class="mock-input">🔍 Nantes, novembre…</div><div class="m-btn ok-mark">Rechercher</div></div><div class="mock-cards"><div class="ev-card"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-badge">Complet</span><span class="ev-title">Nantes Tech Day</span><span class="ev-meta">14 nov · Nantes</span></div><div class="ev-actions"><div class="m-btn">S'inscrire</div></div></div><div class="ev-card"><div class="ev-media">🧑‍💻</div><div class="ev-content"><span class="ev-badge">Nouveau</span><span class="ev-title">Atelier Angular</span><span class="ev-meta">21 nov · Rennes</span></div><div class="ev-actions"><div class="m-btn">S'inscrire</div></div></div></div></div></div></div></div>
       <b>Page</b><small>le template avec du contenu réel</small>
     </div>
   </div>
@@ -55,7 +55,7 @@
 
 <aside class="notes">
     Wafa : « Atomic Design, de Brad Frost, répond à une seule question : de quoi c'est fait ? »<br />
-    Wafa : « Sur ConferenceHub : le bouton Rechercher est un atome. Avec le champ, il forme une molécule : la recherche. La carte d'événement est un organisme. Le template, c'est le plan de la page ; la page, c'est ce plan rempli avec de vrais événements. »<br />
+    Wafa : « Prenons un bouton Rechercher : c'est un atome. Avec un champ, il forme une molécule : la recherche. Une carte d'événement est un organisme. Le template, c'est la structure de la page ; la page, c'est cette structure avec du vrai contenu. »<br />
     Wafa : « C'est le découpage le plus connu, et il donne le même vocabulaire aux designers et aux développeurs. Mais il dit de quoi c'est fait. Pas où ça doit vivre. »
   </aside>
 </section>
@@ -104,12 +104,10 @@
       <tr><th>Organisme</th><td class="ctx-ds"><code>Card</code></td><td class="ctx-biz fragment fade-up"><code>EventCard</code></td><td class="ctx-snow fragment fade-up">bandeau ponctuel</td></tr>
     </tbody>
   </table>
-  <p class="lead stack-top fragment fade-up">Le niveau dit <b>de quoi c'est fait</b>. <span class="hl">Le contexte décide de l'adresse.</span></p>
+  <p class="lead stack-top fragment fade-up">Le niveau dit <b>de quoi c'est fait</b>. <span class="hl">Le contexte dit où le placer.</span></p>
 
 <aside class="notes">
-    Wafa : « Croisons les deux. Card et EventCard sont toutes les deux des organismes… »<br />
-    Wafa : « … mais elles n'ont pas la même adresse. Le bandeau aussi est un organisme, et il ne quittera jamais sa page. »<br />
-    Wafa : « Le niveau dit de quoi c'est fait. Le contexte décide de l'adresse. »<br />
-    Théo : « Donc on répare ConferenceHub, et pour chaque pièce, on cherche son adresse. »
+    Wafa : « Card et EventCard sont toutes les deux des organismes. Pourtant, la Card est générique : elle va dans le design system. EventCard connaît le métier : elle reste dans le domaine événements. Et le bandeau ponctuel reste dans sa page. »<br />
+    Théo : « Donc, atome ou organisme, ça décrit de quoi c'est fait. Pour savoir où placer le composant, on regarde à quoi il sert et qui en a besoin. Voyons ça sur un écran réel. »
   </aside>
 </section>

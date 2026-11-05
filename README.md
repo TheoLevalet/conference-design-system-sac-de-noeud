@@ -38,7 +38,7 @@ slides/
   00-ouverture.html           titre, question au public, explosion de boutons, speakers
   01-sac-de-noeuds.html       ① ce qu'est un design system, le bilan, les 4 équipes, libs/shared, la vraie question
   02-decouper.html            ② Atomic Design (de quoi c'est fait ?), le contexte (qui s'en sert ?), la grille qui les croise
-  03-reparer/                 ③ ConferenceHub réparé pièce par pièce, chaque pièce rangée à son adresse :
+  03-reparer/                 ③ ConferenceHub réparé pièce par pièce, chaque pièce à sa place dans le code :
     01-ecran-avant.html         l'écran « avant »
     02-tokens.html              17 nuances, tokens bruts → sémantiques, alias CSS · question G3
     03-atomes.html              un seul Button, un seul Badge · questions P1, S2
@@ -112,7 +112,7 @@ Deux slides consécutives avec `data-auto-animate`. Les éléments qui partagent
 | Accroche | 0:00 → 1:00 | question au public, les boutons explosent, les speakers |
 | ① Le sac de nœuds | 1:00 → 4:00 | le bilan, les 4 équipes, il manque une frontière |
 | ② Comment découper ? | 4:00 → 6:30 | Atomic Design et le contexte : deux questions indépendantes |
-| ③ Réparer en rangeant | 6:30 → 13:30 | chaque réparation donne une adresse et une question de la checklist |
+| ③ Réparer en rangeant | 6:30 → 13:30 | chaque réparation précise où placer la pièce et ajoute une question à la checklist |
 | ④ Six mois plus tard | 13:30 → 18:00 | la billetterie, le vote, partagé pour de vrai, la durée |
 | Conclusion | 18:00 → 20:00 | la checklist, le bilan, la phrase de fin |
 
