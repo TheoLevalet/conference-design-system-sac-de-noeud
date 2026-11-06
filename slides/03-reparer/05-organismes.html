@@ -1,7 +1,7 @@
 <!-- =====================================================
      PARTIE ③ · ÉTAPE 4 · LA CARD UNIVERSELLE
      Niveau : organisme · Contexte : Card → component, EventCard → recipe · Checklist : G2, S1
-     C'est ici qu'apparaissent les libs : la traduction des adresses dans le code.
+    C'est ici qu'apparaissent les libs : où placer chaque pièce dans le code.
      ===================================================== -->
 
 <!-- ③.5 · Organismes. Problème : la Card universelle -->
@@ -88,8 +88,8 @@ export class Card {
   <p class="source">D'après Sandi Metz, <em>The Wrong Abstraction</em> (2016)</p>
   
 <aside class="notes">
-    Wafa : « Sandi Metz le dit ainsi : la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
-    Wafa : « Mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. Alors, qu'est-ce qui est vraiment commun dans une carte ? »
+    Théo : « Sandi Metz le dit ainsi : la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
+    Théo : « Mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. Alors, qu'est-ce qui est vraiment commun dans une carte ? »
   </aside>
 </section>
 
@@ -113,7 +113,7 @@ export class Card {
 <aside class="notes">
     Wafa : « Ce qui est commun, c'est la structure : une Card avec trois slots. Media, contenu, actions. Rien de plus. »<br />
     Théo : « Et EventCard assemble la Card, un Badge et un Button. Aucune de ces pièces ne connaît le mot "événement". »<br />
-    Wafa : « Tout le métier est dans EventCard. La Card est un component ; EventCard, une recipe. »
+    Théo : « Tout le métier est dans EventCard. La Card est un component ; EventCard, une recipe. »
   </aside>
 </section>
 
@@ -143,29 +143,30 @@ export class Card {
   </aside>
 </section>
 
-<!-- ③.5 · Les adresses deviennent des libs : une frontière outillée -->
+<!-- ③.5 · Où placer les composants : une frontière outillée -->
 <section>
-  <h2>Chaque adresse a <span class="hl">sa place dans le code</span></h2>
+  <h2>Concrètement, <span class="hl">où va le code ?</span></h2>
   <div class="layers">
     <div class="layer"><span class="emoji-lg">🖥️</span><code>apps/web</code><small>snowflakes</small></div>
     <span class="arrow">➜</span>
-    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/events</code><small>recipes</small></div>
+    <div class="layer biz"><span class="emoji-lg">🏷️</span><code>libs/recipes</code><small> Event métier</small></div>
     <span class="arrow">➜</span>
-    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/ui</code><small>components</small></div>
+    <div class="layer ds"><span class="emoji-lg">🧰</span><code>libs/components</code><small>atomes, molécules, organismes<br />Button, SearchField, Card</small></div>
     <span class="arrow">➜</span>
-    <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/tokens</code><small>fondations</small></div>
+    <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/fondations</code><small>tokens <br /> couleurs, espacements</small></div>
   </div>
   <p class="lead">Les dépendances vont <span class="hl">dans un seul sens</span>.</p>
   <div class="lint-error fragment fade-up">
-    ✖ <code>libs/ui</code> ne doit pas dépendre de <code>EventCard</code> : une règle configurée peut bloquer cette dépendance.
+    ✖ <code>libs/components</code> ne doit pas dépendre de <code>EventCard</code> : une règle configurée peut bloquer cette dépendance.
   </div>
   <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · dependency-cruiser</p>
   
 <aside class="notes">
-    Wafa : « Maintenant qu'on a des adresses, on leur donne une place dans le code. Les components et les tokens dans libs/ui et libs/tokens. Les recipes dans une lib de domaine, libs/events. Les snowflakes, comme notre bandeau, restent dans l'application. »<br />
-    Wafa : « Et les dépendances vont dans un seul sens : le design system ne dépend jamais d'un produit. »<br />
-    Théo : « Et si quelqu'un inverse la dépendance ? »<br />
-    Wafa : « Un outil de vérification la bloque, à titre d'exemple, en utilisant Nx, ESLint ou un autre outil. L'important n'est pas l'outil : c'est que la frontière soit vérifiée automatiquement. libs/shared n'existe plus : chaque pièce a son adresse. »
+    Théo : « Dans le code, ça donne trois bibliothèques : libs/recipes pour le métier, libs/components pour les composants génériques, libs/fondations pour les fondations. Le bandeau ponctuel reste dans l'application. »<br />
+    Théo : « On suit les flèches : le métier utilise le design system, jamais l'inverse. »<br />
+    Wafa : « Et comment on fait respecter cette règle ? »<br />
+    (clic : afficher la dépendance interdite)<br />
+    Théo : « Pour contrôler les dépendances, on peut utiliser par exemple Nx et configurer une règle qui bloque les imports interdits. Si la Card importe EventCard, le contrôle échoue. La règle n'est plus seulement dans la documentation. »
   </aside>
 </section>
 
@@ -224,7 +225,7 @@ export class Card {
   </div>
   
 <aside class="notes">
-    Théo : « Trois cartes, une seule EventCard. Et la Card du design system n'a plus aucun input. »<br />
-    Wafa : « Deux questions de plus : les variations passent-elles par la composition ? Et son API tient-elle en une phrase ? 42 inputs, non. »
+    Théo : « Nos trois cartes utilisent maintenant le même composant EventCard. La Card fournit la structure ; EventCard apporte le contenu métier. Plus besoin d'ajouter une option à chaque nouveau cas. »<br />
+    Wafa : « On ajoute donc deux questions à la checklist : est-ce qu'on peut composer les variations, plutôt qu'empiler des options ? Et est-ce que l'API reste petite, facile à comprendre ? »
   </aside>
 </section>

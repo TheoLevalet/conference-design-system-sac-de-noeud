@@ -7,7 +7,8 @@
 - **Question centrale** : pour chaque pièce d'un front, où doit-elle vivre pour que le front tienne dans le temps ?
 - **Fil conducteur** : la maquette ConferenceHub. On la répare en rangeant chaque pièce à sa place, puis on la fait vieillir de six mois avec l'arrivée d'une application de billetterie.
 - **Fil caché** : la checklist se construit pendant la réparation, une question par étape, puis on la montre en entier à la fin.
-- **Minutage** : 20 minutes de présentation, sans temps de questions. Il faut viser environ 17 minutes de texte parlé, soit environ 2 500 mots ; le reste est pris par les animations et le public.
+- **Minutage** : 20 minutes de présentation, sans temps de questions. Les notes contiennent environ 1 900 mots : à 120–130 mots/minute, compter 15–16 minutes de parole et 4–5 minutes pour les clics, les pauses et les votes. À confirmer en répétition chronométrée.
+- **Répartition de parole** : environ 49 % Théo / 51 % Wafa en nombre de mots. Wafa porte les principes ; Théo explique aussi leur application concrète, la composition, les dépendances et la réutilisation. Les deux participent à la checklist.
 
 ## Vue d'ensemble
 
@@ -15,7 +16,7 @@
 |---|---|---:|---|---|
 | 1 | Accroche | 0:00 → 1:00 | Deux questions sur le petit bouton, les boutons explosent, les speakers | Mains levées |
 | 2 | Le sac de nœuds | 1:00 → 4:00 | Ce qu'est un design system, puis le bilan et les quatre bonnes raisons. Il manque une frontière. | — |
-| 3 | Comment découper ? | 4:00 → 6:30 | Atomic Design (de quoi c'est fait) et le contexte (qui s'en sert), puis la grille qui les croise. Les trois adresses. | — |
+| 3 | Comment découper ? | 4:00 → 6:30 | Atomic Design (de quoi c'est fait) et le contexte (qui s'en sert), puis la grille qui les croise pour décider où placer chaque composant. | — |
 | 4 | Réparer en rangeant | 6:30 → 13:30 | ConferenceHub, pièce par pièce. Chaque réparation dit où va la pièce et ajoute une question à la checklist. | — |
 | 5 | Six mois plus tard | 13:30 → 18:00 | La billetterie arrive avec ses composants et veut réutiliser l'existant. | Vote par pièce |
 | 6 | Conclusion | 18:00 → 20:00 | La checklist complète, le bilan du front, trois derniers conseils | — |
@@ -48,7 +49,7 @@ On reste en vue d'ensemble : le détail vient dans la partie 4.
 | **Contexte** | *Qui s'en sert ?* (portée de la réutilisation) | component, recipe, snowflake | Brad Frost, *Design system components, recipes, and snowflakes* | Partie 3 |
 | **Frontière de libs** | *Où vit le code, et qui a le droit de dépendre de qui ?* | `libs/tokens`, `libs/ui`, `libs/<domaine>`, `apps/<app>` | Notre architecture d'exemple | Partie 4, étape Card |
 
-**La phrase qui relie les trois,** à dire telle quelle : « Le niveau Atomic Design dit de quoi c'est fait. Le contexte décide de l'adresse. La lib rend l'adresse concrète dans le code. »
+**La phrase qui relie les trois :** « Le niveau Atomic Design dit de quoi c'est fait. Le contexte dit où le placer : dans le design system, dans une bibliothèque métier ou dans l'application. » Les noms des libs viennent ensuite, à l'étape Card.
 
 **Les deux premières notions sont indépendantes.** Un même niveau peut avoir des contextes différents, et c'est ce que la slide doit montrer :
 
@@ -64,15 +65,15 @@ On peut construire cette grille à l'écran en deux temps : d'abord les lignes (
 
 ### Déroulé de la partie
 - **Atomic Design :**
-  - une seule slide, illustrée sur ConferenceHub ;
+  - une seule slide, illustrée à partir d'un bouton et de compositions, sans nommer encore le projet ;
   - c'est un modèle de composition, pas une arborescence de dossiers (le gag des dossiers `atoms/` montre justement la confusion) ;
   - pourquoi ce découpage : c'est le plus connu, et il donne un vocabulaire commun aux designers et aux développeurs.
-- **Le contexte,** même auteur : Frost découpe aussi selon qui s'en sert. Ce sont nos trois adresses, annoncées comme le fil du talk.
-- **La grille niveau × contexte :** EventCard et Card sont toutes deux des organismes, mais n'ont pas la même adresse.
-- **Les libs n'apparaissent pas encore,** pour ne pas introduire trois notions d'un coup. On les montre à l'étape Card, comme la traduction des adresses dans le code.
+- **Le contexte,** même auteur : Frost découpe aussi selon qui s'en sert. Ces trois catégories aident à décider où placer chaque composant.
+- **La grille niveau × contexte :** EventCard et Card sont toutes deux des organismes, mais l'une est métier et l'autre générique.
+- **Les libs n'apparaissent pas encore,** pour ne pas introduire trois notions d'un coup. On les montre à l'étape Card, pour concrétiser ce rangement dans le code.
 
 ### Vocabulaire à tenir partout (slides et notes)
-- « **adresse** » = le contexte. On ne dit jamais « adresse » pour un niveau ni pour un dossier.
+- « **Où placer le composant ?** » = la question pratique. Le contexte guide le choix ; le dossier le concrétise. Le niveau décrit seulement la composition.
 - « **design system** » = component, codé dans `libs/ui` et `libs/tokens`.
 - « **recipe** » = codée dans une lib de domaine (`libs/events`). On évite « lib métier » seul, sans dire « recipe ».
 - « **snowflake** » = reste dans l'application (`apps/web`).
@@ -100,7 +101,7 @@ On peut construire cette grille à l'écran en deux temps : d'abord les lignes (
 
 - **Étape Card :**
   - Sandi Metz y reste ;
-  - la frontière en libs y est **introduite** : « voici comment nos trois adresses se traduisent dans le code » ;
+  - la frontière en libs y est **introduite** : « concrètement, où va le code ? » ;
   - le sens des dépendances, `apps/web → libs/events → libs/ui → libs/tokens`, est vérifié par un outil.
 - **Allégés ou retirés :**
   - les définitions séparées d'atome et de molécule ;
@@ -111,7 +112,7 @@ On peut construire cette grille à l'écran en deux temps : d'abord les lignes (
 ## 5 · Six mois plus tard (13:30 → 18:00)
 
 - **La situation :** une application de billetterie arrive avec ses propres composants. Elle veut réutiliser une partie de l'existant.
-- **Réveiller le public :** on montre trois ou quatre pièces de la billetterie. Pour chacune, la salle vote à main levée pour l'une des trois adresses. Exemples :
+- **Réveiller le public :** on montre trois ou quatre pièces de la billetterie. Pour chacune, la salle vote à main levée : component du design system, recipe métier ou snowflake local ? Exemples :
   - son bouton « Payer » ;
   - EventCard, qu'elle voudrait reprendre ;
   - un sélecteur de places ;
@@ -145,13 +146,13 @@ Les questions sont regroupées sous les trois mots de la règle. La règle et la
 ## 6 · Conclusion (18:00 → 20:00)
 
 - **La checklist complète,** construite pendant le talk. Elle est disponible dans le dépôt.
-- **Le bilan du front :** ConferenceHub et la billetterie, avec chaque pièce à son adresse. On passe de 7 boutons à 1, et `libs/shared` est remplacé par des frontières claires.
+- **Le bilan du front :** ConferenceHub et la billetterie, avec chaque pièce à sa place dans le code. On passe de 7 boutons à 1, et `libs/shared` est remplacé par des frontières claires.
 - **La phrase de fin :** « Tout ce qui est réutilisable n'a pas besoin d'entrer dans le design system. Une frontière décidée et entretenue, c'est ce qui rend un front pérenne. »
 - **Derniers conseils,** à arbitrer :
   - commencer par les tokens ;
   - mettre la checklist dans le modèle de PR ;
-  - accepter que certaines choses restent dehors (« ce n'est pas un échec, c'est une adresse »).
-- **Le retour au petit bouton :** « Et si vous avez un petit bouton à ajouter… posez-vous d'abord ces questions. »
+  - accepter que les composants métier ou locaux restent hors du design system.
+- **Le retour au petit bouton :** « Et si vous avez un petit bouton à ajouter… demandez-vous d'abord où le placer. »
 
 ## Attribution et limites des sources
 
@@ -164,4 +165,4 @@ Une seule mention à l'oral et sur la slide des références. On ne répète pas
 | Tokens indépendants des plateformes, références entre tokens | DTCG, *Design Tokens Format Module 2025.10* |
 | Design system et langage partagé | Synthèse inspirée d'Alla Kholmatova, *Design Systems* |
 | Coût d'une mauvaise abstraction | Sandi Metz, *The Wrong Abstraction* |
-| Trois adresses comme fil, billetterie, checklist, conseils | Nos exemples et propositions |
+| Placement des composants comme fil, billetterie, checklist, conseils | Nos exemples et propositions |
