@@ -59,7 +59,7 @@
 
 <aside class="notes">
     Théo : « Avant : sept boutons, une Card à 42 inputs, et libs/shared. »<br />
-    Théo : « Après : on sait où placer chaque pièce. Un mode sombre en changeant des tokens, une deuxième application qui réutilise les composants. Les erreurs et les loaders suivront le même chemin. »
+cd     Théo : « Après : un Button partagé, une EventCard dans la bibliothèque métier. La billetterie les réutilise, et le mode sombre change les tokens. »
   </aside>
 </section>
 
@@ -82,13 +82,14 @@
   <h2>Pour lundi matin</h2>
   <div class="row stack-top" style="width: 1100px; margin: 0 auto">
     <div class="tile fragment fade-up"><h3>Commencer par les tokens</h3><p>Des rôles avant des composants.</p></div>
+     <div class="tile fragment fade-up"><h3>Repérer les doublons</h3><p>Sur un écran, comparer les boutons qui font la même chose.</p></div>
     <div class="tile fragment fade-up"><h3>La checklist dans la PR</h3><p>Copiez-la dans votre modèle de pull request.</p></div>
     <div class="tile primary fragment fade-up"><h3>Accepter le dehors</h3><p>Un composant métier(recipe) ou local(snowflake) a sa place hors du design system.</p></div>
   </div>
 
 <aside class="notes">
     Théo : « Trois choses pour lundi. Commencez par les tokens. Mettez la checklist dans votre modèle de PR. »<br />
-    Wafa : « Et gardez les composants métier ou locaux là où ils servent. Tout n'a pas besoin d'entrer dans le design system. »
+    Wafa : « Et gardez les composants métier ou locaux là où ils servent. Tout n'a pas besoin d'entrer dans le design system. Dans un projet sur lequel Théo et moi ont travaillé, on avait des boutons un peu partout. Ils se ressemblaient, mais chacun avait été fait de son côté. Quand on a un problème d’accessibilité ou de style, il a fallu retrouver chaque bouton sur chaque écran et corriger les copies une par une. Avec un composant Button partagé, on corrige le composant à la source, puis les écrans qui l’utilisent bénéficient de la correction. C’est aussi pour ça qu’on cherche les doublons avant d’en créer un autre.»
   </aside>
 </section>
 
@@ -108,11 +109,11 @@
   <h2>Merci !</h2>
   <div class="grid-2" style="grid-template-columns: 1fr auto; gap: 56px">
     <ul class="refs">
-      <li><b>Brad Frost</b>, <em>Atomic Design</em></li>
+      <li><b>Brad Frost</b>, designer web, <em>Atomic Design</em></li>
       <li><b>Brad Frost</b>, <em>Design system components, recipes, and snowflakes</em></li>
-      <li><b>Alla Kholmatova</b>, <em>Design Systems</em></li>
-      <li><b>DTCG</b>, <em>Design Tokens Format Module 2025.10</em></li>
-      <li><b>Sandi Metz</b>, <em>The Wrong Abstraction</em></li>
+      <li><b>Alla Kholmatova</b>, designer et autrice de <em>Design Systems</em></li>
+      <li><b>DTCG</b>, groupe de standardisation des design tokens, <em>Design Tokens Format Module 2025.10</em></li>
+      <li><b>Sandi Metz</b>, développeuse et autrice, <em>The Wrong Abstraction</em></li>
     </ul>
     <div class="col" style="align-items: center">
       <div class="qr" data-qr="https://github.com/TheoLevalet/conference-design-system-sac-de-noeud"></div>

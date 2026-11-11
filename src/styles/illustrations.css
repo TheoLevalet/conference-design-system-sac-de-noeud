@@ -1031,11 +1031,6 @@
   background: var(--color-danger);
 }
 
-.m-btn.bs-btn,
-.before-after .search-demo .m-btn {
-  background: var(--color-brand-sopra);
-}
-
 .flow {
   display: flex;
   align-items: stretch;

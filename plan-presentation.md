@@ -147,16 +147,16 @@ Les questions sont regroupées sous les trois mots de la règle. La règle et la
 
 - **La checklist complète,** construite pendant le talk. Elle est disponible dans le dépôt.
 - **Le bilan du front :** ConferenceHub et la billetterie, avec chaque pièce à sa place dans le code. On passe de 7 boutons à 1, et `libs/shared` est remplacé par des frontières claires.
-- **La phrase de fin :** « Tout ce qui est réutilisable n'a pas besoin d'entrer dans le design system. Une frontière décidée et entretenue, c'est ce qui rend un front pérenne. »
-- **Derniers conseils,** à arbitrer :
-  - commencer par les tokens ;
-  - mettre la checklist dans le modèle de PR ;
-  - accepter que les composants métier ou locaux restent hors du design system.
+- **La phrase de fin :** « Tout ce qui est réutilisable n'a pas besoin d'entrer dans le design system. Button va dans le design system, EventCard dans la bibliothèque métier, le bandeau temporaire dans sa page. »
+- **Comment faire ça demain ?** Slide 43, « Pour lundi matin », après le bilan et la règle de placement, avant le retour au petit bouton. Ce passage remplace les trois conseils généraux ; il n'ajoute pas de slide.
+  - Théo pose la question. Wafa raconte le cas du projet : plusieurs boutons similaires avaient été créés séparément ; un problème de style ou d'accessibilité obligeait à les retrouver et à les corriger écran par écran. Elle oppose cette maintenance répétée à la correction d'un `Button` partagé, faite à la source.
+  - La slide donne ensuite une marche à suivre : partir d'un écran, comparer les boutons, tester Tab, le focus, Entrée et Espace, puis vérifier le nom au lecteur d'écran. Choisir le bouton commun, corriger et documenter ses états, puis remplacer les doublons sur cet écran avec la checklist dans la PR.
+  - En répétition, Wafa confirme que l'exemple correspond à son vécu et précise le problème observé. Vérifier également que la correction du composant partagé n'est pas contredite par des styles ou variantes locales.
 - **Le retour au petit bouton :** « Et si vous avez un petit bouton à ajouter… demandez-vous d'abord où le placer. »
 
 ## Attribution et limites des sources
 
-Une seule mention à l'oral et sur la slide des références. On ne répète pas les précautions à chaque slide.
+Présenter brièvement les auteurs à leur première mention : Brad Frost, designer web et auteur d'Atomic Design ; Sandi Metz, développeuse et autrice sur la conception logicielle. Sur la slide des références, préciser aussi qu'Alla Kholmatova est designer et autrice, et que DTCG est le groupe de standardisation des design tokens. Ne pas répéter ces présentations à chaque citation.
 
 | Idée | Source / statut |
 |---|---|
