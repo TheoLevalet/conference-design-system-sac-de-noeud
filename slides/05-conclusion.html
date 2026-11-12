@@ -26,7 +26,7 @@
   </table>
 
 <aside class="notes"><br />
-  Théo : « Voilà la checklist qu'on a construite ensemble. Elle tient en trois questions : est-ce que c'est générique, stable, et vraiment partagé ? »<br />
+  Théo 🎤 : « Voilà la checklist qu'on a construite ensemble. Elle tient en trois questions : est-ce que c'est générique, stable, et vraiment partagé ? »<br />
     Wafa : « À la prochaine proposition de composant, on la ressort en revue de code. Un "non", ce n'est pas un échec : le composant peut rester dans l'application ou dans une bibliothèque métier, et on réévaluera si le besoin évolue. »
   </aside>
 </section>
@@ -38,28 +38,46 @@
     <div class="side bad">
       <h3>Avant</h3>
       <ul class="recap">
-        <li>7 boutons, 4 recherches</li>
-        <li>une Card à 42 inputs</li>
-        <li><code>libs/shared</code>, le vide-grenier</li>
-        <li>mode sombre : tout reprendre</li>
+        <li>7 boutons et 4 recherches pour les mêmes besoins</li>
+        <li>une Card à 42 inputs que personne n'ose toucher</li>
+        <li><code>libs/shared</code> en vide-grenier</li>
+        <li>un mode sombre qui oblige à reprendre chaque écran</li>
       </ul>
     </div>
     <span class="punchline">➜</span>
     <div class="side good">
       <h3>Après</h3>
       <ul class="recap">
-        <li>1 <code>Button</code>, 1 <code>SearchField</code></li>
-        <li>une Card à 3 slots, une recipe <code>EventCard</code></li>
-        <li>4 libs, des dépendances dans un seul sens</li>
-        <li>mode sombre : changer des tokens</li>
-        <li>une 2e app, sans rien réécrire</li>
+        <li>un seul <code>Button</code>, un seul <code>SearchField</code></li>
+        <li>une Card à 3 slots et une recipe <code>EventCard</code></li>
+        <li>3 libs, des dépendances dans un seul sens</li>
+        <li>un mode sombre qui ne touche qu'aux tokens</li>
+        <li>une 2<sup>e</sup> application qui réutilise sans réécrire</li>
       </ul>
     </div>
   </div>
 
 <aside class="notes">
-    Théo : « Avant : sept boutons, une Card à 42 inputs, et un libs/shared qui servait de vide-grenier. »<br />
-    Théo : « Après : un seul bouton, et une EventCard placée dans la bibliothèque métier. La billetterie les réutilise, et pour le mode sombre, on n'a touché qu'aux tokens. »
+    Théo 🎤 : « Avant : sept boutons pour le même besoin, une Card à 42 inputs que personne n'osait toucher, et un libs/shared devenu vide-grenier. »<br />
+    Théo 🎤 : « Après : un seul bouton, une Card simple, et une EventCard rangée dans la bibliothèque métier. La billetterie a tout réutilisé, et le mode sombre n'a demandé que de changer des tokens. »
+  </aside>
+</section>
+
+<!-- C.2b · Prendre du recul : la frontière est aussi une affaire de gestion de projet -->
+<section>
+  <p class="kicker">Au-delà du code</p>
+  <h2>Une frontière, <span class="hl">ça se pilote</span></h2>
+  <div class="row stack-top" style="width: 1100px; margin: 0 auto">
+    <div class="tile fragment fade-up"><h3>Quelqu'un arbitre</h3><p>Un rôle identifié, un rituel de revue : on sait qui dit oui, non ou pas encore.</p></div>
+    <div class="tile fragment fade-up"><h3>Du temps planifié</h3><p>La maintenance et les migrations sont dans la roadmap, pas sur le temps libre.</p></div>
+    <div class="tile primary fragment fade-up"><h3>Des indicateurs</h3><p>Doublons évités, adoption, migrations restantes : on mesure, on ajuste.</p></div>
+  </div>
+
+<aside class="notes">
+    Wafa : « Prenons un peu de recul. Tout ce qu'on a montré, c'est du code. Mais une frontière, ça ne tient pas toute seule : c'est aussi de la gestion de projet. »<br />
+    Wafa : « <b>[clic]</b> Il faut quelqu'un qui arbitre, avec un rituel de revue : on sait qui dit oui, non, ou pas encore. »<br />
+    Théo 🎤 : « <b>[clic]</b> Il faut du temps planifié : maintenir et migrer, ça se met dans la roadmap, comme une fonctionnalité. Sinon, ça passe toujours après. »<br />
+    Wafa : « <b>[clic]</b> Et il faut mesurer : les doublons évités, l'adoption, les migrations qui restent. C'est ce qui permet d'en parler au PO et au client, chiffres à l'appui. »
   </aside>
 </section>
 
@@ -77,19 +95,19 @@
   </aside>
 </section>
 
-<!-- C.4 · Trois conseils pour lundi -->
+<!-- C.4 · Quatre conseils pour mercredi (la conférence a lieu le mardi) -->
 <section>
-  <h2>Pour lundi matin</h2>
+  <h2>Pour mercredi matin</h2>
   <div class="row stack-top" style="width: 1100px; margin: 0 auto">
-    <div class="tile fragment fade-up" data-fragment-index="1"><h3>Commencer par les tokens</h3><p>Des rôles avant des composants.</p></div>
-     <div class="tile fragment fade-up" data-fragment-index="4"><h3>Repérer les doublons</h3><p>Sur un écran, comparer les boutons qui font la même chose.</p></div>
-    <div class="tile fragment fade-up" data-fragment-index="2"><h3>La checklist dans la PR</h3><p>Copiez-la dans votre modèle de pull request.</p></div>
-    <div class="tile primary fragment fade-up" data-fragment-index="3"><h3>Accepter le dehors</h3><p>Un composant métier(recipe) ou local(snowflake) a sa place hors du design system.</p></div>
+    <div class="tile fragment fade-up"><h3>Commencer par les tokens</h3><p>Des rôles avant des composants.</p></div>
+    <div class="tile fragment fade-up"><h3>La checklist dans la PR</h3><p>Copiez-la dans votre modèle de pull request.</p></div>
+    <div class="tile primary fragment fade-up"><h3>Savoir dire non</h3><p>Un composant métier (recipe) ou local (snowflake) a sa place hors du design system.</p></div>
+    <div class="tile fragment fade-up"><h3>Repérer les doublons</h3><p>Sur un écran, comparer les boutons qui font la même chose.</p></div>
   </div>
 
 <aside class="notes">
-    Théo : « Quatre choses pour lundi. <b>[clic]</b> Commencez par les tokens. <b>[clic]</b> Mettez la checklist dans votre modèle de PR. »<br />
-    Wafa : « <b>[clic]</b> Et gardez les composants métier ou locaux là où ils servent. Tout n'a pas besoin d'entrer dans le design system. <b>[clic]</b> Dans un projet sur lequel Théo et moi ont travaillé, on avait des boutons un peu partout. Ils se ressemblaient, mais chacun avait été fait de son côté. Quand on a un problème d’accessibilité ou de style, il a fallu retrouver chaque bouton sur chaque écran et corriger les copies une par une. Avec un composant Button partagé, on corrige le composant à la source, puis les écrans qui l’utilisent bénéficient de la correction. C’est aussi pour ça qu’on cherche les doublons avant d’en créer un autre.»
+    Théo 🎤 : « Quatre choses pour demain, mercredi. <b>[clic]</b> Commencez par les tokens. <b>[clic]</b> Mettez la checklist dans votre modèle de PR. »<br />
+    Wafa : « <b>[clic]</b> Et gardez les composants métier ou locaux là où ils servent. Tout n'a pas besoin d'entrer dans le design system. <b>[clic]</b> Sur un projet, avec Théo, on a récupéré un front plein de boutons en doublon. L'équipe accessibilité nous a demandé de corriger un problème sur tous les boutons : autant de corrections que de copies. Avec le client, on a repéré les doublons et on les a remplacés, petit à petit, par un composant générique. C'est pour ça qu'on cherche les doublons avant d'en créer un autre. »
   </aside>
 </section>
 
@@ -100,12 +118,12 @@
   <p class="punchline stack-top fragment">…demandez-vous d'abord <span class="hl">où le placer</span>.</p>
 
 <aside class="notes">
-    Théo : « Et si vous avez un petit bouton à ajouter… »<br />
+    Théo 🎤 : « Et si vous avez un petit bouton à ajouter… »<br />
     Wafa : « <b>[clic]</b> …demandez-vous d'abord où le placer. Merci ! »
   </aside>
 </section>
 
-<section>
+<section data-auto-animate>
   <h2>Merci !</h2>
   <div class="grid-2" style="grid-template-columns: 1fr auto; gap: 56px">
     <ul class="refs">
@@ -116,29 +134,31 @@
       <li><b>Sandi Metz</b>, développeuse et autrice, <em>The Wrong Abstraction</em></li>
     </ul>
     <div class="col" style="align-items: center">
-      <div class="qr" data-qr="https://github.com/TheoLevalet/conference-design-system-sac-de-noeud"></div>
-      <p class="small muted">Slides, checklist de PR et exemple Angular</p>
+      <div class="qr" data-id="qr-sources" data-qr="https://github.com/TheoLevalet/conference-design-system-sac-de-noeud"></div>
+      <p class="small muted" data-id="qr-sources-label">Slides, checklist de PR et exemple Angular</p>
     </div>
   </div>
   <p class="source stack-top">La règle, la checklist et les exemples sont notre proposition, inspirée de ces sources.</p>
 </section>
 
-<section>
+<section data-auto-animate>
   <h2>Votre avis nous intéresse</h2>
   <p class="lead">Du sac de nœuds au design system : rendre votre front évolutif et pérenne</p>
-  <a
-    href="https://openfeedback.io/marCmEtWkktDnqYlsJ9d/2026-11-17/DKpDIibpU84mIJi31Nni"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Ouvrir le formulaire OpenFeedback pour donner votre avis"
-    style="display: inline-flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 24px"
-  >
-    <img
-      class="qr"
-      src="/QrCode/qr-code-openfeedback-noir.png"
-      alt="Code QR OpenFeedback pour donner votre avis"
-      style="width: 300px; height: 300px"
-    />
-    <span>Vos retours sur la présentation nous sont précieux.</span>
-  </a>
+  <div class="qr-pair">
+    <div class="col" style="align-items: center">
+      <div class="qr" data-id="qr-sources" data-qr="https://github.com/TheoLevalet/conference-design-system-sac-de-noeud"></div>
+      <p class="small muted" data-id="qr-sources-label">Slides, checklist de PR et exemple Angular</p>
+    </div>
+    <a
+      class="col"
+      href="https://openfeedback.io/marCmEtWkktDnqYlsJ9d/2026-11-17/DKpDIibpU84mIJi31Nni"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Ouvrir le formulaire OpenFeedback pour donner votre avis"
+      style="align-items: center"
+    >
+      <img class="qr" src="/QrCode/qr-code-openfeedback-noir.png" alt="Code QR OpenFeedback pour donner votre avis" />
+      <p class="small">Votre avis sur la présentation</p>
+    </a>
+  </div>
 </section>

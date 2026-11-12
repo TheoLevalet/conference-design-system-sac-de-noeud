@@ -1124,6 +1124,31 @@
   height: 100%;
 }
 
+/* Dernière slide : le QR des sources (arrivé de « Merci ! ») à côté de celui d'OpenFeedback */
+.qr-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 120px;
+  margin-top: var(--space-6, 32px);
+}
+
+.qr-pair .qr {
+  box-sizing: border-box;
+  width: 260px;
+  height: 260px;
+}
+
+.reveal .qr-pair img.qr,
+.reveal .qr-pair p {
+  margin: 0;
+}
+
+.qr-pair a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .reveal .refs {
   display: block;
   text-align: left;
@@ -1610,6 +1635,12 @@
 
 .screen-status .check-add b {
   color: var(--color-primary);
+}
+
+/* Appel à participer : même pastille que les questions, en plus visible */
+.screen-status .check-add.cta {
+  font-size: 0.7em;
+  padding: 0.5em 1.4em;
 }
 
 /* La grille niveau × contexte */
