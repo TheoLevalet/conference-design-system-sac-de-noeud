@@ -38,21 +38,21 @@
     <div class="side bad">
       <h3>Avant</h3>
       <ul class="recap">
-        <li>7 boutons et 4 recherches pour les mêmes besoins</li>
-        <li>une Card à 42 inputs que personne n'ose toucher</li>
-        <li><code>libs/shared</code> en vide-grenier</li>
-        <li>un mode sombre qui oblige à reprendre chaque écran</li>
+        <li><b>7</b> boutons et <b>4</b> recherches pour les mêmes besoins</li>
+        <li><b>42</b> inputs sur une Card que personne n'ose toucher</li>
+        <li><b>1</b> <code>libs/shared</code> en vide-grenier</li>
+        <li><b>100 %</b> des écrans à reprendre pour un mode sombre</li>
       </ul>
     </div>
     <span class="punchline">➜</span>
     <div class="side good">
       <h3>Après</h3>
       <ul class="recap">
-        <li>un seul <code>Button</code>, un seul <code>SearchField</code></li>
-        <li>une Card à 3 slots et une recipe <code>EventCard</code></li>
-        <li>3 libs, des dépendances dans un seul sens</li>
-        <li>un mode sombre qui ne touche qu'aux tokens</li>
-        <li>une 2<sup>e</sup> application qui réutilise sans réécrire</li>
+        <li><b>1</b> <code>Button</code>, <b>1</b> <code>SearchField</code></li>
+        <li><b>3</b> slots sur la Card, <b>1</b> recipe <code>EventCard</code></li>
+        <li><b>3</b> libs, des dépendances dans un seul sens</li>
+        <li><b>0</b> composant modifié pour le mode sombre</li>
+        <li><b>2</b> applications, <b>0</b> composant réécrit</li>
       </ul>
     </div>
   </div>
@@ -68,16 +68,18 @@
   <p class="kicker">Au-delà du code</p>
   <h2>Une frontière, <span class="hl">ça se pilote</span></h2>
   <div class="row stack-top" style="width: 1100px; margin: 0 auto">
-    <div class="tile fragment fade-up"><h3>Quelqu'un arbitre</h3><p>Un rôle identifié, un rituel de revue : on sait qui dit oui, non ou pas encore.</p></div>
-    <div class="tile fragment fade-up"><h3>Du temps planifié</h3><p>La maintenance et les migrations sont dans la roadmap, pas sur le temps libre.</p></div>
-    <div class="tile primary fragment fade-up"><h3>Des indicateurs</h3><p>Doublons évités, adoption, migrations restantes : on mesure, on ajuste.</p></div>
+    <div class="tile fragment fade-up" data-fragment-index="1"><h3>1. Décider</h3><p>Quelqu'un arbitre chaque demande : oui, non ou pas encore.</p></div>
+    <span class="arrow fragment" data-fragment-index="2">➜</span>
+    <div class="tile fragment fade-up" data-fragment-index="2"><h3>2. Planifier</h3><p>Maintenance et migrations sont dans la roadmap, pas sur le temps libre.</p></div>
+    <span class="arrow fragment" data-fragment-index="3">➜</span>
+    <div class="tile primary fragment fade-up" data-fragment-index="3"><h3>3. Mesurer</h3><p>Doublons restants, adoption, usages dépréciés : on ajuste, et on recommence.</p></div>
   </div>
 
 <aside class="notes">
-    Wafa 🎤 : « Prenons un peu de recul : jusqu'ici, on n'a montré que du code. Pour que la frontière tienne, il faut aussi la piloter. »<br />
-    Wafa 🎤 : « <b>[clic]</b> Quelqu'un qui arbitre : on sait qui dit oui, non, ou pas encore. »<br />
-    Théo 🎤 : « <b>[clic]</b> Du temps planifié : maintenir et migrer, ça se met dans la roadmap, comme une fonctionnalité. »<br />
-    Wafa 🎤 : « <b>[clic]</b> Et des indicateurs : doublons évités, adoption, migrations restantes. De quoi en parler au PO et au client, chiffres à l'appui. »
+    Wafa 🎤 : « Prenons un peu de recul : jusqu'ici, on n'a montré que du code. Pour que la frontière tienne, il faut la piloter : décider, planifier, mesurer. »<br />
+    Wafa 🎤 : « <b>[clic]</b> Décider : quelqu'un arbitre, et on sait qui dit oui, non, ou pas encore. »<br />
+    Théo 🎤 : « <b>[clic]</b> Planifier : maintenir et migrer, ça se met dans la roadmap, comme une fonctionnalité. »<br />
+    Wafa 🎤 : « <b>[clic]</b> Mesurer : les doublons qui restent, l'adoption, les usages dépréciés. De quoi en parler au PO et au client, chiffres à l'appui. »
   </aside>
 </section>
 
@@ -92,7 +94,7 @@
   </div>
 
 <aside class="notes">
-    Théo 🎤 : « Quatre choses pour demain, mercredi. <b>[clic]</b> Commencez par les tokens. <b>[clic]</b> Mettez la checklist dans votre modèle de PR. »<br />
+    Théo 🎤 : « Ça, c'est pour la durée. Et dès demain ? Quatre choses pour mercredi matin. <b>[clic]</b> Commencez par les tokens. <b>[clic]</b> Mettez la checklist dans votre modèle de PR. »<br />
     Wafa 🎤 : « <b>[clic]</b> Gardez les composants métier ou locaux là où ils servent. <b>[clic]</b> Et repérez les doublons avant d'en créer un de plus. Avec Théo, on a récupéré un front plein de boutons en doublon : pour un seul problème d'accessibilité, il a fallu corriger chaque copie. Avec le client, on les a remplacés petit à petit par un composant générique. »
   </aside>
 </section>

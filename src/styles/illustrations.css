@@ -1084,6 +1084,59 @@
   align-items: center;
 }
 
+/* Composition : les deux cas de la slide « Configuration ➜ Composition » */
+.compose-cases {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  width: 1100px;
+  margin: var(--space-8) auto 0;
+}
+
+.compose-cases .case {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-6);
+  align-items: center;
+  text-align: left;
+}
+
+.compose-cases .case-text p {
+  margin: 0;
+  font-size: 0.55em;
+  line-height: 1.45;
+}
+
+.compose-cases .case-q {
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-2) !important;
+}
+
+.compose-cases .case-a {
+  font-weight: 600;
+}
+
+/* Le slot « actions » est entouré : c'est là que la variation se joue */
+.compose-cases .ev-actions {
+  margin: 4px 8px 8px;
+  padding: 8px;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.compose-cases .m-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.compose-cases .m-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
 .counter {
   font-size: 4.5em;
   font-weight: 900;
@@ -1815,6 +1868,15 @@
   color: var(--color-primary);
   font-size: 1em;
 }
+
+/* Les chiffres du bilan ressortent, en rouge avant et en vert après */
+.reveal .recap b {
+  font-size: 1.3em;
+  font-weight: 850;
+}
+
+.side.bad .recap b { color: var(--color-danger); }
+.side.good .recap b { color: var(--color-success); }
 
 /* Bilan avant / après en liste (la colonne .side fixe déjà la taille) */
 .reveal .recap {

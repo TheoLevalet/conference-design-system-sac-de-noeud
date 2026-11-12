@@ -134,12 +134,27 @@ export class Card {
       <p>slots. <b>L'appelant</b> décide de ce qu'il y met.</p>
     </div>
   </div>
-  <p class="lead stack-top fragment">« Et l'icône à droite, mais seulement parfois ? » ➜ <span class="hl">dans <code>ui-card-actions</code>, quand tu en as besoin.</span></p>
+  <div class="compose-cases">
+    <div class="case fragment fade-up">
+      <div class="ev-card mini"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-title">Nantes Tech Day</span></div><div class="ev-actions"><div class="m-btn">S'inscrire<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div></div></div>
+      <div class="case-text">
+        <p class="case-q">« Une icône à droite, mais seulement parfois ? »</p>
+        <p class="case-a">Dans le slot <code>actions</code> d'<code>EventCard</code>.<br /><span class="hl">La Card ne change pas.</span></p>
+      </div>
+    </div>
+    <div class="case fragment fade-up">
+      <div class="ev-card mini"><div class="ev-media">🤝</div><div class="ev-content"><span class="ev-title">Salon partenaire</span></div><div class="ev-actions"><div class="m-btn">Voir le site<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h9v9M18 6L7 17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg></div></div></div>
+      <div class="case-text">
+        <p class="case-q">« Et si c'est un cas à part ? »</p>
+        <p class="case-a">Une autre recipe, <code>PartnerEventCard</code>.<br /><span class="hl">Même Card, autre assemblage.</span></p>
+      </div>
+    </div>
+  </div>
   
 <aside class="notes">
     Théo 🎭 : « <b>[clic]</b> Et si je veux une icône à droite, mais seulement parfois ? »<br />
     Wafa 🎤 : « Pas dans la Card. Tu la mets dans le slot actions d'EventCard, si toutes les cartes d'événement en ont besoin. »<br />
-    Théo 🎭 : « Et si c'est un cas à part ? Je duplique EventCard ? »<br />
+    Théo 🎭 : « <b>[clic]</b> Et si c'est un cas à part ? Je duplique EventCard ? »<br />
     Wafa 🎤 : « Alors oui : tu assembles une autre recipe avec la même Card. On duplique quelques lignes d'assemblage, jamais un component. »<br />
     Wafa 💡 : « La variation passe de la configuration à la composition. Et le métier sort du design system. »
   </aside>
