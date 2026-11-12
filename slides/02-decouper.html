@@ -17,10 +17,10 @@
   </div>
 
 <aside class="notes">
-    Théo : « Pour remettre de l'ordre, j'ai fait comme dans Atomic Design : un dossier atoms, un dossier molecules, un dossier organisms. »<br />
-    Wafa : « <b>[clic]</b> Et si, par exemple, on a une carte d'événement, elle va où ? »<br />
-    Théo : « Dans… organisms ? Non, molecules ? »<br />
-    Wafa : « Tu hésites parce que tu mélanges deux questions. »
+    Théo 🎭 : « Pour remettre de l'ordre, j'ai fait comme dans Atomic Design : un dossier atoms, un dossier molecules, un dossier organisms. »<br />
+    Wafa ❓ : « <b>[clic]</b> Et si, par exemple, on a une carte d'événement, elle va où ? »<br />
+    Théo 🎭 : « Dans… organisms ? Non, molecules ? »<br />
+    Wafa 🎤 : « Tu hésites parce que tu mélanges deux questions. »
   </aside>
 </section>
 
@@ -54,9 +54,9 @@
   <p class="source">Brad Frost, designer web et auteur d'<em>Atomic Design</em> (chapitre 2: un modèle mental, pas une arborescence de dossiers).</p>
 
 <aside class="notes">
-    Wafa : « Brad Frost est un designer web, auteur d'Atomic Design. Il propose cinq niveaux pour décrire de quoi une interface est faite. »<br />
-    Wafa : « Prenons un bouton Rechercher : c'est un atome. Avec un champ, il forme une molécule : la recherche. Une carte d'événement est un organisme. Le template, c'est la structure de la page ; la page, c'est cette structure avec du vrai contenu. »<br />
-    Wafa : « C'est le découpage le plus connu, et il donne le même vocabulaire aux designers et aux développeurs. Mais il dit de quoi c'est fait. Pas où ça doit vivre. »
+    Wafa 🎤 : « Remettons un peu de contexte. Atomic Design, c'est la méthode de Brad Frost, designer web : cinq niveaux pour décrire de quoi une interface est faite. »<br />
+    Wafa 🎤 : « Prenons un bouton Rechercher : c'est un atome. Avec un champ, il forme une molécule : la recherche. Une carte d'événement est un organisme. Le template, c'est la structure de la page ; la page, c'est cette structure avec du vrai contenu. »<br />
+    Wafa 🎤 : « Il donne le même vocabulaire aux designers et aux développeurs. Mais il dit de quoi c'est fait, sans dire où le ranger. »
   </aside>
 </section>
 
@@ -69,25 +69,29 @@
       <h3>Component</h3>
       <p>Générique : sert partout, sans connaître le métier.</p>
       <p><b>Ex. : <code>Card</code></b>, une boîte avec des slots.</p>
+      <span class="chip primary">dans le design system</span>
     </div>
     <div class="tile business fragment fade-up">
       <span class="emoji-lg">🍳</span>
       <h3>Recipe</h3>
-      <p>Une composition de components, propre à un domaine.</p>
+      <p>Une composition de components, partagée au sein d'un domaine.</p>
       <p><b>Ex. : <code>EventCard</code></b></p>
+      <span class="chip outline">hors du design system</span>
     </div>
     <div class="tile ghost fragment fade-up">
       <span class="emoji-lg">❄️</span>
       <h3>Snowflake</h3>
       <p>Un besoin unique, qui reste là où il sert.</p>
       <p><b>Ex. : un bandeau ponctuel</b></p>
+      <span class="chip outline">hors du design system</span>
     </div>
   </div>
-  <p class="source">Brad Frost, <em>Design system components, recipes, and snowflakes</em></p>
+  <p class="source">Brad Frost, <em>Design system components, recipes, and snowflakes</em> (2021)</p>
 
 <aside class="notes">
-    Wafa : « Brad Frost propose un deuxième découpage, qui répond à une autre question : qui s'en sert ? »<br />
-    Wafa : « <b>[clic]</b> Un component est générique : la Card, une boîte avec des slots. <b>[clic]</b> Une recipe compose des components pour un domaine : notre carte d'événement. <b>[clic]</b> Un snowflake est unique : il reste dans la feature qui en a besoin. Tout n'a pas vocation à entrer dans le design system. »
+    Théo 🎭 : « Et pour savoir où ranger ma carte, il dit quoi, Brad Frost ? »<br />
+    Wafa 🎤 : « En 2021, ses clients lui demandaient tous : quand est-ce qu'une pièce entre dans le design system ? Sa réponse : ce qui compte, c'est où elle vit. Il distingue trois cas. »<br />
+    Wafa 🎤 : « <b>[clic]</b> Le component est générique : la Card, une boîte avec des slots. Lui seul fait partie du design system. <b>[clic]</b> La recipe est une composition de components, partagée au sein d'un domaine : notre carte d'événement. Elle vit en dehors. <b>[clic]</b> Le snowflake est une pièce unique : il reste là où il sert. »
   </aside>
 </section>
 
@@ -105,9 +109,15 @@
     </tbody>
   </table>
   <p class="lead stack-top fragment fade-up">Le niveau dit <b>de quoi c'est fait</b>. <span class="hl">Le contexte dit où le placer.</span></p>
+  <div class="screen-status">
+    <span class="check-add cta fragment">À chaque étape, <b>une question</b> s'ajoute à notre checklist</span>
+  </div>
 
 <aside class="notes">
-    Wafa : « Card et EventCard sont toutes les deux des organismes. Pourtant, la Card est générique : elle va dans le design system. <b>[clic]</b> EventCard connaît le métier : elle reste dans le domaine événements. <b>[clic]</b> Et le bandeau ponctuel reste dans sa page. »<br />
-    Théo : « <b>[clic]</b> Donc, atome ou organisme, ça décrit de quoi c'est fait. Pour savoir où placer le composant, on regarde à quoi il sert et qui en a besoin. Allons voir sur un vrai écran. J'espère que vous êtes bien réveillés : on va avoir besoin de vous. »
+    Wafa 🎤 : « Card et EventCard sont toutes les deux des organismes. Pourtant, la Card est générique : elle va dans le design system. <b>[clic]</b> EventCard connaît le métier : elle reste dans le domaine événements. <b>[clic]</b> Et le bandeau ponctuel reste dans sa page. »<br />
+    Théo 🎤 : « <b>[clic]</b> Donc atome ou organisme, ça dit de quoi c'est fait. Pour savoir où le placer, on regarde qui s'en sert. »<br />
+    Théo 🎭 : « Ça fait beaucoup de Brad Frost pour une fin de journée, non ? »<br />
+    Wafa 🎭 : « Promis, la théorie s'arrête là. »<br />
+    Wafa ✅ : « <b>[clic]</b> On passe à un vrai écran. Pour décider où va chaque pièce, on construit ensemble une checklist : une question par étape, affichée comme ça. »
   </aside>
 </section>

@@ -56,8 +56,8 @@
   </div>
   
 <aside class="notes">
-    Wafa : « On commence par le plus petit : les couleurs. <b>[clic]</b> Combien de nuances de rouge et d'orange voyez-vous ? »<br />
-    Théo : « Plusieurs… et pas toujours pour la même raison. »
+    Wafa ❓ : « On commence par le plus petit : les couleurs. <b>[clic]</b> Théo, combien de nuances de rouge et d'orange tu vois sur ton écran ? »<br />
+    Théo 🎭 : « Plusieurs. Disons qu'on a eu un léger défaut d'alignement entre les UX : pour chacun, le problème vient de l'équipe d'à côté. »
   </aside>
 </section>
 
@@ -84,24 +84,46 @@
   </div>
   
 <aside class="notes">
-    Wafa : « Dix-sept nuances. Le problème n'est pas leur nombre : c'est que personne ne sait à quoi sert chacune, ni laquelle choisir. »
+    Wafa 🎤 : « Dix-sept nuances, et personne ne sait à quoi sert chacune, ni laquelle choisir. »
   </aside>
 </section>
 
 <!-- ③.2 · Correction : tokens bruts, puis sémantiques, puis l'alias en CSS -->
 <section data-auto-animate>
   <h2 data-id="tk-title">Tokens bruts : <span class="hl">des valeurs</span></h2>
-  <div class="ramp" data-id="ramp">
-    <div class="swatch" data-id="sw-3" style="background: var(--red-50)"><span class="hex">red-50</span></div>
-    <div class="swatch" data-id="sw-7" style="background: var(--orange-100)"><span class="hex">orange-100</span></div>
-    <div class="swatch" data-id="sw-1" style="background: var(--red-600)"><span class="hex">red-600</span></div>
-    <div class="swatch" data-id="sw-13" style="background: var(--orange-500)"><span class="hex">orange-500</span></div>
-    <div class="swatch" data-id="sw-16" style="background: var(--red-800)"><span class="hex">red-800</span></div>
+  <div class="ramp piles" data-id="ramp">
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-10" style="left: -9px; top: -9px; background: #f1979c"></div>
+      <div class="swatch" data-id="sw-3" style="left: 0; top: 0; background: var(--red-50)"><span class="hex">red-50</span></div>
+    </div>
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-15" style="left: -9px; top: -9px; background: #ffc58f"></div>
+      <div class="swatch" data-id="sw-7" style="left: 0; top: 0; background: var(--orange-100)"><span class="hex">orange-100</span></div>
+    </div>
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-5" style="left: -27px; top: -27px; background: #e85d65"></div>
+      <div class="swatch dup" data-id="sw-9" style="left: -18px; top: -18px; background: #eb4d1e"></div>
+      <div class="swatch dup" data-id="sw-4" style="left: -9px; top: -9px; background: #c51620"></div>
+      <div class="swatch" data-id="sw-1" style="left: 0; top: 0; background: var(--red-600)"><span class="hex">red-600</span></div>
+    </div>
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-6" style="left: -45px; top: -45px; background: #fb923c"></div>
+      <div class="swatch dup" data-id="sw-14" style="left: -36px; top: -36px; background: #f9841f"></div>
+      <div class="swatch dup" data-id="sw-2" style="left: -27px; top: -27px; background: #e86600"></div>
+      <div class="swatch dup" data-id="sw-17" style="left: -18px; top: -18px; background: #d95f02"></div>
+      <div class="swatch dup" data-id="sw-11" style="left: -9px; top: -9px; background: #c45800"></div>
+      <div class="swatch" data-id="sw-13" style="left: 0; top: 0; background: var(--orange-500)"><span class="hex">orange-500</span></div>
+    </div>
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-12" style="left: -18px; top: -18px; background: #8f151b"></div>
+      <div class="swatch dup" data-id="sw-8" style="left: -9px; top: -9px; background: #871d24"></div>
+      <div class="swatch" data-id="sw-16" style="left: 0; top: 0; background: var(--red-800)"><span class="hex">red-800</span></div>
+    </div>
   </div>
-  <p class="lead stack-top">Une palette finie, nommée par sa <b>valeur</b>.</p>
+  <p class="lead stack-top">Les nuances presque identiques se regroupent : <b>une seule valeur par groupe</b>, avec un nom.</p>
   
 <aside class="notes">
-    Théo : « Un design token, c'est une valeur de design nommée. Premier étage : les tokens bruts. On garde une palette limitée, et on donne un nom à chaque valeur. »
+    Théo 🎤 : « Beaucoup de ces nuances sont presque identiques : on les regroupe, et on garde une seule valeur par groupe. Ce sont nos tokens bruts : des valeurs qui portent un nom. »
   </aside>
 </section>
 
@@ -122,8 +144,8 @@
   <p class="lead stack-top">Dans notre modèle, les composants s'appuient sur <span class="hl">les noms fonctionnels</span>.</p>
   
 <aside class="notes">
-    Wafa : « Deuxième étage : les tokens sémantiques, nommés par leur rôle. <b>[3 clics : primary-soft, primary, primary-strong]</b> "primary", c'est la couleur de l'action principale. »<br />
-    Wafa : « Les composants n'utilisent que ces noms-là. Plus personne ne choisit une nuance au hasard. »
+    Wafa 🎤 : « Ensuite, on donne un sens à ces valeurs : ce sont les tokens sémantiques, nommés par leur rôle. <b>[3 clics]</b> "primary", c'est la couleur de l'action principale. »<br />
+    Wafa 🎤 : « Les composants n'utilisent que ces noms-là. Plus personne ne choisit une nuance au hasard. »
   </aside>
 </section>
 
@@ -138,7 +160,7 @@
   <p class="equiv">Le composant utilise le sens ; la valeur peut changer sans lui.</p>
   
 <aside class="notes">
-    Théo : « En CSS, ça tient en deux lignes. <b>[clic]</b> Ligne 2 : la valeur brute. <b>[clic]</b> Ligne 3 : le rôle, qui pointe vers la valeur. »
+    Théo 🎤 : « En CSS, ça tient en deux lignes. <b>[clic]</b> Ligne 2 : la valeur brute. <b>[clic]</b> Ligne 3 : le rôle, qui pointe vers la valeur. »
   </aside>
 </section>
 
@@ -197,9 +219,9 @@
   </div>
   
 <aside class="notes">
-    Théo : « <b>[clic]</b> Les couleurs passent maintenant par les tokens, dans les fondations du design system. »<br />
-    Wafa : « <b>[clic]</b> Première question pour notre checklist : est-ce que ses styles n'utilisent que des tokens sémantiques ? »<br />
-    Wafa : « <b>[clic]</b> Mais regarde tes boutons. »<br />
-    Théo : « Ah. Un rond, un carré, un en majuscules… »
+    Théo 🎤 : « <b>[clic]</b> Les couleurs passent maintenant par les tokens, dans les fondations du design system. »<br />
+    Wafa ✅ : « <b>[clic]</b> Première question pour notre checklist : est-ce que ses styles n'utilisent que des tokens sémantiques ? »<br />
+    Wafa 🎭 : « <b>[clic]</b> Mais regarde tes boutons. »<br />
+    Théo 🎭 : « Ah. Un rond, un carré, un en majuscules… »
   </aside>
 </section>

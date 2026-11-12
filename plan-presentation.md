@@ -7,7 +7,7 @@
 - **Question centrale** : pour chaque pièce d'un front, où doit-elle vivre pour que le front tienne dans le temps ?
 - **Fil conducteur** : la maquette ConferenceHub. On la répare en rangeant chaque pièce à sa place, puis on la fait vieillir de six mois avec l'arrivée d'une application de billetterie.
 - **Fil caché** : la checklist se construit pendant la réparation, une question par étape, puis on la montre en entier à la fin.
-- **Minutage** : 20 minutes de présentation, sans temps de questions. Les notes contiennent environ 1 900 mots : à 120–130 mots/minute, compter 15–16 minutes de parole et 4–5 minutes pour les clics, les pauses et les votes. À confirmer en répétition chronométrée.
+- **Minutage** : 20 minutes de présentation, sans temps de questions. Les notes contiennent environ 2 150 mots (mesure du 12 novembre) : à 120–130 mots/minute, compter 16 min 30 à 18 minutes de parole, plus 4–5 minutes pour les clics, les pauses et les votes. On dépasse donc les 20 minutes d'une à deux minutes sur le papier : à trancher en répétition chronométrée, en coupant une slide de la conclusion si besoin.
 - **Répartition de parole** : environ 49 % Théo / 51 % Wafa en nombre de mots. Wafa porte les principes ; Théo explique aussi leur application concrète, la composition, les dépendances et la réutilisation. Les deux participent à la checklist.
 
 ## Vue d'ensemble
@@ -148,7 +148,7 @@ Les questions sont regroupées sous les trois mots de la règle. La règle et la
 - **La checklist complète,** construite pendant le talk. Elle est disponible dans le dépôt.
 - **Le bilan du front :** ConferenceHub et la billetterie, avec chaque pièce à sa place dans le code. On passe de 7 boutons à 1, et `libs/shared` est remplacé par des frontières claires.
 - **La phrase de fin :** « Tout ce qui est réutilisable n'a pas besoin d'entrer dans le design system. Button va dans le design system, EventCard dans la bibliothèque métier, le bandeau temporaire dans sa page. »
-- **Comment faire ça demain ?** Slide 43, « Pour lundi matin », après le bilan et la règle de placement, avant le retour au petit bouton. Ce passage remplace les trois conseils généraux ; il n'ajoute pas de slide.
+- **Comment faire ça demain ?** Slide 43, « Pour mercredi matin », après le bilan et la règle de placement, avant le retour au petit bouton. Ce passage remplace les trois conseils généraux ; il n'ajoute pas de slide.
   - Théo pose la question. Wafa raconte le cas du projet : plusieurs boutons similaires avaient été créés séparément ; un problème de style ou d'accessibilité obligeait à les retrouver et à les corriger écran par écran. Elle oppose cette maintenance répétée à la correction d'un `Button` partagé, faite à la source.
   - La slide donne ensuite une marche à suivre : partir d'un écran, comparer les boutons, tester Tab, le focus, Entrée et Espace, puis vérifier le nom au lecteur d'écran. Choisir le bouton commun, corriger et documenter ses états, puis remplacer les doublons sur cet écran avec la checklist dans la PR.
   - En répétition, Wafa confirme que l'exemple correspond à son vécu et précise le problème observé. Vérifier également que la correction du composant partagé n'est pas contredite par des styles ou variantes locales.

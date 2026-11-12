@@ -13,51 +13,56 @@
     <div class="piece">
       <div class="piece-art"><button class="real-btn alt">Payer</button></div>
       <b>Le bouton « Payer »</b>
+      <span class="piece-ctx">un bouton d'action, comme sur le site</span>
       <span class="chip primary fragment fade-up">component : c'est déjà Button</span>
     </div>
     <div class="piece">
       <div class="piece-art"><div class="ev-card mini"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-badge">Complet</span><span class="ev-title">Nantes Tech Day</span></div></div></div>
       <b>La carte d'événement</b>
+      <span class="piece-ctx">les mêmes événements que sur le site</span>
       <span class="chip business fragment fade-up">recipe : EventCard, partagée</span>
     </div>
     <div class="piece">
       <div class="piece-art"><div class="seats"><i></i><i></i><i class="taken"></i><i></i><i class="taken"></i><i></i><i></i><i class="picked"></i><i></i><i></i><i class="taken"></i><i></i></div></div>
       <b>Le sélecteur de places</b>
+      <span class="piece-ctx">un seul écran : la réservation</span>
       <span class="chip outline fragment fade-up">snowflake, pour l'instant</span>
     </div>
     <div class="piece">
       <div class="piece-art"><div class="promo">−20 % ce week-end</div></div>
       <b>Le bandeau promo</b>
-      <span class="chip outline fragment fade-up">snowflake</span>
+      <span class="piece-ctx">une opération de trois semaines</span>
+      <span class="chip outline fragment fade-up">snowflake : un usage unique</span>
     </div>
   </div>
 
 <aside class="notes">
-    Théo : « Six mois plus tard, une deuxième application arrive : la billetterie. Elle a ses propres pièces. À vous de jouer : pour chacune, on la met dans le design system, dans les recipes ou dans les snowflakes ? Levez la main. »<br />
-    (un vote à main levée par pièce, puis on révèle)<br />
-    Théo : « Le bouton Payer ? <b>[clic]</b> C'est déjà notre Button. Rien à créer. »<br />
-    Wafa : « La carte d'événement ? <b>[clic]</b> La billetterie parle aussi d'événements : elle reprend EventCard dans libs/recipes. Partagée, mais toujours une recipe : elle parle métier. »<br />
-    Théo : « Le sélecteur de places ? <b>[clic]</b> Une seule app en a besoin : il reste chez elle. Pour l'instant. »<br />
-    Wafa : « Le bandeau promo ? <b>[clic]</b> Snowflake. Il vivra trois semaines. »
+    Théo 🙋 : « Six mois plus tard, une deuxième application arrive : la billetterie. Quatre éléments sur son écran. À vous de jouer : component, recipe ou snowflake ? Levez la main. »<br />
+    Théo 🎤 : « Le bouton Payer ? un bouton d'action, comme ceux du site. <b>[clic]</b> C'est déjà notre Button. Rien à créer. »<br />
+    Wafa 🎤 : « La carte d'événement ? les mêmes événements que sur le site. <b>[clic]</b> La billetterie reprend la recipe EventCard. Partagée, mais elle parle métier : toujours une recipe. »<br />
+    Théo 🎤 : « Le sélecteur de places ? il ne sert que sur l'écran de réservation. <b>[clic]</b> Il reste dans cet écran. Pour l'instant. »<br />
+    Wafa 🎤 : « Le bandeau promo ? une opération de trois semaines, dans la billetterie seulement. <b>[clic]</b> Snowflake. »<br />
+    Wafa 🎤 : « Et si demain le site affiche aussi ce bandeau promo ? Il sert alors à plusieurs endroits du même domaine : il passe en recipe. »
   </aside>
 </section>
 
 <!-- ④.2 · Avant de créer, on cherche : Storybook comme catalogue -->
 <section>
+  <p class="kicker">Mis en place pendant ces six mois</p>
   <h2>Avant de créer, <span class="hl">on cherche dans le catalogue</span></h2>
   <!-- Vraie capture du Storybook de exemple/ (npm run storybook), pas une reproduction. -->
   <img class="sb-shot" src="/storybook/button-accessibilite.png" alt="Storybook de l'exemple ConferenceHub : la story Button « Par défaut », la liste de ses états et le panneau Accessibilité sans violation détectée" />
 
 <aside class="notes">
-    Wafa : « Comment la billetterie a su que Button existait ? Elle a cherché dans Storybook. »<br />
-    Théo : « On y voit chaque état du bouton : par défaut, en chargement, désactivé, danger. Il y a aussi un contrôle d'accessibilité, qu'on complète en testant au clavier et au lecteur d'écran. »<br />
-    Wafa : « Si les équipes du début avaient consulté un Storybook commun, elles auraient pu retrouver le bouton existant au lieu de le recréer. »
+    Wafa 🎤 : « Pendant ces six mois, on a mis en place un Storybook : le catalogue de nos composants. C'est là que la billetterie a trouvé Button. »<br />
+    Théo 🎤 : « On y voit chaque état du bouton, et un contrôle d'accessibilité, qu'on complète en testant au clavier et au lecteur d'écran. »<br />
+    Wafa 🎤 : « Avec un Storybook commun, les équipes du début auraient retrouvé le bouton au lieu de le recréer. »
   </aside>
 </section>
 
 <!-- ④.3 · Partagé, pour de vrai -->
 <section>
-  <h2>Partagé, <span class="hl">pour de vrai</span></h2>
+  <h2>Deux applications, <span class="hl">les mêmes briques</span></h2>
   <div class="layers">
     <div class="apps">
       <div class="layer"><span class="emoji-lg">🖥️</span><code>apps/web</code></div>
@@ -73,12 +78,12 @@
   <div class="screen-status stack-top">
     <span class="check-add fragment">Un besoin réel existe-t-il dans plusieurs produits&nbsp;?</span>
   </div>
-  <p class="lead fragment fade-up">Partagé ne suffit pas : <span class="hl">EventCard reste une recipe</span>, parce qu'elle parle métier.</p>
+  <p class="lead fragment fade-up">Utilisée par deux applications, EventCard <span class="hl">reste une recipe</span> : elle parle métier.</p>
 
 <aside class="notes">
-    Théo : « Button et SearchField servent maintenant dans deux produits, et personne ne les a réécrits. <b>[clic]</b> Ça nous donne une nouvelle question pour la checklist : est-ce que le besoin existe vraiment dans plusieurs produits ? »<br />
-    Wafa : « Et EventCard ? Deux applications l'utilisent : elle entre dans le design system ? »<br />
-    Théo : « <b>[clic]</b> Non, elle parle toujours d'événements, donc elle reste une recipe dans libs/recipes. Une pièce peut être partagée sans être générique. Le sélecteur de places, lui, reste dans la billetterie tant qu'elle est seule à en avoir besoin. »
+    Théo ✅ : « Le site et la billetterie utilisent maintenant les mêmes briques, sans une ligne réécrite. <b>[clic]</b> Nouvelle question pour la checklist : ce besoin existe-t-il vraiment dans plusieurs produits ? »<br />
+    Wafa ❓ : « Et EventCard ? Les deux applications l'utilisent. Elle entre dans le design system ? »<br />
+    Théo 🎤 : « <b>[clic]</b> Toujours pas. Elle parle d'événements : elle reste une recipe. Être partagé ne rend pas un composant générique. »
   </aside>
 </section>
 
@@ -86,28 +91,28 @@
 <section>
   <h2>Ce qui fait <span class="hl">tenir dans la durée</span></h2>
   <div class="row stack-top" style="width: 1100px; margin: 0 auto">
-    <div class="tile fragment fade-up">
+    <div class="tile fragment fade-up" data-fragment-index="1">
       <h3>Déprécier sans casser</h3>
       <code class="small">/** @deprecated utiliser Button */</code>
       <p>Les anciens boutons sont marqués, puis migrés écran par écran.</p>
     </div>
-    <div class="tile fragment fade-up">
+    <div class="tile fragment fade-up" data-fragment-index="2">
       <h3>Quelqu'un maintient</h3>
       <p>Une personne ou une équipe répond des components : leurs évolutions, leurs versions.</p>
     </div>
-    <div class="tile primary fragment fade-up">
+    <div class="tile primary fragment fade-up" data-fragment-index="3">
       <h3>Une PR, une checklist</h3>
       <p>Chaque entrée dans le design system passe par les mêmes questions.</p>
     </div>
   </div>
   <div class="screen-status stack-top">
-    <span class="check-add fragment">Quelqu'un le maintient-il&nbsp;?</span>
-    <span class="check-add fragment">Les changements cassants sont-ils annoncés&nbsp;?</span>
+    <span class="check-add fragment" data-fragment-index="1">Les changements cassants sont-ils annoncés&nbsp;?</span>
+    <span class="check-add fragment" data-fragment-index="2">Quelqu'un le maintient-il&nbsp;?</span>
   </div>
 
 <aside class="notes">
-    Théo : « Et nos sept boutons du début ? <b>[clic]</b> On ne les supprime pas d'un coup : on les marque dépréciés, puis on migre écran par écran. »<br />
-    Wafa : « Pour que ça tienne, il faut aussi <b>[clic]</b> quelqu'un qui maintienne les components, et <b>[clic]</b> une règle commune pour décider de ce qui entre. »<br />
-    Théo : « Ça nous donne les deux dernières questions de la checklist. <b>[clic]</b> Est-ce que quelqu'un maintient ce composant ? <b>[clic]</b> Et si une mise à jour oblige les équipes à changer leur code, est-ce qu'on les prévient ? »
+    Théo ✅ : « Et nos sept boutons du début ? <b>[clic]</b> On les marque dépréciés, puis on migre écran par écran. D'où une question : quand une mise à jour oblige les équipes à changer leur code, est-ce qu'on les prévient ? »<br />
+    Wafa ✅ : « <b>[clic]</b> Il faut aussi quelqu'un qui maintienne les components. Dernière question : est-ce que quelqu'un maintient ce composant ? »<br />
+    Théo 🎤 : « <b>[clic]</b> Et une règle commune pour décider de ce qui entre : la checklist, dans chaque PR. »
   </aside>
 </section>

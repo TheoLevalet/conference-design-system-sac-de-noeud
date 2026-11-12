@@ -17,9 +17,9 @@
   </div>
 
 <aside class="notes">
-    Wafa : « Un design system, c'est la boîte à outils commune d'un produit : des fondations, des composants, des règles d'usage et leur documentation. »<br />
-    Wafa : « Imaginez un produit, quatre équipes, deux ans de code. On ouvre le code et on compte. »<br />
-    Wafa : « <b>[clic]</b> Sept boutons. <b>[clic]</b> Quatre champs de recherche. <b>[clic]</b> Trois composants d'erreur. <b>[clic]</b> Deux loaders. <b>[clic]</b> Et un design system. »
+    Wafa 🎤 : « Un design system, c'est la boîte à outils commune d'un produit : des fondations, des composants, des règles d'usage et leur documentation. »<br />
+    Wafa 🎤 : « Imaginez un produit, quatre équipes, deux ans de code. On ouvre le code et on compte. »<br />
+    Wafa 🎤 : « <b>[clic]</b> Sept boutons. <b>[clic]</b> Quatre champs de recherche. <b>[clic]</b> Trois composants d'erreur. <b>[clic]</b> Deux loaders. <b>[clic]</b> Un seul design system. »
   </aside>
 </section>
 
@@ -36,8 +36,7 @@
   <p class="punchline">personne capable d'expliquer <span class="hl">lequel utiliser</span></p>
 
 <aside class="notes">
-    Wafa : « Et zéro personne capable d'expliquer lequel utiliser. »<br />
-    Théo : « Comment on en arrive là ? »
+    Wafa ❓ : « Et zéro personne capable d'expliquer lequel utiliser. Théo, comment on en est arrivés là ? »
   </aside>
 </section>
 
@@ -52,8 +51,8 @@
   </div>
 
 <aside class="notes">
-    Théo : « Équipe 1 : un bouton Valider. <b>[clic]</b> Équipe 2 : elle ne savait pas qu'il existait, elle refait le sien. <b>[clic]</b> Équipe 3 : le loader était mal placé, elle met le sien. <b>[clic]</b> Équipe 4 : juste une petite icône à droite… mais seulement parfois. »<br />
-    Wafa : « Quatre fois le même bouton. Et personne n'a mal travaillé. »
+    Théo 🎭 : « On avait tous de bonnes raisons ! Mon équipe crée un bouton Valider. <b>[clic]</b> L'équipe 2 ne le savait pas : elle refait le sien. <b>[clic]</b> L'équipe 3 trouvait le loader mal placé : elle refait le sien. <b>[clic]</b> Et l'équipe 4 voulait juste une icône à droite… mais seulement parfois. »<br />
+    Wafa 🎤 : « Quatre équipes, quatre fois le même bouton. »
   </aside>
 </section>
 
@@ -70,16 +69,22 @@
   <p class="punchline stack-top">Chaque décision est <span class="text-success">raisonnable</span> localement.<br />C'est <span class="hl">leur somme</span> qui fait le chaos.</p>
 
 <aside class="notes">
-    Wafa : « Chaque décision est raisonnable. C'est leur somme qui fait le chaos. »<br />
-    Wafa : « Sans endroit qui dise "ça, c'est commun, ça, ça reste chez vous", tout ce qui pourrait resservir atterrit dans libs/shared. Et libs/shared devient un vide-grenier. »<br />
-    Théo : « Donc le problème, ce n'est pas qu'on crée trop de composants… »<br />
-    Wafa : « C'est qu'on n'a jamais décidé de la frontière. »
+    Wafa 💡 : « Et personne n'a mal travaillé : chaque décision est raisonnable. C'est leur somme qui fait le chaos. »<br />
+    Wafa 🎤 : « Sans endroit qui dise "ça, c'est commun", tout ce qui pourrait resservir atterrit dans libs/shared. Et libs/shared devient un vide-grenier. »<br />
+    Théo 🤝 : « Donc le problème, ce n'est pas qu'on crée trop de composants… »<br />
+    Wafa 💡 : « C'est qu'on n'a jamais décidé de la frontière. »
   </aside>
 </section>
 
 <!-- ①.3 · La vraie question -->
 <section class="decision-slide">
   <p class="kicker">Avant d'ajouter le prochain composant</p>
+  <div class="decision-ask">
+    <span class="ds-btn">＋ Ajouter un bouton</span>
+    <span class="arrow">➜</span>
+    <code>libs/shared</code>
+    <span class="arrow">?</span>
+  </div>
   <div class="decision-bridge">
     <span class="chip outline">Utile sur mon écran</span>
     <span class="small muted">ne veut pas forcément dire</span>
@@ -88,7 +93,7 @@
   <h2>Pour chaque pièce : <span class="hl">où doit-elle vivre</span>&nbsp;?</h2>
 
 <aside class="notes">
-    Théo : « Mon composant est utile sur cet écran. Je le mets dans la bibliothèque commune ? »<br />
-    Wafa : « Pas automatiquement. Utile ici ne veut pas dire commun à tous. La vraie question, c'est : pour chaque pièce de notre front, où doit-elle vivre ? »
+    Théo 🎭 : « Justement, j'ai un bouton à ajouter pour mon écran. Il pourrait resservir : je le mets dans libs/shared ? »<br />
+    Wafa 💡 : « Pas automatiquement : utile ici ne veut pas dire commun à tous. Pour chaque pièce, on se demande où elle doit vivre. »
   </aside>
 </section>
