@@ -165,7 +165,7 @@ export class Card {
     Théo : « Dans le code, ça donne trois bibliothèques : libs/recipes pour le métier, libs/components pour les composants génériques, libs/fondations pour les tokens. Le bandeau ponctuel reste dans l'application. »<br />
     Théo : « On suit les flèches : le métier utilise le design system, jamais l'inverse. »<br />
     Wafa : « Et comment on fait respecter cette règle ? »<br />
-    Théo : « Avec Nx, par exemple, on configure une règle qui bloque les imports interdits. <b>[clic]</b> Si la Card importe EventCard, le contrôle échoue. La règle n'est plus seulement écrite dans la doc : l'outil la vérifie. »
+    Théo : « Des outils comme Nx, eslint-plugin-boundaries ou dependency-cruiser permettent de configurer une règle qui bloque les imports interdits. <b>[clic]</b> Si la Card importe EventCard, le contrôle échoue. La règle n'est plus seulement écrite dans la doc : l'outil la vérifie. »
   </aside>
 </section>
 
@@ -224,7 +224,7 @@ export class Card {
   </div>
   
 <aside class="notes">
-    Théo : « <b>[clic]</b> Nos trois cartes passent maintenant par EventCard. La Card donne la structure, EventCard apporte le métier. Un nouveau cas ne demande plus d'ajouter une option. »<br />
+    Théo : « <b>[clic]</b> On avait trois cartes différentes. Maintenant, nos trois cartes utilisent le même composant EventCard : ce sont trois usages d'un seul composant. La Card donne la structure, EventCard apporte le métier. Pour un nouveau cas, plus besoin d'ajouter une option à la Card. »<br />
     Wafa : « On ajoute donc deux questions à la checklist : <b>[clic]</b> est-ce qu'on peut composer les variations, plutôt qu'empiler des options ? <b>[clic]</b> Et est-ce que l'API reste petite, facile à comprendre ? »
   </aside>
 </section>
