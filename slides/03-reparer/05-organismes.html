@@ -88,7 +88,7 @@ export class Card {
   <p class="source">D'après Sandi Metz, développeuse et autrice sur la conception logicielle, <em>The Wrong Abstraction</em> (2016).</p>
   
 <aside class="notes">
-    Théo : « Sandi Metz est développeuse et autrice sur la conception logicielle. Dans The Wrong Abstraction, elle explique pourquoi la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
+    Théo : « Sandi Metz est développeuse et autrice sur la conception logicielle. Dans son article The Wrong Abstraction, elle explique que la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
     Théo : « <b>[clic]</b> Mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. Alors, qu'est-ce qui est vraiment commun dans une carte ? »
   </aside>
 </section>
@@ -113,7 +113,7 @@ export class Card {
 <aside class="notes">
     Wafa : « Ce qui est commun, c'est la structure : une Card avec trois slots. Media, contenu, actions. Rien de plus. »<br />
     Théo : « Et EventCard assemble la Card, un Badge et un Button. <b>[clic]</b> Aucune de ces pièces ne connaît le mot "événement". »<br />
-    Théo : « Tout le métier est dans EventCard. La Card est un component ; EventCard, une recipe. »
+    Théo : « Tout le métier est dans EventCard. La Card est un component, EventCard est une recipe. »
   </aside>
 </section>
 
@@ -162,10 +162,10 @@ export class Card {
   <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · dependency-cruiser</p>
   
 <aside class="notes">
-    Théo : « Dans le code, ça donne trois bibliothèques : libs/recipes pour le métier, libs/components pour les composants génériques, libs/fondations pour les fondations. Le bandeau ponctuel reste dans l'application. »<br />
+    Théo : « Dans le code, ça donne trois bibliothèques : libs/recipes pour le métier, libs/components pour les composants génériques, libs/fondations pour les tokens. Le bandeau ponctuel reste dans l'application. »<br />
     Théo : « On suit les flèches : le métier utilise le design system, jamais l'inverse. »<br />
     Wafa : « Et comment on fait respecter cette règle ? »<br />
-    Théo : « Pour contrôler les dépendances, on peut utiliser par exemple Nx et configurer une règle qui bloque les imports interdits. <b>[clic]</b> Si la Card importe EventCard, le contrôle échoue. La règle n'est plus seulement dans la documentation. »
+    Théo : « Avec Nx, par exemple, on configure une règle qui bloque les imports interdits. <b>[clic]</b> Si la Card importe EventCard, le contrôle échoue. La règle n'est plus seulement écrite dans la doc : l'outil la vérifie. »
   </aside>
 </section>
 
@@ -224,7 +224,7 @@ export class Card {
   </div>
   
 <aside class="notes">
-    Théo : « <b>[clic]</b> Nos trois cartes utilisent maintenant le même composant EventCard. La Card fournit la structure ; EventCard apporte le contenu métier. Plus besoin d'ajouter une option à chaque nouveau cas. »<br />
+    Théo : « <b>[clic]</b> Nos trois cartes passent maintenant par EventCard. La Card donne la structure, EventCard apporte le métier. Un nouveau cas ne demande plus d'ajouter une option. »<br />
     Wafa : « On ajoute donc deux questions à la checklist : <b>[clic]</b> est-ce qu'on peut composer les variations, plutôt qu'empiler des options ? <b>[clic]</b> Et est-ce que l'API reste petite, facile à comprendre ? »
   </aside>
 </section>
