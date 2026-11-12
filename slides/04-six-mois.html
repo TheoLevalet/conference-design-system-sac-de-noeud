@@ -33,12 +33,12 @@
   </div>
 
 <aside class="notes">
-    Théo : « Six mois plus tard, une deuxième application arrive : la billetterie. Elle a ses propres pièces. À vous de jouer : pour chacune, design system, recipe ou snowflake ? Levez la main. »<br />
+    Théo : « Six mois plus tard, une deuxième application arrive : la billetterie. Elle a ses propres pièces. À vous de jouer : pour chacune, on la met dans le design system, dans les recipes ou dans les snowflakes ? Levez la main. »<br />
     (un vote à main levée par pièce, puis on révèle)<br />
-    Théo : « Le bouton Payer ? C'est déjà notre Button. Rien à créer. »<br />
-    Wafa : « La carte d'événement ? La billetterie parle aussi d'événements : elle reprend EventCard dans libs/recipes. Partagée, mais toujours une recipe : elle parle métier. »<br />
-    Théo : « Le sélecteur de places ? Une seule app en a besoin : il reste chez elle. Pour l'instant. »<br />
-    Wafa : « Le bandeau promo ? Snowflake. Il vivra trois semaines. »
+    Théo : « Le bouton Payer ? <b>[clic]</b> C'est déjà notre Button. Rien à créer. »<br />
+    Wafa : « La carte d'événement ? <b>[clic]</b> La billetterie parle aussi d'événements : elle reprend EventCard dans libs/recipes. Partagée, mais toujours une recipe : elle parle métier. »<br />
+    Théo : « Le sélecteur de places ? <b>[clic]</b> Une seule app en a besoin : il reste chez elle. Pour l'instant. »<br />
+    Wafa : « Le bandeau promo ? <b>[clic]</b> Snowflake. Il vivra trois semaines. »
   </aside>
 </section>
 
@@ -50,7 +50,7 @@
 
 <aside class="notes">
     Wafa : « Comment la billetterie a su que Button existait ? Elle a cherché dans Storybook. »<br />
-    Théo : « Chaque état du bouton y est visible : par défaut, chargement, désactivé, danger. Avec un contrôle d'accessibilité, qu'on complète au clavier et au lecteur d'écran. »<br />
+    Théo : « On y voit chaque état du bouton : par défaut, en chargement, désactivé, danger. Il y a aussi un contrôle d'accessibilité, qu'on complète en testant au clavier et au lecteur d'écran. »<br />
     Wafa : « Si les équipes du début avaient consulté un Storybook commun, elles auraient pu retrouver le bouton existant au lieu de le recréer. »
   </aside>
 </section>
@@ -76,9 +76,9 @@
   <p class="lead fragment fade-up">Partagé ne suffit pas : <span class="hl">EventCard reste une recipe</span>, parce qu'elle parle métier.</p>
 
 <aside class="notes">
-    Théo : « Button et SearchField servent maintenant dans deux produits, sans les réécrire. On peut cocher une nouvelle question de la checklist : le besoin existe-t-il vraiment dans plusieurs produits ? »<br />
+    Théo : « Button et SearchField servent maintenant dans deux produits, et personne ne les a réécrits. <b>[clic]</b> Ça nous donne une nouvelle question pour la checklist : est-ce que le besoin existe vraiment dans plusieurs produits ? »<br />
     Wafa : « Et EventCard ? Deux applications l'utilisent : elle entre dans le design system ? »<br />
-    Théo : « Non, elle parle toujours d'événements. Elle reste une recipe dans libs/recipes. Être partagé, ce n'est pas forcément être générique. Le sélecteur de places, lui, reste dans la billetterie tant qu'elle seule en a besoin. »
+    Théo : « <b>[clic]</b> Non, elle parle toujours d'événements, donc elle reste une recipe dans libs/recipes. Une pièce peut être partagée sans être générique. Le sélecteur de places, lui, reste dans la billetterie tant qu'elle est seule à en avoir besoin. »
   </aside>
 </section>
 
@@ -106,8 +106,8 @@
   </div>
 
 <aside class="notes">
-    Théo : « Et nos sept boutons du début ? On ne les supprime pas d'un coup : on les marque dépréciés, et on migre écran par écran. »<br />
-    Wafa : « Pour que ça tienne, il faut aussi quelqu'un qui maintienne les components, et une règle commune pour décider de ce qui entre. »<br />
-    Théo : « On complète donc notre checklist avec deux dernières questions : qui maintient ce composant ? Et si une mise à jour oblige les équipes à adapter leur code, est-ce qu'on les prévient ? »
+    Théo : « Et nos sept boutons du début ? <b>[clic]</b> On ne les supprime pas d'un coup : on les marque dépréciés, puis on migre écran par écran. »<br />
+    Wafa : « Pour que ça tienne, il faut aussi <b>[clic]</b> quelqu'un qui maintienne les components, et <b>[clic]</b> une règle commune pour décider de ce qui entre. »<br />
+    Théo : « Ça nous donne les deux dernières questions de la checklist. <b>[clic]</b> Est-ce que quelqu'un maintient ce composant ? <b>[clic]</b> Et si une mise à jour oblige les équipes à changer leur code, est-ce qu'on les prévient ? »
   </aside>
 </section>
