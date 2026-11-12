@@ -159,13 +159,13 @@ export class Card {
   <div class="lint-error fragment fade-up">
     ✖ <code>libs/components</code> ne doit pas dépendre de <code>EventCard</code> : une règle configurée peut bloquer cette dépendance.
   </div>
-  <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · dependency-cruiser</p>
+  <p class="equiv light">Nx module boundaries · eslint-plugin-boundaries · ArchUnit</p>
   
 <aside class="notes">
     Théo : « Dans le code, ça donne trois bibliothèques : libs/recipes pour le métier, libs/components pour les composants génériques, libs/fondations pour les tokens. Le bandeau ponctuel reste dans l'application. »<br />
     Théo : « On suit les flèches : le métier utilise le design system, jamais l'inverse. »<br />
     Wafa : « Et comment on fait respecter cette règle ? »<br />
-    Théo : « Des outils comme Nx, eslint-plugin-boundaries ou dependency-cruiser permettent de configurer une règle qui bloque les imports interdits. <b>[clic]</b> Si la Card importe EventCard, le contrôle échoue. La règle n'est plus seulement écrite dans la doc : l'outil la vérifie. »
+    Théo : « Des outils comme Nx, eslint-plugin-boundaries ou ArchUnit permettent de configurer une règle qui bloque les imports interdits. <b>[clic]</b> Si la Card importe EventCard, le contrôle échoue. La règle n'est plus seulement écrite dans la doc : l'outil la vérifie. »
   </aside>
 </section>
 
