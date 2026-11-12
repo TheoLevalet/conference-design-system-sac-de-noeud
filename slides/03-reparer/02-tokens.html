@@ -57,7 +57,7 @@
   
 <aside class="notes">
     Wafa 🎤 : « On commence par le plus petit : les couleurs. <b>[clic]</b> Théo, combien de nuances de rouge et d'orange tu vois sur ton écran ? »<br />
-    Théo 🎭 : « Plusieurs… et pas toujours pour la même raison. »
+    Théo 🎭 : « Plusieurs. Disons qu'on a eu un léger défaut d'alignement entre les UX : chacun assure que sa nuance est la bonne, et que le problème vient de l'équipe d'à côté. »
   </aside>
 </section>
 
@@ -91,17 +91,39 @@
 <!-- ③.2 · Correction : tokens bruts, puis sémantiques, puis l'alias en CSS -->
 <section data-auto-animate>
   <h2 data-id="tk-title">Tokens bruts : <span class="hl">des valeurs</span></h2>
-  <div class="ramp" data-id="ramp">
-    <div class="swatch" data-id="sw-3" style="background: var(--red-50)"><span class="hex">red-50</span></div>
-    <div class="swatch" data-id="sw-7" style="background: var(--orange-100)"><span class="hex">orange-100</span></div>
-    <div class="swatch" data-id="sw-1" style="background: var(--red-600)"><span class="hex">red-600</span></div>
-    <div class="swatch" data-id="sw-13" style="background: var(--orange-500)"><span class="hex">orange-500</span></div>
-    <div class="swatch" data-id="sw-16" style="background: var(--red-800)"><span class="hex">red-800</span></div>
+  <div class="ramp piles" data-id="ramp">
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-10" style="left: -9px; top: -9px; background: #f1979c"></div>
+      <div class="swatch" data-id="sw-3" style="left: 0; top: 0; background: var(--red-50)"><span class="hex">red-50</span></div>
+    </div>
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-15" style="left: -9px; top: -9px; background: #ffc58f"></div>
+      <div class="swatch" data-id="sw-7" style="left: 0; top: 0; background: var(--orange-100)"><span class="hex">orange-100</span></div>
+    </div>
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-5" style="left: -27px; top: -27px; background: #e85d65"></div>
+      <div class="swatch dup" data-id="sw-9" style="left: -18px; top: -18px; background: #eb4d1e"></div>
+      <div class="swatch dup" data-id="sw-4" style="left: -9px; top: -9px; background: #c51620"></div>
+      <div class="swatch" data-id="sw-1" style="left: 0; top: 0; background: var(--red-600)"><span class="hex">red-600</span></div>
+    </div>
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-6" style="left: -45px; top: -45px; background: #fb923c"></div>
+      <div class="swatch dup" data-id="sw-14" style="left: -36px; top: -36px; background: #f9841f"></div>
+      <div class="swatch dup" data-id="sw-2" style="left: -27px; top: -27px; background: #e86600"></div>
+      <div class="swatch dup" data-id="sw-17" style="left: -18px; top: -18px; background: #d95f02"></div>
+      <div class="swatch dup" data-id="sw-11" style="left: -9px; top: -9px; background: #c45800"></div>
+      <div class="swatch" data-id="sw-13" style="left: 0; top: 0; background: var(--orange-500)"><span class="hex">orange-500</span></div>
+    </div>
+    <div class="pile">
+      <div class="swatch dup" data-id="sw-12" style="left: -18px; top: -18px; background: #8f151b"></div>
+      <div class="swatch dup" data-id="sw-8" style="left: -9px; top: -9px; background: #871d24"></div>
+      <div class="swatch" data-id="sw-16" style="left: 0; top: 0; background: var(--red-800)"><span class="hex">red-800</span></div>
+    </div>
   </div>
-  <p class="lead stack-top">Une palette finie, nommée par sa <b>valeur</b>.</p>
+  <p class="lead stack-top">Les nuances presque identiques se regroupent : <b>une seule valeur par groupe</b>, avec un nom.</p>
   
 <aside class="notes">
-    Théo 🎤 : « Un design token, c'est une valeur de design nommée. On commence par les tokens bruts : on garde une palette limitée, et on donne un nom à chaque valeur. »
+    Théo 🎤 : « Regardez ces dix-sept nuances : beaucoup sont presque identiques, on ne voit pas la différence à l'œil. On les regroupe, et on garde une seule valeur par groupe. Ce sont nos tokens bruts : un design token, c'est une valeur de design qui porte un nom. »
   </aside>
 </section>
 

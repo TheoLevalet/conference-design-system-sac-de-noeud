@@ -173,6 +173,16 @@
   min-height: 2.6em;
 }
 
+/* La question de Théo, en image : son nouveau bouton part-il dans libs/shared ? */
+.decision-ask {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  font-size: 0.9em;
+}
+
 .decision-bridge {
   display: flex;
   align-items: center;
@@ -651,6 +661,27 @@
 .ramp .swatch,
 .ramp-col .swatch {
   position: relative;
+}
+
+/* Tokens bruts : les nuances presque identiques s'empilent derrière la valeur gardée */
+.ramp.piles {
+  /* Les nuances empilées dépassent en haut à gauche : on laisse la place */
+  gap: 76px;
+  margin-top: 72px;
+}
+
+.ramp .pile {
+  position: relative;
+  width: 92px;
+  height: 92px;
+}
+
+.ramp .pile .swatch {
+  position: absolute;
+}
+
+.ramp .pile .swatch.dup {
+  opacity: 0.75;
 }
 
 .ramp .swatch .hex {
@@ -1709,6 +1740,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.piece .piece-ctx {
+  color: var(--color-text-muted);
+  font-size: 0.9em;
+  text-align: center;
 }
 
 .piece .chip {

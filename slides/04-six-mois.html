@@ -13,33 +13,36 @@
     <div class="piece">
       <div class="piece-art"><button class="real-btn alt">Payer</button></div>
       <b>Le bouton « Payer »</b>
+      <span class="piece-ctx">un bouton d'action, comme sur le site</span>
       <span class="chip primary fragment fade-up">component : c'est déjà Button</span>
     </div>
     <div class="piece">
       <div class="piece-art"><div class="ev-card mini"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-badge">Complet</span><span class="ev-title">Nantes Tech Day</span></div></div></div>
       <b>La carte d'événement</b>
+      <span class="piece-ctx">les mêmes événements que sur le site</span>
       <span class="chip business fragment fade-up">recipe : EventCard, partagée</span>
     </div>
     <div class="piece">
       <div class="piece-art"><div class="seats"><i></i><i></i><i class="taken"></i><i></i><i class="taken"></i><i></i><i></i><i class="picked"></i><i></i><i></i><i class="taken"></i><i></i></div></div>
       <b>Le sélecteur de places</b>
+      <span class="piece-ctx">un seul écran : la réservation</span>
       <span class="chip outline fragment fade-up">snowflake, pour l'instant</span>
     </div>
     <div class="piece">
       <div class="piece-art"><div class="promo">−20 % ce week-end</div></div>
-      <b>Le bandeau promo de la billetterie</b>
-      <span class="chip outline fragment fade-up">snowflake : un seul endroit</span>
+      <b>Le bandeau promo</b>
+      <span class="piece-ctx">une opération de trois semaines</span>
+      <span class="chip outline fragment fade-up">snowflake</span>
     </div>
   </div>
 
 <aside class="notes">
-    Théo 🎤 : « Six mois plus tard, une deuxième application arrive : la billetterie. Elle a ses propres pièces. À vous de jouer : pour chacune, on la met dans le design system, dans les recipes ou dans les snowflakes ? Levez la main. »<br />
-    (un vote à main levée par pièce, puis on révèle)<br />
-    Théo 🎤 : « Le bouton Payer ? <b>[clic]</b> C'est déjà notre Button. Rien à créer. »<br />
-    Wafa 🎤 : « La carte d'événement ? <b>[clic]</b> La billetterie parle aussi d'événements : elle reprend EventCard dans libs/recipes. Partagée, mais toujours une recipe : elle parle métier. »<br />
-    Théo 🎤 : « Le sélecteur de places ? <b>[clic]</b> Une seule app en a besoin : il reste chez elle. Pour l'instant. »<br />
-    Wafa 🎤 : « Le bandeau promo ? Il n'existe que dans la billetterie, pour une opération de trois semaines. <b>[clic]</b> C'est un snowflake. »<br />
-    Wafa 🎤 : « La différence avec une recipe ? EventCard parle métier et sert à plusieurs endroits. Le bandeau ne sert qu'à un seul. »
+    Théo 🎤 : « Six mois plus tard, une deuxième application arrive : la billetterie. Son écran a besoin de quatre éléments. À vous de jouer : pour chacun, component, recipe ou snowflake ? Levez la main. »<br />
+    Théo 🎤 : « Le bouton Payer : un bouton d'action, comme ceux du site. <b>[clic]</b> C'est déjà notre Button. Rien à créer. »<br />
+    Wafa 🎤 : « La carte d'événement : la billetterie affiche les mêmes événements que le site. <b>[clic]</b> Elle reprend la recipe EventCard. Partagée, mais toujours une recipe : elle parle métier. »<br />
+    Théo 🎤 : « Le sélecteur de places : il ne sert que sur l'écran de réservation. <b>[clic]</b> Il reste dans cet écran. Pour l'instant. »<br />
+    Wafa 🎤 : « Le bandeau promo : il n'existe que dans la billetterie, pour une opération de trois semaines. <b>[clic]</b> C'est un snowflake. »<br />
+    Wafa 🎤 : « Et si demain un deuxième écran a besoin du sélecteur de places ? Il parle métier, donc il deviendra une recipe. Un snowflake passe en recipe quand il sert à plusieurs endroits du même domaine. »
   </aside>
 </section>
 
@@ -80,7 +83,7 @@
 <aside class="notes">
     Théo 🎤 : « Le site et la billetterie s'appuient maintenant sur les mêmes briques : Button et SearchField, sans une ligne réécrite. <b>[clic]</b> D'où une nouvelle question pour la checklist : ce besoin existe-t-il vraiment dans plusieurs produits ? »<br />
     Wafa 🎤 : « Et EventCard ? Les deux applications l'utilisent. Elle entre dans le design system ? »<br />
-    Théo 🎤 : « <b>[clic]</b> Non. Elle parle toujours d'événements, donc elle reste une recipe, dans libs/recipes. Être partagé ne rend pas un composant générique. Quant au sélecteur de places, il reste dans la billetterie tant qu'elle est seule à s'en servir. »
+    Théo 🎤 : « <b>[clic]</b> Toujours pas. Elle parle d'événements, donc elle reste une recipe. Être partagé ne rend pas un composant générique. Quant au sélecteur de places, il reste dans la billetterie tant qu'elle est seule à s'en servir. »
   </aside>
 </section>
 
@@ -88,28 +91,28 @@
 <section>
   <h2>Ce qui fait <span class="hl">tenir dans la durée</span></h2>
   <div class="row stack-top" style="width: 1100px; margin: 0 auto">
-    <div class="tile">
+    <div class="tile fragment fade-up" data-fragment-index="1">
       <h3>Déprécier sans casser</h3>
       <code class="small">/** @deprecated utiliser Button */</code>
       <p>Les anciens boutons sont marqués, puis migrés écran par écran.</p>
     </div>
-    <div class="tile">
+    <div class="tile fragment fade-up" data-fragment-index="2">
       <h3>Quelqu'un maintient</h3>
       <p>Une personne ou une équipe répond des components : leurs évolutions, leurs versions.</p>
     </div>
-    <div class="tile primary">
+    <div class="tile primary fragment fade-up" data-fragment-index="3">
       <h3>Une PR, une checklist</h3>
       <p>Chaque entrée dans le design system passe par les mêmes questions.</p>
     </div>
   </div>
   <div class="screen-status stack-top">
-    <span class="check-add fragment">Quelqu'un le maintient-il&nbsp;?</span>
-    <span class="check-add fragment">Les changements cassants sont-ils annoncés&nbsp;?</span>
+    <span class="check-add fragment" data-fragment-index="1">Les changements cassants sont-ils annoncés&nbsp;?</span>
+    <span class="check-add fragment" data-fragment-index="2">Quelqu'un le maintient-il&nbsp;?</span>
   </div>
 
 <aside class="notes">
-    Théo 🎤 : « Et nos sept boutons du début ? On ne les supprime pas d'un coup : on les marque dépréciés, puis on migre écran par écran. »<br />
-    Wafa 🎤 : « Pour que ça tienne, il faut aussi quelqu'un qui maintienne les components, et une règle commune pour décider de ce qui entre. »<br />
-    Théo 🎤 : « Ça nous donne les deux dernières questions de la checklist. <b>[clic]</b> Est-ce que quelqu'un maintient ce composant ? <b>[clic]</b> Et si une mise à jour oblige les équipes à changer leur code, est-ce qu'on les prévient ? »
+    Théo 🎤 : « Et nos sept boutons du début ? <b>[clic]</b> On ne les supprime pas d'un coup : on les marque dépréciés, puis on migre écran par écran. D'où une question pour la checklist : si une mise à jour oblige les équipes à changer leur code, est-ce qu'on les prévient ? »<br />
+    Wafa 🎤 : « <b>[clic]</b> Pour que ça tienne, il faut aussi quelqu'un qui maintienne les components. C'est notre dernière question : est-ce que quelqu'un maintient ce composant ? »<br />
+    Théo 🎤 : « <b>[clic]</b> Et une règle commune pour décider de ce qui entre : la checklist, dans chaque PR. »
   </aside>
 </section>

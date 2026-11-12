@@ -192,6 +192,12 @@ body {
   color: var(--color-text-muted);
 }
 
+/* Étiquette en bas de tuile (ex. « dans le design system ») */
+.tile .chip {
+  font-size: 0.85em;
+  margin-top: var(--space-3);
+}
+
 .tile.primary {
   border-color: var(--color-primary);
   background: var(--color-primary-soft);
