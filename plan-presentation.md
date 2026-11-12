@@ -7,7 +7,7 @@
 - **Question centrale** : pour chaque pièce d'un front, où doit-elle vivre pour que le front tienne dans le temps ?
 - **Fil conducteur** : la maquette ConferenceHub. On la répare en rangeant chaque pièce à sa place, puis on la fait vieillir de six mois avec l'arrivée d'une application de billetterie.
 - **Fil caché** : la checklist se construit pendant la réparation, une question par étape, puis on la montre en entier à la fin.
-- **Minutage** : 20 minutes de présentation, sans temps de questions. Les notes contiennent environ 1 900 mots : à 120–130 mots/minute, compter 15–16 minutes de parole et 4–5 minutes pour les clics, les pauses et les votes. À confirmer en répétition chronométrée.
+- **Minutage** : 20 minutes de présentation, sans temps de questions. Les notes contiennent environ 2 150 mots (mesure du 12 novembre) : à 120–130 mots/minute, compter 16 min 30 à 18 minutes de parole, plus 4–5 minutes pour les clics, les pauses et les votes. On dépasse donc les 20 minutes d'une à deux minutes sur le papier : à trancher en répétition chronométrée, en coupant une slide de la conclusion si besoin.
 - **Répartition de parole** : environ 49 % Théo / 51 % Wafa en nombre de mots. Wafa porte les principes ; Théo explique aussi leur application concrète, la composition, les dépendances et la réutilisation. Les deux participent à la checklist.
 
 ## Vue d'ensemble
