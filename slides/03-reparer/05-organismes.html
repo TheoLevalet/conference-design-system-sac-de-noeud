@@ -63,7 +63,7 @@ export class Card {
 <aside class="notes">
     Théo 🎭 : « Et quelqu'un a ajouté iconRight. Mais seulement si… »<br />
     Wafa 🎭 : « Stop. On en est à 42. »<br />
-    Théo 🎭 : « Moi, je n'en ai ajouté que deux. Mais ça marche ! »
+    Théo 🎭 : « Mais ça marche ! »
   </aside>
 </section>
 
@@ -89,7 +89,7 @@ export class Card {
   
 <aside class="notes">
     Théo 🎤 : « Notre Card a voulu couvrir tous les cas avec un seul composant. Ce piège a un nom : la mauvaise abstraction. Il vient de Sandi Metz, développeuse et autrice, dans son article The Wrong Abstraction : la duplication coûte bien moins cher qu'une mauvaise abstraction. »<br />
-    Théo 🎤 : « <b>[clic]</b> Mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. Alors, qu'est-ce qui est vraiment commun dans une carte ? »
+    Théo ❓ : « <b>[clic]</b> Mieux vaut parfois deux cartes simples qu'une carte qui essaie de tout faire. Alors, qu'est-ce qui est vraiment commun dans une carte ? »
   </aside>
 </section>
 
@@ -141,7 +141,7 @@ export class Card {
     Wafa 🎤 : « Tu ne touches pas à la Card. L'icône va dans le slot actions, là où tu assembles : dans EventCard, si toutes les cartes d'événement en ont besoin. »<br />
     Théo 🎭 : « Et si c'est un cas à part ? Je duplique EventCard ? »<br />
     Wafa 🎤 : « Oui : tu assembles une autre recipe avec la même Card. Quelques lignes d'assemblage en double coûtent moins cher qu'une option de plus. Les components, eux, on ne les duplique jamais. »<br />
-    Wafa 🎤 : « La variation passe de la configuration à la composition. Et le métier sort du design system. »
+    Wafa 💡 : « La variation passe de la configuration à la composition. Et le métier sort du design system. »
   </aside>
 </section>
 
@@ -157,7 +157,7 @@ export class Card {
     <span class="arrow">➜</span>
     <div class="layer ds"><span class="emoji-lg">🎨</span><code>libs/fondations</code><small>tokens <br /> couleurs, espacements</small></div>
   </div>
-  <p class="lead">Chacun peut utiliser ce qui est <b>à sa droite</b>, <span class="hl">jamais ce qui est à sa gauche</span>.</p>
+  <p class="lead">Les dépendances vont <span class="hl">dans un seul sens</span> : chacun peut utiliser ce qui est <b>à sa droite</b>.</p>
   <div class="lint-error fragment fade-up">
     ✖ <code>libs/components</code> ne doit pas dépendre de <code>EventCard</code> : une règle configurée peut bloquer cette dépendance.
   </div>
@@ -165,8 +165,8 @@ export class Card {
   
 <aside class="notes">
     Théo 🎤 : « Dans notre code, ça donne trois libs : libs/recipes pour le métier, libs/components pour les composants génériques, libs/fondations pour les tokens. Les snowflakes, comme le bandeau ponctuel, restent dans l'application. »<br />
-    Théo 🎤 : « Les flèches disent qui a le droit d'importer qui. Chacun peut utiliser tout ce qui est à sa droite : l'application peut prendre une recipe, ou directement un Button. Dans l'autre sens, c'est interdit : le design system n'importe jamais le métier. »<br />
-    Wafa 🎤 : « Et comment on fait respecter cette règle ? »<br />
+    Théo 🎤 : « Les dépendances vont dans un seul sens. Chacun peut utiliser tout ce qui est à sa droite : l'application peut prendre une recipe, ou directement un Button. Dans l'autre sens, c'est interdit : le design system n'importe jamais le métier. »<br />
+    Wafa ❓ : « Et comment on fait respecter cette règle ? »<br />
     Théo 🎤 : « Des outils comme Nx, eslint-plugin-boundaries ou ArchUnit permettent de configurer une règle qui bloque les imports interdits. <b>[clic]</b> Si la Card importe EventCard, le contrôle échoue. La règle n'est plus seulement écrite dans la doc : l'outil la vérifie. »
   </aside>
 </section>
@@ -227,6 +227,6 @@ export class Card {
   
 <aside class="notes">
     Théo 🎤 : « <b>[clic]</b> On avait trois cartes différentes. Maintenant, nos trois cartes utilisent le même composant EventCard : ce sont trois usages d'un seul composant. La Card donne la structure, EventCard apporte le métier. Pour un nouveau cas, plus besoin d'ajouter une option à la Card. »<br />
-    Wafa 🎤 : « On ajoute donc deux questions à la checklist : <b>[clic]</b> est-ce qu'on peut composer les variations, plutôt qu'empiler des options ? <b>[clic]</b> Et est-ce que l'API reste petite, facile à comprendre ? »
+    Wafa ✅ : « On ajoute donc deux questions à la checklist : <b>[clic]</b> est-ce qu'on peut composer les variations, plutôt qu'empiler des options ? <b>[clic]</b> Et est-ce que l'API reste petite, facile à comprendre ? »
   </aside>
 </section>
