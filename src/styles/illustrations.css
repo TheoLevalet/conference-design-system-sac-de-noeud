@@ -102,6 +102,10 @@
 .pic-ds i:nth-child(2) { left: 1.35em; background: var(--orange-500); }
 .pic-ds i:nth-child(3) { left: 2.7em; background: var(--orange-200); }
 
+.text-techtown {
+  color: var(--color-brand-techtown);
+}
+
 .zero {
   font-size: 7em;
   font-weight: 900;
