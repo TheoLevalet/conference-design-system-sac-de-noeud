@@ -30,17 +30,17 @@
   <div class="levels illu">
     <div class="level lv" data-id="lvl-atom">
       <div class="lv-art"><span class="ui-btn ok-mark">Rechercher</span></div>
-      <b>Atome</b><small>la plus petite brique : un bouton</small>
+      <b>Atome</b><small>indivisible : un bouton</small>
     </div>
     <div class="level lv" data-id="lvl-molecule">
       <div class="lv-art"><div class="ui-search"><span class="ui-input">Nantes, novembre…</span><span class="ui-btn sm ok-mark">Rechercher</span></div></div>
-      <b>Molécule</b><small>quelques atomes qui font une chose : une recherche</small>
+      <b>Molécule</b><small>quelques atomes, une seule fonction : une recherche</small>
     </div>
     <div class="level lv" data-id="lvl-organism">
       <div class="lv-art lv-stack">
         <div class="lv-zoom card"><div class="ev-card"><div class="ev-media">🎤</div><div class="ev-content"><span class="ev-badge">Complet</span><span class="ev-title">Nantes Tech Day</span><span class="ev-meta">14 nov · Nantes</span></div><div class="ev-actions"><div class="m-btn">S'inscrire</div></div></div></div>
       </div>
-      <b>Organisme</b><small>une section composée : une carte d'événement</small>
+      <b>Organisme</b><small>plusieurs fonctions : une carte d'événement</small>
     </div>
     <div class="level lv" data-id="lvl-template">
       <div class="lv-art"><div class="lv-zoom page"><div class="mock full blueprint"><div class="mock-header"><span class="mh-logo">En-tête</span><span class="mh-nav"><u>Navigation</u></span></div><div class="mock-body"><div class="mock-title">Titre de la page</div><div class="mock-search"><div class="mock-input">Zone de recherche</div><div class="m-btn ok-mark">Bouton</div></div><div class="mock-cards"><div class="ev-card"><div class="ev-media">Image</div><div class="ev-content"><span class="ev-badge">Badge</span><span class="ev-title">Titre</span><span class="ev-meta">Date · lieu</span></div><div class="ev-actions"><div class="m-btn">Action</div></div></div><div class="ev-card"><div class="ev-media">Image</div><div class="ev-content"><span class="ev-badge">Badge</span><span class="ev-title">Titre</span><span class="ev-meta">Date · lieu</span></div><div class="ev-actions"><div class="m-btn">Action</div></div></div></div></div></div></div></div>
@@ -55,7 +55,7 @@
 
 <aside class="notes">
     Wafa 🎤 : « Remettons un peu de contexte. Atomic Design, c'est la méthode de Brad Frost, designer web : cinq niveaux pour décrire de quoi une interface est faite. »<br />
-    Wafa 🎤 : « Prenons un bouton Rechercher : c'est un atome. Avec un champ, il forme une molécule : la recherche. Une carte d'événement est un organisme. Le template, c'est la structure de la page ; la page, c'est cette structure avec du vrai contenu. »<br />
+    Wafa 🎤 : « Prenons un bouton Rechercher : on ne peut pas le découper, c'est un atome. Avec un champ, il forme une molécule : ensemble, ils ne font qu'une chose, chercher. La carte événement de Théo affiche l'événement, son statut et permet de s'inscrire : elle fait plusieurs choses, c'est un organisme. Le template, c'est la structure de la page ; la page, c'est cette structure avec du vrai contenu. »<br />
     Wafa 🎤 : « Il donne le même vocabulaire aux designers et aux développeurs. Mais il dit de quoi c'est fait, sans dire où le ranger. »
   </aside>
 </section>
@@ -68,7 +68,7 @@
       <span class="emoji-lg">🏛️</span>
       <h3>Component</h3>
       <p>Générique : sert partout, sans connaître le métier.</p>
-      <p><b>Ex. : <code>Card</code></b>, une boîte avec des slots.</p>
+      <p><b>Ex. : <code>Card</code></b>, utilisée sur tous les écrans.</p>
       <span class="chip primary">dans le design system</span>
     </div>
     <div class="tile business fragment fade-up">
@@ -91,7 +91,7 @@
 <aside class="notes">
     Théo 🎭 : « Et pour savoir où ranger ma carte, il dit quoi, Brad Frost ? »<br />
     Wafa 🎤 : « En 2021, ses clients lui demandaient tous : quand est-ce qu'une pièce entre dans le design system ? Sa réponse : ce qui compte, c'est où elle vit. Il distingue trois cas. »<br />
-    Wafa 🎤 : « <b>[clic]</b> Le component est générique : la Card, une boîte avec des slots. Lui seul fait partie du design system. <b>[clic]</b> La recipe est une composition de components, partagée au sein d'un domaine : notre carte d'événement. Elle vit en dehors. <b>[clic]</b> Le snowflake est une pièce unique : il reste là où il sert. »
+    Wafa 🎤 : « <b>[clic]</b> Le component est générique : la Card, utilisée sur tous les écrans. Lui seul fait partie du design system. <b>[clic]</b> La recipe est une composition de components, partagée au sein d'un domaine : notre carte d'événement. Elle vit en dehors. <b>[clic]</b> Le snowflake est une pièce unique : il reste là où il sert. »
   </aside>
 </section>
 
@@ -114,8 +114,8 @@
   </div>
 
 <aside class="notes">
-    Wafa 🎤 : « Card et EventCard sont toutes les deux des organismes. Pourtant, la Card est générique : elle va dans le design system. <b>[clic]</b> EventCard connaît le métier : elle reste dans le domaine événements. <b>[clic]</b> Et le bandeau ponctuel reste dans sa page. »<br />
-    Théo 🎤 : « <b>[clic]</b> Donc atome ou organisme, ça dit de quoi c'est fait. Pour savoir où le placer, on regarde qui s'en sert. »<br />
+    Wafa 🎤 : « Card et EventCard sont toutes les deux des organismes : elles font plusieurs choses. Pourtant, la Card est générique : elle va dans le design system. <b>[clic]</b> EventCard connaît le métier : elle reste dans le domaine événements. <b>[clic]</b> Et le bandeau ponctuel reste dans sa page. »<br />
+    Théo 🎤 : « <b>[clic]</b> Donc ma carte est bien un organisme. Mais ça ne me disait pas où la ranger : pour ça, on regarde qui s'en sert. »<br />
     Théo 🎭 : « Ça fait beaucoup de Brad Frost pour une fin de journée, non ? »<br />
     Wafa 🎭 : « Promis, la théorie s'arrête là. »<br />
     Wafa ✅ : « <b>[clic]</b> On passe à un vrai écran. Pour décider où va chaque pièce, on construit ensemble une checklist : une question par étape, affichée comme ça. »
